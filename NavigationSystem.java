@@ -21,7 +21,6 @@ import java.util.Random;
 public class NavigationSystem {
 
 
-  protected MovementController moveControl;
   protected RobotController robotControl;
 
   //class variables
@@ -29,6 +28,7 @@ public class NavigationSystem {
   protected int mode;
   protected MapLocation destination;
   protected boolean has_destination = false;
+  protected Direction direction = Direction.NORTH;
 
   //used in bug movement algorithm
   private boolean tracking = false;
@@ -42,11 +42,9 @@ public class NavigationSystem {
    * any sensors
    * @param control the movementController
    */
-  public NavigationSystem(RobotController robotControl, MovementController control) {
+  public NavigationSystem(RobotController robotControl) {
     this.robotControl = robotControl;
-    this.moveControl = control;
 
-    mode = NavigationMode.BUG;
     //added to make things a bit more random!
     rand.setSeed(Clock.getRoundNum());
   }
@@ -58,12 +56,11 @@ public class NavigationSystem {
    * @param control the MovementController
    * @param destination the MapLocation to be the destination
    */
-  public NavigationSystem(MovementController control, MapLocation dest) {
-    moveControl = control;
+  public NavigationSystem(RobotController robotControl, MapLocation dest) {
+    this.robotControl = robotControl;
     this.destination = dest;
     has_destination = true;
     robotControl.setIndicatorString(2, "Dest: "+dest.toString());
-    mode = NavigationMode.BUG;
   }
 
   /**
@@ -71,7 +68,7 @@ public class NavigationSystem {
    * @return if all movement means are active
    */
   public boolean isActive() {
-    return moveControl.isActive();
+    return robotControl.isActive();
   }
 
   /**
@@ -80,32 +77,7 @@ public class NavigationSystem {
    * @return if the bot can move in that direction
    */
   public boolean canMove(Direction direction) {
-    return moveControl.canMove(direction);
-  }
-
-  /**
-   * sets the moveController to turn
-   * Note: the checks here are just as a failsafe, we'll remove them once we're sure that
-   * we are using this correctly
-   * @param toTurn the direction to turn in
-   * @return if the moveController was set to turn
-   */
-  public boolean setTurn(Direction toTurn) {
-    if(!moveControl.isActive()) {
-      if(toTurn != robotControl.getDirection()) {
-        try {
-          moveControl.setDirection(toTurn);
-          return true;
-        } catch (Exception e) {
-          System.out.println("caught exception:");
-          e.printStackTrace();
-        }
-      }
-      System.out.println("WARNING: Bad call to NavSys.setTurn (tried to turn in the direction you were already facing)");
-      return false;
-    }
-    System.out.println("WARNING: Bad call to NavSys.setTurn (moveController was active)");
-    return false;
+    return robotControl.canMove(direction);
   }
 
   /**
@@ -115,10 +87,10 @@ public class NavigationSystem {
    * @return if the move control was set to move forward
    */
   public boolean setMoveForward() {
-    if(!moveControl.isActive()) {
-      if(moveControl.canMove(robotControl.getDirection())) {
+    if(!robotControl.isActive()) {
+      if(robotControl.canMove(direction)) {
         try {
-          moveControl.moveForward();
+          robotControl.move(direction);
           return true;
         } catch (Exception e) {
           System.out.println("caught exception:");
@@ -139,10 +111,10 @@ public class NavigationSystem {
    * @return if the move control was set to move backward
    */
   public boolean setMoveBackward() {
-    if(!moveControl.isActive()) {
-      if(moveControl.canMove(robotControl.getDirection().opposite())) {
+    if(!robotControl.isActive()) {
+      if(robotControl.canMove(direction.opposite())) {
         try {
-          moveControl.moveBackward();
+          robotControl.move(direction.opposite());
           return true;
         } catch (Exception e) {
           System.out.println("caught exception:");
@@ -197,12 +169,8 @@ public class NavigationSystem {
    * @return if the moveController was 'set' (given a command)
    */
   public boolean setNextMove() {
-    if(has_destination && !moveControl.isActive()) {
-      switch(mode) {
-        case NavigationMode.BUG:
-          return bug();
-      }
-      System.out.println("Warning: fell through NavigationSystem.setNextMove (bad NavMode)");
+    if(has_destination && !robotControl.isActive()) {
+      return bug();
     }
     //if the moveController is active or we don't have a destination return false
     System.out.println("WARNING: Bad call to NavSys.setNextMove");
@@ -220,8 +188,8 @@ public class NavigationSystem {
    */
   protected boolean bug() {
     try {
-      Direction currentDirection = moveControl.getRC().getDirection();
-      if (moveControl.getRC().getLocation().equals(destination)) {
+      Direction currentDirection = direction;
+      if (robotControl.getLocation().equals(destination)) {
         //System.out.println("DESTINATION REACHED!!");
         has_destination = false;
         robotControl.setIndicatorString(2, "No Dest");
@@ -234,39 +202,39 @@ public class NavigationSystem {
 
         //check to see if we can move in the direction we were last blocked in and we're
         //off the obstacle
-        if (moveControl.canMove(lastTargetDirection) && moveControl.canMove(lastTargetDirection.rotateLeft())
-                && moveControl.canMove(lastTargetDirection.rotateRight())) {
+        if (robotControl.canMove(lastTargetDirection) && robotControl.canMove(lastTargetDirection.rotateLeft())
+                && robotControl.canMove(lastTargetDirection.rotateRight())) {
           //System.out.println("Done Tracking!");
           tracking = false;
-          moveControl.setDirection(lastTargetDirection);
+          direction = lastTargetDirection;
           return true;
         }
         else {
           //System.out.println("Continuing to Track... moving");
           if (trackingRight)
-            if (moveControl.canMove(currentDirection.rotateLeft())) {
-              moveControl.setDirection(currentDirection.rotateLeft());
+            if (robotControl.canMove(currentDirection.rotateLeft())) {
+              direction = direction.rotateLeft();
               return true;
             }
-            else if (moveControl.canMove(currentDirection)) {
-              moveControl.moveForward();
+            else if (robotControl.canMove(currentDirection)) {
+              robotControl.move(direction);
               return true;
             }
             else {
-              moveControl.setDirection(currentDirection.rotateRight());
+              direction = direction.rotateRight();
               return true;
             }
           else if (!trackingRight)
-            if (moveControl.canMove(currentDirection.rotateRight())) {
-              moveControl.setDirection(currentDirection.rotateRight());
+            if (robotControl.canMove(currentDirection.rotateRight())) {
+              direction = direction.rotateRight();
               return true;
             }
-            else if (moveControl.canMove(currentDirection)) {
-              moveControl.moveForward();
+            else if (robotControl.canMove(currentDirection)) {
+              robotControl.move(direction);
               return true;
             }
             else {
-              moveControl.setDirection(currentDirection.rotateLeft());
+              direction = direction.rotateLeft();
               return true;
             }
         }
@@ -275,15 +243,15 @@ public class NavigationSystem {
 
       else if (!tracking) {
         //System.out.println("Not tracking... moving");
-        lastTargetDirection = moveControl.getRC().getLocation().directionTo(destination);
+        lastTargetDirection = robotControl.getLocation().directionTo(destination);
         //if you can move toward the target and you're facing that way move foward
-        if (moveControl.canMove(lastTargetDirection) && lastTargetDirection == currentDirection) {
-          moveControl.moveForward();
+        if (robotControl.canMove(lastTargetDirection) && lastTargetDirection == currentDirection) {
+          robotControl.move(direction);
           return true;
         }
         //if you can move toward the target but you aren't facing the right way, rotate
-        else if (moveControl.canMove(lastTargetDirection)) {
-          moveControl.setDirection(lastTargetDirection);
+        else if (robotControl.canMove(lastTargetDirection)) {
+          direction = lastTargetDirection;
           return true;
         }
         //otherwise if you can't move toward the target you need to start tracking!
@@ -295,12 +263,12 @@ public class NavigationSystem {
           //to continue in (so when hitting an object at an angle they would continue
 
           //if we can rotate slightly left and/or right
-          if (moveControl.canMove(robotControl.getDirection().rotateRight())
-                  || moveControl.canMove(robotControl.getDirection().rotateLeft()) && rand.nextInt(10) < 8)
+          if (robotControl.canMove(direction.rotateRight())
+                  || robotControl.canMove(direction.rotateLeft()) && rand.nextInt(10) < 8)
           {
             //if canMove right && (random or can't move Left)
-            if (moveControl.canMove(robotControl.getDirection().rotateRight())
-                    && (rand.nextBoolean() || !moveControl.canMove(robotControl.getDirection().rotateLeft()))) {
+            if (robotControl.canMove(direction.rotateRight())
+                    && (rand.nextBoolean() || !robotControl.canMove(direction.rotateLeft()))) {
               trackingRight = true;
             }
             else {
@@ -314,7 +282,7 @@ public class NavigationSystem {
           Direction toMove = lastTargetDirection;
           //a count prevents the robot from turning in circles forever
           int count = 8;
-          while(!moveControl.canMove(toMove) && count > 0) {
+          while(!robotControl.canMove(toMove) && count > 0) {
             if (trackingRight)
               toMove = toMove.rotateRight();
             else
@@ -322,7 +290,7 @@ public class NavigationSystem {
             count--;
           }
           //System.out.println("Changing to Direction "+toMove.name()+" and count="+count);
-          moveControl.setDirection(toMove);
+          direction = toMove;
           return true;
         }
       }
