@@ -19,7 +19,7 @@ public class CityBlockMode extends NavigationMode {
 	 * @see NavigationMode
 	 */
 	@Override
-	public void runWithLimit(int limit) {
+	public void runWithLimit(int limit) throws GameActionException {
 		if (!hasDestination) {
 			return;
 		}
@@ -44,31 +44,35 @@ public class CityBlockMode extends NavigationMode {
 			
 			if (rc.isActive()) {
 				if (rc.canMove(dirToGo)) {
-					try {
-						MapLocation nextLoc = rc.getLocation().add(dirToGo);
-						team = rc.senseMine(nextLoc);
-						
-						System.out.println("Sensing Mine: " + team);
-						
-						if (team != null && team == Team.NEUTRAL) {
-							System.out.println("Defusing Mine");
-							rc.defuseMine(nextLoc);
-							break;
-						} else {
-							rc.move(dirToGo);
-						}
-						
-						if (currentLoc.equals(destination)) {
-							hasDestination = false;
-							atDestination = true;
-							return;
-						}
-					} catch (GameActionException e) {
-						e.printStackTrace();
+					MapLocation nextLoc = rc.getLocation().add(dirToGo);
+					team = rc.senseMine(nextLoc);
+					
+					System.out.println("Sensing Mine: " + team);
+					
+					if (team != null && team == Team.NEUTRAL) {
+						System.out.println("Defusing Mine");
+						rc.defuseMine(nextLoc);
+						break;
+					} else {
+						rc.move(dirToGo);
+					}
+					
+					if (currentLoc.equals(destination)) {
+						hasDestination = false;
+						atDestination = true;
+						return;
 					}
 				} else if (currentLoc.distanceSquaredTo(destination) == 1) {
 					hasDestination = false;
 					atDestination = true;
+				} else {
+					
+					//We need to perform a simplified bug algorithm.  We add in some intentional
+					//error to be able to hopefully get around this obstacle.
+					Direction dir = Direction.values()[(int)(Math.random() * 8)];
+					if (rc.canMove(dir)) {
+						rc.move(dir);
+					}
 				}
 			}
 		}

@@ -21,6 +21,7 @@ public class RobotPlayer {
 		boolean navInit = false;
 		Team enemyTeam = null;
 		Team myTeam = null;
+		int spawnCount = 0;
 		
 		boolean seekingEncampment = false;
 		if (rc.getType() == RobotType.SOLDIER) {
@@ -39,9 +40,10 @@ public class RobotPlayer {
 				if (rc.getType() == RobotType.HQ) {
 					if (rc.isActive()) {
 						// Spawn a soldier
-						Direction dir = rc.getLocation().directionTo(rc.senseEnemyHQLocation());
-						if (rc.canMove(dir)) {
+						Direction dir = Direction.values()[(int)(Math.random() * 8)];
+						if (rc.canMove(dir) && spawnCount < 5) {
 							rc.spawn(dir);
+							spawnCount++;
 						}
 					}
 				} else if (rc.getType() == RobotType.SOLDIER) {
