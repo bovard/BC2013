@@ -47,10 +47,7 @@ public class CityBlockMode extends NavigationMode {
 					MapLocation nextLoc = rc.getLocation().add(dirToGo);
 					team = rc.senseMine(nextLoc);
 					
-					System.out.println("Sensing Mine: " + team);
-					
 					if (team != null && team == Team.NEUTRAL) {
-						System.out.println("Defusing Mine");
 						rc.defuseMine(nextLoc);
 						break;
 					} else {
