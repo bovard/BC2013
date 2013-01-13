@@ -1,8 +1,11 @@
 package team122.navigation;
 
 import java.util.HashMap;
+import java.util.Random;
 
+import battlecode.common.Clock;
 import battlecode.common.Direction;
+import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.GameConstants;
@@ -20,12 +23,14 @@ public abstract class NavigationMode {
 	public RobotController rc;
 	public int width;
 	public int height;
-	
+    protected Random rand = new Random();
+    
 	public NavigationMode(RobotController rc) {
 		this.rc = rc;
 		hasDestination = false;
 		atDestination = false;
 		determineMapSize();
+    	rand.setSeed(Clock.getRoundNum());
 	}
 	
 	/**
@@ -63,7 +68,7 @@ public abstract class NavigationMode {
 	 * Better for yield.
 	 * @param limit
 	 */
-	public abstract void runWithLimit(int limit);
+	public abstract void runWithLimit(int limit) throws GameActionException;
 	
 	/**
 	 * Determines the map size.

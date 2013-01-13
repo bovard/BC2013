@@ -28,7 +28,6 @@ public class NavigationSystem {
     protected RobotController robotControl;
 
     //class variables
-    protected Random rand = new Random();
     protected int mode;
     public NavigationMode navMode;
 	public HashMap<MapLocation, Boolean> alliedEncampments;
@@ -44,7 +43,6 @@ public class NavigationSystem {
     	this.robotControl = robotControl;
 
     	//added to make things a bit more random!
-    	rand.setSeed(Clock.getRoundNum());
     	setNavigationMode(NavigationMode.CITY_BLOCK);
 		alliedEncampments = new HashMap<MapLocation, Boolean>();
     }
