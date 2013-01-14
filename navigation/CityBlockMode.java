@@ -44,14 +44,8 @@ public class CityBlockMode extends NavigationMode {
 			
 			if (rc.isActive()) {
 				if (rc.canMove(dirToGo)) {
-					MapLocation nextLoc = rc.getLocation().add(dirToGo);
-					team = rc.senseMine(nextLoc);
-					
-					if (team != null && team == Team.NEUTRAL) {
-						rc.defuseMine(nextLoc);
+					if (_moveWithDefusing(dirToGo)) {
 						break;
-					} else {
-						rc.move(dirToGo);
 					}
 					
 					if (currentLoc.equals(destination)) {
@@ -62,17 +56,44 @@ public class CityBlockMode extends NavigationMode {
 				} else if (currentLoc.distanceSquaredTo(destination) == 1) {
 					hasDestination = false;
 					atDestination = true;
+					return;
 				} else {
 					
 					//We need to perform a simplified bug algorithm.  We add in some intentional
 					//error to be able to hopefully get around this obstacle.
 					Direction dir = Direction.values()[(int)(Math.random() * 8)];
-					if (rc.canMove(dir)) {
-						rc.move(dir);
+					if (_moveWithDefusing(dir)) {
+						break;
 					}
 				}
 			}
 		}
 		
 	} // run with limit.
+	
+	/**
+	 * moves with defusing mines.
+	 * @param dir
+	 * @return if the robot is defusing or not.
+	 * @throws GameActionException
+	 */
+	private boolean _moveWithDefusing(Direction dir) 
+		throws GameActionException {
+		boolean defusing = false;
+		MapLocation nextLoc = rc.getLocation().add(dir);
+		Team team = rc.senseMine(nextLoc);
+		
+		if (team != null && team == Team.NEUTRAL) {
+			rc.defuseMine(nextLoc);
+			defusing = true;
+		} else {
+			
+			//We need to refactor this canMove because it performs this 2x for the logic above.
+			if (rc.canMove(dir)) {
+				rc.move(dir);
+			}
+		}
+		
+		return defusing;
+	}
 }

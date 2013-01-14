@@ -25,7 +25,7 @@ import team122.AStar;
 public class NavigationSystem {
 
 
-    protected RobotController robotControl;
+    protected RobotController rc;
 
     //class variables
     protected int mode;
@@ -39,12 +39,17 @@ public class NavigationSystem {
      * any sensors
      * @param control the movementController
      */
-    public NavigationSystem(RobotController robotControl) {
-    	this.robotControl = robotControl;
+    public NavigationSystem(RobotController rc) {
+    	this.rc = rc;
 
     	//added to make things a bit more random!
     	setNavigationMode(NavigationMode.CITY_BLOCK);
 		alliedEncampments = new HashMap<MapLocation, Boolean>();
+		
+		MapLocation[] locs = rc.senseAlliedEncampmentSquares();
+		for (int i = 0; i < locs.length; i++) {
+			alliedEncampments.put(locs[i], true);
+		}
     }
   
     /**
@@ -54,10 +59,10 @@ public class NavigationSystem {
     public void setNavigationMode(int mode) {
     	switch (mode) {
 	  		case NavigationMode.ASTAR_MODE:
-	  			navMode = new AStarMode(robotControl);
+	  			navMode = new AStarMode(rc);
 	  			break;
 		  	case NavigationMode.CITY_BLOCK:
-		  		navMode = new CityBlockMode(robotControl);
+		  		navMode = new CityBlockMode(rc);
 		  		break;
     	}
     }
@@ -67,9 +72,9 @@ public class NavigationSystem {
 	 * @return
 	 */
 	public void setNearestEncampmentAsDestination() {
-		MapLocation[] encampments = robotControl.senseAllEncampmentSquares();
+		MapLocation[] encampments = rc.senseAllEncampmentSquares();
 		MapLocation closest = null;
-		MapLocation location = robotControl.getLocation();
+		MapLocation location = rc.getLocation();
 		int closestDistance = 0;
 		int currDistance = 0;
 		
