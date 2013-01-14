@@ -18,7 +18,7 @@ public class HQBasicBehavior extends Behavior {
 			try {
 				if (rc.isActive()) {
 					Direction dir = Direction.values()[(int)(Math.random() * 8)];
-					if (rc.canMove(dir) && spawnCount < 1) {
+					if (rc.canMove(dir) && spawnCount < 1000) {
 						rc.spawn(dir);
 						spawnCount++;
 					}

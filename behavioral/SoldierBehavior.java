@@ -31,7 +31,7 @@ public class SoldierBehavior extends Behavior {
 					
 					if (navMode.atDestination) {
 						if (rc.getLocation().equals(navMode.destination)) {
-							rc.captureEncampment(RobotType.GENERATOR);
+							rc.captureEncampment(RobotType.ARTILLERY);
 						} else {
 							navSystem.alliedEncampments.put(navMode.destination, true);
 							navSystem.setNearestEncampmentAsDestination();

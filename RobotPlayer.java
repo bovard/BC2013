@@ -14,8 +14,8 @@ public class RobotPlayer {
 			new HQBasicBehavior(rc).behave();
 		} else if (rc.getType() == RobotType.SOLDIER) {
 			new SoldierBehavior(rc).behave();
-		} else if (rc.getType() == RobotType.GENERATOR) {
-			new GeneratorBehavior(rc).behave();
+		} else {
+			new EncampmentBehavior(rc).behave();
 		}
 	}
 }
