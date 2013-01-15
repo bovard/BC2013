@@ -9,6 +9,7 @@ public class RobotInformation {
 	public Team enemyTeam;
 	public MapLocation hq;
 	public MapLocation enemyHq;
+	public int id;
 
 	/**
 	 * Will construct a robot information. These are common operations that
@@ -21,5 +22,6 @@ public class RobotInformation {
 		enemyTeam = myTeam.opponent();
 		hq = rc.senseHQLocation();
 		enemyHq = rc.senseEnemyHQLocation();
+		id = rc.getRobot().getID();
 	}
 }
