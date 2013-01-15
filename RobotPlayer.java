@@ -10,6 +10,7 @@ import team122.behavioral.*;
  */
 public class RobotPlayer {
 	public static void run(RobotController rc) {
+		
 		if (rc.getType() == RobotType.HQ) {
 			new HQBasicBehavior(rc).behave();
 		} else if (rc.getType() == RobotType.SOLDIER) {

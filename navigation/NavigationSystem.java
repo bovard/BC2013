@@ -45,11 +45,6 @@ public class NavigationSystem {
     	//added to make things a bit more random!
     	setNavigationMode(NavigationMode.CITY_BLOCK);
 		alliedEncampments = new HashMap<MapLocation, Boolean>();
-		
-		MapLocation[] locs = rc.senseAlliedEncampmentSquares();
-		for (int i = 0; i < locs.length; i++) {
-			alliedEncampments.put(locs[i], true);
-		}
     }
   
     /**
@@ -98,5 +93,23 @@ public class NavigationSystem {
 		}
 		
 		navMode.setDestination(closest);
+	}
+	
+	/**
+	 * Sets the rally point that is in the direction of the enemy castle.
+	 */
+	public void setInitialSwarmRallyPoint() {
+		Direction dir = rc.getLocation().directionTo(rc.senseEnemyHQLocation());
+		
+		MapLocation rallyPoint = rc.senseHQLocation()
+				.add(dir).add(dir).add(dir).add(dir).add(dir).add(dir);
+		navMode.setDestination(rallyPoint);
+	}
+	
+	/**
+	 * Sets destination to enemy hq
+	 */
+	public void setToEnemyHQ() {
+		navMode.setDestination(rc.senseEnemyHQLocation());
 	}
 }

@@ -1,5 +1,6 @@
 package team122.behavioral;
 
+import battlecode.common.Clock;
 import battlecode.common.RobotController;
 import battlecode.common.RobotType;
 import team122.navigation.NavigationMode;
@@ -15,7 +16,13 @@ public class SoldierBehavior extends Behavior {
 		super(rc);
 		navSystem = new NavigationSystem(rc);
 		navMode = navSystem.navMode;
-		type = rand.nextInt(MODE_COUNT);		
+		int type = rand.nextInt(500);
+		
+		if (type < 130) {
+			this.type = ENCAMPMENT_MODE;
+		} else {
+			this.type = SWARM_MODE;
+		}
 	}
 	
 	/**
@@ -36,15 +43,27 @@ public class SoldierBehavior extends Behavior {
 						
 						if (navMode.atDestination) {
 							if (rc.getLocation().equals(navMode.destination)) {
-								rc.captureEncampment(RobotType.ARTILLERY);
+								rc.captureEncampment(RobotType.SUPPLIER);
 							} else {
 								navSystem.alliedEncampments.put(navMode.destination, true);
 								navSystem.setNearestEncampmentAsDestination();
 							}
 						}
-						
+
 					} else if (type == ATTACK_ENCAMPMENT_MODE) {
+						//we need to start actually having swarm
+					} else if (type == SWARM_MODE) {
 						
+						//We are going group up till round 200 then attack
+						if (!navMode.hasDestination && !navMode.atDestination) {
+							navSystem.setInitialSwarmRallyPoint();
+						}
+						
+						if (Clock.getRoundNum() % 100 == 0) {
+							navSystem.setToEnemyHQ();
+						} else {
+							navMode.runWithLimit(1);
+						}
 					}
 				}
 
@@ -57,5 +76,6 @@ public class SoldierBehavior extends Behavior {
 
 	public static final int ENCAMPMENT_MODE = 0;
 	public static final int ATTACK_ENCAMPMENT_MODE = 1;
-	public static final int MODE_COUNT = 2;
+	public static final int SWARM_MODE = 2;
+	public static final int MODE_COUNT = 3;
 }
