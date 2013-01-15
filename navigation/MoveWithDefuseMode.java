@@ -1,5 +1,6 @@
 package team122.navigation;
 
+import team122.RobotInformation;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -10,8 +11,8 @@ public abstract class MoveWithDefuseMode extends NavigationMode {
 	public boolean defuseEnemyMine = false;
 	public MapLocation enemyMineLocation = null;
 
-	public MoveWithDefuseMode(RobotController rc) {
-		super(rc);
+	public MoveWithDefuseMode(RobotController rc, RobotInformation info) {
+		super(rc, info);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -21,7 +22,7 @@ public abstract class MoveWithDefuseMode extends NavigationMode {
 	 * @return if the robot is defusing or not.
 	 * @throws GameActionException
 	 */
-	protected boolean _moveWithDefusing(Direction dir) throws GameActionException {
+	public boolean moveWithDefusing(Direction dir) throws GameActionException {
 		boolean defusing = false;
 		MapLocation nextLoc = rc.getLocation().add(dir);
 		Team team = rc.senseMine(nextLoc);
@@ -48,7 +49,7 @@ public abstract class MoveWithDefuseMode extends NavigationMode {
 				
 
 				Team possibleEnemy = rc.senseMine(rc.getLocation());
-				if (possibleEnemy == rc.getTeam().opponent()) {
+				if (possibleEnemy == info.enemyTeam) {
 					defuseEnemyMine = true;
 					enemyMineLocation = rc.getLocation();
 				}

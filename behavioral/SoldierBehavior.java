@@ -3,6 +3,7 @@ package team122.behavioral;
 import battlecode.common.Clock;
 import battlecode.common.RobotController;
 import battlecode.common.RobotType;
+import team122.RobotInformation;
 import team122.navigation.NavigationMode;
 import team122.navigation.NavigationSystem;
 
@@ -12,9 +13,9 @@ public class SoldierBehavior extends Behavior {
 	public NavigationMode navMode = null;
 	public int type;
 	
-	public SoldierBehavior(RobotController rc) {
-		super(rc);
-		navSystem = new NavigationSystem(rc);
+	public SoldierBehavior(RobotController rc, RobotInformation info) {
+		super(rc, info);
+		navSystem = new NavigationSystem(rc, info);
 		navMode = navSystem.navMode;
 		int type = rand.nextInt(500);
 		
@@ -39,7 +40,7 @@ public class SoldierBehavior extends Behavior {
 						if (!navMode.hasDestination && !navMode.atDestination) {
 							navSystem.setNearestEncampmentAsDestination();
 						}
-						navMode.runWithLimit(1);
+						navMode.move();
 						
 						if (navMode.atDestination) {
 							if (rc.getLocation().equals(navMode.destination)) {
@@ -64,7 +65,7 @@ public class SoldierBehavior extends Behavior {
 						if (Clock.getRoundNum() % 100 == 0) {
 							navSystem.setToEnemyHQ();
 						} else {
-							navMode.runWithLimit(1);
+							navMode.move();
 						}
 					}
 				}

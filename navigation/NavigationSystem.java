@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import team122.AStar;
+import team122.RobotInformation;
 
 /**
  * The NavigationSystem takes care of selecting a move for the robot
@@ -25,7 +26,8 @@ import team122.AStar;
 public class NavigationSystem {
 
 
-    protected RobotController rc;
+    public RobotController rc;
+    public RobotInformation info;
 
     //class variables
     protected int mode;
@@ -39,9 +41,10 @@ public class NavigationSystem {
      * any sensors
      * @param control the movementController
      */
-    public NavigationSystem(RobotController rc) {
+    public NavigationSystem(RobotController rc, RobotInformation info) {
     	this.rc = rc;
-
+    	this.info = info;
+    	
     	//added to make things a bit more random!
     	setNavigationMode(NavigationMode.CITY_BLOCK);
 		alliedEncampments = new HashMap<MapLocation, Boolean>();
@@ -54,10 +57,10 @@ public class NavigationSystem {
     public void setNavigationMode(int mode) {
     	switch (mode) {
 	  		case NavigationMode.ASTAR_MODE:
-	  			navMode = new AStarMode(rc);
+	  			navMode = new AStarMode(rc, info);
 	  			break;
 		  	case NavigationMode.CITY_BLOCK:
-		  		navMode = new CityBlockMode(rc);
+		  		navMode = new CityBlockMode(rc, info);
 		  		break;
     	}
     }

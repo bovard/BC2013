@@ -10,13 +10,13 @@ import team122.behavioral.*;
  */
 public class RobotPlayer {
 	public static void run(RobotController rc) {
-		
+		RobotInformation information = new RobotInformation(rc);
 		if (rc.getType() == RobotType.HQ) {
-			new HQBasicBehavior(rc).behave();
+			new HQBasicBehavior(rc, information).behave();
 		} else if (rc.getType() == RobotType.SOLDIER) {
-			new SoldierBehavior(rc).behave();
+			new SoldierBehavior(rc, information).behave();
 		} else {
-			new EncampmentBehavior(rc).behave();
+			new EncampmentBehavior(rc, information).behave();
 		}
 	}
 }

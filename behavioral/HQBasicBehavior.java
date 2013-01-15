@@ -1,13 +1,14 @@
 package team122.behavioral;
 
+import team122.RobotInformation;
 import battlecode.common.Direction;
 import battlecode.common.RobotController;
 
 public class HQBasicBehavior extends Behavior {
 	
 	int spawnCount = 0;
-	public HQBasicBehavior(RobotController rc) {
-		super(rc);
+	public HQBasicBehavior(RobotController rc, RobotInformation info) {
+		super(rc, info);
 	}
 	
 	/**
