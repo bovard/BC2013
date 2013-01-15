@@ -9,6 +9,7 @@ import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.GameConstants;
+import battlecode.common.Team;
 import battlecode.common.TerrainTile;
 
 /**
@@ -17,6 +18,8 @@ import battlecode.common.TerrainTile;
  */
 public abstract class NavigationMode {
 	public MapLocation destination;
+	public int attemptsBounds;
+	public int destinationTries;
 	public boolean hasDestination;
 	public boolean atDestination;
 	public Direction direction;
@@ -29,8 +32,9 @@ public abstract class NavigationMode {
 		this.rc = rc;
 		hasDestination = false;
 		atDestination = false;
-		determineMapSize();
     	rand.setSeed(Clock.getRoundNum());
+    	width = rc.getMapWidth();
+    	height = rc.getMapHeight();
 	}
 	
 	/**
@@ -52,6 +56,8 @@ public abstract class NavigationMode {
 		destination = location;
 		hasDestination = true;
 		atDestination = false;
+		destinationTries = 0;
+		attemptsBounds = location.distanceSquaredTo(rc.getLocation()) * 2;
 		return true;
 	}
 
@@ -62,6 +68,14 @@ public abstract class NavigationMode {
     public boolean isAtDestination() {
     	return rc.getLocation().equals(destination);
     }
+    
+    /**
+     * If the tries * tries > distanceSquared * 2
+     * @return
+     */
+	public boolean attemptsExausted() {
+		return destinationTries * destinationTries > attemptsBounds;
+	}
 	
 	/**
 	 * runs the same algorithm except with a limited amount of runs.
@@ -69,37 +83,6 @@ public abstract class NavigationMode {
 	 * @param limit
 	 */
 	public abstract void runWithLimit(int limit) throws GameActionException;
-	
-	/**
-	 * Determines the map size.
-	 */
-	private void determineMapSize() {
-		boolean find = true;
-		
-		int i = GameConstants.MAP_MIN_WIDTH;
-		while (find) {
-			
-			TerrainTile tile = rc.senseTerrainTile(new MapLocation(i, GameConstants.MAP_MIN_HEIGHT));
-			if (tile.equals(TerrainTile.OFF_MAP)) {
-				width = i - 1;
-				break;
-			}
-			
-			i++;
-		}
-		
-		i = GameConstants.MAP_MIN_HEIGHT;
-		while (find) {
-			
-			TerrainTile tile = rc.senseTerrainTile(new MapLocation(GameConstants.MAP_MIN_WIDTH, i));
-			if (tile.equals(TerrainTile.OFF_MAP)) {
-				height = i - 1;
-				break;
-			}
-			
-			i++;
-		}
-	}
 	
 	public static final int ASTAR_MODE = 1;
 	public static final int CITY_BLOCK = 2;

@@ -2,7 +2,7 @@ package team122.navigation;
 
 import battlecode.common.*;
 
-public class CityBlockMode extends NavigationMode {
+public class CityBlockMode extends MoveWithDefuseMode {
 
 	public CityBlockMode(RobotController rc) {
 		super(rc);
@@ -33,6 +33,7 @@ public class CityBlockMode extends NavigationMode {
 		
 		//Goes through the limit and processes the city block
 		for (;limit > 0;limit--) {
+			destinationTries++;
 			currentLoc = rc.getLocation();
 			dirToGo = currentLoc.directionTo(destination);
 			
@@ -70,30 +71,4 @@ public class CityBlockMode extends NavigationMode {
 		}
 		
 	} // run with limit.
-	
-	/**
-	 * moves with defusing mines.
-	 * @param dir
-	 * @return if the robot is defusing or not.
-	 * @throws GameActionException
-	 */
-	private boolean _moveWithDefusing(Direction dir) 
-		throws GameActionException {
-		boolean defusing = false;
-		MapLocation nextLoc = rc.getLocation().add(dir);
-		Team team = rc.senseMine(nextLoc);
-		
-		if (team != null && team == Team.NEUTRAL) {
-			rc.defuseMine(nextLoc);
-			defusing = true;
-		} else {
-			
-			//We need to refactor this canMove because it performs this 2x for the logic above.
-			if (rc.canMove(dir)) {
-				rc.move(dir);
-			}
-		}
-		
-		return defusing;
-	}
 }

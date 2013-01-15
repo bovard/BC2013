@@ -48,6 +48,8 @@ public class SoldierBehavior extends Behavior {
 								navSystem.alliedEncampments.put(navMode.destination, true);
 								navSystem.setNearestEncampmentAsDestination();
 							}
+						} else if (navMode.attemptsExausted()) {
+							type = SWARM_MODE;
 						}
 
 					} else if (type == ATTACK_ENCAMPMENT_MODE) {
