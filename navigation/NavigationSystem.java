@@ -64,6 +64,11 @@ public class NavigationSystem {
 		  		break;
     	}
     }
+    
+    public void forfeitNearestEncampment() {
+    	alliedEncampments.put(navMode.destination, true);
+    	setNearestEncampmentAsDestination();
+    }
 
 	/**
 	 * Gets the nearest unused encampment.
