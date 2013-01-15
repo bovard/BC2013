@@ -2,6 +2,7 @@ package team122.communication;
 
 import team122.RobotInformation;
 import battlecode.common.GameActionException;
+import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 
 public class Communicator {
@@ -23,6 +24,36 @@ public class Communicator {
 		rc.broadcast(channels[0], data);
 		rc.broadcast(channels[1], data);
 		rc.broadcast(channels[2], data);
+	}
+	
+	/**
+	 * Will put the data in the first million going
+	 * 2,[DDD],[XXX],[YYY]
+	 * 
+	 * D = Data
+	 * X = X Location
+	 * Y = Y Location
+	 * 
+	 * @param channels
+	 * @param loc
+	 * @param data
+	 * @throws GameActionException
+	 */
+	public void communicateWithPosition(int[] channels, MapLocation loc, int data) throws GameActionException {
+		data += loc.x * 1000;
+		data += loc.y;
+		
+		rc.broadcast(channels[0], data);
+		rc.broadcast(channels[1], data);
+		rc.broadcast(channels[2], data);
+	}
+
+	/**
+	 * Receives data with map location.
+	 * @throws GameActionException 
+	 */
+	public CommunicationNode receiveWithLocation(int[] channels) throws GameActionException {
+		return new CommunicationNode(_getData(channels, 0));
 	}
 	
 	/**

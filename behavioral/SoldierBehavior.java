@@ -33,38 +33,40 @@ public class SoldierBehavior extends Behavior {
 						System.out.println("SELECTING: " + type);
 					}
 					
-					//We can even strategy pattern this out. but we can save bytecodes.
-					if (type == ENCAMPMENT_MODE) {
-						if (!navMode.hasDestination && !navMode.atDestination) {
-							navSystem.setNearestEncampmentAsDestination();
-						}
-						navMode.move();
-						
-						if (navMode.atDestination) {
-							if (rc.getLocation().equals(navMode.destination)) {
-								rc.captureEncampment(rand.nextInt() % 5 == 0 ? RobotType.GENERATOR : RobotType.SUPPLIER);
-							} else {
-								navSystem.alliedEncampments.put(navMode.destination, true);
+					switch (type) {
+						case ENCAMPMENT_MODE: 
+							if (!navMode.hasDestination && !navMode.atDestination) {
 								navSystem.setNearestEncampmentAsDestination();
 							}
-						} else if (navMode.attemptsExausted()) {
-							navSystem.forfeitNearestEncampment();
-						}
-
-					} else if (type == ATTACK_ENCAMPMENT_MODE) {
-						//we need to start actually having swarm
-					} else if (type == SWARM_MODE) {
-						
-						//We are going group up till round 200 then attack
-						if (!navMode.hasDestination && !navMode.atDestination) {
-							navSystem.setInitialSwarmRallyPoint();
-						}
-						
-						if (Clock.getRoundNum() % 100 == 0) {
-							navSystem.setToEnemyHQ();
-						} else {
 							navMode.move();
-						}
+							
+							if (navMode.atDestination) {
+								if (rc.getLocation().equals(navMode.destination)) {
+									rc.captureEncampment(rand.nextInt() % 5 == 0 ? RobotType.GENERATOR : RobotType.SUPPLIER);
+								} else {
+									navSystem.alliedEncampments.put(navMode.destination, true);
+									navSystem.setNearestEncampmentAsDestination();
+								}
+							} else if (navMode.attemptsExausted()) {
+								navSystem.forfeitNearestEncampment();
+							}							
+							break;
+							
+						case ATTACK_ENCAMPMENT_MODE:
+							
+							break;
+							
+						case SWARM_MODE:
+							if (!navMode.hasDestination && !navMode.atDestination) {
+								navSystem.setInitialSwarmRallyPoint();
+							}
+							
+							if (Clock.getRoundNum() % 100 == 0) {
+								navSystem.setToEnemyHQ();
+							} else {
+								navMode.move();
+							}
+							break;
 					}
 				}
 
@@ -84,4 +86,6 @@ public class SoldierBehavior extends Behavior {
 	public static final int ATTACK_ENCAMPMENT_MODE = 1;
 	public static final int SWARM_MODE = 2;
 	public static final int MODE_COUNT = 3;
+	
+	public static final int GROUP_COMMAND_GROUP_UP = 0;
 }
