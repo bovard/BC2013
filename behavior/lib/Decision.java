@@ -1,6 +1,6 @@
 package team122.behavior.lib;
 
-public abstract class Decision extends Node{
+public abstract class Decision extends Node {
 
 	/**
 	 * This will choose the appropriate behavior to run

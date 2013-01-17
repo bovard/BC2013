@@ -2,6 +2,7 @@ package team122.behavior.lib;
 
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
+import team122.RobotInformation;
 import team122.robot.Soldier;
 
 public class SoldierSwarm extends Behavior{

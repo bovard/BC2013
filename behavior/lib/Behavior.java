@@ -4,8 +4,6 @@ import battlecode.common.GameActionException;
 
 public abstract class Behavior extends Node{
 	
-
-
 	/**
 	 * Called when starting a behavior. There may be one-time things you will have
 	 * to do such as computing a path.

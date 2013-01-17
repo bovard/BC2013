@@ -2,7 +2,7 @@ package team122.behavior.lib;
 
 import team122.robot.Soldier;
 
-public class SoldierSelector extends Decision{
+public class SoldierSelector extends Decision {
 	public Soldier robot;
 
 	public SoldierSelector(Soldier soldier) {
