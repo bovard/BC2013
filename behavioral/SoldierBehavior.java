@@ -80,6 +80,10 @@ public class SoldierBehavior extends Behavior {
 			}
 		}
 	}
+	
+	/**
+	 * 
+	 */
 
 	public static final int SELECT_MODE = -1;
 	public static final int ENCAMPMENT_MODE = 0;
