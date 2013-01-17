@@ -1,7 +1,10 @@
 package team122.behavior.lib;
+import battlecode.common.GameActionException;
+
 
 public abstract class Behavior extends Node{
 	
+
 
 	/**
 	 * Called when starting a behavior. There may be one-time things you will have
@@ -15,5 +18,8 @@ public abstract class Behavior extends Node{
 	 */
 	public abstract void stop();
 
-
+	/**
+	 * Executes the node
+	 */
+	public abstract void run() throws GameActionException;
 }

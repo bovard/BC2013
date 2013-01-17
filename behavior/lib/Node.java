@@ -1,13 +1,22 @@
 package team122.behavior.lib;
 
+import java.util.ArrayList;
+
+import team122.robot.Robot;
+
 /**
  * The base Node.
  * Most every node has children and a parent
  * Every Node can be run and has pre-conditions
  */
 public abstract class Node {
-	public Node[] children;
+	public ArrayList<Node> children;
 	public Node parent;
+	protected Robot robot;
+	
+	public Node() {
+		children = new ArrayList<Node>();
+	}
 	
 	/**
 	 * pre checks if the preconditions are met for a behavior to occur
@@ -23,8 +32,4 @@ public abstract class Node {
 	public abstract boolean pre();
 	
 	
-	/**
-	 * Executes the node
-	 */
-	public abstract void run();
 }
