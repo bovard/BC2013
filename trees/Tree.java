@@ -54,6 +54,7 @@ public abstract class Tree {
 				
 				newB = false;
 				robot.rc.yield();
+				robot.environmentCheck();
 				
 			} catch (Exception e) {
 				e.printStackTrace();
