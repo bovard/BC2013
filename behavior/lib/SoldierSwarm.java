@@ -14,14 +14,14 @@ public class SoldierSwarm extends Behavior{
 
 	@Override
 	public void run() throws GameActionException {
-		if (!robot.navMode.hasDestination && !robot.navMode.atDestination) {
+		if (!robot.navSystem.navMode.hasDestination && !robot.navSystem.navMode.atDestination) {
 			robot.navSystem.setInitialSwarmRallyPoint();
 		}
 		
-		if (Clock.getRoundNum() % 100 == 0) {
+		if (Clock.getRoundNum() % 1200 == 0) {
 			robot.navSystem.setToEnemyHQ();
 		} else {
-			robot.navMode.move();
+			robot.navSystem.navMode.move();
 		}
 	}
 

@@ -11,7 +11,6 @@ import team122.trees.SoldierTree;
 public class Soldier extends Robot {
 	
 	public NavigationSystem navSystem = null;
-	public NavigationMode navMode = null;
 	public GameObject[] enemiesAtTheGates;
 	public boolean enemyAtTheGates;
 	public GameObject[] enemiesInSight;
@@ -22,7 +21,6 @@ public class Soldier extends Robot {
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);
 		navSystem = new NavigationSystem(rc, info);
-		navMode = navSystem.navMode;		
 		this.tree = new SoldierTree(this);
 	}
 

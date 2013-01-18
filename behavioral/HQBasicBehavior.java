@@ -28,7 +28,8 @@ public class HQBasicBehavior extends Behavior {
 			try {
 				if (rc.isActive()) {
 					if (miners < 2) {
-						_spawn(SoldierSelector.SOLDIER_MINER);
+						//_spawn(SoldierSelector.SOLDIER_MINER);
+						miners++;
 					} else if (!rc.hasUpgrade(Upgrade.PICKAXE)) {
 						rc.researchUpgrade(Upgrade.PICKAXE);
 					} else {
@@ -51,7 +52,6 @@ public class HQBasicBehavior extends Behavior {
 			if (rc.canMove(dir)) {
 				rc.spawn(dir);	
 				com.communicate(Communicator.CHANNEL_COMMUNICATE_SOLDIER_MODE, type);
-				miners++;
 				break;
 			}
 		}
