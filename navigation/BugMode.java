@@ -1,26 +1,19 @@
 package team122.navigation;
 
+import team122.RobotInformation;
 import battlecode.common.Direction;
 import battlecode.common.RobotController;
 
 public class BugMode extends NavigationMode {
 
-	public BugMode(RobotController rc) {
-		super(rc);
+	public BugMode(RobotController rc, RobotInformation info) {
+		super(rc, info);
 		// TODO Auto-generated constructor stub
 	}
-	
-
-	@Override
-	public boolean run() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 
 
 	@Override
-	public void runWithLimit(int limit) {
+	public void move() {
 		// TODO Auto-generated method stub
 		
 	}

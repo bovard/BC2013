@@ -1,15 +1,14 @@
 package team122.navigation;
 
-import java.util.HashMap;
 import java.util.Random;
+
+import team122.RobotInformation;
 
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
-import battlecode.common.GameConstants;
-import battlecode.common.Team;
 import battlecode.common.TerrainTile;
 
 /**
@@ -24,24 +23,21 @@ public abstract class NavigationMode {
 	public boolean atDestination;
 	public Direction direction;
 	public RobotController rc;
+	public RobotInformation info;
 	public int width;
 	public int height;
     protected Random rand = new Random();
     
-	public NavigationMode(RobotController rc) {
+	public NavigationMode(RobotController rc, RobotInformation info) {
 		this.rc = rc;
+		this.info = info;
+		
 		hasDestination = false;
 		atDestination = false;
     	rand.setSeed(Clock.getRoundNum());
     	width = rc.getMapWidth();
     	height = rc.getMapHeight();
 	}
-	
-	/**
-	 * the algorithm to run for the navigation.
-	 * @return
-	 */
-	public abstract boolean run();
 	
 	/**
 	 * Sets the destination
@@ -81,8 +77,9 @@ public abstract class NavigationMode {
 	 * runs the same algorithm except with a limited amount of runs.
 	 * Better for yield.
 	 * @param limit
+	 * @throws GameActionException 
 	 */
-	public abstract void runWithLimit(int limit) throws GameActionException;
+	public abstract void move() throws GameActionException;
 	
 	public static final int ASTAR_MODE = 1;
 	public static final int CITY_BLOCK = 2;
