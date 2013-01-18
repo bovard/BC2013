@@ -2,7 +2,7 @@ package team122.navigation;
 
 import battlecode.common.*;
 
-public class CityBlockMode extends NavigationMode {
+public class CityBlockMode extends MoveWithDefuseMode {
 
 	public CityBlockMode(RobotController rc) {
 		super(rc);
@@ -33,6 +33,7 @@ public class CityBlockMode extends NavigationMode {
 		
 		//Goes through the limit and processes the city block
 		for (;limit > 0;limit--) {
+			destinationTries++;
 			currentLoc = rc.getLocation();
 			dirToGo = currentLoc.directionTo(destination);
 			
@@ -44,14 +45,8 @@ public class CityBlockMode extends NavigationMode {
 			
 			if (rc.isActive()) {
 				if (rc.canMove(dirToGo)) {
-					MapLocation nextLoc = rc.getLocation().add(dirToGo);
-					team = rc.senseMine(nextLoc);
-					
-					if (team != null && team == Team.NEUTRAL) {
-						rc.defuseMine(nextLoc);
+					if (_moveWithDefusing(dirToGo)) {
 						break;
-					} else {
-						rc.move(dirToGo);
 					}
 					
 					if (currentLoc.equals(destination)) {
@@ -62,13 +57,14 @@ public class CityBlockMode extends NavigationMode {
 				} else if (currentLoc.distanceSquaredTo(destination) == 1) {
 					hasDestination = false;
 					atDestination = true;
+					return;
 				} else {
 					
 					//We need to perform a simplified bug algorithm.  We add in some intentional
 					//error to be able to hopefully get around this obstacle.
 					Direction dir = Direction.values()[(int)(Math.random() * 8)];
-					if (rc.canMove(dir)) {
-						rc.move(dir);
+					if (_moveWithDefusing(dir)) {
+						break;
 					}
 				}
 			}
