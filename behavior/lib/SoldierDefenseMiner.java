@@ -92,7 +92,7 @@ public class SoldierDefenseMiner extends Behavior {
 
 	@Override
 	public boolean pre() {
-		return true;
+		return !robot.enemyInMelee;
 	}
 	
 	private void _setMiningLocations() {

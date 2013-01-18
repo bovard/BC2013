@@ -4,23 +4,24 @@ import team122.behavior.lib.Behavior;
 import team122.behavior.lib.Decision;
 import team122.behavior.lib.Node;
 
-import team122.robot.Robot;
+import team122.robot.TeamRobot;
 
 
 public abstract class Tree {
 
-	public Robot robot;
+	public TeamRobot robot;
 	public Node current;
 	
 	/**
 	 * This is where you would build up the tree. 
 	 */
-	public Tree(Robot robot) {
+	public Tree(TeamRobot robot) {
 		this.robot = robot;
 	}
 	
 	public void run() {
 		boolean newB = true;
+		robot.environmentCheck();
 		while (true) {
 			try {
 				// TODO: doesn't support a sequence
@@ -56,6 +57,7 @@ public abstract class Tree {
 				
 				newB = false;
 				robot.rc.yield();
+				robot.rc.setIndicatorString(0, "-");
 				
 				// at the start of the round, update with an environment check
 				robot.environmentCheck();

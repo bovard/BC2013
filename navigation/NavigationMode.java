@@ -13,6 +13,7 @@ import battlecode.common.TerrainTile;
 
 /**
  * Defines a navigation mode.
+ * 
  * @author michaelpaulson
  */
 public abstract class NavigationMode {
@@ -26,21 +27,22 @@ public abstract class NavigationMode {
 	public RobotInformation info;
 	public int width;
 	public int height;
-    protected Random rand = new Random();
-    
+	protected Random rand = new Random();
+
 	public NavigationMode(RobotController rc, RobotInformation info) {
 		this.rc = rc;
 		this.info = info;
-		
+
 		hasDestination = false;
 		atDestination = false;
-    	rand.setSeed(Clock.getRoundNum());
-    	width = rc.getMapWidth();
-    	height = rc.getMapHeight();
+		rand.setSeed(Clock.getRoundNum());
+		width = rc.getMapWidth();
+		height = rc.getMapHeight();
 	}
-	
+
 	/**
 	 * Sets the destination
+	 * 
 	 * @param location
 	 * @return
 	 */
@@ -57,30 +59,33 @@ public abstract class NavigationMode {
 		return true;
 	}
 
-    /**
-     * Checks to see if the robot is currently at it's destination
-     * @return if the robot is at its destination MapLocation
-     */
-    public boolean isAtDestination() {
-    	return rc.getLocation().equals(destination);
-    }
-    
-    /**
-     * If the tries * tries > distanceSquared * 2
-     * @return
-     */
+	/**
+	 * Checks to see if the robot is currently at it's destination
+	 * 
+	 * @return if the robot is at its destination MapLocation
+	 */
+	public boolean isAtDestination() {
+		return rc.getLocation().equals(destination);
+	}
+
+	/**
+	 * If the tries * tries > distanceSquared * 2
+	 * 
+	 * @return
+	 */
 	public boolean attemptsExausted() {
 		return destinationTries * destinationTries > attemptsBounds;
 	}
-	
+
 	/**
-	 * runs the same algorithm except with a limited amount of runs.
-	 * Better for yield.
+	 * runs the same algorithm except with a limited amount of runs. Better for
+	 * yield.
+	 * 
 	 * @param limit
-	 * @throws GameActionException 
+	 * @throws GameActionException
 	 */
 	public abstract void move() throws GameActionException;
-	
+
 	public static final int ASTAR_MODE = 1;
 	public static final int CITY_BLOCK = 2;
 }

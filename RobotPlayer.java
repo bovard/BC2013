@@ -13,14 +13,14 @@ import team122.robot.Soldier;
  */
 public class RobotPlayer {
 	public static void run(RobotController rc) {
-		RobotInformation information = new RobotInformation(rc);
+		RobotInformation info = new RobotInformation(rc);
 		if (rc.getType() == RobotType.HQ) {
-			new HQBasicBehavior(rc, information).behave();
+			new HQBasicBehavior(rc, info).behave();
 		} else if (rc.getType() == RobotType.SOLDIER) {
-			new Soldier(rc, information).run();
+			new Soldier(rc, info).run();
 		} else {
 			if (rc.getType() == RobotType.ARTILLERY) {
-				new Artillery(rc, information).run();
+				new Artillery(rc, info).run();
 			}
 		}
 		// fell out

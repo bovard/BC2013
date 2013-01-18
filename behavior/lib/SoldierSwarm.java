@@ -27,7 +27,7 @@ public class SoldierSwarm extends Behavior{
 
 	@Override
 	public boolean pre() {
-		return true;
+		return !robot.enemyInMelee;
 	}
 
 }

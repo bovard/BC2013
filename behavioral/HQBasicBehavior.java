@@ -31,7 +31,9 @@ public class HQBasicBehavior extends Behavior {
 						_spawn(SoldierSelector.SOLDIER_MINER);
 					} else if (!rc.hasUpgrade(Upgrade.PICKAXE)) {
 						rc.researchUpgrade(Upgrade.PICKAXE);
+					//} else if (swarm < 2) {
 					} else {
+						swarm++;
 						_spawn(SoldierSelector.SOLDIER_SWARMER);
 					}
 				}			

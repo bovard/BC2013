@@ -12,13 +12,13 @@ import team122.trees.Tree;
  * @author bovard.tiberi
  *
  */
-public abstract class Robot {
+public abstract class TeamRobot {
 	
 	protected Tree tree;
 	public RobotController rc;
 	public RobotInformation info;
 	
-	public Robot(RobotController rc, RobotInformation info) {
+	public TeamRobot(RobotController rc, RobotInformation info) {
 		this.rc = rc;
 		this.info = info;
 	}

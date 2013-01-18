@@ -2,7 +2,7 @@ package team122.behavior.lib;
 
 import java.util.ArrayList;
 
-import team122.robot.Robot;
+import team122.robot.TeamRobot;
 
 /**
  * The base Node.
