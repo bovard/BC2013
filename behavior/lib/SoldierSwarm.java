@@ -2,7 +2,6 @@ package team122.behavior.lib;
 
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
-import team122.RobotInformation;
 import team122.robot.Soldier;
 
 public class SoldierSwarm extends Behavior{
@@ -11,18 +10,6 @@ public class SoldierSwarm extends Behavior{
 	
 	public SoldierSwarm(Soldier robot) {
 		this.robot = robot;
-	}
-
-	@Override
-	public void start() {
-		// nothing needs to be done here
-		
-	}
-
-	@Override
-	public void stop() {
-		// nothing needs to be done here
-		
 	}
 
 	@Override

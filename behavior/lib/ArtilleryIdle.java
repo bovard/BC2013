@@ -1,16 +1,11 @@
 package team122.behavior.lib;
 
+import team122.robot.Artillery;
 import battlecode.common.GameActionException;
 
-public class Idle extends Behavior {
-
-	@Override
-	public void start() {
-	}
-
-	@Override
-	public void stop() {
-	}
+public class ArtilleryIdle extends Behavior {
+	
+	protected Artillery robot;
 
 	@Override
 	public void run() throws GameActionException {
@@ -20,8 +15,7 @@ public class Idle extends Behavior {
 
 	@Override
 	public boolean pre() {
-		// TODO Auto-generated method stub
-		return false;
+		return robot.canShoot && robot.enemyNearby;
 	}
 
 }
