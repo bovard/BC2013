@@ -3,8 +3,9 @@ package team122;
 import battlecode.common.RobotController;
 import battlecode.common.RobotType;
 import team122.behavioral.*;
+import team122.robot.Artillery;
 import team122.robot.Soldier;
-import team122.trees.SoldierTree;
+
 
 /** The example funcs player is a player meant to demonstrate basic usage of the most common commands.
  * Robots will move around randomly, occasionally mining and writing useless messages.
@@ -18,7 +19,13 @@ public class RobotPlayer {
 		} else if (rc.getType() == RobotType.SOLDIER) {
 			new Soldier(rc, information).run();
 		} else {
-			new EncampmentBehavior(rc, information).behave();
+			if (rc.getType() == RobotType.ARTILLERY) {
+				new Artillery(rc, information).run();
+			}
+		}
+		// fell out
+		while(true) {
+			rc.yield();
 		}
 	}
 }
