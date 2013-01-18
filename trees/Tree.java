@@ -25,6 +25,11 @@ public abstract class Tree {
 			try {
 				// TODO: doesn't support a sequence
 				// first check the pres and navigate to a Node that pre returns true
+				if (newB) {
+					if (current instanceof Behavior) {
+						((Behavior) current).start();
+					}
+				}
 				if (!current.pre()) {					
 					if (current instanceof Behavior) {
 						((Behavior)current).stop();
@@ -39,9 +44,6 @@ public abstract class Tree {
 				// if it's new call start
 				// call run
 				if (current instanceof Behavior) {
-					if (newB) {
-						((Behavior)current).start();
-					}
 					((Behavior)current).run();
 				}
 				// if we are on a decision Node

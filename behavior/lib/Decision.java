@@ -1,5 +1,7 @@
 package team122.behavior.lib;
 
+import battlecode.common.GameActionException;
+
 public abstract class Decision extends Node {
 
 	/**
@@ -8,5 +10,5 @@ public abstract class Decision extends Node {
 	 * In a sequence it will choose the one in sequence.
 	 * @return the Node to run
 	 */
-	public abstract Node select();
+	public abstract Node select() throws GameActionException;
 }
