@@ -4,6 +4,7 @@ import battlecode.common.GameObject;
 import battlecode.common.RobotController;
 import battlecode.common.RobotType;
 import team122.RobotInformation;
+import team122.communication.Communicator;
 import team122.navigation.NavigationMode;
 import team122.navigation.NavigationSystem;
 import team122.trees.SoldierTree;
