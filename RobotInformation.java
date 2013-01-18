@@ -10,6 +10,8 @@ public class RobotInformation {
 	public MapLocation hq;
 	public MapLocation enemyHq;
 	public int id;
+	public int width;
+	public int height;
 
 	/**
 	 * Will construct a robot information. These are common operations that
@@ -23,5 +25,7 @@ public class RobotInformation {
 		hq = rc.senseHQLocation();
 		enemyHq = rc.senseEnemyHQLocation();
 		id = rc.getRobot().getID();
+		width = rc.getMapWidth();
+		height = rc.getMapHeight();
 	}
 }
