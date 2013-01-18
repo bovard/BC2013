@@ -84,13 +84,13 @@ public class Communicator {
 	 */
 	private int _getData(int[] channels, int defaultValue) throws GameActionException {
 		int modeA = 0, modeB = 0;
-		modeA = rc.readBroadcast(CHANNEL_COMMUNICATE_SOLDIER_MODE[0]);
-		modeB = rc.readBroadcast(CHANNEL_COMMUNICATE_SOLDIER_MODE[1]);
+		modeA = rc.readBroadcast(channels[0]);
+		modeB = rc.readBroadcast(channels[1]);
 		
 		if (modeA == modeB) {
 			return modeA;
 		} else {
-			int modeC = rc.readBroadcast(CHANNEL_COMMUNICATE_SOLDIER_MODE[2]);
+			int modeC = rc.readBroadcast(channels[2]);
 			
 			if (modeA == modeC) {
 				return modeA;
@@ -102,5 +102,9 @@ public class Communicator {
 		return defaultValue;
 	}
 	
-	public static final int[] CHANNEL_COMMUNICATE_SOLDIER_MODE = new int[] {15321, 16322, 17881};
+	/**
+	 * The additional difference between communication channel.
+	 */
+	public static final int CHANNEL_DIFFERENCE = 1021;
+	public static final int[] CHANNEL_NEW_SOLDIER_MODE = new int[] {15321, 16322, 17881};
 }

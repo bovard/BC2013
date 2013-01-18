@@ -1,10 +1,11 @@
 package team122.robot;
 
+import team122.trees.ArtilleryTree;
 import team122.RobotInformation;
 import battlecode.common.GameObject;
 import battlecode.common.RobotController;
 
-public class Artillery extends Robot{
+public class Artillery extends Robot {
 	public boolean canShoot;
 	public GameObject[] nearbyObjects;
 	public boolean enemyNearby;
@@ -12,7 +13,7 @@ public class Artillery extends Robot{
 
 	public Artillery(RobotController rc, RobotInformation info) {
 		super(rc, info);
-		
+		tree = new ArtilleryTree(this);
 	}
 
 	@Override

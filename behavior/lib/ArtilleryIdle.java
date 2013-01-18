@@ -19,7 +19,7 @@ public class ArtilleryIdle extends Behavior {
 
 	@Override
 	public boolean pre() {
-		return robot.canShoot && robot.enemyNearby;
+		return !robot.canShoot || !robot.enemyNearby;
 	}
 
 }

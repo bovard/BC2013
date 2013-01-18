@@ -18,7 +18,7 @@ public class SoldierSwarm extends Behavior{
 			robot.navSystem.setInitialSwarmRallyPoint();
 		}
 		
-		if (Clock.getRoundNum() % 1200 == 0) {
+		if (Clock.getRoundNum() % 400 == 0) {
 			robot.navSystem.setToEnemyHQ();
 		} else {
 			robot.navSystem.navMode.move();

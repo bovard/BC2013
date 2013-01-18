@@ -21,6 +21,8 @@ public abstract class Tree {
 	
 	public void run() {
 		boolean newB = true;
+		robot.environmentCheck();
+		
 		while (true) {
 			try {
 				// TODO: doesn't support a sequence

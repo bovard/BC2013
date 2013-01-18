@@ -12,6 +12,7 @@ public class HQBasicBehavior extends Behavior {
 	
 	int spawnCount = 0;
 	int miners = 0;
+	int encamps = 0;
 	int swarm = 0;
 	Communicator com;
 	
@@ -28,10 +29,13 @@ public class HQBasicBehavior extends Behavior {
 			try {
 				if (rc.isActive()) {
 					if (miners < 2) {
-						//_spawn(SoldierSelector.SOLDIER_MINER);
+						_spawn(SoldierSelector.SOLDIER_MINER);
 						miners++;
 					} else if (!rc.hasUpgrade(Upgrade.PICKAXE)) {
 						rc.researchUpgrade(Upgrade.PICKAXE);
+					} else if (encamps < 5) {
+						_spawn(SoldierSelector.SOLDIER_ENCAMPER);
+						encamps++;
 					} else {
 						_spawn(SoldierSelector.SOLDIER_SWARMER);
 					}
@@ -51,7 +55,7 @@ public class HQBasicBehavior extends Behavior {
 			Direction dir = Direction.values()[(int)(Math.random() * 8)];
 			if (rc.canMove(dir)) {
 				rc.spawn(dir);	
-				com.communicate(Communicator.CHANNEL_COMMUNICATE_SOLDIER_MODE, type);
+				com.communicate(Communicator.CHANNEL_NEW_SOLDIER_MODE, type);
 				break;
 			}
 		}

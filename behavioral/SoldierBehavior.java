@@ -29,7 +29,7 @@ public class SoldierBehavior extends Behavior {
 			try {
 				if (rc.isActive()) {
 					if (type == SELECT_MODE) {
-						type = com.receive(Communicator.CHANNEL_COMMUNICATE_SOLDIER_MODE, SoldierBehavior.SWARM_MODE);
+						type = com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SoldierBehavior.SWARM_MODE);
 						System.out.println("SELECTING: " + type);
 					}
 					

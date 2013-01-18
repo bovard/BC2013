@@ -20,6 +20,7 @@ public class RobotPlayer {
 			new Soldier(rc, information).run();
 		} else {
 			if (rc.getType() == RobotType.ARTILLERY) {
+				System.out.println("Running Artillery!");
 				new Artillery(rc, information).run();
 			}
 		}

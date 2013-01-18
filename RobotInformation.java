@@ -9,6 +9,8 @@ public class RobotInformation {
 	public Team enemyTeam;
 	public MapLocation hq;
 	public MapLocation enemyHq;
+	public MapLocation[] encampments;
+	public MapLocation[] nearHQ;
 	public int id;
 	public int width;
 	public int height;

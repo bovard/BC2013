@@ -12,8 +12,10 @@ public class SoldierSelector extends Decision {
 		this.robot = soldier;
 		children.add(new SoldierDefenseMiner(this.robot));
 		children.add(new SoldierSwarm(this.robot));
+		children.add(new SoldierEncamper(this.robot));
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SWARMER).parent = this;
+		children.get(SOLDIER_ENCAMPER).parent = this;
 		com = new Communicator(soldier.rc, soldier.info);
 	}
 	
@@ -21,8 +23,13 @@ public class SoldierSelector extends Decision {
 	public Node select() throws GameActionException {
 		// TODO: when we have more than one child the decision code should be in here
 		
-		int type = com.receive(Communicator.CHANNEL_COMMUNICATE_SOLDIER_MODE, SOLDIER_SWARMER);
-		return children.get(type);
+		if (this.robot.isNew) {
+			int type = com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
+			return children.get(type);
+		}
+		
+
+		return children.get(SOLDIER_SWARMER);
 	}
 
 	@Override
@@ -32,4 +39,5 @@ public class SoldierSelector extends Decision {
 
 	public static final int SOLDIER_MINER = 0;
 	public static final int SOLDIER_SWARMER = 1;
+	public static final int SOLDIER_ENCAMPER = 2;
 }
