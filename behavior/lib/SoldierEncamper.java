@@ -97,11 +97,11 @@ public class SoldierEncamper extends Behavior {
 		if (nearHQ.size() > 0) {
 			robot.navSystem.navMode.setDestination(nearHQ.remove(0));
 			capturingNearHQ = true;
-			encampmentType = RobotType.ARTILLERY;
+			encampmentType = RobotType.GENERATOR;
 			
 		} else if (encampmentToTry < robot.info.encampments.length) {
 			//DO NOT KNOW WHAT TO DO...
-			encampmentType = rand.nextInt() % 3 == 0 ? RobotType.GENERATOR : RobotType.SUPPLIER;
+			encampmentType = rand.nextInt() % 3 == 0 ? RobotType.GENERATOR : RobotType.GENERATOR;
 			robot.navSystem.navMode.setDestination(robot.info.encampments[encampmentToTry++]);
 		} else {
 			encamp = false;

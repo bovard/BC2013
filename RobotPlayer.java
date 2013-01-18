@@ -4,6 +4,7 @@ import battlecode.common.RobotController;
 import battlecode.common.RobotType;
 import team122.behavioral.*;
 import team122.robot.Artillery;
+import team122.robot.Generator;
 import team122.robot.Soldier;
 
 
@@ -22,6 +23,9 @@ public class RobotPlayer {
 			if (rc.getType() == RobotType.ARTILLERY) {
 				System.out.println("Running Artillery!");
 				new Artillery(rc, information).run();
+			} else if (rc.getType() == RobotType.GENERATOR) {
+				System.out.println("Creating Generator!");
+				new Generator(rc, information).run();
 			}
 		}
 		// fell out

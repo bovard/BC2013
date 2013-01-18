@@ -25,6 +25,7 @@ public class SoldierSelector extends Decision {
 		
 		if (this.robot.isNew) {
 			int type = com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
+			System.out.println("New Soldier: " + type);
 			return children.get(type);
 		}
 		

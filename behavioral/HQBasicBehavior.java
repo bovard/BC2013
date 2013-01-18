@@ -15,6 +15,7 @@ public class HQBasicBehavior extends Behavior {
 	int encamps = 0;
 	int swarm = 0;
 	Communicator com;
+	int generatorCounts = 0;
 	
 	public HQBasicBehavior(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -28,14 +29,24 @@ public class HQBasicBehavior extends Behavior {
 		while (true) {
 			try {
 				if (rc.isActive()) {
+					_counts();
+					
 					if (miners < 2) {
 						_spawn(SoldierSelector.SOLDIER_MINER);
 						miners++;
 					} else if (!rc.hasUpgrade(Upgrade.PICKAXE)) {
 						rc.researchUpgrade(Upgrade.PICKAXE);
 					} else if (encamps < 5) {
-						_spawn(SoldierSelector.SOLDIER_ENCAMPER);
-						encamps++;
+						
+						System.out.println("Spawning: " + encamps + " : " + generatorCounts);
+						if (encamps == generatorCounts) {
+							_spawn(SoldierSelector.SOLDIER_ENCAMPER);
+							encamps++;
+						} else {
+							if (!rc.hasUpgrade(Upgrade.VISION)) {
+								rc.researchUpgrade(Upgrade.VISION);
+							}
+						}
 					} else {
 						_spawn(SoldierSelector.SOLDIER_SWARMER);
 					}
@@ -59,5 +70,16 @@ public class HQBasicBehavior extends Behavior {
 				break;
 			}
 		}
+	}
+	
+	/**
+	 * Getse the counts.
+	 */
+	private void _counts() throws GameActionException {
+		//Stores this rounds counts
+		generatorCounts = com.receive(Communicator.CHANNEL_GENERATOR_COUNT, 0);
+		
+		//Erases so counts will be accurate.
+		com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, 0);
 	}
 }
