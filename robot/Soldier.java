@@ -39,7 +39,7 @@ public class Soldier extends Robot {
 		
 		// check to see if we can see any enemies
 		// TODO: worry about if these are soldiers or not?
-		enemiesInSight = rc.senseNearbyGameObjects(GameObject.class, 3, info.enemyTeam);
+		enemiesInSight = rc.senseNearbyGameObjects(GameObject.class, 32, info.enemyTeam);
 		enemyInSight = enemiesInSight.length > 0;
 		
 	}

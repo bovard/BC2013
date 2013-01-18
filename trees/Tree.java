@@ -54,6 +54,8 @@ public abstract class Tree {
 				
 				newB = false;
 				robot.rc.yield();
+				
+				// at the start of the round, update with an environment check
 				robot.environmentCheck();
 				
 			} catch (Exception e) {
