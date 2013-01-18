@@ -34,6 +34,8 @@ public abstract class Robot {
 	/**
 	 * We should never return from this 
 	 */
-	public abstract void run();
+	public void run() {
+		tree.run();
+	}
 
 }

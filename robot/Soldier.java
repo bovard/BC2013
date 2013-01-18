@@ -43,12 +43,4 @@ public class Soldier extends Robot {
 		enemyInSight = enemiesInSight.length > 0;
 		
 	}
-
-	@Override
-	public void run() {
-		tree.run();
-	}
-	
-	
-
 }

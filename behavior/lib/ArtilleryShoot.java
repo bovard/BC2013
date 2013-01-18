@@ -8,6 +8,11 @@ import battlecode.common.RobotType;
 public class ArtilleryShoot extends Behavior{
 	
 	protected Artillery robot;
+	
+	public ArtilleryShoot(Artillery robot) {
+		super();
+		this.robot = robot;
+	}
 
 	@Override
 	public void run() throws GameActionException {

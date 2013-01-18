@@ -28,12 +28,4 @@ public class Artillery extends Robot{
 		}
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-
 }

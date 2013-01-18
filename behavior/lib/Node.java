@@ -12,7 +12,6 @@ import team122.robot.Robot;
 public abstract class Node {
 	public ArrayList<Node> children;
 	public Node parent;
-	protected Robot robot;
 	
 	public Node() {
 		children = new ArrayList<Node>();

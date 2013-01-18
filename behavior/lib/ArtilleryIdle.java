@@ -7,10 +7,14 @@ public class ArtilleryIdle extends Behavior {
 	
 	protected Artillery robot;
 
+	public ArtilleryIdle(Artillery robot) {
+		super();
+		this.robot = robot;
+	}
+	
 	@Override
 	public void run() throws GameActionException {
-		// TODO Auto-generated method stub
-		
+				
 	}
 
 	@Override
