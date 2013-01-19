@@ -1,6 +1,7 @@
 package team122.behavior.lib.hq;
 
 import team122.behavior.lib.Behavior;
+import team122.behavior.lib.SoldierEncamper;
 import team122.behavior.lib.SoldierSelector;
 import team122.robot.HQ;
 import battlecode.common.GameActionException;
@@ -19,10 +20,20 @@ public class HQSpawn extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
-		double energon = robot.rc.getEnergon();
 		
-		if (robot.defensive > DEFENSIVE_MINER_SPAWN && utils.minerCount < 1) {
-			
+		//Miners are super required.
+		if (utils.requireMiner(robot.defensive)) {
+			robot.spawn(SoldierSelector.SOLDIER_MINER);
+			return;
+		}
+		
+		//Generators and suppliers are needed.
+		if (utils.canSpawnSoldier() && utils.requireSoldier(robot.defensive, robot.econ)) {
+			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+		}
+		
+		if (utils.requireGenerator()) {
+			robot.spawn(SoldierSelector.GENERATOR_ENCAMPER + SoldierSelector.SOLDIER_ENCAMPER);
 		}
 	}
 

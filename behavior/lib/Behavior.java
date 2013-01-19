@@ -8,6 +8,8 @@ import battlecode.common.GameActionException;
 public abstract class Behavior extends Node {
 
 	public Random rand;
+	public int initialData;
+	
 	public Behavior() {
 		rand = new Random();
     	rand.setSeed(Clock.getRoundNum());
@@ -27,6 +29,14 @@ public abstract class Behavior extends Node {
 	 */
 	public void stop() throws GameActionException {
 		
+	}
+	
+	/**
+	 * Sets the initialData.
+	 * @param data
+	 */
+	public void setInitialData(int data) {
+		initialData = data;
 	}
 
 	/**

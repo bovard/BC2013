@@ -26,6 +26,8 @@ public class Soldier extends Robot {
 	public GameObject[] enemiesInMelee;
 	public boolean enemyInMelee;
 	public boolean isNew = true;
+	public int initialData;
+	public int initialMode;
 	
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);

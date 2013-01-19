@@ -1,9 +1,6 @@
 package team122.behavior.lib;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-
-import battlecode.common.Clock;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotType;
@@ -20,6 +17,7 @@ public class SoldierEncamper
 	public RobotType encampmentType;
 	public boolean capturingNearHQ = false;
 	public int encampmentToTry = -1;
+	public int initialData;
 	
 	public SoldierEncamper(Soldier robot) {
 		this.robot = robot;
@@ -34,6 +32,9 @@ public class SoldierEncamper
 		_setDestination();
 	}
 
+	/**
+	 * echos the com behavior to the communicator.
+	 */
 	@Override
 	public void comBehavior() throws GameActionException {
 		robot.com.increment(Communicator.CHANNEL_ENCAMPER_COUNT);
