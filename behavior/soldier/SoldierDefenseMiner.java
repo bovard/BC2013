@@ -1,7 +1,9 @@
-package team122.behavior.lib;
+package team122.behavior.soldier;
 
 import java.util.HashMap;
 
+import team122.behavior.Behavior;
+import team122.behavior.IComBehavior;
 import team122.communication.Communicator;
 import team122.navigation.NavigationSystem;
 import team122.robot.Soldier;

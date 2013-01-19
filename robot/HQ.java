@@ -7,7 +7,7 @@ import battlecode.common.GameConstants;
 import battlecode.common.RobotController;
 import battlecode.common.Team;
 import team122.RobotInformation;
-import team122.behavior.lib.hq.HQUtils;
+import team122.behavior.hq.HQUtils;
 import team122.communication.Communicator;
 import team122.trees.HQTree;
 

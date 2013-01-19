@@ -1,7 +1,7 @@
-package team122.behavior.lib.hq;
+package team122.behavior.hq;
 
-import team122.behavior.lib.Decision;
-import team122.behavior.lib.Node;
+import team122.behavior.Decision;
+import team122.behavior.Node;
 import team122.robot.HQ;
 
 public class HQSelector extends Decision {

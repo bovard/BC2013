@@ -1,17 +1,17 @@
-package team122.behavior.lib.supplier;
+package team122.behavior.gen;
 
-import team122.behavior.lib.Behavior;
+import team122.behavior.Behavior;
 import team122.communication.Communicator;
+import team122.robot.Generator;
 import team122.robot.HQ;
-import team122.robot.Supplier;
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
 
-public class SupplierIdle extends Behavior {
+public class GeneratorIdle extends Behavior {
 	
-	protected Supplier robot;
+	protected Generator robot;
 
-	public SupplierIdle(Supplier robot) {
+	public GeneratorIdle(Generator robot) {
 		super();
 		this.robot = robot;
 	}
@@ -20,7 +20,7 @@ public class SupplierIdle extends Behavior {
 	public void run() throws GameActionException {
 		//Sets the count 1 round before the HQ checks.
 		if (Clock.getRoundNum() % HQ.HQ_COUNT_ROUND - 1 == 0) {
-			robot.com.increment(Communicator.CHANNEL_SUPPLIER_COUNT);
+			robot.com.increment(Communicator.CHANNEL_GENERATOR_COUNT);
 		}
 	}
 

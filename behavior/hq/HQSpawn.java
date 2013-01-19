@@ -1,8 +1,8 @@
-package team122.behavior.lib.hq;
+package team122.behavior.hq;
 
-import team122.behavior.lib.Behavior;
-import team122.behavior.lib.SoldierEncamper;
-import team122.behavior.lib.SoldierSelector;
+import team122.behavior.Behavior;
+import team122.behavior.soldier.SoldierEncamper;
+import team122.behavior.soldier.SoldierSelector;
 import team122.robot.HQ;
 import battlecode.common.GameActionException;
 import battlecode.common.GameConstants;

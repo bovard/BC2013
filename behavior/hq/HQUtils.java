@@ -1,4 +1,4 @@
-package team122.behavior.lib.hq;
+package team122.behavior.hq;
 
 import battlecode.common.GameActionException;
 import battlecode.common.GameConstants;

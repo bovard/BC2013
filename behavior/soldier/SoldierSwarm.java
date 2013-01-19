@@ -1,7 +1,9 @@
-package team122.behavior.lib;
+package team122.behavior.soldier;
 
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
+import team122.behavior.Behavior;
+import team122.behavior.IComBehavior;
 import team122.communication.Communicator;
 import team122.robot.Soldier;
 

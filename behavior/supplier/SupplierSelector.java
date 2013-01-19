@@ -1,7 +1,7 @@
-package team122.behavior.lib.supplier;
+package team122.behavior.supplier;
 
-import team122.behavior.lib.Decision;
-import team122.behavior.lib.Node;
+import team122.behavior.Decision;
+import team122.behavior.Node;
 import team122.robot.HQ;
 import team122.robot.Supplier;
 

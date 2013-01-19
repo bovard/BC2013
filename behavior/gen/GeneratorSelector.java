@@ -1,4 +1,6 @@
-package team122.behavior.lib;
+package team122.behavior.gen;
+import team122.behavior.Decision;
+import team122.behavior.Node;
 import team122.robot.Generator;
 
 public class GeneratorSelector extends Decision {

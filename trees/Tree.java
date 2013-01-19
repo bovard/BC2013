@@ -1,8 +1,8 @@
 package team122.trees;
 
-import team122.behavior.lib.Behavior;
-import team122.behavior.lib.Decision;
-import team122.behavior.lib.Node;
+import team122.behavior.Behavior;
+import team122.behavior.Decision;
+import team122.behavior.Node;
 
 import team122.robot.Robot;
 

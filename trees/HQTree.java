@@ -1,6 +1,6 @@
 package team122.trees;
 
-import team122.behavior.lib.hq.HQSelector;
+import team122.behavior.hq.HQSelector;
 import team122.robot.HQ;
 
 public class HQTree extends Tree {

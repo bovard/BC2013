@@ -2,7 +2,6 @@ package team122;
 
 import battlecode.common.RobotController;
 import battlecode.common.RobotType;
-import team122.behavioral.*;
 import team122.robot.Artillery;
 import team122.robot.Generator;
 import team122.robot.HQ;

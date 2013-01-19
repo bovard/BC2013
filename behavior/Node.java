@@ -1,4 +1,4 @@
-package team122.behavior.lib;
+package team122.behavior;
 
 import java.util.ArrayList;
 

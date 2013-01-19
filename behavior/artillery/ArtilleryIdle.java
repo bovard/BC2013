@@ -1,5 +1,6 @@
-package team122.behavior.lib;
+package team122.behavior.artillery;
 
+import team122.behavior.Behavior;
 import team122.robot.Artillery;
 import battlecode.common.GameActionException;
 

@@ -1,6 +1,6 @@
 package team122.trees;
 
-import team122.behavior.lib.supplier.SupplierSelector;
+import team122.behavior.supplier.SupplierSelector;
 import team122.robot.Supplier;
 
 public class SupplierTree extends Tree {
