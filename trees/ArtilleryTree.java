@@ -10,7 +10,4 @@ public class ArtilleryTree extends Tree {
 		current = new ArtillerySelector(robot);
 	}
 
-	
-	
-
 }

@@ -1,29 +1,33 @@
 package team122.behavior.lib;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+
+import team122.communication.Communicator;
+import team122.navigation.NavigationSystem;
+import team122.robot.Soldier;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
-import battlecode.common.GameObject;
 import battlecode.common.MapLocation;
-import battlecode.common.Robot;
-import battlecode.common.RobotType;
 import battlecode.common.Team;
 import battlecode.common.TerrainTile;
-import team122.robot.Soldier;
+import battlecode.common.Upgrade;
 
-public class SoldierDefenseMiner extends Behavior {
+public class SoldierDefenseMiner 
+		extends Behavior
+		implements IComBehavior {
 	
 	public Soldier robot;
 	public HashMap<MapLocation, Boolean> mineSpots;
+	public HashMap<MapLocation, Boolean> seenSpots;
 	public boolean init;
 	public int radius;
 	public int radiusSquared;
 	
-	public SoldierDefenseMiner(Soldier robot) {
+	public SoldierDefenseMiner(Soldier robot2) {
 		super();
-		this.robot = robot;
+		this.robot = robot2;
 		mineSpots = new HashMap<MapLocation, Boolean>();
+		seenSpots = new HashMap<MapLocation, Boolean>();
 		init = false;
 
 		radius = 0;
@@ -42,6 +46,11 @@ public class SoldierDefenseMiner extends Behavior {
 		// nothing needs to be done here
 		
 	}
+	
+	@Override
+	public void comBehavior() throws GameActionException {
+		robot.com.increment(Communicator.CHANNEL_MINER_COUNT);
+	}
 
 	/**
 	 * 
@@ -53,18 +62,16 @@ public class SoldierDefenseMiner extends Behavior {
 				_setMiningLocations();
 			}
 			
-			if (rand.nextInt() % 3 == 0) {
-				_pruneDestinations();
-			}
-			if (robot.navMode.atDestination) {
-				Team t = robot.rc.senseMine(robot.navMode.destination);
+			if (robot.navSystem.navMode.atDestination) {
+				Team t = robot.rc.senseMine(robot.navSystem.navMode.destination);
 				if (t != robot.info.myTeam) {
 					robot.rc.layMine();
+				} else {
 				}
 				_setDestination();
 			} else {
-				if (robot.navMode.hasDestination) {
-					robot.navMode.move();
+				if (robot.navSystem.navMode.hasDestination) {
+					robot.navSystem.navMode.move();
 				} else {
 					_setDestination();
 				}
@@ -79,15 +86,8 @@ public class SoldierDefenseMiner extends Behavior {
 	private void _setDestination() {
 		MapLocation loc = (MapLocation)mineSpots.keySet().toArray()[0];
 		mineSpots.remove(loc);
+		robot.navSystem.navMode.setDestination(loc);
 		
-		robot.navMode.setDestination(loc);
-	}
-	
-	private void _pruneDestinations() {
-		MapLocation[] locs = robot.rc.senseMineLocations(robot.rc.getLocation(), radiusSquared, robot.info.myTeam);
-		for (int i = 0, len = locs.length; i < len; i++) {
-			mineSpots.remove(locs[i]);
-		}
 	}
 
 	@Override
@@ -96,45 +96,47 @@ public class SoldierDefenseMiner extends Behavior {
 	}
 	
 	private void _setMiningLocations() {
+		MapLocation hqLoc = robot.info.hq;
+		MapLocation seenUpperLeft = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.NORTH_WEST, radius / 2));
+		MapLocation seenLowerRight = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.SOUTH_EAST, radius / 2));
+
 		radius++;
 		radiusSquared = radius * radius;
-
-		MapLocation hqLoc = robot.info.hq;
-		MapLocation upperLeft = _boundToBoard(hqLoc.add(Direction.NORTH_WEST, radius / 2));
-		MapLocation lowerRight = _boundToBoard(hqLoc.add(Direction.SOUTH_EAST, radius / 2));
+		MapLocation upperLeft = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.NORTH_WEST, radius / 2));
+		MapLocation lowerRight = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.SOUTH_EAST, radius / 2));
 		
-		for (int i = upperLeft.x; i <= lowerRight.x; i++) {
-			for (int j = upperLeft.y; j <= lowerRight.y; j++) {
-				mineSpots.put(new MapLocation(i, j), true);
-			}
+		MapLocation created;
+		if (robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
+			for (int i = upperLeft.x; i <= lowerRight.x; i += 2) {
+				for (int j = upperLeft.y; j <= lowerRight.y; j += 2) {
+					
+					if (i >= seenUpperLeft.x && i <= seenLowerRight.x &&
+						j >= seenUpperLeft.y && j <= seenLowerRight.y) {
+						continue;
+					}
+					
+					created = new MapLocation(i, j);
+					if (!seenSpots.containsKey(created)) {
+						mineSpots.put(created, true);
+					}
+				}
+			}	
+		} else {
+			for (int i = upperLeft.x; i <= lowerRight.x; i++) {
+				for (int j = upperLeft.y; j <= lowerRight.y; j++) {
+					
+					if (i >= seenUpperLeft.x && i <= seenLowerRight.x &&
+						j >= seenUpperLeft.y && j <= seenLowerRight.y) {
+						continue;
+					}
+					
+					created = new MapLocation(i, j);
+					if (!seenSpots.containsKey(created)) {
+						mineSpots.put(created, true);
+					}
+				}
+			}	
 		}
-		mineSpots.remove(robot.info.hq);
-	}
-
-	/**
-	 * Bounds the location to the board so if its off the board it will bound it to the board.
-	 * @param loc
-	 * @return
-	 */
-	private MapLocation _boundToBoard(MapLocation loc) {
-		if (robot.rc.senseTerrainTile(loc) == TerrainTile.OFF_MAP) {
-			int newX = loc.x, newY = loc.y;
-			
-			if (newX < 0) {
-				newX = 0;
-			} else if (newX >= robot.info.width) {
-				newX = robot.info.width - 1;
-			}
-			
-			if (newY < 0) {
-				newY = 0;
-			} else if (newY >= robot.info.height) {
-				newY = robot.info.height - 1;
-			}
-			
-			return new MapLocation(newX, newY);
-		}
-		return loc;
 	}
 	public static final int MAX_RADIUS = 20;
 }

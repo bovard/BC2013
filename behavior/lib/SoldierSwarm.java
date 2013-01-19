@@ -2,9 +2,12 @@ package team122.behavior.lib;
 
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
+import team122.communication.Communicator;
 import team122.robot.Soldier;
 
-public class SoldierSwarm extends Behavior{
+public class SoldierSwarm  
+		extends Behavior
+		implements IComBehavior {
 	
 	public Soldier robot;
 	
@@ -14,17 +17,22 @@ public class SoldierSwarm extends Behavior{
 
 	@Override
 	public void run() throws GameActionException {
-		if (!robot.navMode.hasDestination && !robot.navMode.atDestination) {
+		if (!robot.navSystem.navMode.hasDestination && !robot.navSystem.navMode.atDestination) {
 			robot.navSystem.setInitialSwarmRallyPoint();
 		}
 		
-		if (Clock.getRoundNum() % 100 == 0) {
+		if (Clock.getRoundNum() % 400 == 0) {
 			robot.navSystem.setToEnemyHQ();
 		} else {
-			robot.navMode.move();
+			robot.navSystem.navMode.move();
 		}
 	}
 
+	@Override
+	public void comBehavior() throws GameActionException {
+		robot.com.increment(Communicator.CHANNEL_SOLDIER_COUNT);
+	}
+	
 	@Override
 	public boolean pre() {
 		return true;

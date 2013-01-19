@@ -6,23 +6,35 @@ import team122.robot.Soldier;
 
 public class SoldierSelector extends Decision {
 	public Soldier robot;
-	public Communicator com;
 
 	public SoldierSelector(Soldier soldier) {
 		this.robot = soldier;
 		children.add(new SoldierDefenseMiner(this.robot));
 		children.add(new SoldierSwarm(this.robot));
+		children.add(new SoldierEncamper(this.robot));
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SWARMER).parent = this;
-		com = new Communicator(soldier.rc, soldier.info);
+		children.get(SOLDIER_ENCAMPER).parent = this;
 	}
 	
 	@Override
 	public Node select() throws GameActionException {
 		// TODO: when we have more than one child the decision code should be in here
 		
-		int type = com.receive(Communicator.CHANNEL_COMMUNICATE_SOLDIER_MODE, SOLDIER_SWARMER);
-		return children.get(type);
+		if (robot.isNew) {
+			int data = robot.com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
+			
+			robot.initialMode = data % 10;
+			robot.initialData = data % 100 - robot.initialMode;
+			robot.isNew = false;
+			
+			Behavior behavior = (Behavior)children.get(robot.initialMode);
+			behavior.setInitialData(robot.initialData);
+			
+			return behavior;
+		}		
+
+		return children.get(robot.initialMode);
 	}
 
 	@Override
@@ -32,4 +44,7 @@ public class SoldierSelector extends Decision {
 
 	public static final int SOLDIER_MINER = 0;
 	public static final int SOLDIER_SWARMER = 1;
+	public static final int SOLDIER_ENCAMPER = 2;
+	
+	public static final int GENERATOR_ENCAMPER = 10;
 }
