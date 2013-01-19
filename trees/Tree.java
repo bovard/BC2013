@@ -21,10 +21,12 @@ public abstract class Tree {
 	
 	public void run() {
 		boolean newB = true;
-		robot.environmentCheck();
 		
 		while (true) {
 			try {
+				// at the start of the round, update with an environment check
+				robot.environmentCheck();
+				
 				// TODO: doesn't support a sequence
 				// first check the pres and navigate to a Node that pre returns true
 				if (newB) {
@@ -57,10 +59,7 @@ public abstract class Tree {
 				}
 				
 				newB = false;
-				robot.rc.yield();
-				
-				// at the start of the round, update with an environment check
-				robot.environmentCheck();
+				robot.rc.yield();	
 				
 			} catch (Exception e) {
 				e.printStackTrace();

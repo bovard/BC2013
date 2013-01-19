@@ -6,7 +6,7 @@ import team122.robot.Soldier;
 
 public class SoldierSelector extends Decision {
 	public Soldier robot;
-	public Communicator com;
+	public int initialMode;
 
 	public SoldierSelector(Soldier soldier) {
 		this.robot = soldier;
@@ -16,21 +16,19 @@ public class SoldierSelector extends Decision {
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SWARMER).parent = this;
 		children.get(SOLDIER_ENCAMPER).parent = this;
-		com = new Communicator(soldier.rc, soldier.info);
 	}
 	
 	@Override
 	public Node select() throws GameActionException {
 		// TODO: when we have more than one child the decision code should be in here
 		
-		if (this.robot.isNew) {
-			int type = com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
-			System.out.println("New Soldier: " + type);
-			return children.get(type);
-		}
-		
+		if (robot.isNew) {
+			initialMode = robot.com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
+			robot.isNew = false;
+			return children.get(initialMode);
+		}		
 
-		return children.get(SOLDIER_SWARMER);
+		return children.get(initialMode);
 	}
 
 	@Override

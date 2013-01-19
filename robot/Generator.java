@@ -1,5 +1,6 @@
 package team122.robot;
 
+import team122.communication.Communicator;
 import team122.trees.GeneratorTree;
 import team122.RobotInformation;
 import battlecode.common.GameObject;
@@ -14,6 +15,9 @@ public class Generator extends Robot {
 	public Generator(RobotController rc, RobotInformation info) {
 		super(rc, info);
 		tree = new GeneratorTree(this);
+		com.seedChannels(5, new int[] { 
+			Communicator.CHANNEL_GENERATOR_COUNT
+		});
 	}
 
 	@Override

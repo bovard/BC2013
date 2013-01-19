@@ -1,5 +1,6 @@
 package team122.robot;
 
+import battlecode.common.GameActionException;
 import battlecode.common.RobotController;
 import team122.RobotInformation;
 import team122.communication.Communicator;
@@ -23,7 +24,7 @@ public abstract class Robot {
 	public Robot(RobotController rc, RobotInformation info) {
 		this.rc = rc;
 		this.info = info;
-		com = new Communicator(rc, info);
+		com = new Communicator(rc);
 	}
 	
 	/**
@@ -31,7 +32,7 @@ public abstract class Robot {
 	 * check to see if enemies are near. 
 	 * 
 	 */
-	public abstract void environmentCheck();
+	public abstract void environmentCheck() throws GameActionException ;
 	
 	
 	/**
@@ -40,5 +41,4 @@ public abstract class Robot {
 	public void run() {
 		tree.run();
 	}
-
 }

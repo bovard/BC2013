@@ -120,4 +120,25 @@ public class NavigationSystem {
 	public void setToEnemyHQ() {
 		navMode.setDestination(rc.senseEnemyHQLocation());
 	}
+	
+	public static MapLocation BoundToBoard(team122.robot.Robot robot, MapLocation loc) {
+		if (robot.rc.senseTerrainTile(loc) == TerrainTile.OFF_MAP) {
+			int newX = loc.x, newY = loc.y;
+			
+			if (newX < 0) {
+				newX = 0;
+			} else if (newX >= robot.info.width) {
+				newX = robot.info.width - 1;
+			}
+			
+			if (newY < 0) {
+				newY = 0;
+			} else if (newY >= robot.info.height) {
+				newY = robot.info.height - 1;
+			}
+			
+			return new MapLocation(newX, newY);
+		}
+		return loc;
+	}
 }

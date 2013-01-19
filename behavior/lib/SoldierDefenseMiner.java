@@ -2,6 +2,8 @@ package team122.behavior.lib;
 
 import java.util.HashMap;
 
+import team122.communication.Communicator;
+import team122.navigation.NavigationSystem;
 import team122.robot.Soldier;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
@@ -10,7 +12,9 @@ import battlecode.common.Team;
 import battlecode.common.TerrainTile;
 import battlecode.common.Upgrade;
 
-public class SoldierDefenseMiner extends Behavior {
+public class SoldierDefenseMiner 
+		extends Behavior
+		implements IComBehavior {
 	
 	public Soldier robot;
 	public HashMap<MapLocation, Boolean> mineSpots;
@@ -41,6 +45,11 @@ public class SoldierDefenseMiner extends Behavior {
 	public void stop() {
 		// nothing needs to be done here
 		
+	}
+	
+	@Override
+	public void comBehavior() throws GameActionException {
+		robot.com.increment(Communicator.CHANNEL_MINER_COUNT);
 	}
 
 	/**
@@ -88,13 +97,13 @@ public class SoldierDefenseMiner extends Behavior {
 	
 	private void _setMiningLocations() {
 		MapLocation hqLoc = robot.info.hq;
-		MapLocation seenUpperLeft = _boundToBoard(hqLoc.add(Direction.NORTH_WEST, radius / 2));
-		MapLocation seenLowerRight = _boundToBoard(hqLoc.add(Direction.SOUTH_EAST, radius / 2));
+		MapLocation seenUpperLeft = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.NORTH_WEST, radius / 2));
+		MapLocation seenLowerRight = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.SOUTH_EAST, radius / 2));
 
 		radius++;
 		radiusSquared = radius * radius;
-		MapLocation upperLeft = _boundToBoard(hqLoc.add(Direction.NORTH_WEST, radius / 2));
-		MapLocation lowerRight = _boundToBoard(hqLoc.add(Direction.SOUTH_EAST, radius / 2));
+		MapLocation upperLeft = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.NORTH_WEST, radius / 2));
+		MapLocation lowerRight = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.SOUTH_EAST, radius / 2));
 		
 		MapLocation created;
 		if (robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
@@ -128,32 +137,6 @@ public class SoldierDefenseMiner extends Behavior {
 				}
 			}	
 		}
-	}
-
-	/**
-	 * Bounds the location to the board so if its off the board it will bound it to the board.
-	 * @param loc
-	 * @return
-	 */
-	private MapLocation _boundToBoard(MapLocation loc) {
-		if (robot.rc.senseTerrainTile(loc) == TerrainTile.OFF_MAP) {
-			int newX = loc.x, newY = loc.y;
-			
-			if (newX < 0) {
-				newX = 0;
-			} else if (newX >= robot.info.width) {
-				newX = robot.info.width - 1;
-			}
-			
-			if (newY < 0) {
-				newY = 0;
-			} else if (newY >= robot.info.height) {
-				newY = robot.info.height - 1;
-			}
-			
-			return new MapLocation(newX, newY);
-		}
-		return loc;
 	}
 	public static final int MAX_RADIUS = 20;
 }
