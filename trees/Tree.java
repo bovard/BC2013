@@ -65,6 +65,7 @@ public abstract class Tree {
 				e.printStackTrace();	
 			}
 
+			robot.load();
 			robot.rc.yield();
 		}
 	}

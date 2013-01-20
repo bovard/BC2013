@@ -62,14 +62,40 @@ def in_results(map):
 
 def eval_map(map):
     score = 0
-    if 'e' in map:
-        if 'e' in map[0:5]:
-            score += 1
-        for i in range(len(map)):
-            if map[i] == 'e':
-                score -= 1
-            elif map[i] == 'a':
-                score += 1
+    nume = 0
+    numa = 0
+    numbe = 0
+    numba = 0
+
+    # find the number of enemies/allies in the front two rows
+    for i in range(0,6):
+        if map[i] == 'a':
+            numa += 1
+        elif map[i] == 'e':
+            nume += 1
+
+    # find the number of enimies/alllies in the back row
+    for i in range(6,9):
+        if map[i] == 'a':
+            numba += 1
+        elif map[i] == 'e':
+            numbe += 1
+
+    # if we have more allies than enemies, move in!
+    if 0 < nume < numa + 1:
+        score += 100
+    # if it's equal... add a bit
+    elif nume > 0 and nume == numa + 1:
+        score += 10
+    # if someone else has already gone in, go in!
+    if numbe and numa:
+        score += 50
+    for i in range(len(map)):
+        if map[i] == 'e':
+            score -= 6
+        elif map[i] == 'a':
+            score += 6
+
     return score
 
 
@@ -84,8 +110,8 @@ for i0 in possibles:
                     for i6 in possibles:
                         for i7 in possibles:
                             for i8 in possibles:
-                                map = i0+'*'+i2+i3+i4+i5+i6+i7+i8
-                                if not in_results(map):
+                                map = i0+'o'+i2+i3+i4+i5+i6+i7+i8
+                                if not results.get(map):
                                     results[map] = eval_map(map)
 
 
@@ -100,27 +126,34 @@ def init_hash(f, name, type):
     f.write("import java.util.Map;\n")
     f.write("\n")
     f.write("public class %s {\n" % name)
+    f.write("    public int count = 0;\n")
     f.write("    public Map<String, %s> m = new HashMap<String, %s>();\n" % (type, type))
 
 def write_constructor(f, num_o_inits, name):
-    f.write("    public %s() {\n" % name)
-    for i in range(0, num_o_inits+1):
-        f.write("        init_%s();\n" % i)
-    f.write("    }")
+    f.write("    public %s() {};\n" % name)
+    f.write("    public void load() {;\n")
+    f.write("        if (count == 0)\n")
+    f.write("            init_0();\n")
+    for i in range(1, num_o_inits+1):
+        f.write("        else if (count == %s)\n" % i)
+        f.write("            init_%s();\n" % i)
+    f.write("        count++;\n")
+    f.write("    }\n")
+    f.write("    public final int TO_LOAD = %s;\n" % num_o_inits)
 
-
+NUM_LOADS = 77
 def write_hash(hash, name, type):
 
     f = open('combat/%s.java' % name, 'w')
     init_hash(f, name, type)
-    i = 1000
+    i = NUM_LOADS
     num_o_inits = 0
     f.write('    private void init_0() {\n')
     for key in hash.keys():
         i -= 1
         if i <= 0:
             num_o_inits += 1
-            i = 1000
+            i = NUM_LOADS
             f.write('    }')
             f.write('    private void init_%s() {\n' % num_o_inits)
         if type == 'String':
@@ -135,7 +168,7 @@ def write_hash(hash, name, type):
 
 
 write_hash(results, "CombatHashMap", "Integer")
-write_hash(rotate_hash, "MapHashMap", "String")
+#write_hash(rotate_hash, "MapHashMap", "String")
 
 def something():
     """

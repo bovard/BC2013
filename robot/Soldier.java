@@ -9,11 +9,8 @@ import battlecode.common.Robot;
 import team122.RobotInformation;
 import team122.behavior.IComBehavior;
 import team122.behavior.Node;
-import team122.behavior.soldier.SoldierDefenseMiner;
-import team122.behavior.soldier.SoldierEncamper;
-import team122.behavior.soldier.SoldierSwarm;
+import team122.combat.MoveCalculator;
 import team122.communication.Communicator;
-import team122.navigation.NavigationMode;
 import team122.navigation.NavigationSystem;
 import team122.trees.SoldierTree;
 
@@ -31,6 +28,8 @@ public class Soldier extends TeamRobot {
 	public boolean isNew = true;
 	public int initialData;
 	public int initialMode;
+	public MoveCalculator mCalc;
+	public boolean loadDone = false;
 	
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -43,6 +42,19 @@ public class Soldier extends TeamRobot {
 			Communicator.CHANNEL_ENCAMPER_COUNT,
 			Communicator.CHANNEL_SOLDIER_COUNT
 		});
+		int time = Clock.getBytecodeNum();
+		mCalc = new MoveCalculator(this);
+		System.out.println("init takes " + (Clock.getBytecodeNum()-time));
+	}
+	
+	@Override
+	public void load() {
+		if(!loadDone && Clock.getBytecodesLeft() > 9000) {
+			System.out.println("LOADING....");
+			int time = Clock.getBytecodeNum();
+			loadDone = mCalc.load();
+			System.out.println("one load takes " + (Clock.getBytecodeNum()-time));	
+		}
 	}
 
 	@Override
@@ -78,5 +90,8 @@ public class Soldier extends TeamRobot {
 				((IComBehavior)curr).comBehavior();
 			}
 		}
+		
+		
+		
 	}
 }

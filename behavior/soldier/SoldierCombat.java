@@ -11,12 +11,12 @@ public class SoldierCombat
 		extends Behavior
 		implements IComBehavior {
 	protected Soldier robot;
-	protected MoveCalculator mCalc;
+	
 	
 	public SoldierCombat(Soldier robot) {
 		super();
 		this.robot = robot;
-		mCalc = new MoveCalculator(robot);
+
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class SoldierCombat
 	public void run() throws GameActionException {
 		if (!robot.rc.isActive())
 			return;
-		robot.rc.move(mCalc.calculateMove(robot.meleeObjects, robot.currentLoc));
+		robot.rc.move(robot.mCalc.calculateMove(robot.meleeObjects, robot.currentLoc));
 	}
 
 	@Override

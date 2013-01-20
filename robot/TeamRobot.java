@@ -34,6 +34,10 @@ public abstract class TeamRobot {
 	 */
 	public abstract void environmentCheck() throws GameActionException ;
 	
+	/**
+	 * Called at the end of a robots turn, can load things...
+	 */
+	public void load() {};
 	
 	/**
 	 * We should never return from this 
