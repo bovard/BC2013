@@ -1,8 +1,9 @@
-package team122.behavior.lib;
+package team122.behavior.soldier;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import team122.behavior.Behavior;
 import team122.robot.Soldier;
 import battlecode.common.Clock;
 import battlecode.common.Direction;

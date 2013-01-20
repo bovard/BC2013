@@ -15,23 +15,23 @@ import team122.robot.Supplier;
  */
 public class RobotPlayer {
 	public static void run(RobotController rc) {
-		RobotInformation information = new RobotInformation(rc);
+		RobotInformation info = new RobotInformation(rc);
 		System.out.println(rc.getType());
 		
 		if (rc.getType() == RobotType.HQ) {
-			new HQ(rc, information).run();
+			new HQ(rc, info).run();
 		} else if (rc.getType() == RobotType.SOLDIER) {
 			new Soldier(rc, info).run();
 		} else {
 			if (rc.getType() == RobotType.ARTILLERY) {
 				System.out.println("Running Artillery!");
-				new Artillery(rc, information).run();
+				new Artillery(rc, info).run();
 			} else if (rc.getType() == RobotType.GENERATOR) {
 				System.out.println("Creating Generator!");
-				new Generator(rc, information).run();
+				new Generator(rc, info).run();
 			} else if (rc.getType() == RobotType.SUPPLIER) {
 				System.out.println("Creating Supplier!");
-				new Supplier(rc, information).run();
+				new Supplier(rc, info).run();
 			}
 		}
 		// fell out

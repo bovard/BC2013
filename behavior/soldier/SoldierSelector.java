@@ -16,6 +16,7 @@ public class SoldierSelector extends Decision {
 		children.add(new SoldierDefenseMiner(this.robot));
 		children.add(new SoldierSwarm(this.robot));
 		children.add(new SoldierEncamper(this.robot));
+		children.add(new SoldierCombat(this.robot));
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SWARMER).parent = this;
 		children.get(SOLDIER_ENCAMPER).parent = this;
@@ -25,7 +26,7 @@ public class SoldierSelector extends Decision {
 	public Node select() throws GameActionException {
 		// TODO: when we have more than one child the decision code should be in here
 		if(robot.enemyInMelee) {
-			return children.get(COMBAT);
+			return children.get(SOLDIER_COMBAT);
 		}
 		
 		if (robot.isNew) {
@@ -52,6 +53,7 @@ public class SoldierSelector extends Decision {
 	public static final int SOLDIER_MINER = 0;
 	public static final int SOLDIER_SWARMER = 1;
 	public static final int SOLDIER_ENCAMPER = 2;
+	public static final int SOLDIER_COMBAT = 2;
 	
 	public static final int GENERATOR_ENCAMPER = 10;
 }

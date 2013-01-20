@@ -6,7 +6,7 @@ import team122.RobotInformation;
 import battlecode.common.GameObject;
 import battlecode.common.RobotController;
 
-public class Supplier extends Robot {
+public class Supplier extends TeamRobot {
 	public boolean canShoot;
 	public GameObject[] nearbyObjects;
 	public boolean enemyNearby;

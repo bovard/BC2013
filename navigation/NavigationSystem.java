@@ -7,6 +7,7 @@ import java.util.Random;
 
 import team122.AStar;
 import team122.RobotInformation;
+import team122.robot.TeamRobot;
 
 /**
  * The NavigationSystem takes care of selecting a move for the robot
@@ -121,7 +122,7 @@ public class NavigationSystem {
 		navMode.setDestination(rc.senseEnemyHQLocation());
 	}
 	
-	public static MapLocation BoundToBoard(team122.robot.Robot robot, MapLocation loc) {
+	public static MapLocation BoundToBoard(TeamRobot robot, MapLocation loc) {
 		if (robot.rc.senseTerrainTile(loc) == TerrainTile.OFF_MAP) {
 			int newX = loc.x, newY = loc.y;
 			
