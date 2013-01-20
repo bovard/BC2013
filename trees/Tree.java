@@ -1,8 +1,8 @@
 package team122.trees;
 
-import team122.behavior.lib.Behavior;
-import team122.behavior.lib.Decision;
-import team122.behavior.lib.Node;
+import team122.behavior.Behavior;
+import team122.behavior.Decision;
+import team122.behavior.Node;
 
 import team122.robot.TeamRobot;
 
@@ -21,9 +21,11 @@ public abstract class Tree {
 	
 	public void run() {
 		boolean newB = true;
-		robot.environmentCheck();
 		while (true) {
 			try {
+				// at the start of the round, update with an environment check
+				robot.environmentCheck();
+				
 				// TODO: doesn't support a sequence
 				// first check the pres and navigate to a Node that pre returns true
 				if (newB) {
@@ -58,9 +60,6 @@ public abstract class Tree {
 				newB = false;
 				robot.rc.yield();
 				robot.rc.setIndicatorString(0, "-");
-				
-				// at the start of the round, update with an environment check
-				robot.environmentCheck();
 				
 			} catch (Exception e) {
 				e.printStackTrace();

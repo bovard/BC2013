@@ -1,25 +1,22 @@
 package team122.robot;
 
 import team122.communication.Communicator;
-import team122.trees.ArtilleryTree;
+import team122.trees.SupplierTree;
 import team122.RobotInformation;
 import battlecode.common.GameObject;
 import battlecode.common.RobotController;
 
-public class Artillery extends TeamRobot{
+public class Supplier extends Robot {
 	public boolean canShoot;
 	public GameObject[] nearbyObjects;
 	public boolean enemyNearby;
 	public GameObject[] enemiesNearby;
 
-	public Artillery(RobotController rc, RobotInformation info) {
+	public Supplier(RobotController rc, RobotInformation info) {
 		super(rc, info);
-		tree = new ArtilleryTree(this);
-		
-		//The seed is for a possible end time strategy of changing the seed to
-		//switch all channels.
-		com.seedChannels(5, new int[] {
-			Communicator.CHANNEL_ARTILLERY_COUNT
+		tree = new SupplierTree(this);
+		com.seedChannels(5, new int[] { 
+			Communicator.CHANNEL_SUPPLIER_COUNT
 		});
 	}
 
@@ -35,5 +32,4 @@ public class Artillery extends TeamRobot{
 			}
 		}
 	}
-
 }

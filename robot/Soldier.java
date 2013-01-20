@@ -1,10 +1,18 @@
 package team122.robot;
 
+import battlecode.common.Clock;
+import battlecode.common.GameActionException;
 import battlecode.common.GameObject;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.Robot;
 import team122.RobotInformation;
+import team122.behavior.IComBehavior;
+import team122.behavior.Node;
+import team122.behavior.soldier.SoldierDefenseMiner;
+import team122.behavior.soldier.SoldierEncamper;
+import team122.behavior.soldier.SoldierSwarm;
+import team122.communication.Communicator;
 import team122.navigation.NavigationMode;
 import team122.navigation.NavigationSystem;
 import team122.trees.SoldierTree;
@@ -12,8 +20,7 @@ import team122.trees.SoldierTree;
 public class Soldier extends TeamRobot {
 	
 	public NavigationSystem navSystem = null;
-	public NavigationMode navMode = null;
-	public Robot[] enemiesAtTheGates;
+	public GameObject[] enemiesAtTheGates;
 	public boolean enemyAtTheGates;
 	public Robot[] enemiesInSight;
 	public boolean enemyInSight;
@@ -21,16 +28,25 @@ public class Soldier extends TeamRobot {
 	public boolean enemyInMelee;
 	public MapLocation currentLoc;
 	public MapLocation previousLoc;
+	public boolean isNew = true;
+	public int initialData;
+	public int initialMode;
 	
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);
 		navSystem = new NavigationSystem(rc, info);
-		navMode = navSystem.navMode;		
 		this.tree = new SoldierTree(this);
+
+		com.seedChannels(5, new int[] {
+			Communicator.CHANNEL_NEW_SOLDIER_MODE,
+			Communicator.CHANNEL_MINER_COUNT,
+			Communicator.CHANNEL_ENCAMPER_COUNT,
+			Communicator.CHANNEL_SOLDIER_COUNT
+		});
 	}
 
 	@Override
-	public void environmentCheck() {
+	public void environmentCheck() throws GameActionException {
 		enemyInMelee = false;
 		previousLoc = currentLoc;
 		currentLoc = rc.getLocation();
@@ -53,6 +69,13 @@ public class Soldier extends TeamRobot {
 					enemyInMelee = true;
 					break;
 				}
+			}
+		}
+		//Continue 
+		if (Clock.getRoundNum() % (HQ.HQ_COUNT_ROUND - 1) == 0) {
+			Node curr = tree.current;
+			if (curr instanceof IComBehavior) {
+				((IComBehavior)curr).comBehavior();
 			}
 		}
 	}

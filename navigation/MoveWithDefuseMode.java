@@ -38,7 +38,7 @@ public abstract class MoveWithDefuseMode extends NavigationMode {
 				defuseEnemyMine = false;
 				rc.defuseMine(enemyMineLocation);
 			}
-		} else if (team != null && team == Team.NEUTRAL) {
+		} else if (team == Team.NEUTRAL || team == info.enemyTeam) {
 			rc.defuseMine(nextLoc);
 			defusing = true;
 		} else {

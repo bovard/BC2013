@@ -1,5 +1,7 @@
-package team122.behavior.lib;
+package team122.behavior.artillery;
 
+import team122.behavior.Decision;
+import team122.behavior.Node;
 import team122.robot.Artillery;
 
 public class ArtillerySelector extends Decision {
