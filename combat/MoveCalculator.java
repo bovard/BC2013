@@ -128,7 +128,10 @@ public class MoveCalculator {
 		if (up_switch > 0 || zero_switch) {
 			//System.out.println("Hash: "+hash);
 			hash = "" + map[x-1][y] + map[x][y] + map[x+1][y] + map[x-1][y+1] + map[x][y+1] + map[x+1][y+1] + map[x-1][y+2] + map[x][y+2] + map[x+1][y+2];
-			score += combatHash.m.get(hash);
+			if (hash.contains("e"))
+				score += 10
+			else
+				score += combatHash.m.get(hash);
 			num++;
 		}
 		
@@ -143,7 +146,10 @@ public class MoveCalculator {
 			hash = "" + map[x][y+1] + map[x][y] + map[x][y-1] + map[x+1][y+1] + map[x+1][y] + map[x+1][y-1] + map[x+2][y+1] + map[x+2][y] + map[x+2][y-1]; 
 			//System.out.println("Hash: "+hash);
 		
-			score += combatHash.m.get(hash);
+			if (hash.contains("e"))
+				score += 10;
+			else
+				score += combatHash.m.get(hash);
 			num++;
 		}
 		
@@ -158,7 +164,10 @@ public class MoveCalculator {
 		if (right_switch < 0) {
 			hash = "" + map[x][y-1] + map[x][y] + map[x][y+1] + map[x-1][y-1] + map[x-1][y] + map[x-1][y+1] + map[x-2][y-1] + map[x-2][y] + map[x-2][y+1];
 			//System.out.println("Hash: "+hash);
-			score += combatHash.m.get(hash);
+			if (hash.contains("e"))
+				score += 10;
+			else
+				score += combatHash.m.get(hash);
 			num ++;
 		}
 		
@@ -172,7 +181,10 @@ public class MoveCalculator {
 		if (up_switch < 0 || zero_switch) {
 			hash = "" + map[x+1][y] + map[x][y] + map[x-1][y] + map[x+1][y-1] + map[x][y-1] + map[x-1][y-1] + map[x+1][y-2] + map[x][y-2] + map[x-1][y-2];
 			//System.out.println("Hash: "+hash);
-			score += combatHash.m.get(hash);
+			if (hash.contains("e"))
+				score += 10;
+			else
+				score += combatHash.m.get(hash);
 			num++;
 		}
 		

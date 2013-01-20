@@ -111,8 +111,16 @@ for i0 in possibles:
                         for i7 in possibles:
                             for i8 in possibles:
                                 map = i0+'o'+i2+i3+i4+i5+i6+i7+i8
-                                if not results.get(map):
-                                    results[map] = eval_map(map)
+                                if 'e' in map:
+                                    counte = 0
+                                    counta = 0
+                                    for i in range(0,9):
+                                        if map[i] == 'e':
+                                            counte += 1
+                                        if map[i] == 'a':
+                                            counta += 1
+                                    if not results.get(map):
+                                        results[map] = eval_map(map)
 
 
 
