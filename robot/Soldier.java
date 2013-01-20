@@ -49,7 +49,7 @@ public class Soldier extends TeamRobot {
 	
 	@Override
 	public void load() {
-		if(!loadDone && Clock.getBytecodesLeft() > 9000) {
+		while(!loadDone && Clock.getBytecodesLeft() > 3000) {
 			System.out.println("LOADING....");
 			int time = Clock.getBytecodeNum();
 			loadDone = mCalc.load();

@@ -141,7 +141,7 @@ def write_constructor(f, num_o_inits, name):
     f.write("    }\n")
     f.write("    public final int TO_LOAD = %s;\n" % num_o_inits)
 
-NUM_LOADS = 77
+NUM_LOADS = 13
 def write_hash(hash, name, type):
 
     f = open('combat/%s.java' % name, 'w')
