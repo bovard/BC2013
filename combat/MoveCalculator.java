@@ -173,14 +173,20 @@ public class MoveCalculator {
 			}
 		}
 		//System.out.println("one eval takes " + (Clock.getBytecodeNum()-time));
+		
+		// if we can outnumber an enemy do it!
 		if (eCount > 0) {
 			if(aCount + 1 > (eCount + fCount)) {
 				return 100;
 			}
 			return 6 * (aCount - (eCount+fCount)) + 5;
-		} else if (fCount > 0) {
+		}
+		// if we can take out an enemy building, do it!
+		else if (fCount > 0) {
 			return 100;
-		} else {
+		} 
+		// stick together team!
+		else {
 			return 3 * aCount;
 		}
 			
