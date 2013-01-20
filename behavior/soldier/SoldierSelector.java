@@ -52,7 +52,7 @@ public class SoldierSelector extends Decision {
 	 * @return
 	 */
 	public static int setEncamperData(int encampmentType, int encampmentToTry) {
-		return encampmentToTry * 100 + encampmentType + SOLDIER_ENCAMPER;
+		return encampmentToTry * 1000 + encampmentType + SOLDIER_ENCAMPER;
 	}
 
 	public static final int SOLDIER_MINER = 0;

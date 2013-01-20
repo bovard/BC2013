@@ -81,27 +81,8 @@ public class HQ extends Robot {
 		info.setEncampmentsAndSort();
 		info.setNeutralMines();
 		
-		enemyHQDistance = info.enemyHq.distanceSquaredTo(info.hq);
+		//We determine what strategy to use.
 		
-		//TODO: The amount of encampments that are "away" from enemy
-		econ += info.encampments.length / ECON_ENCAMPMENT_DENOMINATOR;
-		defensive += enemyHQDistance / DEFENSIVE_HQ_DIST_DENOMINATOR;
-
-		//Mine density for defensive and tech
-		tech += (info.neutralMines.length / (info.width * info.height)) * TECH_MINE_RATIO_MUL;
-		
-		defensive += tech;
-		
-		//Distance to the enemy hq
-		tech += enemyHQDistance / TECH_HQ_DIST_DENOMINATOR;
-		
-		//TODO: We need to figure out more metrics and how to calculate MILITARY metrics.
-		//TODO: a* to enemy base with mine penalties.  That distance would be HUGE in
-		//determining if we use nuke strat or not.
-		
-		//TODO:  The amount of encampments that fall directly between enemy and us.
-		//military += 
-		System.out.println("Strategy: " + econ + " : " + defensive + " : " + tech);
 	}
 	
 	public static final int HQ_COUNT_ROUND = 3;

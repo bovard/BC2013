@@ -35,7 +35,7 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 
 		// Setups the data : type and what generator to start with.
 		int camperType = robot.initialData % 100;
-		int campToTry = (robot.initialData) / 100;
+		int campToTry = (robot.initialData) / 1000;
 
 		System.out.println("CamperType: " + camperType + " :: " + campToTry);
 
