@@ -5,6 +5,7 @@ import team122.behavior.IComBehavior;
 import team122.combat.MoveCalculator;
 import team122.communication.Communicator;
 import team122.robot.Soldier;
+import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 
 public class SoldierCombat 
@@ -32,7 +33,9 @@ public class SoldierCombat
 	public void run() throws GameActionException {
 		if (!robot.rc.isActive())
 			return;
-		robot.rc.move(robot.mCalc.calculateMove(robot.meleeObjects, robot.currentLoc));
+		Direction toMove = robot.mCalc.calculateMove(robot.meleeObjects, robot.currentLoc);
+		if (toMove != Direction.NONE)
+			robot.rc.move(toMove);
 	}
 
 	@Override
