@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MapHashMap {
-    private static final Map<String, String> m = new HashMap<String, String>();
+    public Map<String, String> m = new HashMap<String, String>();
     private void init_0() {
         m.put("oaeoaoa*o","o*aoaoeao");
         m.put("ooe*eeoaa","o*oaeoaee");
@@ -21,7 +21,7 @@ public class MapHashMap {
         m.put("eeeoa*ooo","e*oeaoeoo");
         m.put("aeaaaoo*o","o*ooaaaea");
         m.put("ooeoa*aea","e*aoaeooa");
-        m.put("eoa*aaooo","o*eoaooaa");
+        m.put("aaaaa*oao","a*oaaaaao");
         m.put("oeo*aaaea","a*oeaeaao");
         m.put("eeaoaoa*o","o*aoaoaee");
         m.put("aoaaeeo*e","e*oeeaaoa");
@@ -43,6 +43,7 @@ public class MapHashMap {
         m.put("ooaoaoo*e","e*ooaoaoo");
         m.put("aae*oaaao","a*aaoaoae");
         m.put("eaooeoo*a","a*ooeooae");
+        m.put("aaaoaaa*a","a*aaaoaaa");
         m.put("ooe*eeoao","o*oaeooee");
         m.put("eea*aoeae","e*eaaeeoa");
         m.put("eoaeoae*a","a*eaoeaoe");
@@ -54,7 +55,7 @@ public class MapHashMap {
         m.put("eao*aeaoo","a*eoaaoeo");
         m.put("oeoeo*oee","o*eeoeoeo");
         m.put("eoeaooo*o","o*oooaeoe");
-        m.put("aaeeeao*o","o*oaeeeaa");
+        m.put("aaaoo*oao","a*oaoaaoo");
         m.put("aooeo*aoo","o*ooooaea");
         m.put("eeooeoo*o","o*ooeooee");
         m.put("eoo*eeoao","o*eaeooeo");
@@ -70,7 +71,7 @@ public class MapHashMap {
         m.put("aae*aaeao","e*aaaaoae");
         m.put("eao*ooeoa","e*eooaaoo");
         m.put("aaeaa*eoo","e*oaaoaae");
-        m.put("eoa*aaooa","o*eoaoaaa");
+        m.put("aaaaa*oaa","a*aaaaaao");
         m.put("aaeooao*o","o*oaooeaa");
         m.put("eeeeoee*o","o*eeoeeee");
         m.put("aooeo*aoe","o*eoooaea");
@@ -92,6 +93,7 @@ public class MapHashMap {
         m.put("aoaea*oae","a*eoaaaeo");
         m.put("eeaaaoa*a","a*aoaaaee");
         m.put("aoaea*oaa","a*aoaaaeo");
+        m.put("ooa*aooae","o*oaaoeoa");
         m.put("oaa*eoooo","o*ooeaooa");
         m.put("oaoee*oea","o*aaeeoeo");
         m.put("aoa*aeoae","o*aaaoeea");
@@ -107,7 +109,8 @@ public class MapHashMap {
         m.put("aoaoeao*o","o*oaeoaoa");
         m.put("oeaeo*aoa","a*aeoooea");
         m.put("eao*eeeeo","e*eeeaoeo");
-        m.put("aaoaoae*o","o*eaoaoaa");
+        m.put("ooaaooa*a","a*aooaaoo");
+        m.put("aoo*aaaoo","a*aoaooao");
         m.put("eaaeo*eaa","a*aaoaeee");
         m.put("eee*oaeoa","e*eooeaae");
         m.put("aaaaa*oeo","a*oaaeaao");
@@ -137,7 +140,7 @@ public class MapHashMap {
         m.put("eooeo*oaa","o*aooaeeo");
         m.put("oao*eaooo","o*ooeaoao");
         m.put("eeaaeao*a","a*oaeaaee");
-        m.put("aeo*aaooe","o*aoaeeao");
+        m.put("oaaoaaa*o","o*aaaoaao");
         m.put("oeeoaoe*o","o*eoaoeeo");
         m.put("eoooa*oea","o*aoaeeoo");
         m.put("eaeao*ooa","e*aaooeao");
@@ -162,7 +165,7 @@ public class MapHashMap {
         m.put("aeo*eaaoa","a*aoeeaao");
         m.put("aoo*eeoaa","o*aaeoaeo");
         m.put("ooooaea*e","e*aeaoooo");
-        m.put("aoooe*aoe","o*eoeoaoa");
+        m.put("oao*ooaao","a*oaoaooo");
         m.put("aaeeaee*o","o*eeaeeaa");
         m.put("aaeaooa*a","a*aooaeaa");
         m.put("eoaeo*aeo","a*oooeeea");
@@ -188,6 +191,7 @@ public class MapHashMap {
         m.put("eeeoa*aao","e*oeaaeoa");
         m.put("eoe*aaeee","e*eeaoeae");
         m.put("eeooo*oao","o*oeoaeoo");
+        m.put("oaoeo*eae","o*eaoaoee");
         m.put("eeeoa*aaa","e*aeaaeoa");
         m.put("oaoaa*eaa","o*aaaaoae");
         m.put("eoe*aaeeo","e*eeaooae");
@@ -230,8 +234,9 @@ public class MapHashMap {
         m.put("eeo*oeeea","e*eeoeaeo");
         m.put("aaooe*aee","o*eaeeaoa");
         m.put("aaeea*aee","e*eaaeaea");
-        m.put("aoaeooa*o","o*aooeaoa");
+        m.put("oaaao*ooa","a*aaoooao");
         m.put("aae*eeeeo","e*aeeaoee");
+        m.put("ooaoooa*a","a*aoooaoo");
         m.put("aaeea*aea","e*aaaeaea");
         m.put("aaaoe*eao","a*oaeaaoe");
         m.put("oaaeaoe*a","a*eoaeaao");
@@ -257,6 +262,7 @@ public class MapHashMap {
         m.put("oaeao*eoe","e*eaoooae");
         m.put("aoa*oeaeo","a*aeoooea");
         m.put("eooeo*eoa","o*aoooeee");
+        m.put("aeoae*eoa","o*aeeoaae");
         m.put("aeaaoae*e","e*eaoaaea");
         m.put("oeeoaaa*o","o*aaaoeeo");
         m.put("oaoaa*eae","o*eaaaoae");
@@ -282,6 +288,7 @@ public class MapHashMap {
         m.put("eee*eaeee","e*eeeeeae");
         m.put("eeeoo*aoa","e*aeooeoa");
         m.put("eeeoo*aoo","e*oeooeoa");
+        m.put("ooaoooo*a","a*ooooaoo");
         m.put("eoeooao*e","e*oaooeoe");
         m.put("eee*eaeeo","e*eeeeoae");
         m.put("aae*aeaaa","a*aaaaaee");
@@ -301,6 +308,7 @@ public class MapHashMap {
         m.put("eaaoa*aoe","a*eaaoeoa");
         m.put("aee*eaaoa","a*aoeeaae");
         m.put("oeooeae*a","a*eaeooeo");
+        m.put("oooaa*aoa","o*aoaooaa");
         m.put("aoaee*ooo","a*ooeoaeo");
         m.put("oaaaeee*e","e*eeeaaao");
         m.put("eoe*oeeoo","e*eooooee");
@@ -316,11 +324,13 @@ public class MapHashMap {
         m.put("eaeaa*oae","e*eaaaeao");
         m.put("ooo*aoaae","a*oaaoeoo");
         m.put("aea*eaoee","o*aeeeeaa");
+        m.put("ooo*aoaaa","a*oaaoaoo");
         m.put("aea*eaoea","o*aeeeaaa");
         m.put("aea*eaoeo","o*aeeeoaa");
         m.put("oeo*eeaee","a*oeeeeeo");
         m.put("aeoooae*o","o*eaoooea");
         m.put("oaoeoae*a","a*eaoeoao");
+        m.put("eaeeoao*a","a*oaoeeae");
         m.put("eoe*oeeoa","e*eoooaee");
         m.put("ooe*eaoao","o*oaeooae");
         m.put("oeoaeoo*a","a*ooeaoeo");
@@ -339,6 +349,7 @@ public class MapHashMap {
         m.put("ooeeooe*o","o*eooeeoo");
         m.put("oaaooae*o","o*eaooaao");
         m.put("eao*eoeoo","e*eoeaooo");
+        m.put("oaaoeoa*o","o*aoeoaao");
         m.put("oaeoo*oeo","e*oaoeooo");
         m.put("aeaae*eee","a*eeeeaae");
         m.put("ooo*oeoae","o*oaooeeo");
@@ -378,6 +389,7 @@ public class MapHashMap {
         m.put("aaa*eaeae","e*aaeaeaa");
         m.put("aoe*eaooa","o*aoeoaae");
         m.put("aeoaaoe*e","e*eoaaoea");
+        m.put("aaaoooo*o","o*ooooaaa");
         m.put("eoaoeoa*a","a*aoeoaoe");
         m.put("eaoaaeo*e","e*oeaaoae");
         m.put("aaa*eaaeo","a*aeeaoaa");
@@ -406,11 +418,13 @@ public class MapHashMap {
         m.put("aae*oaoea","o*aeoaaae");
         m.put("eoa*eoeee","e*eeeoeoa");
         m.put("ooeaa*aoo","e*ooaooaa");
+        m.put("ooaoooa*o","o*aoooaoo");
         m.put("oea*oaeae","e*oaoeeaa");
         m.put("aea*ooooo","o*aooeooa");
         m.put("oea*oaeaa","e*oaoeaaa");
         m.put("eeooaoo*o","o*ooaooee");
         m.put("eaaaeaa*a","a*aaeaaae");
+        m.put("oaa*eooea","o*oeeaaoa");
         m.put("aoeoeeo*e","e*oeeoeoa");
         m.put("eoaoe*oaa","a*aoeaeoo");
         m.put("eeeeeoe*e","e*eoeeeee");
@@ -423,6 +437,7 @@ public class MapHashMap {
         m.put("eoeoeao*a","a*oaeoeoe");
         m.put("oeeoe*oao","e*oeeaooo");
         m.put("aeooaea*o","o*aeaooea");
+        m.put("oooaaoo*o","o*ooaaooo");
         m.put("oaeoo*eea","e*aaoeooe");
         m.put("oaeoo*eee","e*eaoeooe");
         m.put("oeaoa*eae","a*eeaaooe");
@@ -451,7 +466,7 @@ public class MapHashMap {
         m.put("ooaeo*oee","a*eooeoeo");
         m.put("eeeoo*oae","e*eeoaeoo");
         m.put("aeaee*oao","a*oeeaaeo");
-        m.put("eee*eeoao","o*eaeeoee");
+        m.put("oao*aeaeo","a*oeaaoeo");
         m.put("eaooa*aoo","o*oaaoeoa");
         m.put("aoeeo*aaa","e*aooaaea");
         m.put("ooaoa*oeo","a*ooaeooo");
@@ -520,7 +535,7 @@ public class MapHashMap {
         m.put("oaoea*aao","o*oaaaoea");
         m.put("oaoae*eae","o*eaeaoae");
         m.put("eeoaaoa*e","e*aoaaoee");
-        m.put("aeaeoae*o","o*eaoeaea");
+        m.put("ooo*oaaoo","a*oooooao");
         m.put("aeooeae*o","o*eaeooea");
         m.put("eoaeo*ooo","a*ooooeeo");
         m.put("eee*oaaoa","a*eooeaae");
@@ -599,6 +614,7 @@ public class MapHashMap {
         m.put("ooeoe*oao","e*ooeaooo");
         m.put("ooa*eaooa","o*ooeoaaa");
         m.put("aooeooa*e","e*aooeooa");
+        m.put("oaooo*aoa","o*aaooooa");
         m.put("oeaooee*e","e*eeooaeo");
         m.put("ooooeea*o","o*aeeoooo");
         m.put("ooeoe*oae","e*eoeaooo");
@@ -613,8 +629,9 @@ public class MapHashMap {
         m.put("ooa*eoaee","a*oeeoeoa");
         m.put("aoe*eoeee","e*aeeoeoe");
         m.put("aaeeo*eoo","e*oaooaee");
-        m.put("oeoae*aeo","o*oeeeoaa");
+        m.put("ooeaeoo*a","a*ooeaeoo");
         m.put("eaoeaeo*e","e*oeaeoae");
+        m.put("aoooo*aao","o*oooaaoa");
         m.put("eoe*aaooe","o*eoaoeae");
         m.put("oeaoe*oeo","a*oeeeooo");
         m.put("aaaea*eae","a*eaaaaee");
@@ -626,6 +643,7 @@ public class MapHashMap {
         m.put("eoaae*eoa","a*aoeoeae");
         m.put("aeo*eaaae","a*aaeeeao");
         m.put("eoaae*eoe","a*eoeoeae");
+        m.put("oaooo*aoo","o*oaooooa");
         m.put("eoeeaaa*e","e*aaaeeoe");
         m.put("oaaaaea*a","a*aeaaaao");
         m.put("aeeeoao*a","a*oaoeeea");
@@ -643,9 +661,11 @@ public class MapHashMap {
         m.put("aoo*eoaoe","a*aoeoeoo");
         m.put("eao*aaoeo","o*eeaaoao");
         m.put("aoo*eoaoa","a*aoeoaoo");
+        m.put("aoooo*aaa","o*aooaaoa");
         m.put("aaooe*oaa","o*aaeaaoo");
         m.put("eeoaeoo*o","o*ooeaoee");
         m.put("eae*eoaoe","a*eoeaeoe");
+        m.put("aeaaoeo*o","o*oeoaaea");
         m.put("eaeeoae*o","o*eaoeeae");
         m.put("oooeo*aae","o*eooaoea");
         m.put("aeooe*eae","o*eeeaaoe");
@@ -666,6 +686,7 @@ public class MapHashMap {
         m.put("aaoea*eoo","o*oaaoaee");
         m.put("oeeaeee*e","e*eeeaeeo");
         m.put("eoooooo*e","e*ooooooe");
+        m.put("oaaaooo*o","o*oooaaao");
         m.put("oeeaeee*a","a*eeeaeeo");
         m.put("eoo*eooae","o*eaeoeoo");
         m.put("oaoooee*a","a*eeoooao");
@@ -682,13 +703,17 @@ public class MapHashMap {
         m.put("eooae*aao","o*ooeaeaa");
         m.put("aeo*eoooo","o*aoeeooo");
         m.put("aoaoaaa*e","e*aaaoaoa");
+        m.put("eooea*aaa","o*aoaaeea");
         m.put("oaaoaoe*a","a*eoaoaao");
+        m.put("aoaoaaa*a","a*aaaoaoa");
         m.put("oaaoaoe*e","e*eoaoaao");
         m.put("eooeaoo*a","a*ooaeooe");
+        m.put("oeeoeeo*o","o*oeeoeeo");
         m.put("oea*aeaoe","a*ooaeeea");
         m.put("eoe*eoeoa","e*eoeoaoe");
         m.put("eoaoo*eeo","a*oooeeoe");
         m.put("aaaeo*aoe","a*eaooaea");
+        m.put("aaa*oaoao","o*aaoaoaa");
         m.put("oaoae*eao","o*oaeaoae");
         m.put("eaa*aoeoo","e*eoaaooa");
         m.put("aee*oooeo","o*aeoeooe");
@@ -698,14 +723,16 @@ public class MapHashMap {
         m.put("aoeoeoo*o","o*ooeoeoa");
         m.put("aee*aoooe","o*aoaeeoe");
         m.put("eaa*aoeoa","e*eoaaaoa");
+        m.put("eoaeoea*o","o*aeoeaoe");
         m.put("eaoaeeo*o","o*oeeaoae");
         m.put("aoa*aooea","o*aeaoaoa");
         m.put("aaoeoeo*o","o*oeoeoaa");
         m.put("eaeeoea*a","a*aeoeeae");
         m.put("eooeeoa*o","o*aoeeooe");
-        m.put("eeaoaee*o","o*eeaoaee");
+        m.put("aooaaoo*a","a*ooaaooa");
         m.put("eeeaaoo*a","a*ooaaeee");
         m.put("ooo*eoaoa","a*ooeoaoo");
+        m.put("aaaaaoo*o","o*ooaaaaa");
         m.put("aeoeo*aeo","o*oeoeaea");
         m.put("eaoaaee*o","o*eeaaoae");
         m.put("eoeeoaa*e","e*aaoeeoe");
@@ -725,12 +752,14 @@ public class MapHashMap {
         m.put("aoa*oaoee","o*aeooeaa");
         m.put("aaooe*ooo","o*oaeoaoo");
         m.put("ooo*oeoeo","o*oeoooeo");
+        m.put("aooao*aao","o*oooaaaa");
         m.put("ooaoeao*e","e*oaeoaoo");
         m.put("oeeao*aoe","e*eeoooaa");
         m.put("oae*eooae","o*oaeaeoe");
         m.put("ooaoeao*a","a*oaeoaoo");
         m.put("oeeao*aoa","e*aeoooaa");
         m.put("eao*ooeaa","e*eaoaaoo");
+        m.put("ooa*oaooa","o*ooooaaa");
         m.put("ooaoeao*o","o*oaeoaoo");
         m.put("eao*ooeae","e*eaoaeoo");
         m.put("aeoea*eoe","o*eeaoaee");
@@ -757,6 +786,7 @@ public class MapHashMap {
         m.put("aaa*ooeeo","e*aeoaooa");
         m.put("aoeeeea*a","a*aeeeeoa");
         m.put("oeoaeae*e","e*eaeaoeo");
+        m.put("oaoao*oao","o*oaoaoao");
         m.put("eea*aoaoa","a*eoaeaoa");
         m.put("eooeaoo*e","e*ooaeooe");
         m.put("aaeeeea*a","a*aeeeeaa");
@@ -780,15 +810,20 @@ public class MapHashMap {
         m.put("eoaeoao*e","e*oaoeaoe");
         m.put("eeoeaeo*e","e*oeaeoee");
         m.put("eooeeeo*e","e*oeeeooe");
+        m.put("eoaoa*aoo","a*ooaoeoa");
         m.put("ooo*eaooo","o*ooeooao");
         m.put("aaoao*eaa","o*aaoaaae");
         m.put("ooooooe*o","o*eoooooo");
+        m.put("aaooaoa*o","o*aoaooaa");
         m.put("oooaa*oea","o*aoaeoao");
         m.put("aeo*aoaao","a*aaaeooo");
         m.put("aaooaoa*e","e*aoaooaa");
+        m.put("oeooe*eao","o*oeeaooe");
         m.put("ooeee*oea","e*aoeeoeo");
+        m.put("eeaeeea*o","o*aeeeaee");
         m.put("aea*ooaoo","a*aooeooa");
         m.put("ooeee*oee","e*eoeeoeo");
+        m.put("aaaoooo*a","a*ooooaaa");
         m.put("aooeo*aae","o*eooaaea");
         m.put("aaaea*aeo","a*oaaeaea");
         m.put("oea*aaoaa","o*oaaeaaa");
@@ -798,6 +833,7 @@ public class MapHashMap {
         m.put("ooa*aaaoe","a*ooaoeaa");
         m.put("oeoaooa*e","e*aooaoeo");
         m.put("aaaea*aea","a*aaaeaea");
+        m.put("ooa*aaaoo","a*ooaooaa");
         m.put("aaoaa*eoa","o*aaaoaae");
         m.put("eeeao*oao","e*oeoaeao");
         m.put("aoeaaae*o","o*eaaaeoa");
@@ -807,8 +843,11 @@ public class MapHashMap {
         m.put("oaa*aaoea","o*oeaaaaa");
         m.put("eoaoaoe*o","o*eoaoaoe");
         m.put("oeaeo*oae","a*eeoaoeo");
+        m.put("ooooo*aoa","o*aoooooa");
         m.put("oaooa*eea","o*aaaeooe");
         m.put("aoeeo*oee","e*eooeaeo");
+        m.put("aooaaoa*a","a*aoaaooa");
+        m.put("oaoao*aoo","o*oaoooaa");
         m.put("aoeeo*oea","e*aooeaeo");
         m.put("oaoao*eae","o*eaoaoae");
         m.put("oeeaeea*a","a*aeeaeeo");
@@ -822,7 +861,7 @@ public class MapHashMap {
         m.put("aaeeeee*o","o*eeeeeaa");
         m.put("aoe*oaeao","e*aaoooae");
         m.put("aoeeeea*e","e*aeeeeoa");
-        m.put("eaoaa*aoe","o*eaaoeaa");
+        m.put("aoaaoao*a","a*oaoaaoa");
         m.put("aoe*oaeae","e*aaooeae");
         m.put("aee*eaoea","o*aeeeaae");
         m.put("aeaeo*oao","a*oeoaaeo");
@@ -836,6 +875,7 @@ public class MapHashMap {
         m.put("ooe*aeeao","e*oaaooee");
         m.put("aea*aeoaa","o*aaaeaea");
         m.put("aeaaeao*o","o*oaeaaea");
+        m.put("aooaaoa*o","o*aoaaooa");
         m.put("oaeao*aae","e*eaoaoaa");
         m.put("aeaeeoe*e","e*eoeeaea");
         m.put("oea*oaoae","o*oaoeeaa");
@@ -848,11 +888,13 @@ public class MapHashMap {
         m.put("ooaeo*ooe","a*eooooeo");
         m.put("eeo*oaaoe","a*eooeeao");
         m.put("eaoaoee*e","e*eeoaoae");
+        m.put("ooa*ooaaa","a*oaooaoa");
         m.put("aae*ooaea","a*aeoaaoe");
         m.put("eoa*aeoee","o*eeaoeea");
         m.put("eee*aeoeo","o*eeaeoee");
         m.put("aooeaoa*a","a*aoaeooa");
         m.put("eoa*aeoea","o*eeaoaea");
+        m.put("eeaeaoo*o","o*ooaeaee");
         m.put("eoa*aeoeo","o*eeaooea");
         m.put("eoa*aooea","o*eeaoaoa");
         m.put("aeaeeoe*o","o*eoeeaea");
@@ -865,7 +907,7 @@ public class MapHashMap {
         m.put("aeoooaa*a","a*aaoooea");
         m.put("eeooaea*o","o*aeaooee");
         m.put("aeooeoo*e","e*ooeooea");
-        m.put("aeoao*oaa","o*aeoaaao");
+        m.put("ooa*ooaao","a*oaooooa");
         m.put("aee*oeeeo","e*aeoeoee");
         m.put("oooea*aoo","o*ooaooea");
         m.put("eoa*oaeea","e*eeooaaa");
@@ -910,7 +952,7 @@ public class MapHashMap {
         m.put("eoeaooe*o","o*eooaeoe");
         m.put("aeaaooa*o","o*aooaaea");
         m.put("eao*ooooe","o*eooaeoo");
-        m.put("ooeeeoe*o","o*eoeeeoo");
+        m.put("oaaaa*aoa","a*aaaooaa");
         m.put("aeeea*oaa","e*aeaaaeo");
         m.put("eoeaaoo*a","a*ooaaeoe");
         m.put("aeaooao*a","a*oaooaea");
@@ -919,8 +961,10 @@ public class MapHashMap {
         m.put("eoa*aooee","o*eeaoeoa");
         m.put("oea*eeeao","e*oaeeoea");
         m.put("eao*eoaae","a*eaeaeoo");
+        m.put("ooaaoaa*o","o*aaoaaoo");
         m.put("oea*eeeaa","e*oaeeaea");
         m.put("eao*eoaaa","a*eaeaaoo");
+        m.put("ooe*aaaae","a*oaaoeae");
         m.put("oea*eeeae","e*oaeeeea");
         m.put("eeo*eaeea","e*eeeeaao");
         m.put("aoo*oaooe","o*aoooeao");
@@ -951,7 +995,7 @@ public class MapHashMap {
         m.put("oaeeeoo*e","e*ooeeeao");
         m.put("aoaeeaa*a","a*aaeeaoa");
         m.put("aao*aaoae","o*aaaaeao");
-        m.put("oaeeeoo*o","o*ooeeeao");
+        m.put("aaoooao*o","o*oaoooaa");
         m.put("aaoeaaa*o","o*aaaeoaa");
         m.put("aeoaoea*e","e*aeoaoea");
         m.put("oeaaaaa*a","a*aaaaaeo");
@@ -960,6 +1004,7 @@ public class MapHashMap {
         m.put("ooaea*aeo","a*ooaeoea");
         m.put("oeaooea*a","a*aeooaeo");
         m.put("eae*oaeee","e*eeoaeae");
+    }    private void init_1() {
         m.put("aoaoo*ooe","a*eoooaoo");
         m.put("ooaea*aee","a*eoaeoea");
         m.put("oeeaeea*o","o*aeeaeeo");
@@ -1004,28 +1049,28 @@ public class MapHashMap {
         m.put("oeoeeoo*e","e*ooeeoeo");
         m.put("ooa*aoaeo","a*oeaoooa");
         m.put("oeeea*eee","e*eeaeoee");
-    }    private void init_1() {
         m.put("oeeea*eea","e*aeaeoee");
         m.put("aeooa*eoo","o*oeaoaoe");
         m.put("ooooaea*o","o*aeaoooo");
         m.put("aoa*ooeoo","e*aoooooa");
-        m.put("eaoaaoo*a","a*ooaaoae");
+        m.put("oaaoo*aoa","a*aaooooa");
         m.put("aoa*ooeoe","e*aoooeoa");
         m.put("aeooa*eoe","o*eeaoaoe");
         m.put("aeeao*eaa","e*aeoaaae");
         m.put("aoa*ooeoa","e*aoooaoa");
         m.put("eaaeeea*e","e*aeeeaae");
-        m.put("ooo*aaoee","o*oeaoeao");
+        m.put("aaoaa*aaa","o*aaaaaaa");
         m.put("eoaaeae*o","o*eaeaaoe");
         m.put("oaoea*eao","o*oaaaoee");
         m.put("eaaae*oea","a*aaeeeao");
         m.put("eoaaeae*e","e*eaeaaoe");
         m.put("eoaaeae*a","a*eaeaaoe");
         m.put("eeaaeea*a","a*aeeaaee");
+        m.put("oaoee*eao","o*oaeaoee");
         m.put("eeaaeea*e","e*aeeaaee");
         m.put("eee*oeeeo","e*eeoeoee");
         m.put("eaoae*oea","o*aaeeeao");
-        m.put("aeoee*eeo","o*oeeeaee");
+        m.put("aoo*oaaoa","a*aoooaao");
         m.put("eeaaeea*o","o*aeeaaee");
         m.put("aea*aeaeo","a*aeaeoea");
         m.put("oea*eaeeo","e*oeeeoaa");
@@ -1051,7 +1096,7 @@ public class MapHashMap {
         m.put("eoo*aaoae","o*eaaoeao");
         m.put("eaa*aeooe","o*eoaaeea");
         m.put("oaaaeao*a","a*oaeaaao");
-        m.put("oee*eaoee","o*oeeeeae");
+        m.put("oaaaaoa*o","o*aoaaaao");
         m.put("eooeo*eao","o*oooaeee");
         m.put("aaa*eoaoa","a*aoeaaoa");
         m.put("aaaooeo*e","e*oeooaaa");
@@ -1067,6 +1112,7 @@ public class MapHashMap {
         m.put("aaa*oaeae","e*aaoaeaa");
         m.put("eaaooee*o","o*eeooaae");
         m.put("aeaao*oae","a*eeoaaao");
+        m.put("ooo*aaoee","o*oeaoeao");
         m.put("oeaoa*eoe","a*eeaoooe");
         m.put("oeaeoee*o","o*eeoeaeo");
         m.put("eaa*eaaea","a*eeeaaaa");
@@ -1074,6 +1120,7 @@ public class MapHashMap {
         m.put("eeaoo*aaa","a*aeoaeoa");
         m.put("oaooeee*o","o*eeeooao");
         m.put("aaeee*aaa","e*aaeaaea");
+        m.put("ooaoa*aoa","a*aoaoooa");
         m.put("oeeooaa*e","e*aaooeeo");
         m.put("oaoee*eea","o*aaeeoee");
         m.put("aeeee*aao","e*oeeaaea");
@@ -1089,6 +1136,7 @@ public class MapHashMap {
         m.put("ooe*aaaao","a*oaaooae");
         m.put("aeooeeo*e","e*oeeooea");
         m.put("oeo*oaoaa","o*oaoeaao");
+        m.put("aaa*ooaaa","a*aaoaaoa");
         m.put("eaoae*oee","o*eaeeeao");
         m.put("eoeee*eea","e*aoeeeee");
         m.put("oeaoaea*a","a*aeaoaeo");
@@ -1105,7 +1153,8 @@ public class MapHashMap {
         m.put("oae*aaeee","e*oeaaeae");
         m.put("aeeeaea*o","o*aeaeeea");
         m.put("oae*aaeea","e*oeaaaae");
-        m.put("oaoeeoo*a","a*ooeeoao");
+        m.put("aaa*ooaao","a*aaoaooa");
+        m.put("oaoeoeo*o","o*oeoeoao");
         m.put("oooaaae*a","a*eaaaooo");
         m.put("eeooaae*e","e*eaaooee");
         m.put("aaooeeo*a","a*oeeooaa");
@@ -1118,7 +1167,7 @@ public class MapHashMap {
         m.put("eeaoaae*a","a*eaaoaee");
         m.put("ooe*oaeoe","e*ooooeae");
         m.put("eeaoaae*e","e*eaaoaee");
-        m.put("aeoae*eeo","o*oeeeaae");
+        m.put("aoo*oaaoo","a*aooooao");
         m.put("eaoea*aea","o*aaaeeea");
         m.put("eeo*eoooo","o*eoeeooo");
         m.put("aaoee*aoo","o*oaeoaea");
@@ -1128,6 +1177,7 @@ public class MapHashMap {
         m.put("oee*aoaoe","a*ooaeeoe");
         m.put("eaoaeea*a","a*aeeaoae");
         m.put("oaoao*oea","o*aaoeoao");
+        m.put("eoaeeee*o","o*eeeeaoe");
         m.put("eaoaeea*e","e*aeeaoae");
         m.put("aae*oeooo","o*aooaoee");
         m.put("aaeoaao*e","e*oaaoeaa");
@@ -1136,6 +1186,7 @@ public class MapHashMap {
         m.put("aaeoaao*a","a*oaaoeaa");
         m.put("ooeeoao*e","e*oaoeeoo");
         m.put("eoaea*eao","a*ooaaeee");
+        m.put("ooeeaeo*o","o*oeaeeoo");
         m.put("aaeoaao*o","o*oaaoeaa");
         m.put("aooee*eea","o*aoeeaee");
         m.put("aoeoeae*e","e*eaeoeoa");
@@ -1176,7 +1227,7 @@ public class MapHashMap {
         m.put("aaa*oeeee","e*aeoaeea");
         m.put("aeaoeoa*o","o*aoeoaea");
         m.put("eaaeoaa*a","a*aaoeaae");
-        m.put("oeoaooo*o","o*oooaoeo");
+        m.put("aaooa*oao","o*oaaaaoo");
         m.put("oaeee*aeo","e*oaeeoea");
         m.put("eeoea*oeo","o*oeaeeeo");
         m.put("oaoee*aea","o*aaeeoea");
@@ -1231,6 +1282,7 @@ public class MapHashMap {
         m.put("ooo*eoaeo","a*oeeoooo");
         m.put("oeoooee*o","o*eeoooeo");
         m.put("aaaaeoo*e","e*ooeaaaa");
+        m.put("aaa*oaoaa","o*aaoaaaa");
         m.put("ooo*eoaee","a*oeeoeoo");
         m.put("oaooe*eea","o*aaeeooe");
         m.put("eaa*oeaoe","a*eooaeea");
@@ -1247,6 +1299,7 @@ public class MapHashMap {
         m.put("eeaoeoa*a","a*aoeoaee");
         m.put("eea*aaoee","o*eeaeeaa");
         m.put("eeaoeoa*e","e*aoeoaee");
+        m.put("ooa*aeoeo","o*oeaooea");
         m.put("eaaaoao*o","o*oaoaaae");
         m.put("eaaaoao*a","a*oaoaaae");
         m.put("eaeeaoa*e","e*aoaeeae");
@@ -1256,7 +1309,8 @@ public class MapHashMap {
         m.put("oae*ooaaa","a*oaoaaoe");
         m.put("aaoeo*aoa","o*aaooaea");
         m.put("ooeaeee*e","e*eeeaeoo");
-        m.put("oae*ooaae","a*oaoaeoe");
+        m.put("aaoao*aao","o*oaoaaaa");
+        m.put("aoaoo*aoa","a*aoooaoa");
         m.put("aaeeaoo*e","e*ooaeeaa");
         m.put("oae*ooaao","a*oaoaooe");
         m.put("ooeaeee*o","o*eeeaeoo");
@@ -1294,6 +1348,7 @@ public class MapHashMap {
         m.put("eaoea*aeo","o*oaaeeea");
         m.put("oaa*aaeoo","e*ooaaoaa");
         m.put("oeeaoao*o","o*oaoaeeo");
+        m.put("aaoao*ooa","o*aaooaao");
         m.put("aee*ooaoe","a*aooeeoe");
         m.put("eeeoe*aea","e*aeeeeoa");
         m.put("aaoao*ooe","o*eaooaao");
@@ -1335,7 +1390,9 @@ public class MapHashMap {
         m.put("oeo*ooaoa","a*oooeaoo");
         m.put("eaa*aoeao","e*eaaaooa");
         m.put("oaaeooo*e","e*oooeaao");
+        m.put("aoaoooo*o","o*ooooaoa");
         m.put("eoo*oaeeo","e*eeoooao");
+        m.put("aaaaooa*o","o*aooaaaa");
         m.put("aaeae*ooo","e*oaeoaao");
         m.put("oeo*oaaoe","a*oooeeao");
         m.put("aae*eeeee","e*aeeaeee");
@@ -1347,9 +1404,11 @@ public class MapHashMap {
         m.put("aea*aeaea","a*aeaeaea");
         m.put("eeeeeeo*a","a*oeeeeee");
         m.put("aaeea*aeo","e*oaaeaea");
+        m.put("aaoaa*ooo","o*oaaoaao");
         m.put("eea*ooeoo","e*eooeooa");
         m.put("eaaeeoo*a","a*ooeeaae");
         m.put("eeoae*aae","o*eeeaeaa");
+        m.put("oao*oaoaa","o*oaoaaao");
         m.put("eaa*eaooe","o*eoeaeaa");
         m.put("oaa*eaoeo","o*oeeaoaa");
         m.put("aoeaoee*a","a*eeoaeoa");
@@ -1369,7 +1428,7 @@ public class MapHashMap {
         m.put("aeoea*eae","o*eeaaaee");
         m.put("ooaee*eoa","a*aoeooee");
         m.put("aoaooea*a","a*aeooaoa");
-        m.put("aeoea*eao","o*oeaaaee");
+        m.put("ooooo*oaa","o*aooaooo");
         m.put("aoaooea*e","e*aeooaoa");
         m.put("oaa*eeoee","o*oeeaeea");
         m.put("aeeeaoe*a","a*eoaeeea");
@@ -1384,6 +1443,7 @@ public class MapHashMap {
         m.put("ooe*eeoeo","o*oeeooee");
         m.put("oaeeooe*e","e*eooeeao");
         m.put("eaa*aaaoe","a*eoaaeaa");
+        m.put("aoaoa*aoo","a*ooaoaoa");
         m.put("aao*aaaeo","a*aeaaoao");
         m.put("eoeeeoo*a","a*ooeeeoe");
         m.put("eoa*eoaao","a*eaeoooa");
@@ -1392,6 +1452,7 @@ public class MapHashMap {
         m.put("aaeoe*oao","e*oaeaaoo");
         m.put("aae*oaoae","o*aaoaeae");
         m.put("ooe*eaeoo","e*ooeooae");
+        m.put("eoeaeae*o","o*eaeaeoe");
         m.put("eoeae*eao","e*ooeaeae");
         m.put("aaeoe*oae","e*eaeaaoo");
         m.put("ooe*eaeoa","e*ooeoaae");
@@ -1404,7 +1465,7 @@ public class MapHashMap {
         m.put("aoaoe*ooa","a*aoeoaoo");
         m.put("eao*oeoee","o*eeoaeeo");
         m.put("aoeoaae*e","e*eaaoeoa");
-        m.put("aaoee*aoe","o*eaeoaea");
+        m.put("aoaaa*oaa","a*aoaaaao");
         m.put("aoaoe*ooo","a*ooeoaoo");
         m.put("aoaaa*oae","a*eoaaaao");
         m.put("eaooe*eee","o*eaeeeoe");
@@ -1424,6 +1485,7 @@ public class MapHashMap {
         m.put("eoaoa*oaa","a*aoaaeoo");
         m.put("eeeeaao*e","e*oaaeeee");
         m.put("ooeaeae*a","a*eaeaeoo");
+        m.put("ooaaoaa*a","a*aaoaaoo");
         m.put("eeeeaao*a","a*oaaeeee");
         m.put("eaaee*aea","a*aaeeeea");
         m.put("ooaoo*oeo","a*oooeooo");
@@ -1440,6 +1502,7 @@ public class MapHashMap {
         m.put("eaeea*aea","e*aaaeeea");
         m.put("eeooe*oee","o*eeeeeoo");
         m.put("aaooeoe*a","a*eoeooaa");
+        m.put("aoaoooo*a","a*ooooaoa");
         m.put("eaeea*aee","e*eaaeeea");
         m.put("eaaaoaa*a","a*aaoaaae");
         m.put("ooaaeaa*e","e*aaeaaoo");
@@ -1488,6 +1551,7 @@ public class MapHashMap {
         m.put("eeeoa*aee","e*eeaeeoa");
         m.put("eooaoaa*a","a*aaoaooe");
         m.put("eeeoa*aea","e*aeaeeoa");
+        m.put("aaoaa*oae","o*eaaaaao");
         m.put("eeeoa*aeo","e*oeaeeoa");
         m.put("oaeaeae*e","e*eaeaeao");
         m.put("eooeo*eea","o*aooeeee");
@@ -1519,18 +1583,21 @@ public class MapHashMap {
         m.put("eoeaooa*a","a*aooaeoe");
         m.put("aaaeaea*e","e*aeaeaaa");
         m.put("eoe*oeooe","o*eoooeee");
-        m.put("oaaoe*aao","a*oaeaooa");
+        m.put("aaoaaaa*a","a*aaaaoaa");
         m.put("eoaaaoe*a","a*eoaaaoe");
         m.put("ooaoaoe*o","o*eoaoaoo");
         m.put("ooaeo*eoo","a*oooooee");
         m.put("eoaaaoe*e","e*eoaaaoe");
+        m.put("ooooa*oao","o*ooaaooo");
         m.put("eoooooe*a","a*eoooooe");
         m.put("ooeeeaa*e","e*aaeeeoo");
+        m.put("aoaaaao*o","o*oaaaaoa");
         m.put("eaeaa*eoo","e*oaaoeae");
         m.put("ooaeoeo*o","o*oeoeaoo");
         m.put("aaaaaae*o","o*eaaaaaa");
         m.put("aoaaaao*e","e*oaaaaoa");
         m.put("eaeaa*eoa","e*aaaoeae");
+        m.put("aoaaaao*a","a*oaaaaoa");
         m.put("eaeaa*eoe","e*eaaoeae");
         m.put("aea*aeooo","o*aoaeoea");
         m.put("eooaoea*o","o*aeoaooe");
@@ -1556,11 +1623,13 @@ public class MapHashMap {
         m.put("oeooe*eee","o*eeeeooe");
         m.put("eaoao*aoe","o*eaooeaa");
         m.put("eee*eaeae","e*eaeeeae");
+        m.put("aoa*aaoao","o*aaaooaa");
         m.put("ooe*eeoee","o*oeeoeee");
         m.put("eee*eaeaa","e*eaeeaae");
         m.put("aao*eoaae","a*aaeaeoo");
         m.put("aeoooea*a","a*aeoooea");
         m.put("eoeoa*ooa","e*aoaoeoo");
+        m.put("aaaaoao*o","o*oaoaaaa");
         m.put("oaeea*aoo","e*oaaooea");
         m.put("eoeeeoo*o","o*ooeeeoe");
         m.put("eoeoa*ooe","e*eoaoeoo");
@@ -1636,7 +1705,7 @@ public class MapHashMap {
         m.put("eaaoaea*o","o*aeaoaae");
         m.put("oooea*eoa","o*aoaooee");
         m.put("aoo*aoeoo","e*aoaoooo");
-        m.put("oaeeaee*o","o*eeaeeao");
+        m.put("oaa*aaaao","a*oaaaoaa");
         m.put("aoa*oeaaa","a*aaooaea");
         m.put("aoo*aoeoe","e*aoaoeoo");
         m.put("eaaoaea*e","e*aeaoaae");
@@ -1647,7 +1716,7 @@ public class MapHashMap {
         m.put("aea*aeooe","o*aoaeeea");
         m.put("eea*eeeaa","e*eaeeaea");
         m.put("eeaeaao*e","e*oaaeaee");
-        m.put("eaoea*eea","o*aaaeeee");
+        m.put("eoaaaoe*o","o*eoaaaoe");
         m.put("eea*eeeao","e*eaeeoea");
         m.put("eeaeaao*o","o*oaaeaee");
         m.put("eoa*aeoao","o*eaaooea");
@@ -1667,6 +1736,7 @@ public class MapHashMap {
         m.put("oaeae*aoo","e*oaeooaa");
         m.put("ooaaeoo*o","o*ooeaaoo");
         m.put("eaaea*aae","a*eaaaeea");
+        m.put("eoaoaoo*o","o*ooaoaoe");
         m.put("aoaeeae*o","o*eaeeaoa");
         m.put("oooeooe*o","o*eooeooo");
         m.put("aeaae*eae","a*eeeaaae");
@@ -1683,6 +1753,7 @@ public class MapHashMap {
         m.put("ooaaeeo*e","e*oeeaaoo");
         m.put("eeeaa*eao","e*oeaaeae");
         m.put("aoa*ooeao","e*aaooooa");
+        m.put("aaoee*aeo","o*oaeeaea");
         m.put("aaa*eaeee","e*aeeaeaa");
         m.put("eeooaoe*e","e*eoaooee");
         m.put("aaa*eaeea","e*aeeaaaa");
@@ -1730,6 +1801,7 @@ public class MapHashMap {
         m.put("ooooo*oae","o*eooaooo");
         m.put("ooe*eeooo","o*ooeooee");
         m.put("aoooa*eao","o*ooaaaoe");
+        m.put("aeoao*oaa","o*aeoaaao");
         m.put("eaoaa*eoo","o*oaaoeae");
         m.put("aaoeoae*o","o*eaoeoaa");
         m.put("oae*eaaao","a*oaeaoae");
@@ -1757,8 +1829,9 @@ public class MapHashMap {
         m.put("ooaaeeo*a","a*oeeaaoo");
         m.put("ooaoaee*e","e*eeaoaoo");
         m.put("aaoao*eeo","o*oaoeaae");
+        m.put("oea*eooaa","o*oaeeaoa");
         m.put("eeo*aeoee","o*eeaeeeo");
-        m.put("oeoeaoo*o","o*ooaeoeo");
+        m.put("oaaao*ooo","a*oaoooao");
         m.put("eeoeo*eaa","o*aeoaeee");
         m.put("eeaoeao*e","e*oaeoaee");
         m.put("eoa*aeoae","o*eaaoeea");
@@ -1819,7 +1892,7 @@ public class MapHashMap {
         m.put("eoo*aaooe","o*eoaoeao");
         m.put("oeaooaa*e","e*aaooaeo");
         m.put("oaoeo*aae","o*eaoaoea");
-        m.put("eoaaaaa*o","o*aaaaaoe");
+        m.put("aaaoa*aoa","a*aaaoaoa");
         m.put("oeaae*aee","a*eeeeoaa");
         m.put("aeoea*eee","o*eeaeaee");
         m.put("aaaoa*aoe","a*eaaoaoa");
@@ -1868,17 +1941,19 @@ public class MapHashMap {
         m.put("eoaeoea*e","e*aeoeaoe");
         m.put("aeo*aeoae","o*aaaeeeo");
         m.put("eaaaeoe*e","e*eoeaaae");
+        m.put("aaoao*aoo","o*oaooaaa");
         m.put("eoaeoea*a","a*aeoeaoe");
         m.put("eaaaeoe*a","a*eoeaaae");
         m.put("eoaae*aoe","a*eoeoeaa");
         m.put("aoaaoeo*e","e*oeoaaoa");
+        m.put("oao*oaooo","o*oooaoao");
         m.put("eoaae*aoa","a*aoeoeaa");
         m.put("aao*aeoee","o*aeaaeeo");
         m.put("eaa*ooooo","o*eooaooa");
         m.put("eeeoeoe*a","a*eoeoeee");
         m.put("aoeeaea*e","e*aeaeeoa");
         m.put("aaa*eoeao","e*aaeaooa");
-        m.put("eeoaaoe*o","o*eoaaoee");
+        m.put("oao*ooaaa","a*oaoaaoo");
         m.put("eaooaoe*e","e*eoaooae");
         m.put("aoeeaea*o","o*aeaeeoa");
         m.put("aeoeooa*a","a*aooeoea");
@@ -1914,6 +1989,7 @@ public class MapHashMap {
         m.put("aaaaeeo*a","a*oeeaaaa");
         m.put("aaaaeeo*o","o*oeeaaaa");
         m.put("eao*aoaeo","a*eeaaooo");
+        m.put("aoa*eaooe","o*aoeoeaa");
         m.put("aoo*eeaoe","a*aoeoeeo");
         m.put("oooaooe*o","o*eooaooo");
         m.put("aaoae*eea","o*aaeeaae");
@@ -1929,6 +2005,7 @@ public class MapHashMap {
         m.put("aoe*eoeae","e*aaeoeoe");
         m.put("aao*aeaee","a*aeaaeeo");
         m.put("aoe*eoeaa","e*aaeoaoe");
+    }    private void init_2() {
         m.put("oaoao*oae","o*eaoaoao");
         m.put("oaaaoeo*o","o*oeoaaao");
         m.put("oaeooaa*o","o*aaooeao");
@@ -1948,13 +2025,17 @@ public class MapHashMap {
         m.put("eeaoa*aeo","a*oeaeeoa");
         m.put("aaaoa*eaa","a*aaaaaoe");
         m.put("aao*aeoea","o*aeaaaeo");
+        m.put("oaaoo*aao","a*oaoaooa");
         m.put("ooo*oaoea","o*oeooaao");
         m.put("eoe*eooaa","o*eaeoaoe");
         m.put("eaaaeea*o","o*aeeaaae");
         m.put("oaaao*eee","a*eaoeoae");
+        m.put("oaooa*eee","o*eaaeooe");
         m.put("eaa*eeoao","o*eaeaoea");
+        m.put("aaaaooo*a","a*oooaaaa");
         m.put("ooo*aeaoo","a*ooaooeo");
         m.put("aoaeoeo*a","a*oeoeaoa");
+        m.put("ooaoe*aaa","a*aoeaooa");
         m.put("eaeoeoo*e","e*ooeoeae");
         m.put("eaeoeoo*a","a*ooeoeae");
         m.put("aooeooe*e","e*eooeooa");
@@ -1988,7 +2069,7 @@ public class MapHashMap {
         m.put("oee*oaoao","o*oaoeoae");
         m.put("aoeoooe*o","o*eoooeoa");
         m.put("eoaea*aoe","a*eoaoeea");
-        m.put("aea*oaooa","o*aooeaaa");
+        m.put("oaaoo*aaa","a*aaoaooa");
         m.put("eoaea*aoa","a*aoaoeea");
         m.put("aoeooea*o","o*aeooeoa");
         m.put("eoaoaaa*a","a*aaaoaoe");
@@ -2005,7 +2086,6 @@ public class MapHashMap {
         m.put("oaooaea*a","a*aeaooao");
         m.put("aeeoaoe*a","a*eoaoeea");
         m.put("eaa*eoaaa","a*eaeaaoa");
-    }    private void init_2() {
         m.put("oaooe*eao","o*oaeaooe");
         m.put("aeeoaoe*e","e*eoaoeea");
         m.put("eoo*oaaoe","a*eoooeao");
@@ -2053,10 +2133,11 @@ public class MapHashMap {
         m.put("aaeoa*oee","e*eaaeaoo");
         m.put("aeaae*eeo","a*oeeeaae");
         m.put("aee*eaoae","o*aaeeeae");
-        m.put("aeaoeoo*o","o*ooeoaea");
+        m.put("oooao*aaa","o*aooaoaa");
         m.put("eeaoe*aea","a*aeeeeoa");
         m.put("aaa*oaoeo","o*aeoaoaa");
-        m.put("oaoae*eeo","o*oaeeoae");
+        m.put("aao*aaaoa","a*aoaaaao");
+        m.put("aea*oaoaa","o*aaoeaaa");
         m.put("ooa*eoaae","a*oaeoeoa");
         m.put("eaa*oeaea","a*eeoaaea");
         m.put("aao*aaaoe","a*aoaaeao");
@@ -2100,15 +2181,16 @@ public class MapHashMap {
         m.put("aaa*oaoea","o*aeoaaaa");
         m.put("aaeoe*ooo","e*oaeoaoo");
         m.put("oaoae*eea","o*aaeeoae");
-        m.put("aooae*eea","o*aoeeaae");
+        m.put("aoaao*ooa","a*aoooaao");
         m.put("eaa*aeoae","o*eaaaeea");
         m.put("oeo*eoaoa","a*ooeeaoo");
         m.put("oeo*eoaoe","a*ooeeeoo");
         m.put("eaaao*aao","a*oaoaeaa");
         m.put("eoeaaaa*o","o*aaaaeoe");
         m.put("eoe*ooeae","e*eaooeoe");
+        m.put("aoa*aooao","o*aaaoooa");
         m.put("eaaoo*eee","a*eaoeeoe");
-        m.put("oeeoeoe*o","o*eoeoeeo");
+        m.put("eeaea*aao","a*oeaaeea");
         m.put("aoeaeee*a","a*eeeaeoa");
         m.put("ooa*oeaea","a*oeooaea");
         m.put("eaaoe*eao","a*oaeaeoe");
@@ -2119,6 +2201,7 @@ public class MapHashMap {
         m.put("eeaao*eee","a*eeoeeae");
         m.put("eoeoeae*a","a*eaeoeoe");
         m.put("eaaoe*eae","a*eaeaeoe");
+        m.put("aeoaa*aoo","o*oeaoaaa");
         m.put("eeooooo*a","a*oooooee");
         m.put("ooeeaeo*a","a*oeaeeoo");
         m.put("eaa*eeaoo","a*eoeaoea");
@@ -2127,9 +2210,10 @@ public class MapHashMap {
         m.put("oaooe*eaa","o*aaeaooe");
         m.put("oeaaoeo*o","o*oeoaaeo");
         m.put("eaa*eeaoa","a*eoeaaea");
-        m.put("ooeeaeo*o","o*oeaeeoo");
+        m.put("eoa*aoooo","o*eoaoooa");
         m.put("aeo*aaooo","o*aoaeoao");
         m.put("eoe*ooeao","e*eaooooe");
+        m.put("ooooo*aoo","o*ooooooa");
         m.put("eaeaeaa*e","e*aaeaeae");
         m.put("eoaae*aaa","a*aoeaeaa");
         m.put("ooo*eoeoa","e*ooeoaoo");
@@ -2212,6 +2296,7 @@ public class MapHashMap {
         m.put("aoe*aaooe","o*aoaoeae");
         m.put("aooeaoa*o","o*aoaeooa");
         m.put("aea*aeeeo","e*aeaeoea");
+        m.put("oao*aaooo","o*ooaaoao");
         m.put("oaaeo*eoe","a*eaoooee");
         m.put("aeeaaoo*a","a*ooaaeea");
         m.put("eaooeoa*e","e*aoeooae");
@@ -2262,6 +2347,7 @@ public class MapHashMap {
         m.put("eea*aooao","o*eaaeooa");
         m.put("eee*eaeoe","e*eoeeeae");
         m.put("eooae*eaa","o*aoeaeae");
+        m.put("aooaoao*a","a*oaoaooa");
         m.put("ooaoa*eea","a*aoaeooe");
         m.put("eeo*eaeae","e*eaeeeao");
         m.put("eee*eaeoo","e*eoeeoae");
@@ -2274,6 +2360,7 @@ public class MapHashMap {
         m.put("eooeo*eee","o*eooeeee");
         m.put("oeo*aoeeo","e*oeaeooo");
         m.put("eao*eaaeo","a*eeeaoao");
+        m.put("aaaaaaa*a","a*aaaaaaa");
         m.put("oea*eeeee","e*oeeeeea");
         m.put("eooaoeo*o","o*oeoaooe");
         m.put("aaaaaaa*e","e*aaaaaaa");
@@ -2283,6 +2370,7 @@ public class MapHashMap {
         m.put("oeoea*eoa","o*aeaooee");
         m.put("eaeaa*aae","e*eaaaeaa");
         m.put("oeo*aoaaa","a*oaaeaoo");
+        m.put("aaaaaaa*o","o*aaaaaaa");
         m.put("oaa*oeooe","o*oooaeea");
         m.put("eaooaao*a","a*oaaooae");
         m.put("eea*ooaao","a*eaoeooa");
@@ -2315,12 +2403,13 @@ public class MapHashMap {
         m.put("aoaao*aoe","a*eoooaaa");
         m.put("eooaoeo*e","e*oeoaooe");
         m.put("aea*oaoao","o*aaoeoaa");
-        m.put("aeaoaee*o","o*eeaoaea");
+        m.put("aoaao*aoa","a*aoooaaa");
+        m.put("aoaao*aoo","a*ooooaaa");
         m.put("aaa*aoaae","a*aaaaeoa");
         m.put("eoeeo*ooo","e*ooooeeo");
         m.put("ooaea*aae","a*eoaaoea");
         m.put("eeeoo*oeo","e*oeoeeoo");
-        m.put("eoeaeae*o","o*eaeaeoe");
+        m.put("ooaoa*aoo","a*ooaoooa");
         m.put("ooaea*aaa","a*aoaaoea");
         m.put("oeaae*oao","a*oeeaoao");
         m.put("aooaaae*a","a*eaaaooa");
@@ -2329,19 +2418,23 @@ public class MapHashMap {
         m.put("oeaae*oae","a*eeeaoao");
         m.put("oeaoaeo*o","o*oeaoaeo");
         m.put("oaeaaaa*a","a*aaaaeao");
+        m.put("aaaaooo*o","o*oooaaaa");
         m.put("aoo*aoeaa","e*aaaoaoo");
         m.put("eaaae*oao","a*oaeaeao");
         m.put("oaaooea*a","a*aeooaao");
         m.put("aoo*aoeae","e*aaaoeoo");
         m.put("eeeeoee*e","e*eeoeeee");
         m.put("aoo*aoeao","e*aaaoooo");
+        m.put("oao*aoooa","o*ooaaaoo");
         m.put("eaaae*oae","a*eaeaeao");
         m.put("oaoaooa*e","e*aooaoao");
         m.put("eao*oaaoa","a*eooaaao");
         m.put("aoaoo*eee","a*eooeaoe");
+        m.put("oaoaooa*a","a*aooaoao");
         m.put("eoaeo*ooe","a*eoooeeo");
         m.put("aaa*eoaaa","a*aaeaaoa");
         m.put("eoaeo*ooa","a*aoooeeo");
+        m.put("oooao*oaa","o*aooaoao");
         m.put("eaa*oaeoa","e*eooaaaa");
         m.put("eaa*oaeoe","e*eooaeaa");
         m.put("oaa*oeooa","o*oooaaea");
@@ -2366,6 +2459,7 @@ public class MapHashMap {
         m.put("ooe*oeeoa","e*ooooaee");
         m.put("oee*aaooo","o*ooaeoae");
         m.put("aeeaeee*e","e*eeeaeea");
+        m.put("oaoaooo*o","o*oooaoao");
         m.put("ooe*oeeoo","e*oooooee");
         m.put("aeeaaao*a","a*oaaaeea");
         m.put("oaa*oaeea","e*oeoaaaa");
@@ -2377,6 +2471,7 @@ public class MapHashMap {
         m.put("oeaao*aea","a*aeoeoaa");
         m.put("eee*eeoae","o*eaeeeee");
         m.put("oeaao*aee","a*eeoeoaa");
+        m.put("oao*aaooa","o*ooaaaao");
         m.put("oeeooao*o","o*oaooeeo");
         m.put("aoooa*aoe","o*eoaoaoa");
         m.put("eeoeoae*e","e*eaoeoee");
@@ -2392,6 +2487,7 @@ public class MapHashMap {
         m.put("aooaaae*e","e*eaaaooa");
         m.put("aaaoo*eao","a*oaoaaoe");
         m.put("eoeoa*oea","e*aoaeeoo");
+        m.put("aaoaa*oao","o*oaaaaao");
         m.put("oea*eaeaa","e*oaeeaaa");
         m.put("oea*eaeao","e*oaeeoaa");
         m.put("aaaeeeo*a","a*oeeeaaa");
@@ -2414,6 +2510,7 @@ public class MapHashMap {
         m.put("oaoaeea*e","e*aeeaoao");
         m.put("oaa*oaaae","a*oaoaeaa");
         m.put("aoa*eeeae","e*aaeoeea");
+        m.put("oaa*oaaaa","a*oaoaaaa");
         m.put("aoa*eeeaa","e*aaeoaea");
         m.put("oao*aooea","o*oeaaaoo");
         m.put("eoooe*eee","o*eoeeeoe");
@@ -2431,6 +2528,7 @@ public class MapHashMap {
         m.put("eeooo*ooo","o*oeooeoo");
         m.put("ooe*eooae","o*oaeoeoe");
         m.put("oaeea*aea","e*aaaeoea");
+        m.put("oeooo*aoo","o*oeooooa");
         m.put("ooaoaoe*e","e*eoaoaoo");
         m.put("aeeee*aee","e*eeeeaea");
         m.put("aooaaeo*e","e*oeaaooa");
@@ -2467,11 +2565,14 @@ public class MapHashMap {
         m.put("ooe*aoooo","o*ooaoooe");
         m.put("aaooeae*a","a*eaeooaa");
         m.put("eoeee*eae","e*eoeaeee");
+        m.put("ooaaa*oaa","a*aoaaoao");
         m.put("aaooeae*e","e*eaeooaa");
         m.put("eaaaa*ooo","a*oaaoeao");
         m.put("eoeee*eaa","e*aoeaeee");
         m.put("ooooo*aeo","o*oooeooa");
+        m.put("aaooo*ooa","o*aaooaoo");
         m.put("oaaae*eoo","a*oaeooae");
+        m.put("oee*oeoao","o*oaoeoee");
         m.put("oaeaaea*o","o*aeaaeao");
         m.put("aae*oooea","o*aeoaaoe");
         m.put("eooao*ooa","o*aoooeao");
@@ -2479,10 +2580,12 @@ public class MapHashMap {
         m.put("aeo*aoeoo","e*aoaeooo");
         m.put("oee*eaaea","a*oeeeaae");
         m.put("oaeoeoa*o","o*aoeoeao");
+        m.put("oaaoaoo*a","a*ooaoaao");
         m.put("oeoaooo*a","a*oooaoeo");
         m.put("eaoaooo*o","o*oooaoae");
         m.put("eee*eaaoa","a*eoeeaae");
         m.put("eeeeoao*a","a*oaoeeee");
+        m.put("oooao*aoo","o*oooooaa");
         m.put("aae*aaoae","o*aaaaeae");
         m.put("aae*aoooe","o*aoaaeoe");
         m.put("oee*eaaee","a*oeeeeae");
@@ -2508,6 +2611,7 @@ public class MapHashMap {
         m.put("oaooeao*a","a*oaeooao");
         m.put("oaooa*oeo","o*oaaeooo");
         m.put("oaooeao*e","e*oaeooao");
+        m.put("oaaoo*ooa","a*aaooooo");
         m.put("eaeeooe*o","o*eooeeae");
         m.put("eeeeaee*a","a*eeaeeee");
         m.put("aae*oaeae","e*aaoaeae");
@@ -2574,6 +2678,7 @@ public class MapHashMap {
         m.put("oae*aeoea","o*oeaaaee");
         m.put("oao*eooae","o*oaeaeoo");
         m.put("aee*eeaoa","a*aoeeaee");
+        m.put("oooaooo*o","o*oooaooo");
         m.put("eoa*aaaeo","a*eeaooaa");
         m.put("oooeooa*a","a*aooeooo");
         m.put("eeo*oaeee","e*eeoeeao");
@@ -2609,9 +2714,11 @@ public class MapHashMap {
         m.put("eae*ooooa","o*eooaaoe");
         m.put("oae*ooaea","a*oeoaaoe");
         m.put("aaaaaoo*e","e*ooaaaaa");
+        m.put("ooooa*oaa","o*aoaaooo");
         m.put("aaeeo*eea","e*aaoeaee");
-        m.put("aoooa*eae","o*eoaaaoe");
+        m.put("aaaaaoo*a","a*ooaaaaa");
         m.put("eaoaaaa*e","e*aaaaoae");
+        m.put("ooaooaa*o","o*aaooaoo");
         m.put("aeoeoae*o","o*eaoeoea");
         m.put("eeo*oaeeo","e*eeoeoao");
         m.put("oeooe*oee","o*eeeeooo");
@@ -2631,7 +2738,7 @@ public class MapHashMap {
         m.put("eooooea*e","e*aeooooe");
         m.put("aooeeao*a","a*oaeeooa");
         m.put("eeeao*eae","e*eeoaeae");
-        m.put("oee*aaooe","o*ooaeeae");
+        m.put("oooae*eaa","o*aoeaoae");
         m.put("oea*oaaoe","a*oooeeaa");
         m.put("oea*aeeoa","e*ooaeaea");
         m.put("eeaea*aeo","a*oeaeeea");
@@ -2643,7 +2750,7 @@ public class MapHashMap {
         m.put("oaoaoaa*e","e*aaoaoao");
         m.put("eooee*oee","o*eoeeeeo");
         m.put("ooe*ooaae","a*oaooeoe");
-        m.put("oee*aaaae","a*oaaeeae");
+        m.put("oaoaoaa*a","a*aaoaoao");
         m.put("oeoaeee*e","e*eeeaoeo");
         m.put("eeeoe*aae","e*eeeaeoa");
         m.put("oeoaeee*a","a*eeeaoeo");
@@ -2682,6 +2789,8 @@ public class MapHashMap {
         m.put("ooeaaoa*o","o*aoaaeoo");
         m.put("ooeaeea*o","o*aeeaeoo");
         m.put("oao*eeaao","a*oaeaoeo");
+        m.put("aoo*oaooa","o*aoooaao");
+        m.put("oooeoao*o","o*oaoeooo");
         m.put("ooo*eaaoa","a*ooeoaao");
         m.put("aaaeoeo*e","e*oeoeaaa");
         m.put("eaoooae*a","a*eaoooae");
@@ -2703,7 +2812,9 @@ public class MapHashMap {
         m.put("oaaeooo*a","a*oooeaao");
         m.put("aoeae*eea","e*aoeeaae");
         m.put("eaaooeo*o","o*oeooaae");
+        m.put("oea*oaaoa","a*oooeaaa");
         m.put("aoeae*eee","e*eoeeaae");
+        m.put("aaooooa*o","o*aooooaa");
         m.put("eaa*aoeeo","e*eeaaooa");
         m.put("aeaaa*eeo","a*oeaeaae");
         m.put("ooeeeoa*a","a*aoeeeoo");
@@ -2712,7 +2823,7 @@ public class MapHashMap {
         m.put("eaa*aoeee","e*eeaaeoa");
         m.put("aoooo*eao","o*oooaaoe");
         m.put("eaoeaea*e","e*aeaeoae");
-        m.put("eoaeaae*o","o*eaaeaoe");
+        m.put("aaaao*oaa","a*aaoaaao");
         m.put("aeeaooe*o","o*eooaeea");
         m.put("oeoooao*a","a*oaoooeo");
         m.put("aaaao*oae","a*eaoaaao");
@@ -2734,7 +2845,7 @@ public class MapHashMap {
         m.put("aoeaeao*e","e*oaeaeoa");
         m.put("ooeee*eeo","e*ooeeoee");
         m.put("aoeaeao*a","a*oaeaeoa");
-        m.put("oeo*aaoaa","o*oaaeaao");
+        m.put("aaaaoaa*o","o*aaoaaaa");
         m.put("aoaoaea*a","a*aeaoaoa");
         m.put("aoeaeao*o","o*oaeaeoa");
         m.put("eoo*aaaao","a*eaaooao");
@@ -2747,6 +2858,7 @@ public class MapHashMap {
         m.put("eeaoa*eea","a*aeaeeoe");
         m.put("eeooeee*a","a*eeeooee");
         m.put("aoaoa*eoa","a*aoaoaoe");
+        m.put("ooaoa*aao","a*ooaaooa");
         m.put("oaaoeae*e","e*eaeoaao");
         m.put("aee*eaooe","o*aoeeeae");
         m.put("oeaoe*aeo","a*oeeeooa");
@@ -2764,6 +2876,7 @@ public class MapHashMap {
         m.put("oaa*eeaoa","a*ooeaaea");
         m.put("ooeoeea*e","e*aeeoeoo");
         m.put("ooeaooe*a","a*eooaeoo");
+        m.put("aoooo*aoo","o*ooooaoa");
         m.put("oaa*eeaoo","a*ooeaoea");
         m.put("ooeaooe*e","e*eooaeoo");
         m.put("eaoaaao*o","o*oaaaoae");
@@ -2779,6 +2892,7 @@ public class MapHashMap {
         m.put("eaaee*aaa","a*aaeaeea");
         m.put("oeaeo*eae","a*eeoaoee");
         m.put("eaa*aooao","o*eaaaooa");
+        m.put("aooaooo*o","o*oooaooa");
         m.put("oeaeo*eaa","a*aeoaoee");
         m.put("aoa*aeeoe","e*aoaoeea");
         m.put("eooaaee*a","a*eeaaooe");
@@ -2804,7 +2918,8 @@ public class MapHashMap {
         m.put("aeoeaoe*a","a*eoaeoea");
         m.put("aaoaeea*a","a*aeeaoaa");
         m.put("aeoeaoe*e","e*eoaeoea");
-        m.put("aoooeea*o","o*aeeoooa");
+        m.put("aaaoa*oaa","a*aaaaaoo");
+        m.put("oea*oeooa","o*oooeaea");
         m.put("oooaaoe*a","a*eoaaooo");
         m.put("aeaoaee*a","a*eeaoaea");
         m.put("oooaaoe*e","e*eoaaooo");
@@ -2837,7 +2952,7 @@ public class MapHashMap {
         m.put("aaeea*eaa","e*aaaaaee");
         m.put("aooeoee*e","e*eeoeooa");
         m.put("aeoooee*o","o*eeoooea");
-        m.put("eea*aeoao","o*eaaeoea");
+        m.put("aaaaoaa*a","a*aaoaaaa");
         m.put("aae*oeeae","e*aaoaeee");
         m.put("aooeoee*o","o*eeoeooa");
         m.put("ooa*eaaoo","a*ooeooaa");
@@ -2891,14 +3006,17 @@ public class MapHashMap {
         m.put("aoaooae*a","a*eaooaoa");
         m.put("aae*aeeee","e*aeaaeee");
         m.put("oaeeeea*e","e*aeeeeao");
+    }    private void init_3() {
         m.put("oaeea*eoa","e*aaaooee");
         m.put("eoa*oeaoa","a*eoooaea");
         m.put("oaeea*eoe","e*eaaooee");
+        m.put("oeaeeao*o","o*oaeeaeo");
         m.put("aae*aeeeo","e*aeaaoee");
         m.put("oee*aoaoa","a*ooaeaoe");
         m.put("oeo*aeeeo","e*oeaeoeo");
         m.put("ooeoaee*e","e*eeaoeoo");
         m.put("oeo*aeeee","e*oeaeeeo");
+        m.put("ooaeaae*o","o*eaaeaoo");
         m.put("ooaeo*ooa","a*aooooeo");
         m.put("oeo*aeeea","e*oeaeaeo");
         m.put("eoaao*aaa","a*aooaeaa");
@@ -2908,13 +3026,16 @@ public class MapHashMap {
         m.put("aaaaa*eee","a*eaaeaae");
         m.put("aao*aeoaa","o*aaaaaeo");
         m.put("eooooao*e","e*oaooooe");
+        m.put("oao*ooaoo","a*oooaooo");
         m.put("eeaoo*eoe","a*eeooeoe");
+        m.put("oeeaaao*a","a*oaaaeeo");
         m.put("eooooao*o","o*oaooooe");
         m.put("eeaoo*eoa","a*aeooeoe");
         m.put("oooeoaa*o","o*aaoeooo");
         m.put("aeaoo*oee","a*eeoeaoo");
         m.put("aee*eaooo","o*aoeeoae");
         m.put("oeooaae*e","e*eaaooeo");
+        m.put("aaaoaao*a","a*oaaoaaa");
         m.put("oao*eoooo","o*ooeaooo");
         m.put("aaeeaaa*o","o*aaaeeaa");
         m.put("aaaoaao*e","e*oaaoaaa");
@@ -2926,7 +3047,8 @@ public class MapHashMap {
         m.put("aeaoo*oea","a*aeoeaoo");
         m.put("aeeoa*aeo","e*oeaeaoa");
         m.put("ooa*eoaea","a*oeeoaoa");
-        m.put("eooae*aae","o*eoeaeaa");
+        m.put("oaoaa*aoo","o*oaaooaa");
+        m.put("eaoee*eee","o*eaeeeee");
         m.put("eoeaooe*e","e*eooaeoe");
         m.put("eooae*aaa","o*aoeaeaa");
         m.put("ooa*aaeeo","e*oeaooaa");
@@ -2937,6 +3059,7 @@ public class MapHashMap {
         m.put("oeoaa*eoa","o*aeaooae");
         m.put("eaoaa*oeo","o*oaaeeao");
         m.put("oeoaoea*o","o*aeoaoeo");
+        m.put("ooaoo*ooa","a*aoooooo");
         m.put("eeooo*ooa","o*aeooeoo");
         m.put("ooeeo*aao","e*oooaoea");
         m.put("eao*eeaao","a*eaeaoeo");
@@ -2956,13 +3079,15 @@ public class MapHashMap {
         m.put("aaaeeoe*a","a*eoeeaaa");
         m.put("oeaaa*aae","a*eeaaoaa");
         m.put("aoo*eeaea","a*aeeoaeo");
-        m.put("eoaeoea*o","o*aeoeaoe");
+        m.put("oaaeo*aoo","a*oaoooea");
+        m.put("oeeeeeo*o","o*oeeeeeo");
         m.put("oeaaa*aaa","a*aeaaoaa");
         m.put("aea*eoeoa","e*aoeeaoa");
         m.put("aoo*aoaoe","a*aoaoeoo");
         m.put("eeoeo*eao","o*oeoaeee");
         m.put("aea*eoeoe","e*aoeeeoa");
         m.put("eaaae*oeo","a*oaeeeao");
+        m.put("aoa*oaooo","o*aooooaa");
         m.put("aeoaaae*e","e*eaaaoea");
         m.put("eoeeaea*o","o*aeaeeoe");
         m.put("aea*eoeoo","e*aoeeooa");
@@ -2985,7 +3110,7 @@ public class MapHashMap {
         m.put("ooa*oeooo","o*oooooea");
         m.put("aea*aaeoo","e*aoaeoaa");
         m.put("eoeoo*eaa","e*aooaeoe");
-        m.put("ooe*aoooa","o*ooaoaoe");
+        m.put("ooaoa*aaa","a*aoaaooa");
         m.put("oae*oaoao","o*oaoaoae");
         m.put("eoeoo*eae","e*eooaeoe");
         m.put("ooaeo*aae","a*eooaoea");
@@ -3000,13 +3125,13 @@ public class MapHashMap {
         m.put("ooeoo*eao","e*oooaooe");
         m.put("oao*aeooo","o*ooaaoeo");
         m.put("aeaaeoe*a","a*eoeaaea");
+        m.put("aoa*oaooa","o*aoooaaa");
         m.put("eoaeo*oae","a*eooaeeo");
         m.put("aaooo*eeo","o*oaoeaoe");
         m.put("aee*oaoea","o*aeoeaae");
         m.put("oaoooee*o","o*eeoooao");
         m.put("eoaeo*oao","a*oooaeeo");
         m.put("eoaeaaa*o","o*aaaeaoe");
-    }    private void init_3() {
         m.put("aoaeaea*o","o*aeaeaoa");
         m.put("oaa*ooooe","o*oooaeoa");
         m.put("oeoaa*eea","o*aeaeoae");
@@ -3028,7 +3153,7 @@ public class MapHashMap {
         m.put("aao*oooea","o*aeoaaoo");
         m.put("aaooeoo*o","o*ooeooaa");
         m.put("oeo*eooae","o*oaeeeoo");
-        m.put("eaa*aaoeo","o*eeaaoaa");
+        m.put("aoa*ooaoa","a*aoooaoa");
         m.put("oeaee*oae","a*eeeaoeo");
         m.put("aoaeaea*a","a*aeaeaoa");
         m.put("oeaee*oaa","a*aeeaoeo");
@@ -3042,7 +3167,7 @@ public class MapHashMap {
         m.put("aoa*ooeeo","e*aeooooa");
         m.put("aaeee*eoe","e*eaeoaee");
         m.put("eoooe*aoo","o*ooeoeoa");
-        m.put("aaa*aeoeo","o*aeaaoea");
+        m.put("aaa*aoaao","a*aaaaooa");
         m.put("aaeee*eoa","e*aaeoaee");
         m.put("aaeee*eoo","e*oaeoaee");
         m.put("oaa*aeoae","o*oaaaeea");
@@ -3053,6 +3178,7 @@ public class MapHashMap {
         m.put("eoo*eooeo","o*eeeoooo");
         m.put("aeoaaae*a","a*eaaaoea");
         m.put("oaeoooa*a","a*aoooeao");
+        m.put("oao*aooao","o*oaaaooo");
         m.put("oaeoooa*e","e*aoooeao");
         m.put("oaaaoae*o","o*eaoaaao");
         m.put("ooo*eeaao","a*oaeooeo");
@@ -3084,6 +3210,7 @@ public class MapHashMap {
         m.put("oaa*oaaoe","a*oooaeaa");
         m.put("ooaao*oee","a*eooeoao");
         m.put("aeeoa*ooe","e*eeaoaoo");
+        m.put("ooa*oooae","o*oaooeoa");
         m.put("ooaao*oea","a*aooeoao");
         m.put("oeoeaea*o","o*aeaeoeo");
         m.put("aeoaoeo*e","e*oeoaoea");
@@ -3098,6 +3225,7 @@ public class MapHashMap {
         m.put("ooeeo*eae","e*eooaoee");
         m.put("oae*oeaea","a*oeoaaee");
         m.put("aae*aooeo","o*aeaaooe");
+        m.put("oooaaaa*a","a*aaaaooo");
         m.put("ooeeo*eaa","e*aooaoee");
         m.put("eoeeeeo*a","a*oeeeeoe");
         m.put("aaeoa*eae","e*eaaaaoe");
@@ -3200,9 +3328,11 @@ public class MapHashMap {
         m.put("aaooe*eoe","o*eaeoaoe");
         m.put("eee*aaeeo","e*eeaeoae");
         m.put("eaaoe*oao","a*oaeaeoo");
+        m.put("ooaaaoo*a","a*ooaaaoo");
         m.put("eoo*aooae","o*eaaoeoo");
-        m.put("oooeoao*o","o*oaoeooo");
+        m.put("aao*ooooa","o*aooaaoo");
         m.put("eee*aaeee","e*eeaeeae");
+        m.put("ooaaaoo*o","o*ooaaaoo");
         m.put("eee*aaeea","e*eeaeaae");
         m.put("oaeeaoe*a","a*eoaeeao");
         m.put("eaaaooe*a","a*eooaaae");
@@ -3213,6 +3343,7 @@ public class MapHashMap {
         m.put("eao*eaaoo","a*eoeaoao");
         m.put("aeeoooa*o","o*aoooeea");
         m.put("oeoae*aoo","o*oeeooaa");
+        m.put("aaoooaa*o","o*aaoooaa");
         m.put("eaaaooe*o","o*eooaaae");
         m.put("aoooa*oea","o*aoaeaoo");
         m.put("oee*oaeee","e*oeoeeae");
@@ -3237,6 +3368,7 @@ public class MapHashMap {
         m.put("eeeea*aoa","e*aeaoeea");
         m.put("aaa*eoeee","e*aeeaeoa");
         m.put("oeooo*ooe","o*eeooooo");
+        m.put("oao*aooaa","o*oaaaaoo");
         m.put("oeo*eeeae","e*oaeeeeo");
         m.put("aaa*eoeeo","e*aeeaooa");
         m.put("ooo*eooea","o*oeeoaoo");
@@ -3313,11 +3445,13 @@ public class MapHashMap {
         m.put("aoeoa*oaa","e*aoaaaoo");
         m.put("aae*aeoao","o*aaaaoee");
         m.put("ooaae*ooe","a*eoeooao");
+        m.put("ooooe*eeo","o*ooeeooe");
         m.put("aoeoa*oae","e*eoaaaoo");
         m.put("aoeae*oee","e*eoeeaao");
         m.put("eaoeoee*e","e*eeoeoae");
         m.put("eaa*eeeoe","e*eoeaeea");
         m.put("eaoeoee*a","a*eeoeoae");
+        m.put("aaaaaee*o","o*eeaaaaa");
         m.put("eaa*eeeoa","e*eoeaaea");
         m.put("eaa*eeeoo","e*eoeaoea");
         m.put("oea*aeaea","a*oeaeaea");
@@ -3329,7 +3463,8 @@ public class MapHashMap {
         m.put("aoo*eeaee","a*aeeoeeo");
         m.put("aoo*oaeoe","e*aoooeao");
         m.put("ooo*oeeoo","e*oooooeo");
-        m.put("eoa*eaoea","o*eeeoaaa");
+        m.put("oao*aaoao","o*oaaaoao");
+        m.put("aaooaaa*a","a*aaaooaa");
         m.put("eaoaa*aoo","o*oaaoeaa");
         m.put("aaaeaaa*o","o*aaaeaaa");
         m.put("aaoao*oeo","o*oaoeaao");
@@ -3361,6 +3496,7 @@ public class MapHashMap {
         m.put("ooe*aoooe","o*ooaoeoe");
         m.put("ooa*eoeoa","e*ooeoaoa");
         m.put("oaa*aaeee","e*oeaaeaa");
+        m.put("ooaaa*oao","a*ooaaoao");
         m.put("eaaeeea*a","a*aeeeaae");
         m.put("eaa*oooae","o*eaoaeoa");
         m.put("aeeao*ooe","e*eeooaao");
@@ -3414,13 +3550,14 @@ public class MapHashMap {
         m.put("aaaeo*oaa","a*aaoaaeo");
         m.put("aaa*oeaoa","a*aooaaea");
         m.put("aoaoo*aoe","a*eoooaoa");
+        m.put("aee*aaoea","o*aeaeaae");
         m.put("aeeaoao*e","e*oaoaeea");
         m.put("eeoaoeo*e","e*oeoaoee");
         m.put("ooo*eoooe","o*ooeoeoo");
         m.put("eoeao*oao","e*oooaeao");
         m.put("eeoaooe*a","a*eooaoee");
         m.put("aeoeeoa*a","a*aoeeoea");
-        m.put("ooooeeo*o","o*oeeoooo");
+        m.put("oao*oaaaa","a*oaoaaao");
         m.put("oao*eeeao","e*oaeaoeo");
         m.put("eoooooe*o","o*eoooooe");
         m.put("eoeao*oae","e*eooaeao");
@@ -3474,7 +3611,7 @@ public class MapHashMap {
         m.put("eaaae*eoo","a*oaeoeae");
         m.put("ooaaoeo*a","a*oeoaaoo");
         m.put("eaeoooa*a","a*aoooeae");
-        m.put("ooooeoo*o","o*ooeoooo");
+        m.put("aaoaa*ooa","o*aaaoaao");
         m.put("eee*oaeae","e*eaoeeae");
         m.put("oeaoeoe*e","e*eoeoaeo");
         m.put("aeo*oaooo","o*aooeoao");
@@ -3487,7 +3624,7 @@ public class MapHashMap {
         m.put("ooe*aooee","o*oeaoeoe");
         m.put("oao*eeaeo","a*oeeaoeo");
         m.put("eaaee*aoo","a*oaeoeea");
-        m.put("eoe*aeoeo","o*eeaooee");
+        m.put("oaooooo*a","a*oooooao");
         m.put("eaaeoae*o","o*eaoeaae");
         m.put("aeoeaoa*a","a*aoaeoea");
         m.put("eaaoe*eee","a*eaeeeoe");
@@ -3497,7 +3634,7 @@ public class MapHashMap {
         m.put("eaaoe*eeo","a*oaeeeoe");
         m.put("oooeooa*o","o*aooeooo");
         m.put("eaaeoae*e","e*eaoeaae");
-        m.put("aaoee*aeo","o*oaeeaea");
+        m.put("aeo*aaooe","o*aoaeeao");
         m.put("eaaeoae*a","a*eaoeaae");
         m.put("eeo*eaoeo","o*eeeeoao");
         m.put("eaoee*eeo","o*oaeeeee");
@@ -3517,11 +3654,12 @@ public class MapHashMap {
         m.put("eeo*aeoeo","o*eeaeoeo");
         m.put("aaeeaoa*o","o*aoaeeaa");
         m.put("eoe*oeoao","o*eaoooee");
-        m.put("eooao*aao","o*oooaeaa");
+        m.put("ooe*ooaaa","a*oaooaoe");
         m.put("aaeaoeo*e","e*oeoaeaa");
         m.put("aao*eoeea","e*aeeaaoo");
         m.put("eoaoo*ooe","a*eoooeoo");
         m.put("aao*eoeee","e*aeeaeoo");
+        m.put("ooo*oaooo","o*oooooao");
         m.put("eoaoo*ooa","a*aoooeoo");
         m.put("aeoaeoe*a","a*eoeaoea");
         m.put("oaaaaae*a","a*eaaaaao");
@@ -3571,6 +3709,7 @@ public class MapHashMap {
         m.put("aoaeo*aae","a*eooaaea");
         m.put("ooeoa*eae","e*eoaaooe");
         m.put("aoaeo*aaa","a*aooaaea");
+        m.put("oee*eaoee","o*oeeeeae");
         m.put("ooeoa*eaa","e*aoaaooe");
         m.put("ooeoa*eao","e*ooaaooe");
         m.put("eaaao*aae","a*eaoaeaa");
@@ -3615,6 +3754,7 @@ public class MapHashMap {
         m.put("aooeooa*o","o*aooeooa");
         m.put("aeoae*oaa","o*aeeaaao");
         m.put("eaoae*eao","o*oaeaeae");
+        m.put("aoa*ooaoo","a*aoooooa");
         m.put("oaeea*aeo","e*oaaeoea");
         m.put("aoo*oeoaa","o*aaooaeo");
         m.put("aoooooe*e","e*eoooooa");
@@ -3635,8 +3775,9 @@ public class MapHashMap {
         m.put("eoa*eeaao","a*eaeooea");
         m.put("eeo*eoaeo","a*eeeeooo");
         m.put("eeo*aeooa","o*eoaeaeo");
-        m.put("oeaeeao*o","o*oaeeaeo");
+        m.put("aoaaaaa*o","o*aaaaaoa");
         m.put("eaoee*eoo","o*oaeoeee");
+        m.put("aaeeeao*o","o*oaeeeaa");
         m.put("oeaao*eao","a*oeoaoae");
         m.put("eeo*eaooa","o*eoeeaao");
         m.put("eoaae*ooo","a*ooeoeao");
@@ -3679,6 +3820,7 @@ public class MapHashMap {
         m.put("aaa*eeaoo","a*aoeaoea");
         m.put("aoo*oooea","o*aeooaoo");
         m.put("aee*aeaoe","a*aoaeeee");
+        m.put("ooooaoa*o","o*aoaoooo");
         m.put("eaaaa*ooa","a*aaaoeao");
         m.put("aeooo*eee","o*eeoeaoe");
         m.put("eae*eoeoo","e*eoeaooe");
@@ -3688,6 +3830,7 @@ public class MapHashMap {
         m.put("oee*aeooa","o*ooaeaee");
         m.put("eaaeooo*a","a*oooeaae");
         m.put("aooee*oae","o*eoeaaeo");
+        m.put("aoooaoo*o","o*ooaoooa");
         m.put("eaoeaeo*a","a*oeaeoae");
         m.put("eaoeooe*o","o*eooeoae");
         m.put("eea*eoeaa","e*eaeeaoa");
@@ -3706,6 +3849,7 @@ public class MapHashMap {
         m.put("ooaeaea*e","e*aeaeaoo");
         m.put("oeoaoao*e","e*oaoaoeo");
         m.put("oeeoo*oao","e*oeoaooo");
+        m.put("oaa*oooao","o*oaoaooa");
         m.put("oeoaoao*a","a*oaoaoeo");
         m.put("oooeeoa*o","o*aoeeooo");
         m.put("aooooeo*e","e*oeooooa");
@@ -3733,8 +3877,10 @@ public class MapHashMap {
         m.put("aoo*aaoeo","o*aeaooao");
         m.put("eaaao*ooa","a*aaooeao");
         m.put("oeeoaae*e","e*eaaoeeo");
+        m.put("aae*ooooe","o*aooaeoe");
         m.put("eeaaa*eee","a*eeaeeae");
         m.put("eoe*oaeaa","e*eaooaae");
+        m.put("eeoaa*aee","o*eeaeeaa");
         m.put("aeoeoeo*e","e*oeoeoea");
         m.put("eoe*oaeae","e*eaooeae");
         m.put("oao*oaoae","o*oaoaeao");
@@ -3753,12 +3899,13 @@ public class MapHashMap {
         m.put("aeaea*ooe","a*eeaoaeo");
         m.put("oee*aeooe","o*ooaeeee");
         m.put("aeaea*ooa","a*aeaoaeo");
-        m.put("oeo*eeooe","o*ooeeeeo");
+        m.put("eea*aeoae","o*eaaeeea");
         m.put("oeaaa*eoo","a*oeaooae");
         m.put("oea*eaaao","a*oaeeoaa");
         m.put("oeaoo*aoe","a*eeooooa");
         m.put("ooeaoae*a","a*eaoaeoo");
         m.put("oaeeaoo*o","o*ooaeeao");
+        m.put("oeoeaoo*o","o*ooaeoeo");
         m.put("ooeaoae*e","e*eaoaeoo");
         m.put("eoaoeoo*a","a*ooeoaoe");
         m.put("eoaoo*eae","a*eooaeoe");
@@ -3789,6 +3936,7 @@ public class MapHashMap {
         m.put("oaooa*ooe","o*eaaoooo");
         m.put("aao*eeaeo","a*aeeaoeo");
         m.put("oae*aeeeo","e*oeaaoee");
+        m.put("aoaoaoa*o","o*aoaoaoa");
         m.put("aeoeo*oea","o*aeoeaeo");
         m.put("oae*ooaoo","a*oooaooe");
         m.put("oeaaaee*o","o*eeaaaeo");
@@ -3799,6 +3947,7 @@ public class MapHashMap {
         m.put("oaooaee*o","o*eeaooao");
         m.put("eeeoo*eae","e*eeoaeoe");
         m.put("oaaoe*ooo","a*oaeoooo");
+        m.put("aeoea*oea","o*aeaeaeo");
         m.put("eeeoo*eaa","e*aeoaeoe");
         m.put("aoaoaee*e","e*eeaoaoa");
         m.put("ooeoeoo*a","a*ooeoeoo");
@@ -3809,6 +3958,7 @@ public class MapHashMap {
         m.put("ooeeooo*e","e*oooeeoo");
         m.put("aoeea*eoa","e*aoaoaee");
         m.put("eoaae*ooe","a*eoeoeao");
+        m.put("aoa*oaoaa","o*aaooaaa");
         m.put("oeo*aeaoe","a*ooaeeeo");
         m.put("eoa*eoaee","a*eeeoeoa");
         m.put("eaooa*eaa","o*aaaaeoe");
@@ -3821,6 +3971,7 @@ public class MapHashMap {
         m.put("aee*eoaoo","a*aoeeooe");
         m.put("eaaoaae*e","e*eaaoaae");
         m.put("aeoaooo*a","a*oooaoea");
+        m.put("oaeeaee*o","o*eeaeeao");
         m.put("eaaoaae*a","a*eaaoaae");
         m.put("eaaoaae*o","o*eaaoaae");
         m.put("eooooeo*o","o*oeooooe");
@@ -3835,12 +3986,14 @@ public class MapHashMap {
         m.put("aeaao*aao","a*oeoaaaa");
         m.put("aea*eaooo","o*aoeeoaa");
         m.put("oooeoaa*a","a*aaoeooo");
+        m.put("ooo*aaoaa","o*oaaoaao");
         m.put("ooeoo*aaa","e*aooaooa");
         m.put("oaaaoee*o","o*eeoaaao");
         m.put("eaeoe*eae","e*eaeaeoe");
         m.put("aeo*aeaoo","a*aoaeoeo");
         m.put("oeeeo*oeo","e*oeoeoeo");
         m.put("eaeoe*eaa","e*aaeaeoe");
+        m.put("aao*oaaoa","a*aooaaao");
         m.put("eaeoe*eao","e*oaeaeoe");
         m.put("oaeoaeo*o","o*oeaoeao");
         m.put("oeeeo*oea","e*aeoeoeo");
@@ -3854,12 +4007,14 @@ public class MapHashMap {
         m.put("eoeee*ooa","e*aoeoeeo");
         m.put("aoeaa*aoa","e*aoaoaaa");
         m.put("eaeeeoe*a","a*eoeeeae");
+    }    private void init_4() {
         m.put("aea*oeoao","o*aaoeoea");
         m.put("aoeaa*aoe","e*eoaoaaa");
         m.put("oeaee*aoo","a*oeeooea");
         m.put("aaeooea*e","e*aeooeaa");
         m.put("eooae*eoe","o*eoeoeae");
         m.put("eeeea*eao","e*oeaaeee");
+        m.put("oaooa*ooa","o*aaaoooo");
         m.put("aaeooea*a","a*aeooeaa");
         m.put("aea*oaeoo","e*aooeoaa");
         m.put("aea*oaeoa","e*aooeaaa");
@@ -3881,8 +4036,8 @@ public class MapHashMap {
         m.put("oaa*ooeoa","e*oooaaoa");
         m.put("eoa*eaoeo","o*eeeooaa");
         m.put("eeaeoeo*a","a*oeoeaee");
-        m.put("aaeoaoo*o","o*ooaoeaa");
-        m.put("oaaeeea*o","o*aeeeaao");
+        m.put("oaa*oooaa","o*oaoaaoa");
+        m.put("oaaoa*ooo","a*oaaoooo");
         m.put("aeo*oaaee","a*aeoeeao");
         m.put("aaaoa*aea","a*aaaeaoa");
         m.put("aoaao*oee","a*eooeaao");
@@ -3908,6 +4063,7 @@ public class MapHashMap {
         m.put("oae*eaoeo","o*oeeaoae");
         m.put("oaooe*aao","o*oaeaooa");
         m.put("aoeea*aoo","e*ooaoaea");
+        m.put("oaaaaeo*o","o*oeaaaao");
         m.put("aaeaaaa*e","e*aaaaeaa");
         m.put("eeo*oeooe","o*eooeeeo");
         m.put("oaooe*aae","o*eaeaooa");
@@ -3919,6 +4075,7 @@ public class MapHashMap {
         m.put("ooaee*oae","a*eoeaoeo");
         m.put("oaaeaoe*o","o*eoaeaao");
         m.put("aaa*eooee","o*aeeaeoa");
+        m.put("eaooo*aao","o*oaoaeoa");
         m.put("aea*oaeoe","e*aooeeaa");
         m.put("aoo*oeeoo","e*aooooeo");
         m.put("eoo*eoaeo","a*eeeoooo");
@@ -3927,13 +4084,14 @@ public class MapHashMap {
         m.put("eoaeaeo*a","a*oeaeaoe");
         m.put("eooae*eoa","o*aoeoeae");
         m.put("eoo*eoaea","a*eeeoaoo");
+        m.put("ooaaooo*o","o*oooaaoo");
         m.put("eoaeaeo*e","e*oeaeaoe");
         m.put("eoo*eoaee","a*eeeoeoo");
         m.put("aeaoaao*e","e*oaaoaea");
         m.put("oao*eooeo","o*oeeaooo");
         m.put("aeaoaao*a","a*oaaoaea");
         m.put("oao*eooee","o*oeeaeoo");
-        m.put("aeeeeao*a","a*oaeeeea");
+        m.put("aoaoa*aaa","a*aoaaaoa");
         m.put("oao*eooea","o*oeeaaoo");
         m.put("eao*aoaee","a*eeaaeoo");
         m.put("aoeea*aoa","e*aoaoaea");
@@ -3971,7 +4129,7 @@ public class MapHashMap {
         m.put("aaeao*aeo","e*oaoeaaa");
         m.put("oeaaaee*e","e*eeaaaeo");
         m.put("aaaeeae*o","o*eaeeaaa");
-        m.put("eaooa*aeo","o*oaaeeoa");
+        m.put("oooao*eee","o*eooeoae");
         m.put("aaaeeae*e","e*eaeeaaa");
         m.put("eea*oooea","o*eeoeaoa");
         m.put("aeaao*ooe","a*eeooaao");
@@ -4007,7 +4165,7 @@ public class MapHashMap {
         m.put("aooea*aee","o*eoaeaea");
         m.put("eaa*aaooo","o*eoaaoaa");
         m.put("eea*aoaao","a*eaaeooa");
-    }    private void init_4() {
+        m.put("oaaoa*aoo","a*oaaoooa");
         m.put("oeaeaoe*o","o*eoaeaeo");
         m.put("oeeoaoa*o","o*aoaoeeo");
         m.put("eeoeaee*a","a*eeaeoee");
@@ -4016,7 +4174,7 @@ public class MapHashMap {
         m.put("oeoao*oee","o*eeoeoao");
         m.put("eaoeo*aeo","o*oaoeeea");
         m.put("oeeoaoa*e","e*aoaoeeo");
-        m.put("eaoaooa*o","o*aooaoae");
+        m.put("aaaooaa*o","o*aaooaaa");
         m.put("aaa*oeaoo","a*aooaoea");
         m.put("eoeee*aae","e*eoeaeea");
         m.put("oooeeoa*e","e*aoeeooo");
@@ -4071,8 +4229,11 @@ public class MapHashMap {
         m.put("eaaao*oee","a*eaoeeao");
         m.put("eeeaaao*e","e*oaaaeee");
         m.put("oaoaeoe*e","e*eoeaoao");
+        m.put("oao*ooooa","o*oooaaoo");
         m.put("oeeaaeo*o","o*oeaaeeo");
+        m.put("eaooe*aeo","o*oaeeeoa");
         m.put("eoaooao*e","e*oaooaoe");
+        m.put("oaooaaa*a","a*aaaooao");
         m.put("eoo*aoaea","a*eeaoaoo");
         m.put("eoaooao*a","a*oaooaoe");
         m.put("aeo*eoooe","o*aoeeeoo");
@@ -4115,6 +4276,7 @@ public class MapHashMap {
         m.put("oae*eeaeo","a*oeeaoee");
         m.put("aao*aeeao","e*aaaaoeo");
         m.put("aaaoeoe*e","e*eoeoaaa");
+        m.put("aoooe*aoe","o*eoeoaoa");
         m.put("aeooaoe*e","e*eoaooea");
         m.put("aaaoeoe*a","a*eoeoaaa");
         m.put("eoe*oaaee","a*eeooeae");
@@ -4123,6 +4285,7 @@ public class MapHashMap {
         m.put("eaa*eaaoe","a*eoeaeaa");
         m.put("aoeao*eae","e*eooaaae");
         m.put("eeoea*eee","o*eeaeeee");
+        m.put("aoaooaa*o","o*aaooaoa");
         m.put("eao*aeeao","e*eaaaoeo");
         m.put("aaeeo*eae","e*eaoaaee");
         m.put("oaaeeaa*o","o*aaeeaao");
@@ -4133,6 +4296,7 @@ public class MapHashMap {
         m.put("oea*oeoao","o*oaoeoea");
         m.put("aao*aaaee","a*aeaaeao");
         m.put("oeaeoee*a","a*eeoeaeo");
+        m.put("eoa*aaooo","o*eoaooaa");
         m.put("eeo*aaaea","a*eeaeaao");
         m.put("oeaeoee*e","e*eeoeaeo");
         m.put("aoooo*eeo","o*oooeaoe");
@@ -4159,6 +4323,7 @@ public class MapHashMap {
         m.put("eoooaeo*o","o*oeaoooe");
         m.put("eoe*aoaoo","a*eoaoooe");
         m.put("aea*aaaao","a*aaaeoaa");
+        m.put("aoo*aoaoo","a*aoaoooo");
         m.put("oaaoaoe*o","o*eoaoaao");
         m.put("oeeooae*o","o*eaooeeo");
         m.put("ooa*aaaee","a*oeaoeaa");
@@ -4193,6 +4358,7 @@ public class MapHashMap {
         m.put("eeeoe*eao","e*oeeaeoe");
         m.put("aaoeaoe*a","a*eoaeoaa");
         m.put("aeeeeoo*o","o*ooeeeea");
+        m.put("aoo*aoaoa","a*aoaoaoo");
         m.put("ooaaaae*o","o*eaaaaoo");
         m.put("eeeoe*eaa","e*aeeaeoe");
         m.put("oea*eeaaa","a*oaeeaea");
@@ -4202,7 +4368,7 @@ public class MapHashMap {
         m.put("aaa*aaaoe","a*aoaaeaa");
         m.put("eaeeeea*o","o*aeeeeae");
         m.put("aaaea*eaa","a*aaaaaee");
-        m.put("aooea*eae","o*eoaaaee");
+        m.put("aaa*aaaoo","a*aoaaoaa");
         m.put("eeoao*eea","o*aeoeeae");
         m.put("oae*aeoae","o*oaaaeee");
         m.put("aooea*eaa","o*aoaaaee");
@@ -4225,9 +4391,10 @@ public class MapHashMap {
         m.put("oeaeo*oao","a*oeoaoeo");
         m.put("oea*eoaae","a*oaeeeoa");
         m.put("ooe*oeaea","a*oeooaee");
+        m.put("eaoeo*oee","o*eaoeeeo");
         m.put("oaa*oaeoo","e*oooaoaa");
         m.put("ooeooee*a","a*eeooeoo");
-        m.put("aoooo*eee","o*eooeaoe");
+        m.put("aaaoo*aoa","a*aaooaoa");
         m.put("oaeao*oae","e*eaoaoao");
         m.put("ooeooee*e","e*eeooeoo");
         m.put("eoo*aoeaa","e*eaaoaoo");
@@ -4261,10 +4428,12 @@ public class MapHashMap {
         m.put("eaaoa*eeo","a*oaaeeoe");
         m.put("eaeoeaa*a","a*aaeoeae");
         m.put("aeoeeao*e","e*oaeeoea");
+        m.put("oaooo*ooo","o*oaooooo");
         m.put("aae*oaaaa","a*aaoaaae");
         m.put("aeoeeao*a","a*oaeeoea");
         m.put("eeoaoaa*e","e*aaoaoee");
         m.put("aeaaoaa*e","e*aaoaaea");
+        m.put("oaoaaao*o","o*oaaaoao");
         m.put("eaeaeao*e","e*oaeaeae");
         m.put("aeeoa*aao","e*oeaaaoa");
         m.put("aaoaooa*e","e*aooaoaa");
@@ -4309,6 +4478,7 @@ public class MapHashMap {
         m.put("ooa*aaeae","e*oaaoeaa");
         m.put("aaoaoee*o","o*eeoaoaa");
         m.put("ooa*aaeaa","e*oaaoaaa");
+        m.put("oeo*eeooe","o*ooeeeeo");
         m.put("aoa*oeaoe","a*aoooeea");
         m.put("aeo*aeeoe","e*aoaeeeo");
         m.put("ooa*aaeao","e*oaaooaa");
@@ -4322,17 +4492,18 @@ public class MapHashMap {
         m.put("ooo*aeooa","o*ooaoaeo");
         m.put("eao*eeaeo","a*eeeaoeo");
         m.put("eeaae*aao","a*oeeaeaa");
+        m.put("oea*aooaa","o*oaaeaoa");
         m.put("eae*aaoeo","o*eeaaoae");
         m.put("aeoee*eea","o*aeeeaee");
         m.put("oaaoa*eao","a*oaaaooe");
         m.put("aaoao*eea","o*aaoeaae");
-        m.put("eoeaoaa*o","o*aaoaeoe");
+        m.put("aoaoo*aao","a*oooaaoa");
         m.put("eoeaoaa*a","a*aaoaeoe");
         m.put("eoaooae*a","a*eaooaoe");
         m.put("eoeaoaa*e","e*aaoaeoe");
         m.put("aoeee*ooo","e*ooeoaeo");
         m.put("aeoao*eoo","o*oeooaae");
-        m.put("oeo*eeaeo","a*oeeeoeo");
+        m.put("aoa*oaaoa","a*aoooaaa");
         m.put("aeoeaeo*o","o*oeaeoea");
         m.put("aaoae*eee","o*eaeeaae");
         m.put("aooeeea*a","a*aeeeooa");
@@ -4359,19 +4530,22 @@ public class MapHashMap {
         m.put("eeeae*oae","e*eeeaeao");
         m.put("eaoae*oae","o*eaeaeao");
         m.put("oeeoo*ooa","e*aeooooo");
+        m.put("aao*aoooo","o*aoaaooo");
         m.put("eaeoaae*o","o*eaaoeae");
         m.put("oeeoo*ooe","e*eeooooo");
         m.put("eoe*aaaeo","a*eeaooae");
+        m.put("oeo*eaaaa","a*oaeeaao");
         m.put("oeeoo*ooo","e*oeooooo");
         m.put("aee*oaaoa","a*aooeaae");
-        m.put("eae*oaoeo","o*eeoaoae");
+        m.put("oaaaaao*a","a*oaaaaao");
         m.put("ooa*aoaoe","a*ooaoeoa");
         m.put("oea*eaaaa","a*oaeeaaa");
+        m.put("ooa*aoaoa","a*ooaoaoa");
         m.put("oao*eoaoo","a*ooeaooo");
         m.put("eooaa*ooa","o*aoaoeao");
         m.put("oaoooae*e","e*eaoooao");
         m.put("eoe*oeoae","o*eaooeee");
-        m.put("oaaeo*aoo","a*oaoooea");
+        m.put("aoaoo*aaa","a*aooaaoa");
         m.put("oaoooae*a","a*eaoooao");
         m.put("aeooa*oao","o*oeaaaoo");
         m.put("oeaaoea*o","o*aeoaaeo");
@@ -4443,6 +4617,7 @@ public class MapHashMap {
         m.put("oeooaoo*a","a*ooaooeo");
         m.put("eoaeo*eeo","a*oooeeee");
         m.put("ooeeooa*e","e*aooeeoo");
+        m.put("oaa*aoooa","o*ooaaaoa");
         m.put("aooeoae*o","o*eaoeooa");
         m.put("eoa*eeeoo","e*eoeooea");
         m.put("ooe*eooeo","o*oeeoooe");
@@ -4451,6 +4626,7 @@ public class MapHashMap {
         m.put("eoa*eeeoe","e*eoeoeea");
         m.put("aoaaeea*e","e*aeeaaoa");
         m.put("aooeoae*e","e*eaoeooa");
+        m.put("aoooa*eae","o*eoaaaoe");
         m.put("eoa*eeeoa","e*eoeoaea");
         m.put("aooeoae*a","a*eaoeooa");
         m.put("ooeeo*ooe","e*eooooeo");
@@ -4466,7 +4642,7 @@ public class MapHashMap {
         m.put("eeoao*ooa","o*aeooeao");
         m.put("eoaoe*eea","a*aoeeeoe");
         m.put("oaeaaee*a","a*eeaaeao");
-        m.put("oaeaaoa*o","o*aoaaeao");
+        m.put("eoeaoaa*o","o*aaoaeoe");
         m.put("eoaoaee*a","a*eeaoaoe");
         m.put("ooo*oaaeo","a*oeoooao");
         m.put("eoaoaee*e","e*eeaoaoe");
@@ -4475,6 +4651,8 @@ public class MapHashMap {
         m.put("aeoee*ooo","o*oeeoaeo");
         m.put("ooaaoee*o","o*eeoaaoo");
         m.put("ooaae*eoe","a*eoeooae");
+        m.put("aoaao*aao","a*oooaaaa");
+        m.put("aoaao*aaa","a*aooaaaa");
         m.put("oeaaeee*a","a*eeeaaeo");
         m.put("aoaao*aae","a*eooaaaa");
         m.put("oaa*oeeee","e*oeoaeea");
@@ -4483,12 +4661,14 @@ public class MapHashMap {
         m.put("oeoeeae*o","o*eaeeoeo");
         m.put("eee*aaaee","a*eeaeeae");
         m.put("ooooa*aoe","o*eoaoooa");
+        m.put("oao*aoaao","a*oaaaooo");
         m.put("oao*aeoae","o*oaaaeeo");
         m.put("aoaoe*aao","a*ooeaaoa");
         m.put("aao*eaoao","o*aaeaoao");
         m.put("eee*aaaeo","a*eeaeoae");
         m.put("oaaae*ooa","a*aaeooao");
         m.put("ooeeeae*o","o*eaeeeoo");
+        m.put("oaooo*oaa","o*aaoaooo");
         m.put("aoaao*aeo","a*oooeaaa");
         m.put("eee*oeaao","a*eaoeoee");
         m.put("eeoae*aaa","o*aeeaeaa");
@@ -4526,11 +4706,14 @@ public class MapHashMap {
         m.put("eoeao*eoe","e*eoooeae");
         m.put("oaa*ooeaa","e*oaoaaoa");
         m.put("oaa*ooeae","e*oaoaeoa");
+        m.put("oee*aaooe","o*ooaeeae");
         m.put("oaoeoao*o","o*oaoeoao");
         m.put("aeeaeeo*a","a*oeeaeea");
         m.put("oaa*ooeao","e*oaoaooa");
+        m.put("aao*oooao","o*aaoaooo");
         m.put("aaeoo*eoo","e*oaooaoe");
         m.put("eea*oeeao","e*eaoeoea");
+        m.put("aao*aoaoo","a*aoaaooo");
         m.put("aae*oaeoo","e*aooaoae");
         m.put("aae*oaeoa","e*aooaaae");
         m.put("eea*oeeae","e*eaoeeea");
@@ -4542,6 +4725,8 @@ public class MapHashMap {
         m.put("aeoaoaa*a","a*aaoaoea");
         m.put("eeoaooa*o","o*aooaoee");
         m.put("aaaoeoo*a","a*ooeoaaa");
+        m.put("ooooa*aoa","o*aoaoooa");
+        m.put("oaa*oaooo","o*oooaoaa");
         m.put("eoaaeoo*o","o*ooeaaoe");
         m.put("aoo*oeoea","o*aeooaeo");
         m.put("oeoaoee*a","a*eeoaoeo");
@@ -4555,6 +4740,7 @@ public class MapHashMap {
         m.put("oeooa*oae","o*eeaaooo");
         m.put("aeoaoaa*e","e*aaoaoea");
         m.put("oea*oaoaa","o*oaoeaaa");
+        m.put("oaaoa*aoa","a*aaaoooa");
         m.put("eoaeaoa*o","o*aoaeaoe");
         m.put("oaeee*aoo","e*oaeooea");
         m.put("oaeee*aoa","e*aaeooea");
@@ -4569,7 +4755,7 @@ public class MapHashMap {
         m.put("aoaee*eoe","a*eoeoaee");
         m.put("eooaoaa*e","e*aaoaooe");
         m.put("eoeoo*aoo","e*ooooeoa");
-        m.put("oaoeeeo*o","o*oeeeoao");
+        m.put("aoaoeaa*o","o*aaeoaoa");
         m.put("oaaoa*aoe","a*eaaoooa");
         m.put("eooaeoe*o","o*eoeaooe");
         m.put("oeo*eaaoe","a*ooeeeao");
@@ -4578,6 +4764,7 @@ public class MapHashMap {
         m.put("ooaaa*eea","a*aoaeoae");
         m.put("aeo*ooaee","a*aeoeeoo");
         m.put("oeaooea*o","o*aeooaeo");
+        m.put("oaoaaoo*a","a*ooaaoao");
         m.put("aaeoeee*a","a*eeeoeaa");
         m.put("eaoaooo*a","a*oooaoae");
         m.put("aeo*aooao","o*aaaeooo");
@@ -4591,6 +4778,7 @@ public class MapHashMap {
         m.put("ooo*eeeaa","e*oaeoaeo");
         m.put("oaa*eooeo","o*oeeaooa");
         m.put("eeeaa*oeo","e*oeaeeao");
+        m.put("eaooa*aeo","o*oaaeeoa");
         m.put("ooo*eeeae","e*oaeoeeo");
         m.put("aaeaeoe*a","a*eoeaeaa");
         m.put("eaaoeaa*e","e*aaeoaae");
@@ -4675,6 +4863,7 @@ public class MapHashMap {
         m.put("eaeea*eoa","e*aaaoeee");
         m.put("eaoee*aao","o*oaeaeea");
         m.put("oaa*aaeao","e*oaaaoaa");
+        m.put("aooao*ooo","o*ooooaao");
         m.put("aaeaeea*o","o*aeeaeaa");
         m.put("aaeeeeo*o","o*oeeeeaa");
         m.put("oaa*aaeae","e*oaaaeaa");
@@ -4692,6 +4881,7 @@ public class MapHashMap {
         m.put("aeaeo*aae","a*eeoaaea");
         m.put("ooe*aaoeo","o*oeaooae");
         m.put("aaeaoaa*o","o*aaoaeaa");
+        m.put("aaooaoa*a","a*aoaooaa");
         m.put("oea*ooooo","o*oooeooa");
         m.put("aaoae*eeo","o*oaeeaae");
         m.put("aeooaaa*e","e*aaaooea");
@@ -4709,13 +4899,14 @@ public class MapHashMap {
         m.put("oaaea*aao","a*oaaaoea");
         m.put("oooooeo*o","o*oeooooo");
         m.put("oaeoa*oee","e*eaaeooo");
+        m.put("aoooa*oao","o*ooaaaoo");
         m.put("aoeaeaa*o","o*aaeaeoa");
         m.put("oaeoa*oea","e*aaaeooo");
         m.put("eoe*aaooa","o*eoaoaae");
         m.put("oaeoa*oeo","e*oaaeooo");
         m.put("eoeeeee*o","o*eeeeeoe");
         m.put("oaaea*aae","a*eaaaoea");
-        m.put("oeo*ooaee","a*oeoeeoo");
+        m.put("ooaoa*ooa","a*aoaoooo");
         m.put("aeo*oooee","o*aeoeeoo");
         m.put("aoeaeaa*e","e*aaeaeoa");
         m.put("oeo*oaaao","a*oaoeoao");
@@ -4739,7 +4930,7 @@ public class MapHashMap {
         m.put("eoo*eeooa","o*eoeoaeo");
         m.put("oaa*eaeae","e*oaeaeaa");
         m.put("eee*ooaoo","a*eooeooe");
-        m.put("eoo*eeooo","o*eoeooeo");
+        m.put("aaaaaoa*a","a*aoaaaaa");
         m.put("oaa*eaeao","e*oaeaoaa");
         m.put("oeeoaee*o","o*eeaoeeo");
         m.put("aoeoo*aaa","e*aooaaoa");
@@ -4786,15 +4977,17 @@ public class MapHashMap {
         m.put("eaeee*ooe","e*eaeoeeo");
         m.put("eaeee*ooa","e*aaeoeeo");
         m.put("eeeao*oaa","e*aeoaeao");
+        m.put("oaoaaao*a","a*oaaaoao");
         m.put("aaoee*aao","o*oaeaaea");
         m.put("eeoeo*aao","o*oeoaeea");
         m.put("ooaoa*ooe","a*eoaoooo");
         m.put("oaaaa*eee","a*eaaeoae");
-        m.put("aaoee*aae","o*eaeaaea");
+        m.put("ooa*aaaoa","a*ooaoaaa");
         m.put("eaoae*eoa","o*aaeoeae");
         m.put("aaoee*aaa","o*aaeaaea");
         m.put("oea*aoaea","a*oeaeaoa");
         m.put("ooeea*aao","e*ooaaoea");
+        m.put("oeo*eooaa","o*oaeeaoo");
         m.put("oeo*aooee","o*oeaeeoo");
         m.put("eao*eeoao","o*eaeaoeo");
         m.put("oeaae*eee","a*eeeeoae");
@@ -4807,7 +5000,7 @@ public class MapHashMap {
         m.put("aeooeao*e","e*oaeooea");
         m.put("ooeaeeo*o","o*oeeaeoo");
         m.put("eoaoaee*o","o*eeaoaoe");
-        m.put("eeooaaa*o","o*aaaooee");
+        m.put("oaa*oaaao","a*oaoaoaa");
         m.put("eaaaeea*e","e*aeeaaae");
         m.put("oaooaeo*o","o*oeaooao");
         m.put("ooeaeeo*a","a*oeeaeoo");
@@ -4815,6 +5008,7 @@ public class MapHashMap {
         m.put("eaa*ooeeo","e*eeoaooa");
         m.put("ooeaeeo*e","e*oeeaeoo");
         m.put("eeeoaoo*e","e*ooaoeee");
+    }    private void init_5() {
         m.put("aae*eaeoo","e*aoeaoae");
         m.put("aoeoo*aae","e*eooaaoa");
         m.put("eoe*aeoae","o*eaaoeee");
@@ -4842,11 +5036,13 @@ public class MapHashMap {
         m.put("aoo*eaeea","e*aeeoaao");
         m.put("ooooa*oee","o*eoaeooo");
         m.put("eoeee*aaa","e*aoeaeea");
+        m.put("aeaeeoo*o","o*ooeeaea");
         m.put("aoo*eaeee","e*aeeoeao");
         m.put("eoaoaao*o","o*oaaoaoe");
         m.put("eeooeae*a","a*eaeooee");
         m.put("aee*eeeae","e*aaeeeee");
-        m.put("eaoao*aeo","o*oaoeeaa");
+        m.put("aaoao*aoa","o*aaooaaa");
+        m.put("eaoaoae*o","o*eaoaoae");
         m.put("aee*eeeaa","e*aaeeaee");
         m.put("aoa*eaoea","o*aeeoaaa");
         m.put("aoo*eaeeo","e*aeeooao");
@@ -4863,7 +5059,7 @@ public class MapHashMap {
         m.put("aaaoaoe*e","e*eoaoaaa");
         m.put("oao*eaeea","e*oeeaaao");
         m.put("oea*aoaee","a*oeaeeoa");
-        m.put("oooeaoa*o","o*aoaeooo");
+        m.put("aoo*oooaa","o*aaooaoo");
         m.put("eoeoaoo*e","e*ooaoeoe");
         m.put("aaaoaoe*o","o*eoaoaaa");
         m.put("eeeoa*aoe","e*eeaoeoa");
@@ -4888,6 +5084,7 @@ public class MapHashMap {
         m.put("aaaeo*oeo","a*oaoeaeo");
         m.put("oooeoea*o","o*aeoeooo");
         m.put("eoeaaoa*a","a*aoaaeoe");
+        m.put("aaa*aooaa","o*aaaaaoa");
         m.put("aooeaoe*a","a*eoaeooa");
         m.put("eao*aoooe","o*eoaaeoo");
         m.put("eoa*oaaoo","a*eooooaa");
@@ -4901,7 +5098,7 @@ public class MapHashMap {
         m.put("oea*eaooo","o*ooeeoaa");
         m.put("aaoaaoa*e","e*aoaaoaa");
         m.put("oee*ooeee","e*oeoeeoe");
-        m.put("eee*oooao","o*eaoeooe");
+        m.put("aaoaaoa*a","a*aoaaoaa");
         m.put("ooaeeae*o","o*eaeeaoo");
         m.put("eaeaa*eeo","e*oaaeeae");
         m.put("aooao*eoe","o*eoooaae");
@@ -4918,7 +5115,7 @@ public class MapHashMap {
         m.put("aoa*eaoee","o*aeeoeaa");
         m.put("aaeoe*aaa","e*aaeaaoa");
         m.put("aaeoe*aao","e*oaeaaoa");
-        m.put("oeooe*eao","o*oeeaooe");
+        m.put("aao*aoaao","a*aaaaooo");
         m.put("oae*eoeao","e*oaeaooe");
         m.put("aaaeo*oea","a*aaoeaeo");
         m.put("aoaoa*aee","a*eoaeaoa");
@@ -4959,6 +5156,7 @@ public class MapHashMap {
         m.put("aeeoo*oae","e*eeoaaoo");
         m.put("ooeao*eao","e*oooaoae");
         m.put("aeeoo*oaa","e*aeoaaoo");
+        m.put("oaa*aoooo","o*ooaaooa");
         m.put("aaeoo*oaa","e*aaoaaoo");
         m.put("eao*aoooa","o*eoaaaoo");
         m.put("eee*oaaao","a*eaoeoae");
@@ -4970,6 +5168,7 @@ public class MapHashMap {
         m.put("ooo*eaoaa","o*oaeoaao");
         m.put("eee*oaaae","a*eaoeeae");
         m.put("eoa*oeeee","e*eeooeea");
+        m.put("eooae*aae","o*eoeaeaa");
         m.put("aea*eoeea","e*aeeeaoa");
         m.put("eoa*oeeea","e*eeooaea");
         m.put("aea*eoeee","e*aeeeeoa");
@@ -5008,7 +5207,6 @@ public class MapHashMap {
         m.put("oaoaoeo*a","a*oeoaoao");
         m.put("eooaeeo*o","o*oeeaooe");
         m.put("aeo*aaeaa","e*aaaeaao");
-    }    private void init_5() {
         m.put("aeo*aaeao","e*aaaeoao");
         m.put("aeaea*aea","a*aeaeaea");
         m.put("aeoeaaa*e","e*aaaeoea");
@@ -5026,6 +5224,7 @@ public class MapHashMap {
         m.put("eea*eoeea","e*eeeeaoa");
         m.put("oeeeaao*a","a*oaaeeeo");
         m.put("eoe*oaeeo","e*eeoooae");
+        m.put("aaooo*ooo","o*oaooaoo");
         m.put("oeeeaao*e","e*oaaeeeo");
         m.put("eoe*aeeeo","e*eeaooee");
         m.put("eoe*oaeee","e*eeooeae");
@@ -5072,6 +5271,7 @@ public class MapHashMap {
         m.put("aaooe*eee","o*eaeeaoe");
         m.put("eeo*eooaa","o*eaeeaoo");
         m.put("aaaaa*eoo","a*oaaoaae");
+        m.put("aooee*oee","o*eoeeaeo");
         m.put("aoeee*oeo","e*ooeeaeo");
         m.put("eaoeeea*o","o*aeeeoae");
         m.put("aeo*eooae","o*aaeeeoo");
@@ -5081,7 +5281,7 @@ public class MapHashMap {
         m.put("oea*eaooe","o*ooeeeaa");
         m.put("aea*aoaoa","a*aoaeaoa");
         m.put("eaoeeea*a","a*aeeeoae");
-        m.put("aoaeaee*o","o*eeaeaoa");
+        m.put("ooaao*ooo","a*oooooao");
         m.put("ooaeeae*a","a*eaeeaoo");
         m.put("aaeeooo*e","e*oooeeaa");
         m.put("oaeoo*oao","e*oaoaooo");
@@ -5096,6 +5296,7 @@ public class MapHashMap {
         m.put("oeoeoea*a","a*aeoeoeo");
         m.put("eoo*eaoeo","o*eeeooao");
         m.put("aeaaoae*a","a*eaoaaea");
+        m.put("oaoaoaa*o","o*aaoaoao");
         m.put("aea*oaaoo","a*aooeoaa");
         m.put("aooao*aae","o*eooaaaa");
         m.put("eoeoa*aoo","e*ooaoeoa");
@@ -5118,10 +5319,11 @@ public class MapHashMap {
         m.put("aaeoa*eoe","e*eaaoaoe");
         m.put("aeaea*aeo","a*oeaeaea");
         m.put("aaeaeae*a","a*eaeaeaa");
+        m.put("eoa*aaooa","o*eoaoaaa");
         m.put("ooeaoaa*o","o*aaoaeoo");
         m.put("eaa*eaoao","o*eaeaoaa");
         m.put("eeo*eaaee","a*eeeeeao");
-        m.put("eeeaaea*o","o*aeaaeee");
+        m.put("eaoaeae*o","o*eaeaoae");
         m.put("eeo*eaaea","a*eeeeaao");
         m.put("eeo*eaaeo","a*eeeeoao");
         m.put("ooeaoaa*e","e*aaoaeoo");
@@ -5129,6 +5331,7 @@ public class MapHashMap {
         m.put("eeeoo*ooe","e*eeooeoo");
         m.put("eeeoo*ooa","e*aeooeoo");
         m.put("eaooeee*o","o*eeeooae");
+        m.put("oaoaaoa*a","a*aoaaoao");
         m.put("eaooeee*a","a*eeeooae");
         m.put("eeeoo*ooo","e*oeooeoo");
         m.put("eaooeee*e","e*eeeooae");
@@ -5168,10 +5371,12 @@ public class MapHashMap {
         m.put("aeaao*eae","a*eeoaaae");
         m.put("ooeoo*aee","e*eooeooa");
         m.put("aea*aoaae","a*aaaeeoa");
+        m.put("aoaoa*aoa","a*aoaoaoa");
         m.put("ooeoo*aea","e*aooeooa");
         m.put("eaoooao*e","e*oaoooae");
         m.put("ooaaaoa*e","e*aoaaaoo");
         m.put("aae*oeaoa","a*aooaaee");
+        m.put("aeooooo*o","o*oooooea");
         m.put("aeaeoao*o","o*oaoeaea");
         m.put("aae*oeaoe","a*aooaeee");
         m.put("eeooe*eeo","o*oeeeeoe");
@@ -5218,6 +5423,7 @@ public class MapHashMap {
         m.put("aaeee*aea","e*aaeeaea");
         m.put("aaoea*oaa","o*aaaaaeo");
         m.put("aea*eeeoe","e*aoeeeea");
+        m.put("eoeaoae*o","o*eaoaeoe");
         m.put("aaeee*aee","e*eaeeaea");
         m.put("eoo*oeeoo","e*eooooeo");
         m.put("eoo*ooeaa","e*eaooaoo");
@@ -5254,6 +5460,7 @@ public class MapHashMap {
         m.put("aao*aoeao","e*aaaaooo");
         m.put("aao*aoeaa","e*aaaaaoo");
         m.put("eae*oaaoo","a*eooaoae");
+        m.put("oeoaooo*o","o*oooaoeo");
         m.put("aao*aoeae","e*aaaaeoo");
         m.put("eae*oooae","o*eaoaeoe");
         m.put("aoooeoa*e","e*aoeoooa");
@@ -5270,6 +5477,7 @@ public class MapHashMap {
         m.put("aaeao*eoo","e*oaooaae");
         m.put("oooea*oea","o*aoaeoeo");
         m.put("aao*eeooo","o*aoeaoeo");
+        m.put("aaaooao*a","a*oaooaaa");
         m.put("aaeao*eoe","e*eaooaae");
         m.put("eoa*ooaea","a*eeooaoa");
         m.put("aao*eeooa","o*aoeaaeo");
@@ -5305,6 +5513,7 @@ public class MapHashMap {
         m.put("eoeoaeo*e","e*oeaoeoe");
         m.put("eae*aaaoo","a*eoaaoae");
         m.put("eoeoaeo*a","a*oeaoeoe");
+        m.put("oaooa*aaa","o*aaaaooa");
         m.put("eoeoe*oaa","e*aoeaeoo");
         m.put("eao*ooaeo","a*eeoaooo");
         m.put("eeoaaoo*e","e*ooaaoee");
@@ -5343,6 +5552,7 @@ public class MapHashMap {
         m.put("eoa*aoaoo","a*eoaoooa");
         m.put("eea*aoaea","a*eeaeaoa");
         m.put("aaaoaea*a","a*aeaoaaa");
+        m.put("aaaoa*ooo","a*oaaoaoo");
         m.put("oaeoa*aao","e*oaaaooa");
         m.put("aaa*eeaee","a*aeeaeea");
         m.put("oaeoa*aaa","e*aaaaooa");
@@ -5352,6 +5562,7 @@ public class MapHashMap {
         m.put("aaaoa*ooe","a*eaaoaoo");
         m.put("eea*oeoae","o*eaoeeea");
         m.put("aoo*oaeea","e*aeooaao");
+        m.put("aao*aaoao","o*aaaaoao");
         m.put("aoo*oaeee","e*aeooeao");
         m.put("oaeaooo*o","o*oooaeao");
         m.put("aoo*oaeeo","e*aeoooao");
@@ -5395,6 +5606,7 @@ public class MapHashMap {
         m.put("aeeoeae*a","a*eaeoeea");
         m.put("aeeoeae*o","o*eaeoeea");
         m.put("aea*aeaoe","a*aoaeeea");
+        m.put("eoo*oaooe","o*eoooeao");
         m.put("oea*eeoee","o*oeeeeea");
         m.put("ooaaa*eeo","a*ooaeoae");
         m.put("ooeae*aae","e*eoeaoaa");
@@ -5404,6 +5616,7 @@ public class MapHashMap {
         m.put("aoaea*oee","a*eoaeaeo");
         m.put("aoeea*ooe","e*eoaoaeo");
         m.put("eao*eaooo","o*eoeaoao");
+        m.put("aaooooo*o","o*oooooaa");
         m.put("aoeea*ooa","e*aoaoaeo");
         m.put("aaaeaee*e","e*eeaeaaa");
         m.put("oeeeaea*a","a*aeaeeeo");
@@ -5413,13 +5626,14 @@ public class MapHashMap {
         m.put("ooaoa*eao","a*ooaaooe");
         m.put("eoe*aoeoe","e*eoaoeoe");
         m.put("aaa*eeaea","a*aeeaaea");
-        m.put("aea*aeoee","o*aeaeeea");
+        m.put("aao*aaaao","a*aaaaoao");
         m.put("eea*aeaao","a*eaaeoea");
         m.put("aaoaeae*e","e*eaeaoaa");
         m.put("aoeao*eaa","e*aooaaae");
         m.put("oeaoo*eoa","a*aeooooe");
         m.put("aeo*eooaa","o*aaeeaoo");
         m.put("aao*aaaae","a*aaaaeao");
+        m.put("oaa*oaooa","o*oooaaaa");
         m.put("oeaoo*eoe","a*eeooooe");
         m.put("ooaoa*oee","a*eoaeooo");
         m.put("eeooaoa*a","a*aoaooee");
@@ -5430,6 +5644,7 @@ public class MapHashMap {
         m.put("eoa*ooeea","e*eeooaoa");
         m.put("oaoee*aao","o*oaeaoea");
         m.put("eaoeaao*e","e*oaaeoae");
+        m.put("aoeoooo*o","o*ooooeoa");
         m.put("eoa*ooeee","e*eeooeoa");
         m.put("oooae*oaa","o*aoeaoao");
         m.put("oaeaaee*o","o*eeaaeao");
@@ -5445,8 +5660,10 @@ public class MapHashMap {
         m.put("aoaee*eao","a*ooeaaee");
         m.put("ooe*eeaoo","a*ooeooee");
         m.put("eaeee*oaa","e*aaeaeeo");
+        m.put("eaa*aoooa","o*eoaaaoa");
         m.put("eee*ooaoa","a*eooeaoe");
         m.put("eaeee*oae","e*eaeaeeo");
+        m.put("oooae*eao","o*ooeaoae");
         m.put("aoeao*eee","e*eooeaae");
         m.put("eaeee*oao","e*oaeaeeo");
         m.put("eoaoa*eaa","a*aoaaeoe");
@@ -5481,13 +5698,14 @@ public class MapHashMap {
         m.put("oaeoaee*e","e*eeaoeao");
         m.put("aaoooao*e","e*oaoooaa");
         m.put("aao*aaaea","a*aeaaaao");
+        m.put("aaoooao*a","a*oaoooaa");
         m.put("oea*oeoeo","o*oeoeoea");
         m.put("ooeee*eao","e*ooeaoee");
         m.put("ooeee*eaa","e*aoeaoee");
         m.put("eoo*eaoea","o*eeeoaao");
         m.put("oaaeeeo*o","o*oeeeaao");
         m.put("ooeee*eae","e*eoeaoee");
-        m.put("oaaeaeo*a","a*oeaeaao");
+        m.put("aaoaoaa*a","a*aaoaoaa");
         m.put("oeeao*ooo","e*oeoooao");
         m.put("aaeaeea*e","e*aeeaeaa");
         m.put("oeeao*ooe","e*eeoooao");
@@ -5499,12 +5717,14 @@ public class MapHashMap {
         m.put("eaaea*oaa","a*aaaaeeo");
         m.put("oeaoe*ooa","a*aeeoooo");
         m.put("aaeaa*aeo","e*oaaeaaa");
+        m.put("eeooa*eoo","o*oeaoeoe");
         m.put("ooooe*aea","o*aoeeooa");
         m.put("oaooo*eoo","o*oaooooe");
         m.put("aeeoa*aoe","e*eeaoaoa");
         m.put("oea*eaaea","a*oeeeaaa");
         m.put("aeo*eoeoe","e*aoeeeoo");
         m.put("aeeaoaa*o","o*aaoaeea");
+        m.put("oaaaaao*o","o*oaaaaao");
         m.put("eeeoe*eea","e*aeeeeoe");
         m.put("eaaoe*eoa","a*aaeoeoe");
         m.put("aeo*eoeoo","e*aoeeooo");
@@ -5544,12 +5764,12 @@ public class MapHashMap {
         m.put("aaeaaoo*a","a*ooaaeaa");
         m.put("ooe*aooao","o*oaaoooe");
         m.put("aaeaaoo*e","e*ooaaeaa");
-        m.put("oee*oooeo","o*oeoeooe");
+        m.put("eee*aeoea","o*eeaeaee");
         m.put("aea*aaaea","a*aeaeaaa");
         m.put("oee*oooea","o*oeoeaoe");
         m.put("eaaoe*oeo","a*oaeeeoo");
         m.put("oee*oooee","o*oeoeeoe");
-        m.put("eeoaa*aee","o*eeaeeaa");
+        m.put("ooaao*aao","a*oooaoaa");
         m.put("eoooo*oee","o*eooeeoo");
         m.put("oeaee*oao","a*oeeaoeo");
         m.put("eoaaeeo*a","a*oeeaaoe");
@@ -5561,12 +5781,13 @@ public class MapHashMap {
         m.put("aoaoo*oae","a*eooaaoo");
         m.put("aoooeaa*e","e*aaeoooa");
         m.put("aaa*oeaeo","a*aeoaoea");
-        m.put("oeoea*aoo","o*oeaooea");
+        m.put("aoaoo*oaa","a*aooaaoo");
         m.put("ooe*oaooa","o*ooooaae");
         m.put("aaeeeee*e","e*eeeeeaa");
+        m.put("oea*eoooo","o*ooeeooa");
         m.put("aoa*aeaoa","a*aoaoaea");
         m.put("aooao*eee","o*eooeaae");
-        m.put("oeoea*aoa","o*aeaooea");
+        m.put("aoaoo*oao","a*oooaaoo");
         m.put("aoa*aeaoe","a*aoaoeea");
         m.put("eoooo*eoe","o*eoooeoe");
         m.put("eaaoe*oee","a*eaeeeoo");
@@ -5595,12 +5816,13 @@ public class MapHashMap {
         m.put("oaaaeoa*o","o*aoeaaao");
         m.put("aao*oeoae","o*aaoaeeo");
         m.put("oeo*eeeee","e*oeeeeeo");
-        m.put("eaooo*aao","o*oaoaeoa");
+        m.put("aeoea*eao","o*oeaaaee");
         m.put("eaoeeao*e","e*oaeeoae");
         m.put("aoaeooo*a","a*oooeaoa");
         m.put("oeaaa*ooa","a*aeaooao");
         m.put("oee*eeaoa","a*ooeeaee");
         m.put("aoaeooo*e","e*oooeaoa");
+        m.put("aoa*ooooo","o*aoooooa");
         m.put("oeo*eeeeo","e*oeeeoeo");
         m.put("ooeooea*e","e*aeooeoo");
         m.put("eeoeaaa*o","o*aaaeoee");
@@ -5614,7 +5836,7 @@ public class MapHashMap {
         m.put("eoe*eoaoo","a*eoeoooe");
         m.put("ooo*oeaea","a*oeooaeo");
         m.put("oaooo*eoa","o*aaooooe");
-        m.put("oea*eooaa","o*oaeeaoa");
+        m.put("oaooa*oaa","o*aaaaooo");
         m.put("ooo*oeaee","a*oeooeeo");
         m.put("aao*ooaeo","a*aeoaooo");
         m.put("aaoeaee*o","o*eeaeoaa");
@@ -5633,8 +5855,10 @@ public class MapHashMap {
         m.put("oea*eeeoo","e*ooeeoea");
         m.put("eao*aeooe","o*eoaaeeo");
         m.put("aoeeeoo*o","o*ooeeeoa");
+        m.put("aea*eooao","o*aaeeooa");
+        m.put("oaaeeoo*o","o*ooeeaao");
         m.put("eaeaeoe*o","o*eoeaeae");
-        m.put("eoo*aeoea","o*eeaoaeo");
+        m.put("oaooooa*a","a*aooooao");
         m.put("oaoaa*oae","o*eaaaoao");
         m.put("eooaooo*a","a*oooaooe");
         m.put("oaoeeaa*e","e*aaeeoao");
@@ -5658,10 +5882,12 @@ public class MapHashMap {
         m.put("aoa*oaoae","o*aaooeaa");
         m.put("oeeooee*o","o*eeooeeo");
         m.put("eaaeaae*o","o*eaaeaae");
+        m.put("ooa*aaooo","o*ooaooaa");
         m.put("ooooe*aoo","o*ooeoooa");
         m.put("eoaeeaa*o","o*aaeeaoe");
         m.put("oea*oeoee","o*oeoeeea");
         m.put("oeaee*aae","a*eeeaoea");
+        m.put("aeoeo*eoa","o*aeooaee");
         m.put("ooooe*aoa","o*aoeoooa");
         m.put("eoaeeaa*e","e*aaeeaoe");
         m.put("aaoea*aaa","o*aaaaaea");
@@ -5687,6 +5913,7 @@ public class MapHashMap {
         m.put("ooe*oaaeo","a*oeoooae");
         m.put("aoeee*eao","e*ooeaaee");
         m.put("eeaee*aaa","a*aeeaeea");
+        m.put("aaoaa*aoa","o*aaaoaaa");
         m.put("eeeae*oee","e*eeeeeao");
         m.put("eeaee*aae","a*eeeaeea");
         m.put("eeeae*oea","e*aeeeeao");
@@ -5711,6 +5938,7 @@ public class MapHashMap {
         m.put("aao*aeeeo","e*aeaaoeo");
         m.put("eeoeaaa*a","a*aaaeoee");
         m.put("ooeea*aoo","e*ooaooea");
+        m.put("aoaoaao*o","o*oaaoaoa");
         m.put("oeeoo*aea","e*aeoeooa");
         m.put("ooaeo*eeo","a*oooeoee");
         m.put("aao*aeeee","e*aeaaeeo");
@@ -5729,21 +5957,24 @@ public class MapHashMap {
         m.put("ooeaa*eea","e*aoaeoae");
         m.put("eea*aaaea","a*eeaeaaa");
         m.put("eoo*aoaaa","a*eaaoaoo");
+        m.put("aaooo*aaa","o*aaoaaoa");
         m.put("eoo*aoaae","a*eaaoeoo");
         m.put("oaeeeeo*e","e*oeeeeao");
         m.put("eao*eooao","o*eaeaooo");
         m.put("eao*aeoeo","o*eeaaoeo");
         m.put("eoo*aoaao","a*eaaoooo");
         m.put("oeeee*oaa","e*aeeaoeo");
+        m.put("aaoaoae*o","o*eaoaoaa");
         m.put("ooa*aaaeo","a*oeaooaa");
         m.put("aoaeeao*o","o*oaeeaoa");
         m.put("oeeee*oae","e*eeeaoeo");
-        m.put("eaoee*eee","o*eaeeeee");
+        m.put("aeoae*oee","o*eeeeaao");
         m.put("aoaaa*aea","a*aoaeaaa");
         m.put("oee*eoaao","a*oaeeooe");
         m.put("ooa*aoeoa","e*ooaoaoa");
         m.put("oeeee*oao","e*oeeaoeo");
         m.put("aaa*oeaee","a*aeoaeea");
+        m.put("oaa*ooooa","o*oooaaoa");
         m.put("eoa*eeaoo","a*eoeooea");
         m.put("eoa*eeaoa","a*eoeoaea");
         m.put("eoa*eeaoe","a*eoeoeea");
@@ -5752,10 +5983,11 @@ public class MapHashMap {
         m.put("oooeo*eoe","o*eooooee");
         m.put("aae*aaooe","o*aoaaeae");
         m.put("oeoaeoa*o","o*aoeaoeo");
+        m.put("oee*ooaaa","a*oaoeaoe");
         m.put("aeaee*eaa","a*aeeaaee");
         m.put("aae*eeooo","o*aoeaoee");
         m.put("oeeeaeo*a","a*oeaeeeo");
-        m.put("aae*eeooa","o*aoeaaee");
+        m.put("aoa*oaoao","o*aaoooaa");
         m.put("aeoaooa*a","a*aooaoea");
         m.put("aae*eeooe","o*aoeaeee");
         m.put("aeoaooa*e","e*aooaoea");
@@ -5777,18 +6009,20 @@ public class MapHashMap {
         m.put("aaa*oaeoo","e*aooaoaa");
         m.put("aooaeea*a","a*aeeaooa");
         m.put("aeeoa*eae","e*eeaaaoe");
+    }    private void init_6() {
         m.put("aeeoaee*o","o*eeaoeea");
         m.put("oaaoaeo*o","o*oeaoaao");
         m.put("eaeooeo*e","e*oeooeae");
         m.put("aooee*oeo","o*ooeeaeo");
         m.put("eaeooeo*a","a*oeooeae");
-        m.put("eaeooeo*o","o*oeooeae");
+        m.put("aaa*aaoao","o*aaaaoaa");
         m.put("aae*aaooa","o*aoaaaae");
         m.put("oaaoaeo*e","e*oeaoaao");
         m.put("oee*aooee","o*oeaeeoe");
         m.put("oaaoaeo*a","a*oeaoaao");
         m.put("oaooeoe*a","a*eoeooao");
         m.put("eee*aaaao","a*eaaeoae");
+        m.put("aoooa*ooo","o*ooaoaoo");
         m.put("oaooeoe*e","e*eoeooao");
         m.put("oea*oaaee","a*oeoeeaa");
         m.put("oae*aoeoo","e*ooaaooe");
@@ -5801,6 +6035,7 @@ public class MapHashMap {
         m.put("aooaaea*o","o*aeaaooa");
         m.put("aoaeoee*o","o*eeoeaoa");
         m.put("aeaao*aoo","a*oeooaaa");
+        m.put("ooaao*ooa","a*aooooao");
         m.put("aeaao*aoa","a*aeooaaa");
         m.put("eeeoeea*a","a*aeeoeee");
         m.put("aeaao*aoe","a*eeooaaa");
@@ -5810,6 +6045,7 @@ public class MapHashMap {
         m.put("oeoaaee*e","e*eeaaoeo");
         m.put("ooaeo*eoa","a*aooooee");
         m.put("aaa*oeaea","a*aeoaaea");
+        m.put("eee*eeoao","o*eaeeoee");
         m.put("eoeeo*oae","e*eooaeeo");
         m.put("eoeeo*oaa","e*aooaeeo");
         m.put("oaooeae*e","e*eaeooao");
@@ -5854,6 +6090,7 @@ public class MapHashMap {
         m.put("aeoaa*aee","o*eeaeaaa");
         m.put("ooe*aaoee","o*oeaoeae");
         m.put("oeeaa*oae","e*eeaaoao");
+        m.put("oooao*oao","o*oooaoao");
         m.put("aaoaa*eaa","o*aaaaaae");
         m.put("eao*aeeoo","e*eoaaoeo");
         m.put("eeooeaa*e","e*aaeooee");
@@ -5861,6 +6098,7 @@ public class MapHashMap {
         m.put("eao*aeeoe","e*eoaaeeo");
         m.put("oea*eaaoe","a*ooeeeaa");
         m.put("eao*aeeoa","e*eoaaaeo");
+        m.put("oaeeeoo*o","o*ooeeeao");
         m.put("oaa*ooeeo","e*oeoaooa");
         m.put("eea*oeooe","o*eooeeea");
         m.put("aeaaoea*o","o*aeoaaea");
@@ -5876,6 +6114,7 @@ public class MapHashMap {
         m.put("aaaoooe*a","a*eoooaaa");
         m.put("aeaaooo*a","a*oooaaea");
         m.put("oeeooae*a","a*eaooeeo");
+        m.put("eaoaooa*o","o*aooaoae");
         m.put("oeeooae*e","e*eaooeeo");
         m.put("oeeeeea*o","o*aeeeeeo");
         m.put("oee*aeaoa","a*ooaeaee");
@@ -5889,6 +6128,7 @@ public class MapHashMap {
         m.put("aaeeeaa*a","a*aaeeeaa");
         m.put("aaeeoao*o","o*oaoeeaa");
         m.put("eeeaa*oao","e*oeaaeao");
+        m.put("aaooo*aao","o*oaoaaoa");
         m.put("eeeee*eeo","e*oeeeeee");
         m.put("eooaa*eoe","o*eoaoeae");
         m.put("aaoeo*eeo","o*oaoeaee");
@@ -5954,6 +6194,7 @@ public class MapHashMap {
         m.put("eee*eooao","o*eaeeooe");
         m.put("oooeaae*e","e*eaaeooo");
         m.put("oae*aoeoe","e*ooaaeoe");
+        m.put("aoaaoaa*o","o*aaoaaoa");
         m.put("eoeee*oao","e*ooeaeeo");
         m.put("eoeee*oaa","e*aoeaeeo");
         m.put("eoeee*oae","e*eoeaeeo");
@@ -5962,6 +6203,7 @@ public class MapHashMap {
         m.put("eeoeooa*a","a*aooeoee");
         m.put("aeoea*aeo","o*oeaeaea");
         m.put("aooaooe*a","a*eooaooa");
+        m.put("aoooaoa*a","a*aoaoooa");
         m.put("aeoea*aea","o*aeaeaea");
         m.put("aoooaoa*e","e*aoaoooa");
         m.put("eeoaoeo*a","a*oeoaoee");
@@ -5997,6 +6239,8 @@ public class MapHashMap {
         m.put("aaoea*aae","o*eaaaaea");
         m.put("aeaoaaa*o","o*aaaoaea");
         m.put("aaeaaao*e","e*oaaaeaa");
+        m.put("eoa*aaoaa","o*eaaoaaa");
+        m.put("oaa*aaooo","o*ooaaoaa");
         m.put("aeoeooe*o","o*eooeoea");
         m.put("aeaoaaa*a","a*aaaoaea");
         m.put("eoeae*aeo","e*ooeeeaa");
@@ -6009,7 +6253,6 @@ public class MapHashMap {
         m.put("eaeoaao*e","e*oaaoeae");
         m.put("eoe*oooae","o*eaooeoe");
         m.put("aeaeo*aea","a*aeoeaea");
-    }    private void init_6() {
         m.put("aaaaoee*a","a*eeoaaaa");
         m.put("aeaeo*aeo","a*oeoeaea");
         m.put("ooe*eoeoo","e*ooeoooe");
@@ -6043,6 +6286,7 @@ public class MapHashMap {
         m.put("aoeae*eoo","e*ooeoaae");
         m.put("aoeae*eoa","e*aoeoaae");
         m.put("oaa*eaeee","e*oeeaeaa");
+        m.put("oae*aooee","o*oeaaeoe");
         m.put("aeoaaeo*e","e*oeaaoea");
         m.put("aeo*oaoao","o*aaoeoao");
         m.put("oaa*eaeea","e*oeeaaaa");
@@ -6053,14 +6297,14 @@ public class MapHashMap {
         m.put("aeeaaao*e","e*oaaaeea");
         m.put("ooe*oeaoa","a*ooooaee");
         m.put("eeoaeoa*e","e*aoeaoee");
-        m.put("aaoaa*oae","o*eaaaaao");
+        m.put("aaaao*ooo","a*oaooaao");
         m.put("oeeeeee*a","a*eeeeeeo");
         m.put("oaeaa*eao","e*oaaaoae");
         m.put("oaa*eaaao","a*oaeaoaa");
         m.put("oeeeeee*e","e*eeeeeeo");
         m.put("aaaao*ooe","a*eaooaao");
         m.put("oeeeeee*o","o*eeeeeeo");
-        m.put("oooae*eaa","o*aoeaoae");
+        m.put("aaaao*ooa","a*aaooaao");
         m.put("eoo*eoeoo","e*eoeoooo");
         m.put("aeoao*eee","o*eeoeaae");
         m.put("aooea*aao","o*ooaaaea");
@@ -6092,6 +6336,8 @@ public class MapHashMap {
         m.put("eoeoaoo*o","o*ooaoeoe");
         m.put("aoaoeee*e","e*eeeoaoa");
         m.put("aeeeo*aoo","e*oeooaea");
+        m.put("aaoao*aea","o*aaoeaaa");
+        m.put("aoaaoao*o","o*oaoaaoa");
         m.put("aao*oaaeo","a*aeoaoao");
         m.put("oeeoeeo*a","a*oeeoeeo");
         m.put("eaaoa*aaa","a*aaaaeoa");
@@ -6102,7 +6348,7 @@ public class MapHashMap {
         m.put("oea*oaoea","o*oeoeaaa");
         m.put("oooeeoo*e","e*ooeeooo");
         m.put("oaoeaee*o","o*eeaeoao");
-        m.put("oee*oeoao","o*oaoeoee");
+        m.put("oaaoo*oao","a*oaoaooo");
         m.put("aoa*eaeaa","e*aaeoaaa");
         m.put("oeaaaea*o","o*aeaaaeo");
         m.put("oae*oeeoo","e*oooaoee");
@@ -6135,10 +6381,13 @@ public class MapHashMap {
         m.put("eeo*ooooe","o*eooeeoo");
         m.put("eoooaaa*o","o*aaaoooe");
         m.put("eaaaeae*o","o*eaeaaae");
+        m.put("aaaoa*oao","a*oaaaaoo");
         m.put("oae*aaaoo","a*ooaaoae");
+        m.put("eoooo*aao","o*oooaeoa");
         m.put("oaa*aoeee","e*oeaaeoa");
         m.put("aoe*eeoeo","o*aeeooee");
         m.put("eoo*aoeae","e*eaaoeoo");
+        m.put("eea*aeoao","o*eaaeoea");
         m.put("oae*aaaeo","a*oeaaoae");
         m.put("oae*aooae","o*oaaaeoe");
         m.put("eaaee*oaa","a*aaeaeeo");
@@ -6162,6 +6411,7 @@ public class MapHashMap {
         m.put("eaoaaoo*e","e*ooaaoae");
         m.put("eae*ooeae","e*eaoaeoe");
         m.put("aea*oeeeo","e*aeoeoea");
+        m.put("aaa*aaaaa","a*aaaaaaa");
         m.put("eaaoa*eoo","a*oaaoeoe");
         m.put("eeo*eoeoa","e*eoeeaoo");
         m.put("aaa*aaaae","a*aaaaeaa");
@@ -6171,7 +6421,8 @@ public class MapHashMap {
         m.put("oee*aoeee","e*oeaeeoe");
         m.put("ooa*ooeao","e*oaooooa");
         m.put("ooa*ooeaa","e*oaooaoa");
-        m.put("eoa*aoooo","o*eoaoooa");
+        m.put("oaa*aaaaa","a*oaaaaaa");
+        m.put("oaoooaa*a","a*aaoooao");
         m.put("ooa*ooeae","e*oaooeoa");
         m.put("eoaooaa*o","o*aaooaoe");
         m.put("oee*aoeeo","e*oeaeooe");
@@ -6194,8 +6445,9 @@ public class MapHashMap {
         m.put("eee*oeaoo","a*eooeoee");
         m.put("aee*aoaaa","a*aaaeaoe");
         m.put("aaaeoee*e","e*eeoeaaa");
+        m.put("aoooo*eee","o*eooeaoe");
         m.put("eoeaa*ooa","e*aoaoeao");
-        m.put("eeoaa*eeo","o*oeaeeae");
+        m.put("ooaoa*ooo","a*ooaoooo");
         m.put("eeoaa*aae","o*eeaaeaa");
         m.put("ooe*eoeea","e*oeeoaoe");
         m.put("aeoeeaa*o","o*aaeeoea");
@@ -6211,6 +6463,7 @@ public class MapHashMap {
         m.put("ooe*ooeoo","e*ooooooe");
         m.put("oeo*aaaoe","a*ooaeeao");
         m.put("oaaea*eao","a*oaaaoee");
+        m.put("ooo*eeooa","o*ooeoaeo");
         m.put("eeoooeo*a","a*oeoooee");
         m.put("oeaoa*aoe","a*eeaoooa");
         m.put("ooaae*eeo","a*ooeeoae");
@@ -6228,13 +6481,14 @@ public class MapHashMap {
         m.put("oeo*oaeaa","e*oaoeaao");
         m.put("aaooe*aoa","o*aaeoaoa");
         m.put("oeooaae*a","a*eaaooeo");
+        m.put("aoaoaao*a","a*oaaoaoa");
         m.put("oooeaeo*e","e*oeaeooo");
         m.put("oaeeaoa*a","a*aoaeeao");
         m.put("eoaee*eoo","a*ooeoeee");
         m.put("oaeeaoa*e","e*aoaeeao");
         m.put("eoaee*eoe","a*eoeoeee");
         m.put("eoaeaoo*e","e*ooaeaoe");
-        m.put("eoaee*eoa","a*aoeoeee");
+        m.put("aaa*oaaao","a*aaoaoaa");
         m.put("ooaae*oea","a*aoeeoao");
         m.put("aoeaaoe*e","e*eoaaeoa");
         m.put("eaeaa*eae","e*eaaaeae");
@@ -6245,7 +6499,7 @@ public class MapHashMap {
         m.put("eoa*oeaea","a*eeooaea");
         m.put("eaeaa*eao","e*oaaaeae");
         m.put("eoa*oeaee","a*eeooeea");
-        m.put("aooeeoo*o","o*ooeeooa");
+        m.put("aeooe*aoe","o*eeeoaoa");
         m.put("aoeaeoe*e","e*eoeaeoa");
         m.put("eeoeaoe*o","o*eoaeoee");
         m.put("aoooo*aoe","o*eoooaoa");
@@ -6282,6 +6536,7 @@ public class MapHashMap {
         m.put("aoo*eeeao","e*aaeooeo");
         m.put("ooaoaeo*o","o*oeaoaoo");
         m.put("aoo*eeeaa","e*aaeoaeo");
+        m.put("ooo*oaaaa","a*oaooaao");
         m.put("aoo*eeeae","e*aaeoeeo");
         m.put("oee*eoeoe","e*ooeeeoe");
         m.put("oeaoa*aoa","a*aeaoooa");
@@ -6306,7 +6561,7 @@ public class MapHashMap {
         m.put("oeo*eeaoo","a*ooeeoeo");
         m.put("ooe*oeeae","e*oaooeee");
         m.put("eeoaa*aao","o*oeaaeaa");
-        m.put("eaeeoao*a","a*oaoeeae");
+        m.put("aaaaa*aoo","a*oaaoaaa");
         m.put("eao*eeooo","o*eoeaoeo");
         m.put("aae*ooaao","a*aaoaooe");
         m.put("oaeeaoe*o","o*eoaeeao");
@@ -6403,16 +6658,18 @@ public class MapHashMap {
         m.put("eeoooao*e","e*oaoooee");
         m.put("aoeee*oae","e*eoeaaeo");
         m.put("eaaeo*aea","a*aaoeeea");
+        m.put("oooaa*aoo","o*ooaooaa");
         m.put("aoeee*oaa","e*aoeaaeo");
         m.put("eoooaao*o","o*oaaoooe");
         m.put("oaeoo*oee","e*eaoeooo");
         m.put("oooeoee*o","o*eeoeooo");
-        m.put("oeeeeeo*o","o*oeeeeeo");
+        m.put("aoaeooa*o","o*aooeaoa");
         m.put("oaeoo*oea","e*aaoeooo");
         m.put("ooeeoao*o","o*oaoeeoo");
         m.put("eeaoo*ooo","a*oeooeoo");
         m.put("aeoea*aee","o*eeaeaea");
         m.put("eeaoo*ooa","a*aeooeoo");
+        m.put("oeoae*aeo","o*oeeeoaa");
         m.put("eoa*eeeee","e*eeeoeea");
         m.put("aaoeoao*o","o*oaoeoaa");
         m.put("eeaoo*ooe","a*eeooeoo");
@@ -6432,13 +6689,14 @@ public class MapHashMap {
         m.put("oee*oaooo","o*oooeoae");
         m.put("ooaoaoa*e","e*aoaoaoo");
         m.put("ooeeo*oaa","e*aooaoeo");
-        m.put("oao*aeaeo","a*oeaaoeo");
+        m.put("aaoaooa*a","a*aooaoaa");
         m.put("ooeeo*oae","e*eooaoeo");
         m.put("oeoao*oao","o*oeoaoao");
         m.put("ooeoaoe*e","e*eoaoeoo");
+        m.put("aaooo*aoo","o*oaooaoa");
         m.put("eeaoa*oao","a*oeaaeoo");
         m.put("ooeoaoe*a","a*eoaoeoo");
-        m.put("eeaoeeo*o","o*oeeoaee");
+        m.put("aaoaooa*o","o*aooaoaa");
         m.put("eeaoeeo*a","a*oeeoaee");
         m.put("ooeoaoe*o","o*eoaoeoo");
         m.put("eao*aeoaa","o*eaaaaeo");
@@ -6447,6 +6705,7 @@ public class MapHashMap {
         m.put("eee*oaooe","o*eooeeae");
         m.put("eoeea*aao","e*ooaaeea");
         m.put("eee*aaaoa","a*eoaeaae");
+        m.put("ooaoo*aoo","a*ooooooa");
         m.put("eee*aaaoe","a*eoaeeae");
         m.put("aeo*eeoee","o*aeeeeeo");
         m.put("oeo*ooooe","o*oooeeoo");
@@ -6461,6 +6720,7 @@ public class MapHashMap {
         m.put("eoaeaea*a","a*aeaeaoe");
         m.put("aao*oaeea","e*aeoaaao");
         m.put("eoaeaea*o","o*aeaeaoe");
+        m.put("aoo*aaooo","o*aoaooao");
         m.put("aea*aooee","o*aeaeeoa");
         m.put("eee*eaoao","o*eaeeoae");
         m.put("ooe*oaooe","o*ooooeae");
@@ -6482,6 +6742,7 @@ public class MapHashMap {
         m.put("eaoaaee*e","e*eeaaoae");
         m.put("eaoeaea*a","a*aeaeoae");
         m.put("oaeee*eaa","e*aaeaoee");
+        m.put("aaa*aoaaa","a*aaaaaoa");
         m.put("eaoeooa*e","e*aooeoae");
         m.put("oaeee*eae","e*eaeaoee");
         m.put("aooooea*e","e*aeooooa");
@@ -6492,6 +6753,7 @@ public class MapHashMap {
         m.put("ooeoo*eaa","e*aooaooe");
         m.put("ooaooeo*o","o*oeooaoo");
         m.put("oaeoooo*e","e*ooooeao");
+        m.put("aoo*aaooa","o*aoaoaao");
         m.put("oeeoaoe*a","a*eoaoeeo");
         m.put("aeaeo*oaa","a*aeoaaeo");
         m.put("ooaooeo*e","e*oeooaoo");
@@ -6512,6 +6774,7 @@ public class MapHashMap {
         m.put("eee*oaooa","o*eooeaae");
         m.put("eaaea*aaa","a*aaaaeea");
         m.put("ooaoo*eao","a*oooaooe");
+        m.put("ooooaao*o","o*oaaoooo");
         m.put("ooa*eeaee","a*oeeoeea");
         m.put("aee*eaooa","o*aoeeaae");
         m.put("eoo*ooeeo","e*eeooooo");
@@ -6529,10 +6792,11 @@ public class MapHashMap {
         m.put("eaeoaea*a","a*aeaoeae");
         m.put("eooeoaa*a","a*aaoeooe");
         m.put("eea*oaoee","o*eeoeeaa");
-        m.put("eaoeoae*o","o*eaoeoae");
+        m.put("oaaoo*aoo","a*oaooooa");
         m.put("aaeee*aae","e*eaeaaea");
         m.put("eeo*aeeea","e*eeaeaeo");
         m.put("aaeaeaa*e","e*aaeaeaa");
+        m.put("aoaoa*aao","a*ooaaaoa");
         m.put("eeo*aeeee","e*eeaeeeo");
         m.put("oao*eeoae","o*oaeaeeo");
         m.put("aaeee*aao","e*oaeaaea");
@@ -6551,6 +6815,7 @@ public class MapHashMap {
         m.put("aeaee*aee","a*eeeeaea");
         m.put("eaa*aaeao","e*eaaaoaa");
         m.put("eoeao*aee","e*eooeeaa");
+        m.put("aoaaa*aoa","a*aoaoaaa");
         m.put("aae*aoeaa","e*aaaaaoe");
         m.put("eoeao*aea","e*aooeeaa");
         m.put("oeaeooa*a","a*aooeaeo");
@@ -6572,6 +6837,7 @@ public class MapHashMap {
         m.put("oea*eoaao","a*oaeeooa");
         m.put("eoo*ooaaa","a*eaooaoo");
         m.put("eaaeo*eeo","a*oaoeeee");
+        m.put("aaoaaoa*o","o*aoaaoaa");
         m.put("aao*aoeee","e*aeaaeoo");
         m.put("oeeae*oao","e*oeeaoao");
         m.put("eoe*oaooa","o*eoooaae");
@@ -6660,7 +6926,7 @@ public class MapHashMap {
         m.put("oooaaoa*e","e*aoaaooo");
         m.put("eaaoaaa*a","a*aaaoaae");
         m.put("oaaeoae*e","e*eaoeaao");
-        m.put("aooaeeo*o","o*oeeaooa");
+        m.put("aoaaa*aoo","a*ooaoaaa");
         m.put("eoe*eaaoo","a*eoeooae");
         m.put("eoe*eaaoa","a*eoeoaae");
         m.put("aea*aoeaa","e*aaaeaoa");
@@ -6697,6 +6963,7 @@ public class MapHashMap {
         m.put("aeaoe*aaa","a*aeeaaoa");
         m.put("ooo*eeoao","o*oaeooeo");
         m.put("aeaoe*aao","a*oeeaaoa");
+        m.put("oooaoaa*a","a*aaoaooo");
         m.put("aae*aaaao","a*aaaaoae");
         m.put("aaaeaoo*e","e*ooaeaaa");
         m.put("aoeao*aeo","e*oooeaaa");
@@ -6726,6 +6993,7 @@ public class MapHashMap {
         m.put("ooo*aooeo","o*oeaoooo");
         m.put("aaa*oooeo","o*aeoaooa");
         m.put("aaooaee*a","a*eeaooaa");
+        m.put("aoo*oaooo","o*aooooao");
         m.put("eoo*eoeaa","e*eaeoaoo");
         m.put("aaooaee*e","e*eeaooaa");
         m.put("eoo*eoeae","e*eaeoeoo");
@@ -6742,17 +7010,19 @@ public class MapHashMap {
         m.put("ooeoaae*o","o*eaaoeoo");
         m.put("oaoeo*eeo","o*oaoeoee");
         m.put("eaeee*oee","e*eaeeeeo");
+    }    private void init_7() {
         m.put("eae*aoaea","a*eeaaaoe");
         m.put("eoa*aaeao","e*eaaooaa");
         m.put("eaeee*oea","e*aaeeeeo");
         m.put("eeeee*aoa","e*aeeoeea");
         m.put("eeeee*aoe","e*eeeoeea");
         m.put("eoa*ooeao","e*eaooooa");
-        m.put("eea*aeoae","o*eaaeeea");
+        m.put("ooooo*ooa","o*aoooooo");
+        m.put("ooaaooo*a","a*oooaaoo");
         m.put("eeeee*aoo","e*oeeoeea");
         m.put("aoaaa*eoe","a*eoaoaae");
         m.put("oaaaeoe*a","a*eoeaaao");
-        m.put("oaaoeoa*o","o*aoeoaao");
+        m.put("ooooaao*a","a*oaaoooo");
         m.put("oaaaeoe*e","e*eoeaaao");
         m.put("ooeooaa*o","o*aaooeoo");
         m.put("aooeaao*o","o*oaaeooa");
@@ -6774,6 +7044,7 @@ public class MapHashMap {
         m.put("oaooa*eao","o*oaaaooe");
         m.put("oeo*oaoee","o*oeoeeao");
         m.put("aaeeo*aee","e*eaoeaea");
+        m.put("aoo*oaaaa","a*aaooaao");
         m.put("aaeeo*aea","e*aaoeaea");
         m.put("aaeeo*aeo","e*oaoeaea");
         m.put("eaooo*aea","o*aaoeeoa");
@@ -6792,15 +7063,16 @@ public class MapHashMap {
         m.put("eaa*eeaae","a*eaeaeea");
         m.put("aooeaao*e","e*oaaeooa");
         m.put("eaa*eeaaa","a*eaeaaea");
-        m.put("oaoeoeo*o","o*oeoeoao");
+        m.put("oooaa*aaa","o*aoaaoaa");
         m.put("aeaaa*aoo","a*oeaoaaa");
         m.put("oeeaeea*e","e*aeeaeeo");
         m.put("oaaeo*eao","a*oaoaoee");
         m.put("oaoeoeo*e","e*oeoeoao");
+        m.put("oaoaa*aaa","o*aaaaoaa");
         m.put("ooa*oeaao","a*oaoooea");
         m.put("ooeee*eee","e*eoeeoee");
         m.put("oeaaooe*a","a*eooaaeo");
-        m.put("eaa*aoooa","o*eoaaaoa");
+        m.put("oeo*eeaeo","a*oeeeoeo");
         m.put("ooeee*eea","e*aoeeoee");
         m.put("aeaooea*o","o*aeooaea");
         m.put("aoaeeoe*e","e*eoeeaoa");
@@ -6808,6 +7080,7 @@ public class MapHashMap {
         m.put("ooeeaee*a","a*eeaeeoo");
         m.put("oeeaa*ooa","e*aeaooao");
         m.put("ooeeaee*e","e*eeaeeoo");
+        m.put("aooae*eea","o*aoeeaae");
         m.put("eaaeo*oaa","a*aaoaeeo");
         m.put("eoaoo*oee","a*eooeeoo");
         m.put("aae*oeoae","o*aaoaeee");
@@ -6826,7 +7099,9 @@ public class MapHashMap {
         m.put("eae*oeeee","e*eeoaeee");
         m.put("eaeooaa*e","e*aaooeae");
         m.put("aeooeoe*e","e*eoeooea");
+        m.put("aooao*aaa","o*aooaaaa");
         m.put("eae*oeeeo","e*eeoaoee");
+        m.put("oeeaeao*o","o*oaeaeeo");
         m.put("aeooeoe*a","a*eoeooea");
         m.put("oooao*eoe","o*eooooae");
         m.put("oeooe*ooe","o*eeeoooo");
@@ -6844,7 +7119,7 @@ public class MapHashMap {
         m.put("aoo*oaaae","a*aaooeao");
         m.put("aaa*aaaea","a*aeaaaaa");
         m.put("aae*eaaee","a*aeeaeae");
-        m.put("eaooo*aee","o*eaoeeoa");
+        m.put("aoo*aoaaa","a*aaaoaoo");
         m.put("oaeae*eae","e*eaeaoae");
         m.put("aae*eaaea","a*aeeaaae");
         m.put("oaeae*eaa","e*aaeaoae");
@@ -6858,6 +7133,7 @@ public class MapHashMap {
         m.put("aaaeoao*a","a*oaoeaaa");
         m.put("oaoae*eoa","o*aaeooae");
         m.put("aeeoa*ooa","e*aeaoaoo");
+        m.put("eeoooao*o","o*oaoooee");
         m.put("ooe*aeaoe","a*ooaoeee");
         m.put("aaeeoee*e","e*eeoeeaa");
         m.put("oeaea*eoa","a*aeaooee");
@@ -6875,6 +7151,7 @@ public class MapHashMap {
         m.put("aaeaeoo*a","a*ooeaeaa");
         m.put("ooeeoaa*o","o*aaoeeoo");
         m.put("aee*oeaea","a*aeoeaee");
+        m.put("aoo*aoaao","a*aaaoooo");
         m.put("aeeae*oeo","e*oeeeaao");
         m.put("eoaao*eoo","a*ooooeae");
         m.put("aeeaooe*e","e*eooaeea");
@@ -6887,15 +7164,17 @@ public class MapHashMap {
         m.put("aaeoe*aoe","e*eaeoaoa");
         m.put("eae*oooee","o*eeoaeoe");
         m.put("aeoea*aoo","o*oeaoaea");
+        m.put("eaooo*ooo","o*oaooeoo");
         m.put("aoaoo*eoe","a*eoooaoe");
         m.put("eoaoe*oea","a*aoeeeoo");
+        m.put("aoaoaaa*o","o*aaaoaoa");
         m.put("eeooaeo*e","e*oeaooee");
         m.put("ooe*oaeoa","e*ooooaae");
         m.put("aaooo*aoe","o*eaooaoa");
         m.put("eoaeo*oea","a*aooeeeo");
         m.put("oeooe*ooa","o*aeeoooo");
         m.put("ooa*ooeea","e*oeooaoa");
-        m.put("oeooa*aao","o*oeaaooa");
+        m.put("ooooa*aaa","o*aoaaooa");
         m.put("eoaoeao*a","a*oaeoaoe");
         m.put("aao*aaeao","e*aaaaoao");
         m.put("oaoee*ooo","o*oaeooeo");
@@ -6912,6 +7191,7 @@ public class MapHashMap {
         m.put("eaaoeeo*e","e*oeeoaae");
         m.put("ooa*ooeeo","e*oeooooa");
         m.put("eoeaa*eoe","e*eoaoeae");
+        m.put("aeoae*eeo","o*oeeeaae");
         m.put("eoeeo*oee","e*eooeeeo");
         m.put("eoeaa*eoo","e*ooaoeae");
         m.put("oaaae*aao","a*oaeaoaa");
@@ -6949,13 +7229,15 @@ public class MapHashMap {
         m.put("oeo*eaaao","a*oaeeoao");
         m.put("oaaee*eoe","a*eaeooee");
         m.put("ooeee*aae","e*eoeaoea");
+        m.put("aooao*aoa","o*aoooaaa");
         m.put("ooe*aaeeo","e*oeaooae");
         m.put("ooeee*aaa","e*aoeaoea");
         m.put("eaaaeeo*e","e*oeeaaae");
-        m.put("aaoae*ooo","o*oaeoaao");
+        m.put("oooaaaa*o","o*aaaaooo");
         m.put("oaaee*eao","a*oaeaoee");
         m.put("oaaooae*e","e*eaooaao");
         m.put("eaaaeeo*o","o*oeeaaae");
+        m.put("aaooa*oee","o*eaaeaoo");
         m.put("ooaeaea*o","o*aeaeaoo");
         m.put("eaaaa*oao","a*oaaaeao");
         m.put("oae*aeeea","e*oeaaaee");
@@ -6980,6 +7262,7 @@ public class MapHashMap {
         m.put("eeeeo*ooa","e*aeooeeo");
         m.put("eeaeeoo*o","o*ooeeaee");
         m.put("eoaaoeo*e","e*oeoaaoe");
+        m.put("aaoaaoo*o","o*ooaaoaa");
         m.put("eooooae*o","o*eaooooe");
         m.put("eoaaoeo*a","a*oeoaaoe");
         m.put("oeaea*eoo","a*oeaooee");
@@ -6993,10 +7276,11 @@ public class MapHashMap {
         m.put("oeaoa*ooe","a*eeaoooo");
         m.put("aeo*aeaee","a*aeaeeeo");
         m.put("eoaea*eaa","a*aoaaeee");
+        m.put("aao*oaooa","o*aooaaao");
         m.put("eaaoa*oae","a*eaaaeoo");
         m.put("eaooa*eea","o*aaaeeoe");
         m.put("aoe*oaoea","o*aeooaae");
-        m.put("oooao*eee","o*eooeoae");
+        m.put("aoaoa*ooa","a*aoaoaoo");
         m.put("aoeoeoa*e","e*aoeoeoa");
         m.put("eooeo*eaa","o*aooaeee");
         m.put("aoaoa*ooe","a*eoaoaoo");
@@ -7010,7 +7294,6 @@ public class MapHashMap {
         m.put("oeaee*oee","a*eeeeoeo");
         m.put("eeooe*aea","o*aeeeeoa");
         m.put("aaaeeee*a","a*eeeeaaa");
-    }    private void init_7() {
         m.put("oaa*aaaae","a*oaaaeaa");
         m.put("eaeeoaa*e","e*aaoeeae");
         m.put("aaaeeee*e","e*eeeeaaa");
@@ -7026,7 +7309,7 @@ public class MapHashMap {
         m.put("eoe*oaeoe","e*eoooeae");
         m.put("eoe*oooea","o*eeooaoe");
         m.put("eoe*oaeoa","e*eoooaae");
-        m.put("oee*ooaaa","a*oaoeaoe");
+        m.put("eoaoa*aea","a*aoaeeoa");
         m.put("oeaoe*eoe","a*eeeoooe");
         m.put("oea*aooao","o*oaaeooa");
         m.put("ooaee*oea","a*aoeeoeo");
@@ -7143,7 +7426,7 @@ public class MapHashMap {
         m.put("aeaoeaa*e","e*aaeoaea");
         m.put("aeaoeaa*a","a*aaeoaea");
         m.put("oae*aoooa","o*ooaaaoe");
-        m.put("aaoaaeo*o","o*oeaaoaa");
+        m.put("oea*ooaoo","a*oooeooa");
         m.put("oaa*oaooe","o*oooaeaa");
         m.put("eoeaaea*o","o*aeaaeoe");
         m.put("eeooaoo*e","e*ooaooee");
@@ -7151,7 +7434,7 @@ public class MapHashMap {
         m.put("eaoeeao*o","o*oaeeoae");
         m.put("oeaoe*ooe","a*eeeoooo");
         m.put("oea*eooee","o*oeeeeoa");
-        m.put("ooa*eoooe","o*ooeoeoa");
+        m.put("eeooo*oeo","o*oeoeeoo");
         m.put("ooooaee*a","a*eeaoooo");
         m.put("eeooeae*e","e*eaeooee");
         m.put("oeoaa*eae","o*eeaaoae");
@@ -7163,7 +7446,7 @@ public class MapHashMap {
         m.put("oaoaaae*e","e*eaaaoao");
         m.put("oeoaooe*e","e*eooaoeo");
         m.put("ooeoe*eoo","e*ooeoooe");
-        m.put("eaooe*eoo","o*oaeoeoe");
+        m.put("aao*oaoaa","o*aaoaaao");
         m.put("oeoaooe*a","a*eooaoeo");
         m.put("oooee*oaa","o*aoeaoeo");
         m.put("oeeaoaa*o","o*aaoaeeo");
@@ -7236,11 +7519,14 @@ public class MapHashMap {
         m.put("eeo*aoaaa","a*eaaeaoo");
         m.put("eooao*oaa","o*aooaeao");
         m.put("aeooaae*e","e*eaaooea");
+        m.put("oaaoaao*o","o*oaaoaao");
+        m.put("aao*ooooo","o*aooaooo");
         m.put("eaeaooo*e","e*oooaeae");
         m.put("aae*eaoaa","o*aaeaaae");
         m.put("eoo*ooaoe","a*eoooeoo");
         m.put("eoo*ooaoo","a*eoooooo");
         m.put("eaoea*aoe","o*eaaoeea");
+        m.put("oeoee*aao","o*oeeaoea");
         m.put("eoeaaeo*a","a*oeaaeoe");
         m.put("aeo*oaoea","o*aeoeaao");
         m.put("oeeae*ooa","e*aeeooao");
@@ -7260,7 +7546,9 @@ public class MapHashMap {
         m.put("aeoeeee*a","a*eeeeoea");
         m.put("oooeeee*e","e*eeeeooo");
         m.put("eao*oaaee","a*eeoaeao");
+        m.put("eao*eooee","o*eeeaeoo");
         m.put("aaaoo*oee","a*eaoeaoo");
+        m.put("eooao*aao","o*oooaeaa");
         m.put("eaaoo*aaa","a*aaoaeoa");
         m.put("aaooe*eae","o*eaeaaoe");
         m.put("aeaoa*oao","a*oeaaaoo");
@@ -7307,6 +7595,7 @@ public class MapHashMap {
         m.put("aoeae*aoa","e*aoeoaaa");
         m.put("aae*eaoae","o*aaeaeae");
         m.put("aooea*ooa","o*aoaoaeo");
+        m.put("oeoea*oaa","o*aeaaoeo");
         m.put("aaeee*ooa","e*aaeoaeo");
         m.put("eeaoe*aaa","a*aeeaeoa");
         m.put("eeoeeea*o","o*aeeeoee");
@@ -7322,11 +7611,13 @@ public class MapHashMap {
         m.put("eoe*eeeae","e*eaeoeee");
         m.put("eae*eaeae","e*eaeaeae");
         m.put("oeo*ooooo","o*oooeooo");
+        m.put("aaoaa*aao","o*oaaaaaa");
         m.put("oee*aoaee","a*oeaeeoe");
         m.put("oaa*oeoeo","o*oeoaoea");
         m.put("oee*aoaea","a*oeaeaoe");
         m.put("eae*eaeao","e*eaeaoae");
         m.put("oeeaa*oaa","e*aeaaoao");
+        m.put("oaoaa*aao","o*oaaaoaa");
         m.put("eoaooaa*a","a*aaooaoe");
         m.put("eaeoa*oee","e*eaaeeoo");
         m.put("eaooeoa*a","a*aoeooae");
@@ -7375,12 +7666,14 @@ public class MapHashMap {
         m.put("eoo*eoaoe","a*eoeoeoo");
         m.put("aaaaeoe*e","e*eoeaaaa");
         m.put("eeooe*aee","o*eeeeeoa");
+        m.put("aaa*aaaao","a*aaaaoaa");
         m.put("eea*oooaa","o*eaoeaoa");
         m.put("eee*oeooe","o*eooeeee");
         m.put("oooaeoa*a","a*aoeaooo");
         m.put("aae*eeaae","a*aaeaeee");
         m.put("eeeaoao*o","o*oaoaeee");
         m.put("oooaeoa*e","e*aoeaooo");
+        m.put("oaaaooa*a","a*aooaaao");
         m.put("eoeoooa*e","e*aoooeoe");
         m.put("aeo*oeeoa","e*aooeaeo");
         m.put("eoeoooa*a","a*aoooeoe");
@@ -7421,6 +7714,7 @@ public class MapHashMap {
         m.put("aeo*oaoeo","o*aeoeoao");
         m.put("aoeao*eoa","e*aoooaae");
         m.put("eaooe*eaa","o*aaeaeoe");
+        m.put("eeaoeeo*o","o*oeeoaee");
         m.put("eee*aeoaa","o*eaaeaee");
         m.put("ooooe*aee","o*eoeeooa");
         m.put("eeo*aaaoo","a*eoaeoao");
@@ -7430,6 +7724,7 @@ public class MapHashMap {
         m.put("eeo*aaaoe","a*eoaeeao");
         m.put("eaaao*aaa","a*aaoaeaa");
         m.put("eao*oooae","o*eaoaeoo");
+        m.put("aao*ooaoo","a*aooaooo");
         m.put("eeooeao*o","o*oaeooee");
         m.put("oaooe*oao","o*oaeaooo");
         m.put("aeooe*oeo","o*oeeeaoo");
@@ -7450,7 +7745,9 @@ public class MapHashMap {
         m.put("eoe*aoaee","a*eeaoeoe");
         m.put("aae*eeaaa","a*aaeaaee");
         m.put("aaoooae*e","e*eaoooaa");
+        m.put("aao*oaooo","o*aooaoao");
         m.put("eoe*aoaea","a*eeaoaoe");
+        m.put("aaooo*oao","o*oaoaaoo");
         m.put("eoeeaae*e","e*eaaeeoe");
         m.put("ooaeeee*a","a*eeeeaoo");
         m.put("eoe*aoaeo","a*eeaoooe");
@@ -7470,14 +7767,14 @@ public class MapHashMap {
         m.put("aaaaa*eoe","a*eaaoaae");
         m.put("oeooa*eoo","o*oeaoooe");
         m.put("eae*ooeee","e*eeoaeoe");
-        m.put("aeaaaae*o","o*eaaaaea");
+        m.put("aoa*ooaaa","a*aaooaoa");
         m.put("eeeaoae*o","o*eaoaeee");
         m.put("eae*ooeea","e*eeoaaoe");
         m.put("aao*aeooe","o*aoaaeeo");
         m.put("eoeeaeo*e","e*oeaeeoe");
         m.put("ooa*oaaea","a*oeooaaa");
         m.put("oeo*aaeoo","e*ooaeoao");
-        m.put("oeoea*oaa","o*aeaaoeo");
+        m.put("oeaao*eoo","a*oeoooae");
         m.put("ooaoe*oee","a*eoeeooo");
         m.put("oeo*aaeoa","e*ooaeaao");
         m.put("oeo*aaeoe","e*ooaeeao");
@@ -7523,6 +7820,7 @@ public class MapHashMap {
         m.put("eaooe*eao","o*oaeaeoe");
         m.put("aoo*aaaee","a*aeaoeao");
         m.put("aoeooae*a","a*eaooeoa");
+        m.put("aoo*aooao","o*aaaoooo");
         m.put("aoeooae*o","o*eaooeoa");
         m.put("aeaea*eoa","a*aeaoaee");
         m.put("aeaea*eoe","a*eeaoaee");
@@ -7554,6 +7852,7 @@ public class MapHashMap {
         m.put("eoeoeaa*o","o*aaeoeoe");
         m.put("oeo*oaeeo","e*oeoeoao");
         m.put("aeeoo*aoa","e*aeooaoa");
+        m.put("oaaaooa*o","o*aooaaao");
         m.put("eoa*oaoaa","o*eaooaaa");
         m.put("aeeoo*aoe","e*eeooaoa");
         m.put("oea*ooeoa","e*oooeaoa");
@@ -7595,6 +7894,7 @@ public class MapHashMap {
         m.put("aaoea*eoe","o*eaaoaee");
         m.put("aoeoo*eee","e*eooeaoe");
         m.put("eoa*ooaoe","a*eoooeoa");
+        m.put("aoo*ooooe","o*aoooeoo");
         m.put("eoaaa*oeo","a*ooaeeao");
         m.put("oeaoa*oaa","a*aeaaooo");
         m.put("aoeoo*eeo","e*oooeaoe");
@@ -7604,7 +7904,7 @@ public class MapHashMap {
         m.put("oeaao*eoe","a*eeoooae");
         m.put("aea*eaeoo","e*aoeeoaa");
         m.put("oeaao*eoa","a*aeoooae");
-        m.put("oeaao*eoo","a*oeoooae");
+        m.put("aoa*ooaao","a*aaooooa");
         m.put("aea*eaeoa","e*aoeeaaa");
         m.put("aea*eaeoe","e*aoeeeaa");
         m.put("aoo*eeeee","e*aeeoeeo");
@@ -7622,6 +7922,7 @@ public class MapHashMap {
         m.put("oae*aooeo","o*oeaaooe");
         m.put("eeoaa*eae","o*eeaaeae");
         m.put("oae*aoeea","e*oeaaaoe");
+        m.put("oao*aoooo","o*ooaaooo");
         m.put("eao*eeaoe","a*eoeaeeo");
         m.put("ooaoo*eoe","a*eoooooe");
         m.put("aeaeaoe*o","o*eoaeaea");
@@ -7629,6 +7930,7 @@ public class MapHashMap {
         m.put("eoa*oaoae","o*eaooeaa");
         m.put("ooaoo*eoa","a*aoooooe");
         m.put("eoeaooo*e","e*oooaeoe");
+        m.put("oaooa*aoa","o*aaaoooa");
         m.put("oeeooao*e","e*oaooeeo");
         m.put("ooo*aeaoa","a*ooaoaeo");
         m.put("eaoeo*eaa","o*aaoaeee");
@@ -7644,10 +7946,11 @@ public class MapHashMap {
         m.put("aoe*aeooe","o*aoaoeee");
         m.put("eaa*oeoeo","o*eeoaoea");
         m.put("aaooeee*o","o*eeeooaa");
-        m.put("aooao*eoo","o*ooooaae");
+        m.put("eoaee*oao","a*ooeaeeo");
         m.put("ooe*eoaoa","a*ooeoaoe");
         m.put("ooaoo*eoo","a*ooooooe");
         m.put("aaooeee*e","e*eeeooaa");
+        m.put("eooaa*aao","o*ooaaeaa");
         m.put("aaaaeoo*o","o*ooeaaaa");
         m.put("aaooeee*a","a*eeeooaa");
         m.put("oeaaeee*o","o*eeeaaeo");
@@ -7655,6 +7958,8 @@ public class MapHashMap {
         m.put("eao*eeaoo","a*eoeaoeo");
         m.put("ooaoe*oeo","a*ooeeooo");
         m.put("aaa*aaeaa","e*aaaaaaa");
+        m.put("eaoae*aae","o*eaeaeaa");
+        m.put("eooeo*aoo","o*ooooeea");
         m.put("ooe*eoeae","e*oaeoeoe");
         m.put("ooe*eoeaa","e*oaeoaoe");
         m.put("ooo*oooee","o*oeooeoo");
@@ -7706,6 +8011,7 @@ public class MapHashMap {
         m.put("aoa*eaaea","a*aeeoaaa");
         m.put("oae*oaooo","o*oooaoae");
         m.put("oao*aeeee","e*oeaaeeo");
+    }    private void init_8() {
         m.put("aoa*eaaee","a*aeeoeaa");
         m.put("ooeeeee*e","e*eeeeeoo");
         m.put("aoaaa*eae","a*eoaaaae");
@@ -7719,6 +8025,7 @@ public class MapHashMap {
         m.put("oea*aeoea","o*oeaeaea");
         m.put("ooeaa*eoo","e*ooaooae");
         m.put("eooae*aoe","o*eoeoeaa");
+        m.put("aaa*aoaoa","a*aoaaaoa");
         m.put("eoa*aeaeo","a*eeaooea");
         m.put("ooeaa*eoe","e*eoaooae");
         m.put("oeaae*eeo","a*oeeeoae");
@@ -7736,14 +8043,17 @@ public class MapHashMap {
         m.put("eee*aeeoe","e*eoaeeee");
         m.put("aeoeo*ooa","o*aeooaeo");
         m.put("aeoeeoe*e","e*eoeeoea");
+        m.put("eaoae*eae","o*eaeaeae");
         m.put("oea*eeaea","a*oeeeaea");
         m.put("aeoeeoe*a","a*eoeeoea");
         m.put("ooeoaeo*o","o*oeaoeoo");
         m.put("ooeoaeo*a","a*oeaoeoo");
+        m.put("eeoae*oae","o*eeeaeao");
         m.put("aeoeeoe*o","o*eoeeoea");
         m.put("eeeaaae*e","e*eaaaeee");
         m.put("ooeoaeo*e","e*oeaoeoo");
         m.put("oeaeo*eoo","a*oeoooee");
+        m.put("oaa*aoaao","a*oaaaooa");
         m.put("eoa*oaoee","o*eeooeaa");
         m.put("eeaeaoe*o","o*eoaeaee");
         m.put("aae*eooee","o*aeeaeoe");
@@ -7777,6 +8087,7 @@ public class MapHashMap {
         m.put("oeaeoae*e","e*eaoeaeo");
         m.put("oeaeo*eoe","a*eeoooee");
         m.put("oeaeoae*a","a*eaoeaeo");
+        m.put("aoaoooa*a","a*aoooaoa");
         m.put("aea*ooaao","a*aaoeooa");
         m.put("eea*oaoao","o*eaoeoaa");
         m.put("eea*aeoea","o*eeaeaea");
@@ -7789,8 +8100,9 @@ public class MapHashMap {
         m.put("oaoeeao*a","a*oaeeoao");
         m.put("oaeeoao*o","o*oaoeeao");
         m.put("eee*aaoeo","o*eeaeoae");
-        m.put("oae*aooee","o*oeaaeoe");
+        m.put("oooao*aoa","o*aooooaa");
         m.put("oaoeeao*e","e*oaeeoao");
+        m.put("oaoaa*oao","o*oaaaoao");
         m.put("aeooo*ooa","o*aeooaoo");
         m.put("oeaoaeo*a","a*oeaoaeo");
         m.put("aea*aaoao","o*aaaeoaa");
@@ -7798,10 +8110,11 @@ public class MapHashMap {
         m.put("oeaoaeo*e","e*oeaoaeo");
         m.put("ooe*aooae","o*oaaoeoe");
         m.put("eeoaa*aeo","o*oeaeeaa");
+        m.put("aooeo*oaa","o*aooaaeo");
         m.put("aeoeo*ooe","o*eeooaeo");
         m.put("eaooeao*a","a*oaeooae");
         m.put("eaooeeo*o","o*oeeooae");
-        m.put("eoaeeee*o","o*eeeeaoe");
+        m.put("oaaooao*a","a*oaooaao");
         m.put("ooaaeee*o","o*eeeaaoo");
         m.put("aaeeaoo*a","a*ooaeeaa");
         m.put("oae*oaooe","o*oooaeae");
@@ -7815,8 +8128,12 @@ public class MapHashMap {
         m.put("oooaa*oae","o*eoaaoao");
         m.put("oaaaeeo*o","o*oeeaaao");
         m.put("aaa*aaeao","e*aaaaoaa");
+        m.put("oaa*ooaao","a*oaoaooa");
+        m.put("oooaa*oaa","o*aoaaoao");
         m.put("oaa*aaaoe","a*ooaaeaa");
         m.put("aaa*aooea","o*aeaaaoa");
+        m.put("oooaa*oao","o*ooaaoao");
+        m.put("aooaa*ooa","o*aoaoaao");
         m.put("oaeee*eeo","e*oaeeoee");
         m.put("eaoeaaa*e","e*aaaeoae");
         m.put("oeeaaoa*e","e*aoaaeeo");
@@ -7838,6 +8155,7 @@ public class MapHashMap {
         m.put("eeaeaaa*a","a*aaaeaee");
         m.put("eoaeooo*e","e*oooeaoe");
         m.put("eeaee*eoa","a*aeeoeee");
+        m.put("eooao*aee","o*eooeeaa");
         m.put("eoaeooo*a","a*oooeaoe");
         m.put("eoooo*aeo","o*oooeeoa");
         m.put("eeaee*eoe","a*eeeoeee");
@@ -7853,6 +8171,7 @@ public class MapHashMap {
         m.put("eaa*aaeee","e*eeaaeaa");
         m.put("aeoeaao*o","o*oaaeoea");
         m.put("eaoaaea*e","e*aeaaoae");
+        m.put("aaaoooa*o","o*aoooaaa");
         m.put("eaa*aaeea","e*eeaaaaa");
         m.put("eaoaaea*a","a*aeaaoae");
         m.put("eao*aeeeo","e*eeaaoeo");
@@ -7876,6 +8195,7 @@ public class MapHashMap {
         m.put("eae*aaeoo","e*eoaaoae");
         m.put("ooeaa*oee","e*eoaeoao");
         m.put("eeo*aeeao","e*eaaeoeo");
+        m.put("aaaao*aoo","a*oaooaaa");
         m.put("aeaee*aaa","a*aeeaaea");
         m.put("aoeoa*eeo","e*ooaeaoe");
         m.put("aeeaooo*o","o*oooaeea");
@@ -7899,8 +8219,10 @@ public class MapHashMap {
         m.put("ooa*eeoae","o*oaeoeea");
         m.put("eeeee*eoe","e*eeeoeee");
         m.put("eaa*aaaaa","a*eaaaaaa");
+        m.put("ooo*oooao","o*oaooooo");
         m.put("eeeee*eoa","e*aeeoeee");
         m.put("oaeoo*aoe","e*eaooooa");
+        m.put("ooooaoo*o","o*ooaoooo");
         m.put("oaaee*eae","a*eaeaoee");
         m.put("eeaaoeo*o","o*oeoaaee");
         m.put("oaeoo*aoa","e*aaooooa");
@@ -7926,6 +8248,7 @@ public class MapHashMap {
         m.put("eooeeaa*e","e*aaeeooe");
         m.put("aoeoaeo*e","e*oeaoeoa");
         m.put("oaooeeo*a","a*oeeooao");
+        m.put("oaa*aoaaa","a*oaaaaoa");
         m.put("eeoea*aoo","o*oeaoeea");
         m.put("oeaao*oee","a*eeoeoao");
         m.put("aoaoeae*o","o*eaeoaoa");
@@ -7934,6 +8257,7 @@ public class MapHashMap {
         m.put("oeooaeo*e","e*oeaooeo");
         m.put("oeoeaaa*o","o*aaaeoeo");
         m.put("aao*eeeee","e*aeeaeeo");
+        m.put("oaaaoaa*a","a*aaoaaao");
         m.put("aee*oaaoe","a*aooeeae");
         m.put("aao*eeeea","e*aeeaaeo");
         m.put("oaeoa*eea","e*aaaeooe");
@@ -7964,7 +8288,8 @@ public class MapHashMap {
         m.put("aoeoa*ooa","e*aoaoaoo");
         m.put("aeooo*ooo","o*oeooaoo");
         m.put("aoeae*aae","e*eoeaaaa");
-        m.put("aea*aaoae","o*aaaeeaa");
+        m.put("eaooo*aee","o*eaoeeoa");
+        m.put("aoooa*oaa","o*aoaaaoo");
         m.put("aoeoa*ooo","e*ooaoaoo");
         m.put("aoeae*aao","e*ooeaaaa");
         m.put("oeeoe*oaa","e*aeeaooo");
@@ -7982,10 +8307,11 @@ public class MapHashMap {
         m.put("oee*eaoea","o*oeeeaae");
         m.put("aeo*aeaoa","a*aoaeaeo");
         m.put("aooao*oea","o*aooeaao");
+        m.put("ooa*aoooa","o*ooaoaoa");
         m.put("ooaoeea*e","e*aeeoaoo");
         m.put("aooao*oee","o*eooeaao");
         m.put("ooaoeea*a","a*aeeoaoo");
-        m.put("eoeaoae*o","o*eaoaeoe");
+        m.put("aooaoaa*a","a*aaoaooa");
         m.put("aoo*eaaoo","a*aoeooao");
         m.put("aea*aoeee","e*aeaeeoa");
         m.put("aoo*aeooa","o*aoaoaeo");
@@ -7997,6 +8323,7 @@ public class MapHashMap {
         m.put("aoeea*eee","e*eoaeaee");
         m.put("ooeoeaa*o","o*aaeoeoo");
         m.put("aoeao*aao","e*oooaaaa");
+        m.put("aoeeeeo*o","o*oeeeeoa");
         m.put("aoeeaae*o","o*eaaeeoa");
         m.put("aoeao*aae","e*eooaaaa");
         m.put("aaaooee*o","o*eeooaaa");
@@ -8006,25 +8333,27 @@ public class MapHashMap {
         m.put("aeeeeeo*o","o*oeeeeea");
         m.put("aea*eoooa","o*aoeeaoa");
         m.put("eeeea*ooo","e*oeaoeeo");
+        m.put("aao*aaooo","o*aoaaoao");
         m.put("aaaoa*eea","a*aaaeaoe");
         m.put("eeeea*ooe","e*eeaoeeo");
         m.put("eoaae*oao","a*ooeaeao");
         m.put("eeooe*eae","o*eeeaeoe");
         m.put("eeeea*ooa","e*aeaoeeo");
-    }    private void init_8() {
         m.put("aaaee*oee","a*eaeeaeo");
         m.put("aao*aaooe","o*aoaaeao");
         m.put("oeoooaa*e","e*aaoooeo");
         m.put("oae*oaeoa","e*oooaaae");
         m.put("eaeeaoo*e","e*ooaeeae");
         m.put("oae*oaeoe","e*oooaeae");
+        m.put("aooooaa*o","o*aaooooa");
         m.put("aoeaaea*o","o*aeaaeoa");
         m.put("eoeaeea*a","a*aeeaeoe");
+        m.put("aoooo*oao","o*oooaaoo");
         m.put("oae*oaeoo","e*oooaoae");
         m.put("oeoaeao*a","a*oaeaoeo");
         m.put("eoeaeea*e","e*aeeaeoe");
         m.put("aaaooaa*e","e*aaooaaa");
-        m.put("eaeeeoo*a","a*ooeeeae");
+        m.put("aaaooaa*a","a*aaooaaa");
         m.put("oeo*eaaeo","a*oeeeoao");
         m.put("aaa*eaaaa","a*aaeaaaa");
         m.put("oeo*eaaea","a*oeeeaao");
@@ -8032,6 +8361,7 @@ public class MapHashMap {
         m.put("oeo*eaaee","a*oeeeeao");
         m.put("aoaee*eaa","a*aoeaaee");
         m.put("oaaeoaa*e","e*aaoeaao");
+        m.put("aaaaaoa*o","o*aoaaaaa");
         m.put("oeoeeoe*e","e*eoeeoeo");
         m.put("oaaeoaa*a","a*aaoeaao");
         m.put("eooeoee*a","a*eeoeooe");
@@ -8051,6 +8381,7 @@ public class MapHashMap {
         m.put("eaeoe*oao","e*oaeaeoo");
         m.put("oeaoa*aee","a*eeaeooa");
         m.put("aeeae*eoo","e*oeeoaae");
+        m.put("aoooo*oae","o*eooaaoo");
         m.put("aeeeo*aea","e*aeoeaea");
         m.put("eoeao*ooa","e*aoooeao");
         m.put("aeeeo*aee","e*eeoeaea");
@@ -8073,6 +8404,7 @@ public class MapHashMap {
         m.put("oee*eaaao","a*oaeeoae");
         m.put("oaaea*eoo","a*oaaooee");
         m.put("ooeoo*oeo","e*oooeooo");
+        m.put("eoa*eaoea","o*eeeoaaa");
         m.put("eeeeaaa*o","o*aaaeeee");
         m.put("oee*eaaae","a*oaeeeae");
         m.put("eaaaeea*a","a*aeeaaae");
@@ -8098,14 +8430,15 @@ public class MapHashMap {
         m.put("aeeao*aoa","e*aeooaaa");
         m.put("aao*oeeea","e*aeoaaeo");
         m.put("oaa*eoooe","o*ooeaeoa");
-        m.put("ooo*eeoea","o*oeeoaeo");
+        m.put("oaeoeoo*o","o*ooeoeao");
+        m.put("oaoae*aoe","o*eaeooaa");
         m.put("eae*eoaeo","a*eeeaooe");
         m.put("aoe*eeoao","o*aaeooee");
         m.put("ooa*aoeaa","e*oaaoaoa");
         m.put("eae*eoaee","a*eeeaeoe");
         m.put("eeoaa*eoo","o*oeaoeae");
         m.put("aaooaea*e","e*aeaooaa");
-        m.put("aoo*eooae","o*aaeoeoo");
+        m.put("eaoaa*aoe","o*eaaoeaa");
         m.put("ooeoo*oee","e*eooeooo");
         m.put("aaooaea*a","a*aeaooaa");
         m.put("oaeooeo*a","a*oeooeao");
@@ -8122,6 +8455,7 @@ public class MapHashMap {
         m.put("oooeaee*e","e*eeaeooo");
         m.put("aae*eaeee","e*aeeaeae");
         m.put("aeooe*aao","o*oeeaaoa");
+        m.put("aoooo*oaa","o*aooaaoo");
         m.put("eae*oeeao","e*eaoaoee");
         m.put("aea*oeaae","a*aaoeeea");
         m.put("eooao*aae","o*eooaeaa");
@@ -8153,9 +8487,11 @@ public class MapHashMap {
         m.put("aooaooa*e","e*aooaooa");
         m.put("aeooaeo*a","a*oeaooea");
         m.put("eea*aaeoa","e*eoaeaaa");
+        m.put("aooaooa*a","a*aooaooa");
         m.put("eea*aaeoe","e*eoaeeaa");
         m.put("aoaea*eoo","a*ooaoaee");
         m.put("oaoaa*aoe","o*eaaooaa");
+        m.put("aooaoaa*o","o*aaoaooa");
         m.put("eea*aaeoo","e*eoaeoaa");
         m.put("oaaee*eea","a*aaeeoee");
         m.put("oeo*ooaoo","a*oooeooo");
@@ -8185,6 +8521,7 @@ public class MapHashMap {
         m.put("eae*eeooo","o*eoeaoee");
         m.put("eoaoo*ooo","a*ooooeoo");
         m.put("aaaoeae*e","e*eaeoaaa");
+        m.put("aeooo*aoa","o*aeooaoa");
         m.put("aaaoeae*a","a*eaeoaaa");
         m.put("oeo*aaaaa","a*oaaeaao");
         m.put("oaoaaoe*o","o*eoaaoao");
@@ -8220,7 +8557,7 @@ public class MapHashMap {
         m.put("aoa*oaaee","a*aeooeaa");
         m.put("ooooaoe*o","o*eoaoooo");
         m.put("aoe*aeoeo","o*aeaooee");
-        m.put("aoeoooo*o","o*ooooeoa");
+        m.put("oaoao*aoa","o*aaoooaa");
         m.put("oae*eeeee","e*oeeaeee");
         m.put("aoooo*aae","o*eooaaoa");
         m.put("oae*eeeea","e*oeeaaee");
@@ -8266,7 +8603,8 @@ public class MapHashMap {
         m.put("eooeeoo*e","e*ooeeooe");
         m.put("oaaaeaa*e","e*aaeaaao");
         m.put("eooeeoo*a","a*ooeeooe");
-        m.put("ooo*eaoao","o*oaeooao");
+        m.put("oaoeeeo*o","o*oeeeoao");
+        m.put("aooaa*eaa","o*aoaaaae");
         m.put("oeaaaaa*o","o*aaaaaeo");
         m.put("eoa*oaooo","o*eooooaa");
         m.put("aeeaa*eeo","e*oeaeaae");
@@ -8277,6 +8615,7 @@ public class MapHashMap {
         m.put("oeo*eoeee","e*oeeeeoo");
         m.put("aeeeaae*e","e*eaaeeea");
         m.put("oeo*eoeea","e*oeeeaoo");
+        m.put("aoooooo*o","o*ooooooa");
         m.put("oeo*eoeeo","e*oeeeooo");
         m.put("aoaeeoa*o","o*aoeeaoa");
         m.put("oae*aeeae","e*oaaaeee");
@@ -8294,6 +8633,7 @@ public class MapHashMap {
         m.put("eaa*ooaoa","a*eooaaoa");
         m.put("eeoae*eaa","o*aeeaeae");
         m.put("eaa*ooaoo","a*eooaooa");
+        m.put("aooaa*aaa","o*aoaaaaa");
         m.put("aoeaooe*o","o*eooaeoa");
         m.put("eaaeo*eea","a*aaoeeee");
         m.put("ooa*eaeee","e*oeeoeaa");
@@ -8360,6 +8700,7 @@ public class MapHashMap {
         m.put("oao*eeaoe","a*ooeaeeo");
         m.put("aoeee*aea","e*aoeeaea");
         m.put("aoeee*aee","e*eoeeaea");
+        m.put("oea*oaooe","o*oooeeaa");
         m.put("ooe*oooao","o*oaooooe");
         m.put("aaeoaea*e","e*aeaoeaa");
         m.put("aaeoaea*a","a*aeaoeaa");
@@ -8380,6 +8721,7 @@ public class MapHashMap {
         m.put("aaoaaae*e","e*eaaaoaa");
         m.put("aeeeaoe*o","o*eoaeeea");
         m.put("eoeoa*eaa","e*aoaaeoe");
+        m.put("ooo*aoooa","o*ooaoaoo");
         m.put("eeeee*eao","e*oeeaeee");
         m.put("eoeoa*eae","e*eoaaeoe");
         m.put("oeoee*eoo","o*oeeooee");
@@ -8393,7 +8735,9 @@ public class MapHashMap {
         m.put("aaa*eaeoa","e*aoeaaaa");
         m.put("eoeoa*aee","e*eoaeeoa");
         m.put("aooeo*eee","o*eooeaee");
+        m.put("oeo*aaaao","a*oaaeoao");
         m.put("aeeoa*eao","e*oeaaaoe");
+        m.put("eoooe*eao","o*ooeaeoe");
         m.put("oaeoo*aee","e*eaoeooa");
         m.put("eoaaaao*e","e*oaaaaoe");
         m.put("oaaeeaa*a","a*aaeeaao");
@@ -8411,7 +8755,7 @@ public class MapHashMap {
         m.put("eoooeoo*a","a*ooeoooe");
         m.put("aoaaaea*e","e*aeaaaoa");
         m.put("oeeooea*e","e*aeooeeo");
-        m.put("oaooa*eee","o*eaaeooe");
+        m.put("aeeaeae*o","o*eaeaeea");
         m.put("eeaoo*aae","a*eeoaeoa");
         m.put("eoaeeeo*a","a*oeeeaoe");
         m.put("eoooe*oaa","o*aoeaeoo");
@@ -8419,6 +8763,7 @@ public class MapHashMap {
         m.put("oaaae*eao","a*oaeaoae");
         m.put("eao*aeaoa","a*eoaaaeo");
         m.put("oaaae*eaa","a*aaeaoae");
+        m.put("ooa*oeooe","o*ooooeea");
         m.put("eaaeeea*o","o*aeeeaae");
         m.put("oaaae*eae","a*eaeaoae");
         m.put("eoeee*ooo","e*ooeoeeo");
@@ -8426,6 +8771,7 @@ public class MapHashMap {
         m.put("eea*oaooa","o*eooeaaa");
         m.put("ooaae*eaa","a*aoeaoae");
         m.put("eeaaeao*e","e*oaeaaee");
+        m.put("aee*eoooa","o*aoeeaoe");
         m.put("eaaoe*aoe","a*eaeoeoa");
         m.put("oaeaoea*o","o*aeoaeao");
         m.put("eoa*eaoao","o*eaeooaa");
@@ -8434,6 +8780,7 @@ public class MapHashMap {
         m.put("aeo*ooaao","a*aaoeooo");
         m.put("eoaeeao*o","o*oaeeaoe");
         m.put("eaeaoao*o","o*oaoaeae");
+        m.put("oao*oaaoo","a*oooaoao");
         m.put("eaoae*aoe","o*eaeoeaa");
         m.put("oae*eoaoo","a*ooeaooe");
         m.put("eaeaoao*e","e*oaoaeae");
@@ -8443,7 +8790,7 @@ public class MapHashMap {
         m.put("oao*aeoee","o*oeaaeeo");
         m.put("aoo*eeaaa","a*aaeoaeo");
         m.put("ooa*eaaae","a*oaeoeaa");
-        m.put("aaoae*aee","o*eaeeaaa");
+        m.put("aaaoaoo*a","a*ooaoaaa");
         m.put("ooa*eaaaa","a*oaeoaaa");
         m.put("aaoae*aea","o*aaeeaaa");
         m.put("aooeeoa*o","o*aoeeooa");
@@ -8451,6 +8798,7 @@ public class MapHashMap {
         m.put("aae*eeaee","a*aeeaeee");
         m.put("ooa*eaaao","a*oaeooaa");
         m.put("oae*oaaaa","a*oaoaaae");
+        m.put("oooeeaa*o","o*aaeeooo");
         m.put("eae*aaoea","o*eeaaaae");
         m.put("eeoeoao*o","o*oaoeoee");
         m.put("ooo*aoooe","o*ooaoeoo");
@@ -8486,7 +8834,7 @@ public class MapHashMap {
         m.put("eeoeo*aaa","o*aeoaeea");
         m.put("aooae*aee","o*eoeeaaa");
         m.put("oea*aoeoe","e*ooaeeoa");
-        m.put("eeoae*oeo","o*oeeeeao");
+        m.put("aoaeaee*o","o*eeaeaoa");
         m.put("eeoeo*aae","o*eeoaeea");
         m.put("oeoeeea*e","e*aeeeoeo");
         m.put("aoo*aeooo","o*aoaooeo");
@@ -8499,7 +8847,7 @@ public class MapHashMap {
         m.put("eeaoooo*e","e*ooooaee");
         m.put("eaa*oaaea","a*eeoaaaa");
         m.put("eaa*oaaeo","a*eeoaoaa");
-        m.put("aaoao*aea","o*aaoeaaa");
+        m.put("oaaeaeo*a","a*oeaeaao");
         m.put("eeaaeeo*e","e*oeeaaee");
         m.put("eaeea*ooo","e*oaaoeeo");
         m.put("eoo*oeeaa","e*eaooaeo");
@@ -8546,11 +8894,12 @@ public class MapHashMap {
         m.put("oaoaaaa*e","e*aaaaoao");
         m.put("aaoeo*ooo","o*oaooaeo");
         m.put("eaa*aaaoo","a*eoaaoaa");
-        m.put("eooee*eeo","o*ooeeeee");
+        m.put("oaooo*ooa","o*aaooooo");
         m.put("oeeoeee*a","a*eeeoeeo");
         m.put("oooeeae*a","a*eaeeooo");
         m.put("oaoaaeo*o","o*oeaaoao");
         m.put("oeeoeee*e","e*eeeoeeo");
+        m.put("eoe*eaoee","o*eeeoeae");
         m.put("oooeeae*e","e*eaeeooo");
         m.put("eoa*eeaea","a*eeeoaea");
         m.put("aao*eeoea","o*aeeaaeo");
@@ -8589,7 +8938,7 @@ public class MapHashMap {
         m.put("eao*oaaaa","a*eaoaaao");
         m.put("eoe*ooaeo","a*eeooooe");
         m.put("aeaaaoe*o","o*eoaaaea");
-        m.put("aea*eooao","o*aaeeooa");
+        m.put("aae*eooeo","o*aeeaooe");
         m.put("eeaoe*eea","a*aeeeeoe");
         m.put("aeaeoee*o","o*eeoeaea");
         m.put("eeaeaea*o","o*aeaeaee");
@@ -8607,9 +8956,11 @@ public class MapHashMap {
         m.put("ooa*oooeo","o*oeooooa");
         m.put("aae*ooeeo","e*aeoaooe");
         m.put("oeeaa*oeo","e*oeaeoao");
+        m.put("oaoeeoo*a","a*ooeeoao");
         m.put("aoaeeaa*o","o*aaeeaoa");
         m.put("aea*aooeo","o*aeaeooa");
         m.put("oeeaa*oee","e*eeaeoao");
+        m.put("aooao*eoo","o*ooooaae");
         m.put("oeooe*eea","o*aeeeooe");
         m.put("eaeoa*oaa","e*aaaaeoo");
         m.put("eoeee*aoe","e*eoeoeea");
@@ -8621,6 +8972,7 @@ public class MapHashMap {
         m.put("oooee*oeo","o*ooeeoeo");
         m.put("eoeee*aoo","e*ooeoeea");
         m.put("oeaaaao*e","e*oaaaaeo");
+        m.put("ooo*aoooo","o*ooaoooo");
         m.put("oeaee*eae","a*eeeaoee");
         m.put("eoa*eeaee","a*eeeoeea");
         m.put("eaeeaoo*o","o*ooaeeae");
@@ -8660,17 +9012,21 @@ public class MapHashMap {
         m.put("aeaoe*aoa","a*aeeoaoa");
         m.put("aoeaeae*e","e*eaeaeoa");
         m.put("eeeea*oao","e*oeaaeeo");
+    }    private void init_9() {
         m.put("aoeaeae*a","a*eaeaeoa");
         m.put("aea*eooeo","o*aeeeooa");
         m.put("eoo*oooeo","o*eeooooo");
         m.put("ooaae*eao","a*ooeaoae");
         m.put("eoo*oooea","o*eeooaoo");
+        m.put("aaooa*oaa","o*aaaaaoo");
         m.put("aae*aoaeo","a*aeaaooe");
         m.put("ooeeoae*o","o*eaoeeoo");
         m.put("oaeoeoe*a","a*eoeoeao");
         m.put("oaeooaa*e","e*aaooeao");
+        m.put("ooooa*aao","o*ooaaooa");
         m.put("oaeoeoe*o","o*eoeoeao");
         m.put("oooeaoo*o","o*ooaeooo");
+        m.put("ooa*oaoaa","o*oaooaaa");
         m.put("aaeeo*eao","e*oaoaaee");
         m.put("aoeeaee*a","a*eeaeeoa");
         m.put("aeaaeoa*a","a*aoeaaea");
@@ -8714,6 +9070,7 @@ public class MapHashMap {
         m.put("aaeeo*oee","e*eaoeaeo");
         m.put("eeaaeaa*o","o*aaeaaee");
         m.put("aaeeo*oea","e*aaoeaeo");
+        m.put("oaoaaaa*o","o*aaaaoao");
         m.put("oea*eaoaa","o*oaeeaaa");
         m.put("aaa*aeooa","o*aoaaaea");
         m.put("aaaaeoa*e","e*aoeaaaa");
@@ -8725,12 +9082,14 @@ public class MapHashMap {
         m.put("eeoeeao*a","a*oaeeoee");
         m.put("eeaaoae*a","a*eaoaaee");
         m.put("aoaaoee*o","o*eeoaaoa");
-        m.put("aeoeooo*o","o*oooeoea");
+        m.put("eoo*aaoao","o*eaaooao");
+        m.put("oooaaoo*a","a*ooaaooo");
         m.put("oooaaoo*e","e*ooaaooo");
         m.put("eaaeeao*a","a*oaeeaae");
         m.put("eeaoe*aeo","a*oeeeeoa");
         m.put("aeeao*aaa","e*aeoaaaa");
-        m.put("oeeaeae*o","o*eaeaeeo");
+        m.put("aaaoo*aoo","a*oaooaoa");
+        m.put("aoo*oaoao","o*aaoooao");
         m.put("aeeao*aae","e*eeoaaaa");
         m.put("eao*ooaoa","a*eooaaoo");
         m.put("eeaoe*aee","a*eeeeeoa");
@@ -8758,12 +9117,14 @@ public class MapHashMap {
         m.put("eaooeae*e","e*eaeooae");
         m.put("eaeee*eeo","e*oaeeeee");
         m.put("eao*aoeoa","e*eoaaaoo");
+        m.put("oaeaaoa*o","o*aoaaeao");
         m.put("eaooeae*a","a*eaeooae");
         m.put("eooae*oao","o*ooeaeao");
         m.put("eao*aoeoe","e*eoaaeoo");
         m.put("oeooa*eoe","o*eeaoooe");
         m.put("aaaea*aae","a*eaaaaea");
         m.put("ooaee*oeo","a*ooeeoeo");
+        m.put("aaoaaeo*o","o*oeaaoaa");
         m.put("aeo*aaoeo","o*aeaeoao");
         m.put("oeaoeoo*a","a*ooeoaeo");
         m.put("oaeaoeo*e","e*oeoaeao");
@@ -8777,6 +9138,7 @@ public class MapHashMap {
         m.put("aaa*aeooe","o*aoaaeea");
         m.put("aaeoe*eaa","e*aaeaaoe");
         m.put("eeeoe*eoa","e*aeeoeoe");
+        m.put("oeoea*aoo","o*oeaooea");
         m.put("aaeoe*eae","e*eaeaaoe");
         m.put("oaoaaeo*a","a*oeaaoao");
         m.put("aoo*aaeee","e*aeaoeao");
@@ -8786,8 +9148,11 @@ public class MapHashMap {
         m.put("aaaoaoa*e","e*aoaoaaa");
         m.put("aeooe*eea","o*aeeeaoe");
         m.put("oaoaa*oee","o*eaaeoao");
+        m.put("aaaoaoa*a","a*aoaoaaa");
         m.put("eoa*aoaae","a*eaaoeoa");
+        m.put("ooaoaoo*a","a*ooaoaoo");
         m.put("aoa*aeeee","e*aeaoeea");
+        m.put("aoo*ooaao","a*aaooooo");
         m.put("aeeeeea*o","o*aeeeeea");
         m.put("aoa*aeeea","e*aeaoaea");
         m.put("aooooao*e","e*oaooooa");
@@ -8812,7 +9177,7 @@ public class MapHashMap {
         m.put("aaoaeeo*a","a*oeeaoaa");
         m.put("aaaaa*oee","a*eaaeaao");
         m.put("aaoaeeo*e","e*oeeaoaa");
-        m.put("aaeoaae*o","o*eaaoeaa");
+        m.put("ooaaa*aoo","a*ooaooaa");
         m.put("eeoaa*aoa","o*aeaoeaa");
         m.put("eaoeaaa*a","a*aaaeoae");
         m.put("eeoaa*aoe","o*eeaoeaa");
@@ -8820,11 +9185,12 @@ public class MapHashMap {
         m.put("aeaea*eee","a*eeaeaee");
         m.put("aeoaeae*o","o*eaeaoea");
         m.put("oae*eaoao","o*oaeaoae");
-        m.put("eao*eeoee","o*eeeaeeo");
+        m.put("aoo*aaaao","a*aaaooao");
         m.put("eeaooee*e","e*eeooaee");
         m.put("aaooaoe*o","o*eoaooaa");
         m.put("aoo*aaaae","a*aaaoeao");
         m.put("eoa*aaaee","a*eeaoeaa");
+        m.put("aoo*aaaaa","a*aaaoaao");
         m.put("aaaooee*a","a*eeooaaa");
         m.put("aaooo*aeo","o*oaoeaoa");
         m.put("aeeaa*aeo","e*oeaeaaa");
@@ -8880,6 +9246,7 @@ public class MapHashMap {
         m.put("eoe*eaaae","a*eaeoeae");
         m.put("aea*eaaoa","a*aoeeaaa");
         m.put("aea*eaaoo","a*aoeeoaa");
+        m.put("oeoea*aoa","o*aeaooea");
         m.put("aoo*eaaae","a*aaeoeao");
         m.put("eaooe*eea","o*aaeeeoe");
         m.put("aae*aoeoe","e*aoaaeoe");
@@ -8914,7 +9281,7 @@ public class MapHashMap {
         m.put("aaoae*oae","o*eaeaaao");
         m.put("eeoee*aoo","o*oeeoeea");
         m.put("aaooooe*e","e*eooooaa");
-        m.put("oeeoaoo*o","o*ooaoeeo");
+        m.put("ooo*oaaoa","a*ooooaao");
         m.put("aaooooe*a","a*eooooaa");
         m.put("eoaaooo*o","o*oooaaoe");
         m.put("eeaee*aeo","a*oeeeeea");
@@ -8947,6 +9314,7 @@ public class MapHashMap {
         m.put("aaa*oaeee","e*aeoaeaa");
         m.put("eeeeeao*a","a*oaeeeee");
         m.put("oaaeaoa*a","a*aoaeaao");
+        m.put("oaaaaoo*a","a*ooaaaao");
         m.put("oaeae*eoo","e*oaeooae");
         m.put("aaa*eooao","o*aaeaooa");
         m.put("oaeae*eoa","e*aaeooae");
@@ -8956,16 +9324,19 @@ public class MapHashMap {
         m.put("aea*aaoea","o*aeaeaaa");
         m.put("oeoea*aoe","o*eeaooea");
         m.put("oeaaa*aea","a*aeaeoaa");
+        m.put("oaooa*oao","o*oaaaooo");
         m.put("eaaeeao*e","e*oaeeaae");
         m.put("eeoeeao*o","o*oaeeoee");
         m.put("ooeee*eoe","e*eoeooee");
         m.put("aea*aaooo","o*aoaeoaa");
         m.put("eaaeeao*o","o*oaeeaae");
+        m.put("ooa*ooaoo","a*ooooooa");
         m.put("aeeaaee*a","a*eeaaeea");
         m.put("eeaooeo*o","o*oeooaee");
         m.put("aaeaoaa*e","e*aaoaeaa");
         m.put("eoaaaee*a","a*eeaaaoe");
         m.put("aeo*eaeao","e*aaeeoao");
+        m.put("eaooe*eoo","o*oaeoeoe");
         m.put("oeooaoa*e","e*aoaooeo");
         m.put("aeeeeea*a","a*aeeeeea");
         m.put("eoaeeoo*a","a*ooeeaoe");
@@ -8974,9 +9345,11 @@ public class MapHashMap {
         m.put("aeo*eaeae","e*aaeeeao");
         m.put("oeaoa*oeo","a*oeaeooo");
         m.put("ooeae*ooo","e*ooeooao");
+        m.put("aeoeooo*o","o*oooeoea");
         m.put("oeeoo*aoo","e*oeooooa");
         m.put("oeeoo*aoa","e*aeooooa");
         m.put("oeaoa*oee","a*eeaeooo");
+        m.put("ooa*oooao","o*oaooooa");
         m.put("aao*aeeoe","e*aoaaeeo");
         m.put("aeaeaao*e","e*oaaeaea");
         m.put("oeoaaae*o","o*eaaaoeo");
@@ -8993,6 +9366,7 @@ public class MapHashMap {
         m.put("aoa*eaaae","a*aaeoeaa");
         m.put("oao*aeeaa","e*oaaaaeo");
         m.put("aoa*eaaaa","a*aaeoaaa");
+        m.put("aoa*aoaoa","a*aoaoaoa");
         m.put("oeaoeaa*e","e*aaeoaeo");
         m.put("oaoaeae*e","e*eaeaoao");
         m.put("oao*aeeao","e*oaaaoeo");
@@ -9012,14 +9386,15 @@ public class MapHashMap {
         m.put("oeeee*ooa","e*aeeooeo");
         m.put("aeaeaao*o","o*oaaeaea");
         m.put("oaeaaao*a","a*oaaaeao");
-    }    private void init_9() {
         m.put("ooe*aeeoa","e*ooaoaee");
         m.put("oaeaaao*e","e*oaaaeao");
         m.put("eaoaoae*e","e*eaoaoae");
+        m.put("oaooooa*o","o*aooooao");
         m.put("eoeea*ooa","e*aoaoeeo");
         m.put("aaooa*aeo","o*oaaeaoa");
         m.put("eaaoo*aao","a*oaoaeoa");
         m.put("aeaaeeo*e","e*oeeaaea");
+        m.put("ooaoe*oaa","a*aoeaooo");
         m.put("aaoeeoa*e","e*aoeeoaa");
         m.put("aaoee*oao","o*oaeaaeo");
         m.put("eoa*eaooe","o*eoeoeaa");
@@ -9063,6 +9438,7 @@ public class MapHashMap {
         m.put("aea*eeeoa","e*aoeeaea");
         m.put("aaoeo*eaa","o*aaoaaee");
         m.put("eao*aeeee","e*eeaaeeo");
+        m.put("aooaa*aao","o*ooaaaaa");
         m.put("oaoaeeo*e","e*oeeaoao");
         m.put("oae*oeaoa","a*oooaaee");
         m.put("eoeooaa*a","a*aaooeoe");
@@ -9087,7 +9463,7 @@ public class MapHashMap {
         m.put("oaoao*eea","o*aaoeoae");
         m.put("aeeeeaa*e","e*aaeeeea");
         m.put("eooaeoo*o","o*ooeaooe");
-        m.put("oeoeo*aeo","o*oeoeoea");
+        m.put("oeo*ooaee","a*oeoeeoo");
         m.put("aaaoaee*a","a*eeaoaaa");
         m.put("eoaee*eaa","a*aoeaeee");
         m.put("eaaooao*e","e*oaooaae");
@@ -9100,6 +9476,7 @@ public class MapHashMap {
         m.put("eoa*eaooa","o*eoeoaaa");
         m.put("oaaeeoe*a","a*eoeeaao");
         m.put("ooaaeoe*e","e*eoeaaoo");
+        m.put("eeoaa*eeo","o*oeaeeae");
         m.put("oeaaa*eoe","a*eeaooae");
         m.put("oeo*aooeo","o*oeaeooo");
         m.put("eaeeoee*e","e*eeoeeae");
@@ -9122,7 +9499,9 @@ public class MapHashMap {
         m.put("eeaee*aoa","a*aeeoeea");
         m.put("oee*eooee","o*oeeeeoe");
         m.put("ooe*oaoao","o*oaoooae");
+        m.put("eaoeoae*o","o*eaoeoae");
         m.put("eooaeoo*a","a*ooeaooe");
+        m.put("eao*eeoee","o*eeeaeeo");
         m.put("oea*aaaee","a*oeaeeaa");
         m.put("aaooa*aee","o*eaaeaoa");
         m.put("eoeao*eae","e*eooaeae");
@@ -9138,10 +9517,11 @@ public class MapHashMap {
         m.put("eae*eeoaa","o*eaeaaee");
         m.put("aaaae*ooo","a*oaeoaao");
         m.put("eae*aooeo","o*eeaaooe");
+        m.put("aoo*aaoaa","o*aaaoaao");
         m.put("ooeoe*eeo","e*ooeeooe");
         m.put("aeoaa*eao","o*oeaaaae");
         m.put("eao*eoeeo","e*eeeaooo");
-        m.put("eeaea*aao","a*oeaaeea");
+        m.put("aao*aoaaa","a*aaaaaoo");
         m.put("eoaeeoo*o","o*ooeeaoe");
         m.put("aaaae*ooa","a*aaeoaao");
         m.put("eoa*eoeaa","e*eaeoaoa");
@@ -9150,16 +9530,16 @@ public class MapHashMap {
         m.put("ooeoe*eea","e*aoeeooe");
         m.put("eaaaaoa*e","e*aoaaaae");
         m.put("oeaeeoe*a","a*eoeeaeo");
-        m.put("aoooo*oae","o*eooaaoo");
+        m.put("eoe*aeoeo","o*eeaooee");
         m.put("oeaeeoe*e","e*eoeeaeo");
         m.put("aooeaae*e","e*eaaeooa");
-        m.put("ooa*oooae","o*oaooeoa");
+        m.put("aeoea*aoa","o*aeaoaea");
         m.put("aaaeo*aae","a*eaoaaea");
         m.put("eoaee*eae","a*eoeaeee");
         m.put("eaeooea*o","o*aeooeae");
         m.put("aooaaea*a","a*aeaaooa");
         m.put("eeooo*eeo","o*oeoeeoe");
-        m.put("aaoeo*eao","o*oaoaaee");
+        m.put("aoeaoao*o","o*oaoaeoa");
         m.put("eoeao*ooe","e*eoooeao");
         m.put("oee*eaoae","o*oaeeeae");
         m.put("ooaae*aee","a*eoeeoaa");
@@ -9211,11 +9591,12 @@ public class MapHashMap {
         m.put("aoo*eeoee","o*aeeoeeo");
         m.put("aaaoeao*o","o*oaeoaaa");
         m.put("eaa*ooeaa","e*eaoaaoa");
+        m.put("ooa*oooaa","o*oaooaoa");
         m.put("ooeeo*aoe","e*eooooea");
         m.put("aoo*ooaoe","a*aoooeoo");
         m.put("eoa*aeaae","a*eaaoeea");
         m.put("ooeeo*aoa","e*aooooea");
-        m.put("aoooo*ooe","o*eoooaoo");
+        m.put("aoo*ooaoa","a*aoooaoo");
         m.put("aeoeoaa*e","e*aaoeoea");
         m.put("ooeeo*aoo","e*oooooea");
         m.put("aeoeoaa*a","a*aaoeoea");
@@ -9223,12 +9604,14 @@ public class MapHashMap {
         m.put("oaeoa*eae","e*eaaaooe");
         m.put("aea*ooeao","e*aaoeooa");
         m.put("oee*aeeao","e*oaaeoee");
+        m.put("oaaaa*ooa","a*aaaooao");
         m.put("aoeoe*eoa","e*aoeoaoe");
         m.put("ooa*oeaoo","a*oooooea");
         m.put("aea*ooeae","e*aaoeeoa");
         m.put("oee*aeeaa","e*oaaeaee");
         m.put("aea*ooeaa","e*aaoeaoa");
         m.put("oee*aeeae","e*oaaeeee");
+        m.put("eoo*aeoea","o*eeaoaeo");
         m.put("oeeoa*eaa","e*aeaaooe");
         m.put("oeaeeaa*o","o*aaeeaeo");
         m.put("eoeea*eee","e*eoaeeee");
@@ -9238,7 +9621,7 @@ public class MapHashMap {
         m.put("eoeea*eea","e*aoaeeee");
         m.put("eoo*eeoee","o*eeeoeeo");
         m.put("eoeea*eeo","e*ooaeeee");
-        m.put("eoaaaoe*o","o*eoaaaoe");
+        m.put("aoa*aoaao","a*aaaoooa");
         m.put("oeeoa*eao","e*oeaaooe");
         m.put("eoaeo*aae","a*eooaeea");
         m.put("eae*ooeao","e*eaoaooe");
@@ -9252,6 +9635,7 @@ public class MapHashMap {
         m.put("eaaaooo*e","e*oooaaae");
         m.put("oooaaeo*e","e*oeaaooo");
         m.put("eaeoa*ooa","e*aaaoeoo");
+        m.put("eooee*eeo","o*ooeeeee");
         m.put("eeo*oaaoo","a*eooeoao");
         m.put("eaeoa*ooe","e*eaaoeoo");
         m.put("eoeaeea*o","o*aeeaeoe");
@@ -9287,6 +9671,7 @@ public class MapHashMap {
         m.put("eooea*aoa","o*aoaoeea");
         m.put("aae*ooaoo","a*aooaooe");
         m.put("eeaeo*ooa","a*aeooeeo");
+        m.put("aoaao*oaa","a*aooaaao");
         m.put("ooe*aaeao","e*oaaooae");
         m.put("ooaeeae*e","e*eaeeaoo");
         m.put("aae*ooaoe","a*aooaeoe");
@@ -9295,6 +9680,7 @@ public class MapHashMap {
         m.put("oao*oeoee","o*oeoaeeo");
         m.put("eaeaoee*o","o*eeoaeae");
         m.put("eea*ooooo","o*eooeooa");
+        m.put("oaeoaoo*o","o*ooaoeao");
         m.put("eea*ooooa","o*eooeaoa");
         m.put("eeeee*aeo","e*oeeeeea");
         m.put("eoooe*oao","o*ooeaeoo");
@@ -9317,6 +9703,7 @@ public class MapHashMap {
         m.put("oae*oaoea","o*oeoaaae");
         m.put("eee*eeaoa","a*eoeeaee");
         m.put("eee*eeaoe","a*eoeeeee");
+        m.put("aao*aoooa","o*aoaaaoo");
         m.put("aoa*oaeeo","e*aeoooaa");
         m.put("aaaaoee*e","e*eeoaaaa");
         m.put("aoa*oaeee","e*aeooeaa");
@@ -9355,6 +9742,7 @@ public class MapHashMap {
         m.put("aaoeo*oeo","o*oaoeaeo");
         m.put("ooaeoao*o","o*oaoeaoo");
         m.put("oeeoooe*e","e*eoooeeo");
+        m.put("eaoaaoo*a","a*ooaaoae");
         m.put("eeooaae*o","o*eaaooee");
         m.put("aoaae*aoa","a*aoeoaaa");
         m.put("aooae*eee","o*eoeeaae");
@@ -9381,6 +9769,7 @@ public class MapHashMap {
         m.put("eooeo*oao","o*oooaeeo");
         m.put("eae*eoaae","a*eaeaeoe");
         m.put("eee*oeeoa","e*eooeaee");
+        m.put("ooooo*oao","o*oooaooo");
         m.put("eae*eoaaa","a*eaeaaoe");
         m.put("eae*eoaao","a*eaeaooe");
         m.put("ooaoaae*a","a*eaaoaoo");
@@ -9424,6 +9813,7 @@ public class MapHashMap {
         m.put("eae*ooeoa","e*eooaaoe");
         m.put("oaa*oaaeo","a*oeoaoaa");
         m.put("aoo*oaaee","a*aeooeao");
+        m.put("aaoao*aaa","o*aaoaaaa");
         m.put("oaaee*eee","a*eaeeoee");
         m.put("aoo*oaaeo","a*aeoooao");
         m.put("aaaeo*aeo","a*oaoeaea");
@@ -9439,6 +9829,7 @@ public class MapHashMap {
         m.put("eaooa*eoa","o*aaaoeoe");
         m.put("oaoaoae*e","e*eaoaoao");
         m.put("oeoaeea*a","a*aeeaoeo");
+        m.put("ooo*aaaoo","a*ooaooao");
         m.put("oaeoo*eoo","e*oaooooe");
         m.put("oeoaeea*e","e*aeeaoeo");
         m.put("ooo*aaeae","e*oaaoeao");
@@ -9463,17 +9854,20 @@ public class MapHashMap {
         m.put("aaooa*ooe","o*eaaoaoo");
         m.put("aeeea*ooo","e*oeaoaeo");
         m.put("oaaoooe*a","a*eoooaao");
+        m.put("eae*eeoae","o*eaeaeee");
         m.put("aea*oeaea","a*aeoeaea");
         m.put("oaaoooe*e","e*eoooaao");
         m.put("aea*oeaee","a*aeoeeea");
+        m.put("aaa*aoooo","o*aoaaooa");
         m.put("oeoeo*oea","o*aeoeoeo");
+        m.put("ooooo*aaa","o*aooaooa");
         m.put("oaeoa*eeo","e*oaaeooe");
         m.put("eao*aaaao","a*eaaaoao");
         m.put("aea*oeaeo","a*aeoeoea");
         m.put("eeo*oaaea","a*eeoeaao");
         m.put("eae*oeaoo","a*eooaoee");
         m.put("oae*oeoea","o*oeoaaee");
-        m.put("aaooa*oee","o*eaaeaoo");
+        m.put("aoo*aaaoa","a*aoaoaao");
         m.put("aoaeo*eee","a*eooeaee");
         m.put("aao*eeeeo","e*aeeaoeo");
         m.put("ooooaoo*e","e*ooaoooo");
@@ -9492,6 +9886,7 @@ public class MapHashMap {
         m.put("eoooaoa*o","o*aoaoooe");
         m.put("eaoaeao*e","e*oaeaoae");
         m.put("oeeeo*aeo","e*oeoeoea");
+        m.put("ooe*aoooa","o*ooaoaoe");
         m.put("eee*ooooe","o*eooeeoe");
         m.put("aoaaaoe*o","o*eoaaaoa");
         m.put("eoeooae*a","a*eaooeoe");
@@ -9504,7 +9899,7 @@ public class MapHashMap {
         m.put("aooee*eao","o*ooeaaee");
         m.put("oeo*aeeae","e*oaaeeeo");
         m.put("eoa*ooaeo","a*eeooooa");
-        m.put("oeooaoe*o","o*eoaooeo");
+        m.put("aaoee*aae","o*eaeaaea");
         m.put("aeeeo*ooo","e*oeooaeo");
         m.put("oaoeaee*a","a*eeaeoao");
         m.put("aee*oooao","o*aaoeooe");
@@ -9539,6 +9934,7 @@ public class MapHashMap {
         m.put("oao*eeeoe","e*ooeaeeo");
         m.put("eeaaeae*e","e*eaeaaee");
         m.put("aoe*eoaeo","a*aeeoooe");
+        m.put("oao*oooao","o*oaoaooo");
         m.put("eeeeo*eea","e*aeoeeee");
         m.put("oae*eaaaa","a*oaeaaae");
         m.put("oae*eaoee","o*oeeaeae");
@@ -9554,6 +9950,7 @@ public class MapHashMap {
         m.put("aeeoo*eeo","e*oeoeaoe");
         m.put("aoaea*aae","a*eoaaaea");
         m.put("aoeeo*aao","e*oooaaea");
+        m.put("ooo*eaoao","o*oaeooao");
         m.put("oaooeoa*e","e*aoeooao");
         m.put("aeooo*oao","o*oeoaaoo");
         m.put("eoa*aoaoe","a*eoaoeoa");
@@ -9582,7 +9979,7 @@ public class MapHashMap {
         m.put("aaooe*ooa","o*aaeoaoo");
         m.put("aeooo*oae","o*eeoaaoo");
         m.put("eeoaaea*o","o*aeaaoee");
-        m.put("eaa*eeoee","o*eeeaeea");
+        m.put("eaaeeeo*a","a*oeeeaae");
         m.put("eeaooao*a","a*oaooaee");
         m.put("aeo*oaeeo","e*aeoeoao");
         m.put("aeooe*eaa","o*aeeaaoe");
@@ -9597,6 +9994,7 @@ public class MapHashMap {
         m.put("eae*oeaaa","a*eaoaaee");
         m.put("aaoae*ooa","o*aaeoaao");
         m.put("aaoaaea*e","e*aeaaoaa");
+        m.put("oao*aaaoa","a*ooaaaao");
         m.put("aoeaoeo*e","e*oeoaeoa");
         m.put("aoeaoeo*a","a*oeoaeoa");
         m.put("aoeaoeo*o","o*oeoaeoa");
@@ -9615,6 +10013,7 @@ public class MapHashMap {
         m.put("aoeaeea*o","o*aeeaeoa");
         m.put("ooa*oeeee","e*oeooeea");
         m.put("oaaaaee*o","o*eeaaaao");
+    }    private void init_10() {
         m.put("aao*oeeoo","e*aooaoeo");
         m.put("eaooa*eoo","o*oaaoeoe");
         m.put("aaeaaeo*e","e*oeaaeaa");
@@ -9632,6 +10031,7 @@ public class MapHashMap {
         m.put("ooooeaa*o","o*aaeoooo");
         m.put("eaoao*eoe","o*eaooeae");
         m.put("ooeae*oao","e*ooeaoao");
+        m.put("aeooeoo*o","o*ooeooea");
         m.put("eeo*aaoeo","o*eeaeoao");
         m.put("oaaaaee*a","a*eeaaaao");
         m.put("aeeooao*o","o*oaooeea");
@@ -9640,6 +10040,7 @@ public class MapHashMap {
         m.put("aeeooao*a","a*oaooeea");
         m.put("aeeooao*e","e*oaooeea");
         m.put("oeoeooa*e","e*aooeoeo");
+        m.put("oaaao*aao","a*oaoaoaa");
         m.put("oee*eeeae","e*oaeeeee");
         m.put("eaaao*eoa","a*aaooeae");
         m.put("oee*eeeaa","e*oaeeaee");
@@ -9649,7 +10050,7 @@ public class MapHashMap {
         m.put("aooaeoa*o","o*aoeaooa");
         m.put("oeeooaa*a","a*aaooeeo");
         m.put("oeo*ooeoa","e*oooeaoo");
-        m.put("eeo*eoooe","o*eoeeeoo");
+        m.put("ooaao*oaa","a*aooaoao");
         m.put("aoeee*aae","e*eoeaaea");
         m.put("eeoae*eeo","o*oeeeeae");
         m.put("eeo*eoooa","o*eoeeaoo");
@@ -9662,7 +10063,7 @@ public class MapHashMap {
         m.put("aeoaooe*o","o*eooaoea");
         m.put("eooeeee*o","o*eeeeooe");
         m.put("oea*aeeae","e*oaaeeea");
-        m.put("eeoooao*o","o*oaoooee");
+        m.put("aaooaao*o","o*oaaooaa");
         m.put("ooaeaao*a","a*oaaeaoo");
         m.put("eoe*eooee","o*eeeoeoe");
         m.put("oooeaoo*a","a*ooaeooo");
@@ -9678,6 +10079,7 @@ public class MapHashMap {
         m.put("oeo*eoooo","o*ooeeooo");
         m.put("oea*aeeaa","e*oaaeaea");
         m.put("oeaao*eae","a*eeoaoae");
+        m.put("oaaao*aaa","a*aaoaoaa");
         m.put("eoeoa*eee","e*eoaeeoe");
         m.put("aeeaa*eoa","e*aeaoaae");
         m.put("eoeoa*eea","e*aoaeeoe");
@@ -9719,6 +10121,7 @@ public class MapHashMap {
         m.put("aee*aoaeo","a*aeaeooe");
         m.put("ooaao*oae","a*eooaoao");
         m.put("aoe*ooeea","e*aeooaoe");
+        m.put("oae*ooaae","a*oaoaeoe");
         m.put("aooaa*aeo","o*ooaeaaa");
         m.put("aoe*ooeee","e*aeooeoe");
         m.put("eaa*aoooo","o*eoaaooa");
@@ -9740,6 +10143,7 @@ public class MapHashMap {
         m.put("eoeaooa*o","o*aooaeoe");
         m.put("eea*oaaee","a*eeoeeaa");
         m.put("oaa*eaaeo","a*oeeaoaa");
+        m.put("aaooa*aoo","o*oaaoaoa");
         m.put("oaeeo*aoo","e*oaoooea");
         m.put("eoeoo*aae","e*eooaeoa");
         m.put("aeoooea*e","e*aeoooea");
@@ -9792,7 +10196,8 @@ public class MapHashMap {
         m.put("eoaooee*a","a*eeooaoe");
         m.put("ooaao*aoe","a*eooooaa");
         m.put("oaaoo*aae","a*eaoaooa");
-        m.put("aeooooo*o","o*oooooea");
+        m.put("ooa*oaooo","o*oooooaa");
+        m.put("ooaao*aoa","a*aooooaa");
         m.put("eoa*eaaao","a*eaeooaa");
         m.put("oaa*eoeaa","e*oaeaaoa");
         m.put("eoaaooe*a","a*eooaaoe");
@@ -9811,6 +10216,7 @@ public class MapHashMap {
         m.put("oeo*oeoae","o*oaoeeeo");
         m.put("aeooaea*a","a*aeaooea");
         m.put("oaeaoaa*e","e*aaoaeao");
+        m.put("aea*aeoee","o*aeaeeea");
         m.put("eaa*aaeoe","e*eoaaeaa");
         m.put("aoa*eaeoa","e*aoeoaaa");
         m.put("eaa*aaeoa","e*eoaaaaa");
@@ -9831,9 +10237,11 @@ public class MapHashMap {
         m.put("eaeaa*eea","e*aaaeeae");
         m.put("eoa*eaaae","a*eaeoeaa");
         m.put("aaeeooe*a","a*eooeeaa");
+        m.put("oaooaoo*o","o*ooaooao");
         m.put("oeeaaoe*o","o*eoaaeeo");
         m.put("oeoaeoa*a","a*aoeaoeo");
         m.put("eeoee*eoo","o*oeeoeee");
+        m.put("ooaaa*aaa","a*aoaaoaa");
         m.put("oeoooaa*a","a*aaoooeo");
         m.put("aaaoo*eee","a*eaoeaoe");
         m.put("ooe*aeaea","a*oeaoaee");
@@ -9843,7 +10251,7 @@ public class MapHashMap {
         m.put("oaa*eaaea","a*oeeaaaa");
         m.put("eeo*oaoea","o*eeoeaao");
         m.put("aaaeoaa*a","a*aaoeaaa");
-        m.put("eaoae*aae","o*eaeaeaa");
+        m.put("eae*oaoeo","o*eeoaoae");
         m.put("aaoao*aoe","o*eaooaaa");
         m.put("oaeaaae*o","o*eaaaeao");
         m.put("aao*eeoae","o*aaeaeeo");
@@ -9865,9 +10273,11 @@ public class MapHashMap {
         m.put("eeo*ooooo","o*eooeooo");
         m.put("eeeoe*oao","e*oeeaeoo");
         m.put("eae*eaaeo","a*eeeaoae");
+        m.put("aoa*aaaoo","a*aoaooaa");
         m.put("aae*ooeao","e*aaoaooe");
         m.put("oaa*aeaeo","a*oeaaoea");
         m.put("aoeeaoo*o","o*ooaeeoa");
+        m.put("oaaoaoa*o","o*aoaoaao");
         m.put("aae*ooeae","e*aaoaeoe");
         m.put("oaa*aeaea","a*oeaaaea");
         m.put("aae*ooeaa","e*aaoaaoe");
@@ -9884,6 +10294,7 @@ public class MapHashMap {
         m.put("aoa*eeaoo","a*aoeooea");
         m.put("eooeaea*a","a*aeaeooe");
         m.put("oaooooe*e","e*eooooao");
+        m.put("ooaao*oao","a*oooaoao");
         m.put("ooooa*eoa","o*aoaoooe");
         m.put("ooaaoee*e","e*eeoaaoo");
         m.put("oea*eoeae","e*oaeeeoa");
@@ -9892,6 +10303,7 @@ public class MapHashMap {
         m.put("oea*eoeaa","e*oaeeaoa");
         m.put("oaa*aaooe","o*ooaaeaa");
         m.put("aeaoe*aeo","a*oeeeaoa");
+        m.put("oaaoa*ooa","a*aaaoooo");
         m.put("eoeeooa*e","e*aooeeoe");
         m.put("aeo*ooeao","e*aaoeooo");
         m.put("aooeeao*e","e*oaeeooa");
@@ -9904,6 +10316,7 @@ public class MapHashMap {
         m.put("oeeea*oee","e*eeaeoeo");
         m.put("aoe*aoooe","o*aoaoeoe");
         m.put("oooooae*o","o*eaooooo");
+        m.put("aoo*oaoaa","o*aaooaao");
         m.put("eoeeooa*a","a*aooeeoe");
         m.put("oaa*eaaee","a*oeeaeaa");
         m.put("aoo*oaoae","o*aaooeao");
@@ -9948,13 +10361,14 @@ public class MapHashMap {
         m.put("aeaaoee*a","a*eeoaaea");
         m.put("oaeaooa*o","o*aooaeao");
         m.put("eoeaeoo*o","o*ooeaeoe");
-        m.put("aoeaoao*o","o*oaoaeoa");
+        m.put("oooao*ooa","o*aooooao");
         m.put("oaaoo*ooe","a*eaooooo");
         m.put("oeaoe*oea","a*aeeeooo");
         m.put("eeoaaeo*o","o*oeaaoee");
         m.put("aoeao*oeo","e*oooeaao");
         m.put("aea*aoaeo","a*aeaeooa");
         m.put("eeoaaeo*e","e*oeaaoee");
+        m.put("eoaee*eoa","a*aoeoeee");
         m.put("aoeao*oea","e*aooeaao");
         m.put("eeoaaeo*a","a*oeaaoee");
         m.put("aoeao*oee","e*eooeaao");
@@ -9974,6 +10388,7 @@ public class MapHashMap {
         m.put("oeaao*aeo","a*oeoeoaa");
         m.put("ooeaaao*a","a*oaaaeoo");
         m.put("oeooaea*a","a*aeaooeo");
+        m.put("aaaoa*aaa","a*aaaaaoa");
         m.put("oeoooea*o","o*aeoooeo");
         m.put("oeooaea*e","e*aeaooeo");
         m.put("aeaao*eao","a*oeoaaae");
@@ -10013,7 +10428,6 @@ public class MapHashMap {
         m.put("aeoee*eaa","o*aeeaaee");
         m.put("aeoee*oeo","o*oeeeaeo");
         m.put("eeaao*oea","a*aeoeeao");
-    }    private void init_10() {
         m.put("eae*oaoea","o*eeoaaae");
         m.put("eeaae*eeo","a*oeeeeae");
         m.put("eae*oaoee","o*eeoaeae");
@@ -10047,10 +10461,12 @@ public class MapHashMap {
         m.put("oeo*aoooa","o*ooaeaoo");
         m.put("eeoaaoe*a","a*eoaaoee");
         m.put("aeeao*aee","e*eeoeaaa");
+        m.put("ooa*oaaaa","a*oaooaaa");
         m.put("eeoaaoe*e","e*eoaaoee");
         m.put("aeeao*aea","e*aeoeaaa");
         m.put("oeoaaoa*a","a*aoaaoeo");
         m.put("eoo*eoeeo","e*eeeoooo");
+        m.put("aeoaa*ooe","o*eeaoaao");
         m.put("ooe*eaaoo","a*ooeooae");
         m.put("eeaaaoe*a","a*eoaaaee");
         m.put("oeooa*eaa","o*aeaaooe");
@@ -10065,6 +10481,7 @@ public class MapHashMap {
         m.put("eae*eoeoa","e*eoeaaoe");
         m.put("aoa*eoooo","o*aoeoooa");
         m.put("eoaao*eae","a*eooaeae");
+        m.put("aooao*aoo","o*ooooaaa");
         m.put("eaoaooe*e","e*eooaoae");
         m.put("oaaeoao*o","o*oaoeaao");
         m.put("aeeaaeo*o","o*oeaaeea");
@@ -10083,26 +10500,30 @@ public class MapHashMap {
         m.put("oeoaaaa*e","e*aaaaoeo");
         m.put("aee*oeaee","a*aeoeeee");
         m.put("oaaeoaa*o","o*aaoeaao");
+        m.put("aoooo*ooe","o*eoooaoo");
         m.put("oeeaeaa*a","a*aaeaeeo");
         m.put("eeaeoeo*e","e*oeoeaee");
         m.put("oea*eeaoe","a*ooeeeea");
+        m.put("aaa*aooao","o*aaaaooa");
         m.put("eoaeo*aao","a*oooaeea");
         m.put("eaeoa*eae","e*eaaaeoe");
         m.put("eooea*aae","o*eoaaeea");
         m.put("eea*eaeaa","e*eaeeaaa");
         m.put("aee*aoeea","e*aeaeaoe");
+        m.put("aooaa*ooo","o*ooaoaao");
         m.put("eea*eaeae","e*eaeeeaa");
         m.put("aee*aoeee","e*aeaeeoe");
         m.put("aoeea*aoe","e*eoaoaea");
         m.put("aaeoe*eee","e*eaeeaoe");
         m.put("aee*aoeeo","e*aeaeooe");
+        m.put("aeaeoae*o","o*eaoeaea");
         m.put("eea*eaeao","e*eaeeoaa");
         m.put("eoeooeo*e","e*oeooeoe");
         m.put("oaaooaa*e","e*aaooaao");
         m.put("aaa*oeaaa","a*aaoaaea");
         m.put("eoeooeo*a","a*oeooeoe");
         m.put("eoe*ooeeo","e*eeooooe");
-        m.put("oae*oooee","o*oeoaeoe");
+        m.put("oaaooaa*o","o*aaooaao");
         m.put("aoa*ooeae","e*aaooeoa");
         m.put("aeaao*ooo","a*oeooaao");
         m.put("aaa*aooae","o*aaaaeoa");
@@ -10111,6 +10532,7 @@ public class MapHashMap {
         m.put("eoeae*eee","e*eoeeeae");
         m.put("eaeooae*o","o*eaooeae");
         m.put("eoeae*eea","e*aoeeeae");
+        m.put("aaooa*aaa","o*aaaaaoa");
         m.put("eoeae*eeo","e*ooeeeae");
         m.put("eeeoa*eoo","e*oeaoeoe");
         m.put("eeoeaee*o","o*eeaeoee");
@@ -10159,7 +10581,7 @@ public class MapHashMap {
         m.put("aoeoo*ooe","e*eoooaoo");
         m.put("aaoaoee*a","a*eeoaoaa");
         m.put("eoeoe*aoa","e*aoeoeoa");
-        m.put("aeoeo*eoa","o*aeooaee");
+        m.put("eaoaa*aee","o*eaaeeaa");
         m.put("eoeoe*aoo","e*ooeoeoa");
         m.put("aoe*oeaoo","a*aooooee");
         m.put("oaa*eaaoe","a*ooeaeaa");
@@ -10172,11 +10594,13 @@ public class MapHashMap {
         m.put("aooeoee*a","a*eeoeooa");
         m.put("eooeaoa*a","a*aoaeooe");
         m.put("oaooa*aoe","o*eaaoooa");
+        m.put("aoa*oaaoo","a*aooooaa");
         m.put("eeeee*oeo","e*oeeeeeo");
         m.put("aaeeo*aoe","e*eaooaea");
         m.put("ooeoeeo*o","o*oeeoeoo");
         m.put("aaa*eaeeo","e*aeeaoaa");
         m.put("aaeeo*aoa","e*aaooaea");
+        m.put("ooaaooa*o","o*aooaaoo");
         m.put("eeeeeea*o","o*aeeeeee");
         m.put("eaooaea*a","a*aeaooae");
         m.put("eeeeeea*a","a*aeeeeee");
@@ -10187,15 +10611,18 @@ public class MapHashMap {
         m.put("eeaoeae*a","a*eaeoaee");
         m.put("oaeaooa*a","a*aooaeao");
         m.put("eeeeooe*e","e*eooeeee");
+        m.put("aoooaao*o","o*oaaoooa");
+        m.put("oaaoe*aoo","a*oaeoooa");
         m.put("eeeeooe*a","a*eooeeee");
         m.put("oaa*oeeeo","e*oeoaoea");
         m.put("eeoae*aee","o*eeeeeaa");
         m.put("oaa*oeeea","e*oeoaaea");
         m.put("ooe*aeooa","o*ooaoaee");
-        m.put("eeeeooe*o","o*eooeeee");
+        m.put("aooaooo*a","a*oooaooa");
         m.put("eaeaoaa*a","a*aaoaeae");
         m.put("aaoooeo*e","e*oeoooaa");
         m.put("aooaooo*e","e*oooaooa");
+        m.put("aaaaa*aaa","a*aaaaaaa");
         m.put("eeeee*oea","e*aeeeeeo");
         m.put("eaeaaao*a","a*oaaaeae");
         m.put("aaaaa*aae","a*eaaaaaa");
@@ -10204,6 +10631,7 @@ public class MapHashMap {
         m.put("aao*oeaae","a*aaoaeeo");
         m.put("oee*ooeea","e*oeoeaoe");
         m.put("oaaae*eee","a*eaeeoae");
+        m.put("aaaaa*aao","a*oaaaaaa");
         m.put("eaaoeeo*a","a*oeeoaae");
         m.put("aeaae*oeo","a*oeeeaao");
         m.put("ooeeoae*e","e*eaoeeoo");
@@ -10222,7 +10650,8 @@ public class MapHashMap {
         m.put("ooeeoae*a","a*eaoeeoo");
         m.put("ooa*oeoao","o*oaoooea");
         m.put("eaa*ooaae","a*eaoaeoa");
-        m.put("oaoee*eao","o*oaeaoee");
+        m.put("aeoee*oao","o*oeeaaeo");
+        m.put("aoooaao*a","a*oaaoooa");
         m.put("ooooeee*o","o*eeeoooo");
         m.put("aoeoo*oea","e*aooeaoo");
         m.put("eaaaa*eao","a*oaaaeae");
@@ -10248,9 +10677,11 @@ public class MapHashMap {
         m.put("eea*eaaee","a*eeeeeaa");
         m.put("aeooaoo*a","a*ooaooea");
         m.put("aeoeeea*a","a*aeeeoea");
+        m.put("oeeoeoe*o","o*eoeoeeo");
         m.put("aeooe*oea","o*aeeeaoo");
         m.put("eea*eaaeo","a*eeeeoaa");
         m.put("aoooaea*o","o*aeaoooa");
+        m.put("aoaaooo*o","o*oooaaoa");
         m.put("eaaea*aoa","a*aaaoeea");
         m.put("aeeoa*oeo","e*oeaeaoo");
         m.put("aeeoa*oea","e*aeaeaoo");
@@ -10262,6 +10693,7 @@ public class MapHashMap {
         m.put("aeooaoo*e","e*ooaooea");
         m.put("eeoeo*aoo","o*oeooeea");
         m.put("eaa*oaoee","o*eeoaeaa");
+        m.put("oeooo*ooo","o*oeooooo");
         m.put("aeo*eaeee","e*aeeeeao");
         m.put("aeaeo*eeo","a*oeoeaee");
         m.put("aeo*eaeea","e*aeeeaao");
@@ -10279,7 +10711,7 @@ public class MapHashMap {
         m.put("aoaeaoo*o","o*ooaeaoa");
         m.put("aee*aeooa","o*aoaeaee");
         m.put("aeeeaee*o","o*eeaeeea");
-        m.put("eooea*aaa","o*aoaaeea");
+        m.put("aoaaooo*a","a*oooaaoa");
         m.put("oaeaa*oea","e*aaaeoao");
         m.put("eoo*aaaeo","a*eeaooao");
         m.put("oaeaa*oee","e*eaaeoao");
@@ -10303,6 +10735,7 @@ public class MapHashMap {
         m.put("eeeoeoe*e","e*eoeoeee");
         m.put("aeoee*eoo","o*oeeoaee");
         m.put("oooeoaa*e","e*aaoeooo");
+        m.put("aaa*oaaoa","a*aooaaaa");
         m.put("aeeoe*eae","e*eeeaaoe");
         m.put("aeoee*eoe","o*eeeoaee");
         m.put("aeeoe*eaa","e*aeeaaoe");
@@ -10316,12 +10749,14 @@ public class MapHashMap {
         m.put("aeooa*aaa","o*aeaaaoa");
         m.put("eoeaa*eae","e*eoaaeae");
         m.put("ooaeeoa*a","a*aoeeaoo");
+        m.put("aoaaaoo*o","o*ooaaaoa");
         m.put("eoeaa*eaa","e*aoaaeae");
         m.put("eea*aeeee","e*eeaeeea");
         m.put("aoeoeeo*a","a*oeeoeoa");
         m.put("oea*oeaao","a*oaoeoea");
         m.put("eea*aeeea","e*eeaeaea");
-        m.put("eee*aeoea","o*eeaeaee");
+        m.put("aoe*oeaoe","a*aoooeee");
+        m.put("aoo*ooaaa","a*aaooaoo");
         m.put("oea*oeaae","a*oaoeeea");
         m.put("eeoao*oea","o*aeoeeao");
         m.put("eea*aeeeo","e*eeaeoea");
@@ -10331,6 +10766,7 @@ public class MapHashMap {
         m.put("eoa*eoeao","e*eaeoooa");
         m.put("aeeoa*eoa","e*aeaoaoe");
         m.put("oaaae*oeo","a*oaeeoao");
+        m.put("oaooa*aoo","o*oaaoooa");
         m.put("oaaae*oea","a*aaeeoao");
         m.put("aaeeeae*a","a*eaeeeaa");
         m.put("aeeoa*eoo","e*oeaoaoe");
@@ -10339,12 +10775,14 @@ public class MapHashMap {
         m.put("aoo*ooaae","a*aaooeoo");
         m.put("eao*oaeoo","e*eooaoao");
         m.put("oeeeeaa*o","o*aaeeeeo");
+        m.put("aoooooa*a","a*aoooooa");
         m.put("oaaeeeo*e","e*oeeeaao");
         m.put("eeeeooo*o","o*oooeeee");
         m.put("aoooooa*e","e*aoooooa");
         m.put("aaaeeoo*o","o*ooeeaaa");
         m.put("oaoaeee*a","a*eeeaoao");
         m.put("eao*oaeoe","e*eooaeao");
+        m.put("aaooa*aao","o*oaaaaoa");
         m.put("oaoaeee*e","e*eeeaoao");
         m.put("eoaao*ooa","a*aoooeao");
         m.put("eao*oaeoa","e*eooaaao");
@@ -10381,18 +10819,19 @@ public class MapHashMap {
         m.put("ooooaae*a","a*eaaoooo");
         m.put("aaa*oaaoe","a*aooaeaa");
         m.put("eee*eeeoe","e*eoeeeee");
-        m.put("aooaa*eaa","o*aoaaaae");
+        m.put("oaa*aoaoa","a*ooaaaoa");
         m.put("aoe*oaaoe","a*aoooeae");
         m.put("aao*aoooe","o*aoaaeoo");
         m.put("eoo*oaoea","o*eeooaao");
         m.put("aee*oaaae","a*aaoeeae");
         m.put("eoo*oaoee","o*eeooeao");
         m.put("eoeoa*oao","e*ooaaeoo");
+        m.put("oaooaoa*a","a*aoaooao");
         m.put("oaa*oeaao","a*oaoaoea");
         m.put("oaooaoa*e","e*aoaooao");
         m.put("oaoaeao*e","e*oaeaoao");
-        m.put("aoeaooo*a","a*oooaeoa");
-        m.put("oea*eoooo","o*ooeeooa");
+        m.put("aoaoa*oao","a*ooaaaoo");
+        m.put("aaooa*ooo","o*oaaoaoo");
         m.put("aoeaooo*e","e*oooaeoa");
         m.put("oaeeeee*a","a*eeeeeao");
         m.put("aeeao*aoe","e*eeooaaa");
@@ -10400,9 +10839,10 @@ public class MapHashMap {
         m.put("aoaoa*oae","a*eoaaaoo");
         m.put("aeaeoeo*a","a*oeoeaea");
         m.put("aaoeeeo*a","a*oeeeoaa");
-        m.put("aoeaooo*o","o*oooaeoa");
+        m.put("aoaoa*oaa","a*aoaaaoo");
         m.put("eae*aeooa","o*eoaaaee");
         m.put("ooaaaea*o","o*aeaaaoo");
+        m.put("oeeoaoo*o","o*ooaoeeo");
         m.put("aeeoaoo*o","o*ooaoeea");
         m.put("eeoao*eee","o*eeoeeae");
         m.put("aoe*oeoaa","o*aaooaee");
@@ -10419,6 +10859,7 @@ public class MapHashMap {
         m.put("oea*aoeaa","e*oaaeaoa");
         m.put("aoeoe*aoe","e*eoeoaoa");
         m.put("oea*aoeae","e*oaaeeoa");
+        m.put("aoooo*ooa","o*aoooaoo");
         m.put("aaoeaeo*o","o*oeaeoaa");
         m.put("oeo*aeeoe","e*ooaeeeo");
         m.put("eeeaeoe*e","e*eoeaeee");
@@ -10427,9 +10868,9 @@ public class MapHashMap {
         m.put("oeoao*aae","o*eeoaoaa");
         m.put("eeoeo*aoe","o*eeooeea");
         m.put("aoaaeao*e","e*oaeaaoa");
-        m.put("ooa*oeooe","o*ooooeea");
+        m.put("aaooa*ooa","o*aaaoaoo");
         m.put("eaeoeeo*o","o*oeeoeae");
-        m.put("eaoeo*oee","o*eaoeeeo");
+        m.put("ooaao*aaa","a*aooaoaa");
         m.put("aoo*ooaeo","a*aeooooo");
         m.put("ooaao*aae","a*eooaoaa");
         m.put("oee*eoaea","a*oeeeaoe");
@@ -10451,6 +10892,7 @@ public class MapHashMap {
         m.put("oaa*aoeea","e*oeaaaoa");
         m.put("aoo*ooeoa","e*aoooaoo");
         m.put("aoa*eaeao","e*aaeooaa");
+        m.put("oaooooo*o","o*oooooao");
         m.put("aoo*ooeoe","e*aoooeoo");
         m.put("eae*eoaea","a*eeeaaoe");
         m.put("eaeooee*e","e*eeooeae");
@@ -10482,8 +10924,10 @@ public class MapHashMap {
         m.put("eeo*aeaea","a*eeaeaeo");
         m.put("ooaeeoa*o","o*aoeeaoo");
         m.put("eeo*aeaeo","a*eeaeoeo");
+        m.put("aoaoa*ooo","a*ooaoaoo");
         m.put("ooeeooo*o","o*oooeeoo");
         m.put("eoaoeeo*e","e*oeeoaoe");
+        m.put("eeoeo*aoa","o*aeooeea");
         m.put("eao*oaoeo","o*eeoaoao");
         m.put("eeooo*aee","o*eeoeeoa");
         m.put("ooa*oeooa","o*ooooaea");
@@ -10542,8 +10986,9 @@ public class MapHashMap {
         m.put("eaaoaaa*e","e*aaaoaae");
         m.put("ooeeaae*e","e*eaaeeoo");
         m.put("aoaea*ooe","a*eoaoaeo");
+        m.put("eea*aooeo","o*eeaeooa");
         m.put("oeeoa*eea","e*aeaeooe");
-        m.put("eoooa*oeo","o*ooaeeoo");
+        m.put("aaa*oaaoo","a*aooaoaa");
         m.put("ooeea*eoo","e*ooaooee");
         m.put("eae*eaeoo","e*eoeaoae");
         m.put("aoa*aeaoo","a*aoaooea");
@@ -10569,6 +11014,7 @@ public class MapHashMap {
         m.put("eaoea*eee","o*eaaeeee");
         m.put("eao*oeeao","e*eaoaoeo");
         m.put("aoe*oeeea","e*aeooaee");
+    }    private void init_11() {
         m.put("aeoaa*eea","o*aeaeaae");
         m.put("ooaeo*oae","a*eooaoeo");
         m.put("aeooaee*e","e*eeaooea");
@@ -10581,6 +11027,7 @@ public class MapHashMap {
         m.put("aaaaaee*a","a*eeaaaaa");
         m.put("ooeeo*eea","e*aooeoee");
         m.put("aaaaaee*e","e*eeaaaaa");
+        m.put("oaooaoa*o","o*aoaooao");
         m.put("eoa*eaaaa","a*eaeoaaa");
         m.put("aaeaaae*a","a*eaaaeaa");
         m.put("aeeae*oea","e*aeeeaao");
@@ -10619,6 +11066,7 @@ public class MapHashMap {
         m.put("aaeeoee*o","o*eeoeeaa");
         m.put("aeo*aaoea","o*aeaeaao");
         m.put("eeo*ooeee","e*eeoeeoo");
+        m.put("oaooaao*o","o*oaaooao");
         m.put("oaeeo*ooo","e*oaoooeo");
         m.put("eaaaoae*e","e*eaoaaae");
         m.put("oaeeo*ooe","e*eaoooeo");
@@ -10659,7 +11107,7 @@ public class MapHashMap {
         m.put("aaaeooe*a","a*eooeaaa");
         m.put("eaaeeeo*e","e*oeeeaae");
         m.put("aaaeooe*e","e*eooeaaa");
-        m.put("eaaeeeo*a","a*oeeeaae");
+        m.put("oaaaaoa*a","a*aoaaaao");
         m.put("eeooe*aaa","o*aeeaeoa");
         m.put("eoo*eaaeo","a*eeeooao");
         m.put("eea*aeooa","o*eoaeaea");
@@ -10669,7 +11117,7 @@ public class MapHashMap {
         m.put("ooaea*ooa","a*aoaooeo");
         m.put("eeeeeoa*e","e*aoeeeee");
         m.put("ooaea*ooe","a*eoaooeo");
-        m.put("oaa*eooao","o*oaeaooa");
+        m.put("ooaoaaa*o","o*aaaoaoo");
         m.put("ooaoeoa*e","e*aoeoaoo");
         m.put("oeeae*eoo","e*oeeooae");
         m.put("eeaeoea*o","o*aeoeaee");
@@ -10693,7 +11141,7 @@ public class MapHashMap {
         m.put("aaaeeaa*a","a*aaeeaaa");
         m.put("aaeee*oae","e*eaeaaeo");
         m.put("aaaeeaa*e","e*aaeeaaa");
-        m.put("eoooo*aao","o*oooaeoa");
+        m.put("aaoao*oao","o*oaoaaao");
         m.put("aaeee*oaa","e*aaeaaeo");
         m.put("oeaao*aoo","a*oeoooaa");
         m.put("aoaaa*aeo","a*ooaeaaa");
@@ -10713,12 +11161,12 @@ public class MapHashMap {
         m.put("ooeaoae*o","o*eaoaeoo");
         m.put("oeo*aaeee","e*oeaeeao");
         m.put("oaoeo*aeo","o*oaoeoea");
-        m.put("oaoeo*eae","o*eaoaoee");
+        m.put("aoo*oaaao","a*aaoooao");
         m.put("aaeeoee*a","a*eeoeeaa");
         m.put("aooaoeo*e","e*oeoaooa");
         m.put("aee*aeeeo","e*aeaeoee");
         m.put("oeeaa*eeo","e*oeaeoae");
-        m.put("aeoao*aoo","o*oeooaaa");
+        m.put("aoa*aoaaa","a*aaaoaoa");
         m.put("aee*aeeee","e*aeaeeee");
         m.put("oeeaa*eea","e*aeaeoae");
         m.put("aee*aeeea","e*aeaeaee");
@@ -10750,7 +11198,7 @@ public class MapHashMap {
         m.put("aoeoo*aao","e*oooaaoa");
         m.put("aoeea*aae","e*eoaaaea");
         m.put("aaaao*aoe","a*eaooaaa");
-        m.put("oea*aooaa","o*oaaeaoa");
+        m.put("ooooooa*a","a*aoooooo");
         m.put("aoo*aaeoe","e*aoaoeao");
         m.put("aooaoeo*o","o*oeoaooa");
         m.put("aoeea*aao","e*ooaaaea");
@@ -10770,7 +11218,7 @@ public class MapHashMap {
         m.put("aeeaeaa*o","o*aaeaeea");
         m.put("aeo*aeaoe","a*aoaeeeo");
         m.put("aaoao*eao","o*oaoaaae");
-        m.put("ooaoe*ooo","a*ooeoooo");
+        m.put("oaaaa*ooo","a*oaaooao");
         m.put("aaoee*oea","o*aaeeaeo");
         m.put("eeaaa*oae","a*eeaaeao");
         m.put("aaoee*oee","o*eaeeaeo");
@@ -10798,12 +11246,14 @@ public class MapHashMap {
         m.put("aoa*aoaae","a*aaaoeoa");
         m.put("eao*eaeeo","e*eeeaoao");
         m.put("aaoaaea*o","o*aeaaoaa");
+        m.put("aooaooa*o","o*aooaooa");
         m.put("aoa*ooooe","o*aoooeoa");
         m.put("aaaoa*eoe","a*eaaoaoe");
         m.put("aaaoeoa*a","a*aoeoaaa");
         m.put("aeeaaae*o","o*eaaaeea");
         m.put("eao*eaeee","e*eeeaeao");
         m.put("aaaoeoa*e","e*aoeoaaa");
+        m.put("ooo*ooooa","o*ooooaoo");
         m.put("eao*eaeea","e*eeeaaao");
         m.put("aeeaa*aoo","e*oeaoaaa");
         m.put("oeeeo*aao","e*oeoaoea");
@@ -10817,6 +11267,7 @@ public class MapHashMap {
         m.put("ooaoaaa*e","e*aaaoaoo");
         m.put("aaa*eaoae","o*aaeaeaa");
         m.put("eoaoaao*a","a*oaaoaoe");
+        m.put("oaaooao*o","o*oaooaao");
         m.put("oaaaeaa*a","a*aaeaaao");
         m.put("aaaoe*ooo","a*oaeoaoo");
         m.put("aoeaa*aaa","e*aoaaaaa");
@@ -10837,6 +11288,7 @@ public class MapHashMap {
         m.put("aoe*ooooo","o*aoooooe");
         m.put("oee*eaeea","e*oeeeaae");
         m.put("oee*eaeeo","e*oeeeoae");
+        m.put("ooo*ooooo","o*ooooooo");
         m.put("eaooa*oee","o*eaaeeoo");
         m.put("eaaeo*eoe","a*eaooeee");
         m.put("aao*aaoee","o*aeaaeao");
@@ -10844,6 +11296,7 @@ public class MapHashMap {
         m.put("aoe*oeoea","o*aeooaee");
         m.put("eeeeo*eae","e*eeoaeee");
         m.put("eoaee*ooo","a*ooeoeeo");
+        m.put("aaaoaoo*o","o*ooaoaaa");
         m.put("ooe*aeaae","a*oaaoeee");
         m.put("eeeeo*eaa","e*aeoaeee");
         m.put("eeeeo*eao","e*oeoaeee");
@@ -10870,6 +11323,7 @@ public class MapHashMap {
         m.put("oeeeaae*a","a*eaaeeeo");
         m.put("aoeeo*aea","e*aooeaea");
         m.put("oeeeaae*e","e*eaaeeeo");
+        m.put("aoooa*aoa","o*aoaoaoa");
         m.put("aooooae*o","o*eaooooa");
         m.put("eea*eoeee","e*eeeeeoa");
         m.put("eaa*oeaeo","a*eeoaoea");
@@ -10879,6 +11333,7 @@ public class MapHashMap {
         m.put("aea*eooee","o*aeeeeoa");
         m.put("aea*eooea","o*aeeeaoa");
         m.put("ooooe*aeo","o*ooeeooa");
+        m.put("aoeaooo*o","o*oooaeoa");
         m.put("eaoaeee*a","a*eeeaoae");
         m.put("eaeeeeo*o","o*oeeeeae");
         m.put("eeaaeaa*e","e*aaeaaee");
@@ -10905,8 +11360,10 @@ public class MapHashMap {
         m.put("aee*aeaao","a*aaaeoee");
         m.put("eaa*eaaee","a*eeeaeaa");
         m.put("aee*aeaae","a*aaaeeee");
+        m.put("eaoea*eea","o*aaaeeee");
         m.put("oaoeaoe*e","e*eoaeoao");
         m.put("aee*aeaaa","a*aaaeaee");
+        m.put("oaoaooa*o","o*aooaoao");
         m.put("oaoeaoe*a","a*eoaeoao");
         m.put("aoaeaoa*e","e*aoaeaoa");
         m.put("aoe*ooooe","o*aoooeoe");
@@ -10928,11 +11385,12 @@ public class MapHashMap {
         m.put("aeaeaea*a","a*aeaeaea");
         m.put("eooeeea*a","a*aeeeooe");
         m.put("oao*eoaaa","a*oaeaaoo");
+        m.put("aaoao*oaa","o*aaoaaao");
         m.put("oaaoo*eaa","a*aaoaooe");
         m.put("eaaeeae*o","o*eaeeaae");
         m.put("eao*oooee","o*eeoaeoo");
         m.put("oeeaooe*o","o*eooaeeo");
-        m.put("oeo*aaaao","a*oaaeoao");
+        m.put("aaaoooa*a","a*aoooaaa");
         m.put("eeeeoae*o","o*eaoeeee");
         m.put("eao*oooeo","o*eeoaooo");
         m.put("eaaoe*aoa","a*aaeoeoa");
@@ -10941,6 +11399,7 @@ public class MapHashMap {
         m.put("ooe*ooeae","e*oaooeoe");
         m.put("eao*aaaeo","a*eeaaoao");
         m.put("aaoeoea*e","e*aeoeoaa");
+        m.put("aaaoa*aoo","a*oaaoaoa");
         m.put("aaoeoea*a","a*aeoeoaa");
         m.put("oaoea*aae","o*eaaaoea");
         m.put("oaooa*eeo","o*oaaeooe");
@@ -10980,6 +11439,7 @@ public class MapHashMap {
         m.put("aeoae*aoa","o*aeeoaaa");
         m.put("oaoaoee*e","e*eeoaoao");
         m.put("oea*oeaoo","a*oooeoea");
+        m.put("ooooooa*o","o*aoooooo");
         m.put("oaoaoee*a","a*eeoaoao");
         m.put("oeaaaoe*o","o*eoaaaeo");
         m.put("aeo*aoeea","e*aeaeaoo");
@@ -11005,25 +11465,26 @@ public class MapHashMap {
         m.put("ooaoo*aae","a*eooaooa");
         m.put("ooe*aeaao","a*oaaooee");
         m.put("aoaaooe*e","e*eooaaoa");
+        m.put("ooaoo*aaa","a*aooaooa");
         m.put("aoaaooe*a","a*eooaaoa");
         m.put("eaeoaoo*a","a*ooaoeae");
         m.put("oaaoeea*e","e*aeeoaao");
-        m.put("aeeeaoo*o","o*ooaeeea");
+        m.put("ooaoo*aao","a*oooaooa");
         m.put("aoo*aeoea","o*aeaoaeo");
         m.put("oaaoeea*a","a*aeeoaao");
         m.put("eaaaaaa*o","o*aaaaaae");
         m.put("oae*eaooo","o*ooeaoae");
         m.put("aoe*ooeae","e*aaooeoe");
-    }    private void init_11() {
         m.put("aoe*ooeaa","e*aaooaoe");
         m.put("aoe*ooeao","e*aaooooe");
         m.put("oaeoeae*o","o*eaeoeao");
-        m.put("aeoaa*aoo","o*oeaoaaa");
+        m.put("oaoao*aaa","o*aaoaoaa");
         m.put("eoo*oeoea","o*eeooaeo");
         m.put("aoaeo*eaa","a*aooaaee");
-        m.put("oooae*aee","o*eoeeoaa");
+        m.put("ooaaa*aao","a*ooaaoaa");
         m.put("eeeoeao*o","o*oaeoeee");
         m.put("ooa*aaaae","a*oaaoeaa");
+        m.put("eeeaeao*a","a*oaeaeee");
         m.put("oae*aeaee","a*oeaaeee");
         m.put("eoeaooo*a","a*oooaeoe");
         m.put("eaa*oeooa","o*eooaaea");
@@ -11048,6 +11509,7 @@ public class MapHashMap {
         m.put("oeo*aaaoa","a*ooaeaao");
         m.put("eoaeoee*a","a*eeoeaoe");
         m.put("eaa*aeaoo","a*eoaaoea");
+        m.put("aaoaooo*a","a*oooaoaa");
         m.put("ooeae*oee","e*eoeeoao");
         m.put("eeo*aaoaa","o*eaaeaao");
         m.put("ooeae*oea","e*aoeeoao");
@@ -11055,14 +11517,18 @@ public class MapHashMap {
         m.put("eoo*aoaoo","a*eoaoooo");
         m.put("eeaeoao*o","o*oaoeaee");
         m.put("eaaaaea*e","e*aeaaaae");
+        m.put("ooaoaoa*a","a*aoaoaoo");
         m.put("ooaao*eoo","a*oooooae");
         m.put("ooaao*eoa","a*aooooae");
         m.put("aoa*aaoee","o*aeaoeaa");
         m.put("aooea*eea","o*aoaeaee");
+        m.put("aooaeeo*o","o*oeeaooa");
         m.put("ooaao*eoe","a*eooooae");
         m.put("oeeeeoe*a","a*eoeeeeo");
+        m.put("oaa*aaoao","o*oaaaoaa");
         m.put("eee*ooeao","e*eaoeooe");
         m.put("eaa*aeoao","o*eaaaoea");
+        m.put("oaoooaa*o","o*aaoooao");
         m.put("ooeeoee*o","o*eeoeeoo");
         m.put("aeaoo*ooe","a*eeooaoo");
         m.put("aaeee*eao","e*oaeaaee");
@@ -11123,9 +11589,11 @@ public class MapHashMap {
         m.put("eeo*eooao","o*eaeeooo");
         m.put("eaaoe*eaa","a*aaeaeoe");
         m.put("eaeoeoo*o","o*ooeoeae");
+        m.put("oao*aaaoo","a*ooaaoao");
         m.put("aoo*eaoae","o*aaeoeao");
         m.put("eeooeeo*e","e*oeeooee");
         m.put("eeooeeo*a","a*oeeooee");
+        m.put("ooooaoa*a","a*aoaoooo");
         m.put("aoa*aaoea","o*aeaoaaa");
         m.put("eaaeoee*a","a*eeoeaae");
         m.put("aoe*eeaeo","a*aeeooee");
@@ -11151,6 +11619,7 @@ public class MapHashMap {
         m.put("oee*eooao","o*oaeeooe");
         m.put("eeo*eooae","o*eaeeeoo");
         m.put("oae*eaoae","o*oaeaeae");
+        m.put("oaooa*aao","o*oaaaooa");
         m.put("eea*aoeeo","e*eeaeooa");
         m.put("aaeaoao*a","a*oaoaeaa");
         m.put("aee*oeaae","a*aaoeeee");
@@ -11158,6 +11627,7 @@ public class MapHashMap {
         m.put("aaeaoao*e","e*oaoaeaa");
         m.put("aoa*aoeae","e*aaaoeoa");
         m.put("aee*ooaea","a*aeoeaoe");
+        m.put("oooea*eoo","o*ooaooee");
         m.put("aee*ooaee","a*aeoeeoe");
         m.put("oee*oaeae","e*oaoeeae");
         m.put("eooea*aee","o*eoaeeea");
@@ -11198,6 +11668,7 @@ public class MapHashMap {
         m.put("aae*aaoee","o*aeaaeae");
         m.put("aeeoeoo*a","a*ooeoeea");
         m.put("aooee*aoo","o*ooeoaea");
+        m.put("eeeaeao*o","o*oaeaeee");
         m.put("eoeoeoa*o","o*aoeoeoe");
         m.put("ooaoeae*o","o*eaeoaoo");
         m.put("aeo*ooeee","e*aeoeeoo");
@@ -11209,6 +11680,7 @@ public class MapHashMap {
         m.put("oeoeo*eee","o*eeoeoee");
         m.put("aoo*oaoee","o*aeooeao");
         m.put("oooaaea*a","a*aeaaooo");
+        m.put("ooa*aoooo","o*ooaoooa");
         m.put("aoo*oaoea","o*aeooaao");
         m.put("oaaee*aaa","a*aaeaoea");
         m.put("ooaoeoa*a","a*aoeoaoo");
@@ -11297,9 +11769,11 @@ public class MapHashMap {
         m.put("eae*eaoao","o*eaeaoae");
         m.put("aoa*oaeoe","e*aoooeaa");
         m.put("ooa*aooee","o*oeaoeoa");
+        m.put("oeeeoaa*o","o*aaoeeeo");
         m.put("aoa*oaeoa","e*aoooaaa");
         m.put("aeaaa*oao","a*oeaaaao");
         m.put("eae*aooaa","o*eaaaaoe");
+        m.put("ooaoaaa*a","a*aaaoaoo");
         m.put("aoaae*aea","a*aoeeaaa");
         m.put("oaaoeao*o","o*oaeoaao");
         m.put("eae*aooae","o*eaaaeoe");
@@ -11315,6 +11789,7 @@ public class MapHashMap {
         m.put("eeeeoeo*a","a*oeoeeee");
         m.put("eeeeoeo*e","e*oeoeeee");
         m.put("oaeeooe*a","a*eooeeao");
+        m.put("oao*aoaoo","a*ooaaooo");
         m.put("eee*eeeee","e*eeeeeee");
         m.put("eea*oeaoe","a*eooeeea");
         m.put("oeooaee*e","e*eeaooeo");
@@ -11345,14 +11820,17 @@ public class MapHashMap {
         m.put("aeoeoea*o","o*aeoeoea");
         m.put("eeoeoee*a","a*eeoeoee");
         m.put("eee*oaoeo","o*eeoeoae");
+        m.put("aaooa*aoa","o*aaaoaoa");
         m.put("eeoeoee*e","e*eeoeoee");
         m.put("oaoeaeo*o","o*oeaeoao");
         m.put("oeaoo*ooo","a*oeooooo");
+        m.put("aaooaoo*o","o*ooaooaa");
         m.put("ooe*aeeoe","e*ooaoeee");
         m.put("eoaooea*e","e*aeooaoe");
         m.put("eeaeaae*e","e*eaaeaee");
         m.put("eoa*ooaao","a*eaooooa");
         m.put("eoaooae*o","o*eaooaoe");
+        m.put("aoa*ooooa","o*aoooaoa");
         m.put("oeoeoea*o","o*aeoeoeo");
         m.put("eeeaaoa*e","e*aoaaeee");
         m.put("eee*oeoaa","o*eaoeaee");
@@ -11360,7 +11838,7 @@ public class MapHashMap {
         m.put("oea*aoooo","o*ooaeooa");
         m.put("eeooeoa*a","a*aoeooee");
         m.put("aeo*eeaoe","a*aoeeeeo");
-        m.put("aeoee*oao","o*oeeaaeo");
+        m.put("oao*aoaoa","a*ooaaaoo");
         m.put("eeaaooa*e","e*aooaaee");
         m.put("eaeoaoo*e","e*ooaoeae");
         m.put("eaoaeoe*a","a*eoeaoae");
@@ -11385,7 +11863,7 @@ public class MapHashMap {
         m.put("aee*aoeao","e*aaaeooe");
         m.put("ooooa*aea","o*aoaeooa");
         m.put("eea*eaeeo","e*eeeeoaa");
-        m.put("eoaee*oao","a*ooeaeeo");
+        m.put("oeeaeao*a","a*oaeaeeo");
         m.put("oeeaoee*e","e*eeoaeeo");
         m.put("aeaooaa*a","a*aaooaea");
         m.put("eeooeae*o","o*eaeooee");
@@ -11407,7 +11885,7 @@ public class MapHashMap {
         m.put("aeaeeeo*a","a*oeeeaea");
         m.put("ooa*oeoeo","o*oeoooea");
         m.put("aeeea*oea","e*aeaeaeo");
-        m.put("ooaoe*aao","a*ooeaooa");
+        m.put("oaaaa*aao","a*oaaaoaa");
         m.put("aaaae*eoe","a*eaeoaae");
         m.put("aeeea*oee","e*eeaeaeo");
         m.put("aaoeo*ooa","o*aaooaeo");
@@ -11417,7 +11895,7 @@ public class MapHashMap {
         m.put("eaoaoaa*e","e*aaoaoae");
         m.put("oaaaa*aae","a*eaaaoaa");
         m.put("eeoea*ooo","o*oeaoeeo");
-        m.put("eea*aooeo","o*eeaeooa");
+        m.put("aaaao*aaa","a*aaoaaaa");
         m.put("ooo*oeeae","e*oaooeeo");
         m.put("eoeoe*eoo","e*ooeoeoe");
         m.put("aaaeaee*o","o*eeaeaaa");
@@ -11425,7 +11903,7 @@ public class MapHashMap {
         m.put("oaeooao*e","e*oaooeao");
         m.put("oee*aaaeo","a*oeaeoae");
         m.put("eoeoe*eoa","e*aoeoeoe");
-        m.put("oaeooao*a","a*oaooeao");
+        m.put("aaaao*aao","a*oaoaaaa");
         m.put("oao*ooeoa","e*oooaaoo");
         m.put("aaaaoaa*e","e*aaoaaaa");
         m.put("eaa*oaooa","o*eooaaaa");
@@ -11465,7 +11943,7 @@ public class MapHashMap {
         m.put("aoe*eaeoo","e*aoeooae");
         m.put("eeeea*oea","e*aeaeeeo");
         m.put("eooeeoo*o","o*ooeeooe");
-        m.put("aoa*oaoeo","o*aeoooaa");
+        m.put("aoaao*oao","a*oooaaao");
         m.put("eoaea*eea","a*aoaeeee");
         m.put("eaa*aaoao","o*eaaaoaa");
         m.put("aoeoaao*o","o*oaaoeoa");
@@ -11498,14 +11976,15 @@ public class MapHashMap {
         m.put("eoaee*oae","a*eoeaeeo");
         m.put("aaaaeee*e","e*eeeaaaa");
         m.put("aaaaeee*a","a*eeeaaaa");
+        m.put("eoaoe*eao","a*ooeaeoe");
         m.put("ooooaaa*e","e*aaaoooo");
         m.put("oeoooao*e","e*oaoooeo");
         m.put("eoa*eoooa","o*eoeoaoa");
         m.put("ooeaaeo*e","e*oeaaeoo");
         m.put("eaaoa*oee","a*eaaeeoo");
         m.put("oao*aeaaa","a*oaaaaeo");
-        m.put("ooeaaeo*a","a*oeaaeoo");
-        m.put("ooeaaeo*o","o*oeaaeoo");
+        m.put("oaaao*aoa","a*aaoooaa");
+        m.put("oaaao*aoo","a*oaoooaa");
         m.put("aeaaeoo*o","o*ooeaaea");
         m.put("eoe*eoeoe","e*eoeoeoe");
         m.put("aeo*eeaoa","a*aoeeaeo");
@@ -11513,7 +11992,7 @@ public class MapHashMap {
         m.put("oaa*oeeae","e*oaoaeea");
         m.put("aoeaaee*e","e*eeaaeoa");
         m.put("oaa*oeeaa","e*oaoaaea");
-        m.put("aeeeooo*o","o*oooeeea");
+        m.put("oaoaa*oaa","o*aaaaoao");
         m.put("aoooaaa*e","e*aaaoooa");
         m.put("eao*aoaae","a*eaaaeoo");
         m.put("aoeaaee*o","o*eeaaeoa");
@@ -11536,6 +12015,7 @@ public class MapHashMap {
         m.put("eaoae*eeo","o*oaeeeae");
         m.put("eeeeo*aoe","e*eeooeea");
         m.put("eeeoaea*e","e*aeaoeee");
+    }    private void init_12() {
         m.put("eeeeo*aoa","e*aeooeea");
         m.put("eea*ooaeo","a*eeoeooa");
         m.put("eaa*ooaee","a*eeoaeoa");
@@ -11567,14 +12047,16 @@ public class MapHashMap {
         m.put("oeo*aaooe","o*ooaeeao");
         m.put("eoaaeea*a","a*aeeaaoe");
         m.put("aeaee*ooa","a*aeeoaeo");
-        m.put("eooao*eea","o*aooeeae");
+        m.put("aoaoo*aoo","a*ooooaoa");
         m.put("oeoao*eee","o*eeoeoae");
         m.put("aee*oeoee","o*aeoeeee");
         m.put("eae*oeoae","o*eaoaeee");
+        m.put("aeeeeao*a","a*oaeeeea");
         m.put("aaaeo*aea","a*aaoeaea");
         m.put("oeeee*eeo","e*oeeeoee");
         m.put("eooee*eoo","o*ooeoeee");
         m.put("aaaeo*aee","a*eaoeaea");
+        m.put("oaoao*oaa","o*aaoaoao");
         m.put("aoaaaoe*e","e*eoaaaoa");
         m.put("oeeee*eea","e*aeeeoee");
         m.put("aoaaaoe*a","a*eoaaaoa");
@@ -11589,6 +12071,7 @@ public class MapHashMap {
         m.put("ooaaaoe*e","e*eoaaaoo");
         m.put("eaooaoo*e","e*ooaooae");
         m.put("aaeaa*aoo","e*oaaoaaa");
+        m.put("aeaaaae*o","o*eaaaaea");
         m.put("aeeoa*oae","e*eeaaaoo");
         m.put("eea*eaaao","a*eaeeoaa");
         m.put("aeeoa*oaa","e*aeaaaoo");
@@ -11604,11 +12087,13 @@ public class MapHashMap {
         m.put("aooooee*o","o*eeooooa");
         m.put("oaaae*aoa","a*aaeooaa");
         m.put("oee*aaaee","a*oeaeeae");
+        m.put("aaooo*oaa","o*aaoaaoo");
         m.put("oaeaa*oae","e*eaaaoao");
         m.put("aeeaaoa*a","a*aoaaeea");
         m.put("aoeeeoe*o","o*eoeeeoa");
         m.put("ooeeoee*a","a*eeoeeoo");
         m.put("oaeaa*oaa","e*aaaaoao");
+        m.put("aeoee*eeo","o*oeeeaee");
         m.put("eaoooao*o","o*oaoooae");
         m.put("eoe*oeaoe","a*eoooeee");
         m.put("oaaeoao*a","a*oaoeaao");
@@ -11625,6 +12110,7 @@ public class MapHashMap {
         m.put("eeaaa*aeo","a*oeaeeaa");
         m.put("aoaoooe*e","e*eoooaoa");
         m.put("aoeee*aoo","e*ooeoaea");
+        m.put("aaooooo*a","a*oooooaa");
         m.put("aoeee*aoa","e*aoeoaea");
         m.put("oaaao*eaa","a*aaoaoae");
         m.put("eoe*oeaoa","a*eoooaee");
@@ -11646,6 +12132,7 @@ public class MapHashMap {
         m.put("ooo*eaeeo","e*oeeooao");
         m.put("aee*oeoea","o*aeoeaee");
         m.put("aaaoaeo*e","e*oeaoaaa");
+        m.put("ooooa*ooo","o*ooaoooo");
         m.put("ooo*eaeea","e*oeeoaao");
         m.put("aaeaooo*o","o*oooaeaa");
         m.put("ooo*eaeee","e*oeeoeao");
@@ -11661,17 +12148,20 @@ public class MapHashMap {
         m.put("ooaeoee*o","o*eeoeaoo");
         m.put("eoeea*ooo","e*ooaoeeo");
         m.put("aoeoo*aee","e*eooeaoa");
+        m.put("ooaoe*aoo","a*ooeoooa");
         m.put("eeoao*aee","o*eeoeeaa");
         m.put("eoeoe*oea","e*aoeeeoo");
         m.put("ooo*eeaeo","a*oeeooeo");
         m.put("eoeoe*oeo","e*ooeeeoo");
         m.put("oeeeooa*e","e*aooeeeo");
         m.put("oeeaeoo*o","o*ooeaeeo");
+        m.put("aaaoa*ooa","a*aaaoaoo");
         m.put("eoeea*aeo","e*ooaeeea");
         m.put("eeeooao*e","e*oaooeee");
         m.put("oaoeooe*a","a*eooeoao");
         m.put("aoaea*aea","a*aoaeaea");
         m.put("aeoee*ooa","o*aeeoaeo");
+        m.put("oeooo*oea","o*aeoeooo");
         m.put("ooaoe*ooa","a*aoeoooo");
         m.put("aeo*ooaoo","a*aooeooo");
         m.put("oeo*eeoao","o*oaeeoeo");
@@ -11697,7 +12187,7 @@ public class MapHashMap {
         m.put("oeeaoee*o","o*eeoaeeo");
         m.put("eea*eeaao","a*eaeeoea");
         m.put("oaaaa*oea","a*aaaeoao");
-        m.put("eaoaoae*o","o*eaoaoae");
+        m.put("aoeaeee*o","o*eeeaeoa");
         m.put("eaoeoeo*o","o*oeoeoae");
         m.put("aoaae*oao","a*ooeaaao");
         m.put("ooo*eaooe","o*ooeoeao");
@@ -11711,7 +12201,7 @@ public class MapHashMap {
         m.put("eaaea*oeo","a*oaaeeeo");
         m.put("aaaeo*eee","a*eaoeaee");
         m.put("oaooeae*a","a*eaeooao");
-        m.put("eooeoeo*o","o*oeoeooe");
+        m.put("ooaoe*ooo","a*ooeoooo");
         m.put("aaooeaa*e","e*aaeooaa");
         m.put("eaaea*oee","a*eaaeeeo");
         m.put("oaooeae*o","o*eaeooao");
@@ -11756,7 +12246,7 @@ public class MapHashMap {
         m.put("eoaea*aeo","a*ooaeeea");
         m.put("eaa*eeoaa","o*eaeaaea");
         m.put("eaaea*oao","a*oaaaeeo");
-        m.put("ooooe*eeo","o*ooeeooe");
+        m.put("ooaaaoa*o","o*aoaaaoo");
         m.put("oeaoaae*e","e*eaaoaeo");
         m.put("aeaoo*oaa","a*aeoaaoo");
         m.put("oeaoaae*a","a*eaaoaeo");
@@ -11774,10 +12264,10 @@ public class MapHashMap {
         m.put("oea*aoeeo","e*oeaeooa");
         m.put("aee*eaaae","a*aaeeeae");
         m.put("aaooe*aoo","o*oaeoaoa");
-        m.put("eeoeo*aoa","o*aeooeea");
+        m.put("ooaoe*aao","a*ooeaooa");
         m.put("aoa*eaeeo","e*aeeooaa");
         m.put("oeaaaoa*o","o*aoaaaeo");
-        m.put("aaooeao*a","a*oaeooaa");
+        m.put("ooaaaoa*a","a*aoaaaoo");
         m.put("eaa*oaaoa","a*eooaaaa");
         m.put("aaooeao*e","e*oaeooaa");
         m.put("eoo*oeoaa","o*eaooaeo");
@@ -11794,16 +12284,18 @@ public class MapHashMap {
         m.put("eoeaeee*a","a*eeeaeoe");
         m.put("eoo*eaeaa","e*eaeoaao");
         m.put("oea*ooeea","e*oeoeaoa");
-        m.put("ooaoe*aaa","a*aoeaooa");
+        m.put("oaaaa*aaa","a*aaaaoaa");
         m.put("eoo*eaeae","e*eaeoeao");
         m.put("aeoao*oee","o*eeoeaao");
         m.put("ooeaeaa*o","o*aaeaeoo");
         m.put("eaaeaoa*a","a*aoaeaae");
         m.put("oaaeoae*o","o*eaoeaao");
+        m.put("aaoaa*aoo","o*oaaoaaa");
         m.put("eaaeaoa*e","e*aoaeaae");
         m.put("oaa*aoeae","e*oaaaeoa");
-        m.put("oooeeaa*o","o*aaeeooo");
+        m.put("oaaoooa*a","a*aoooaao");
         m.put("eoooa*eoo","o*ooaoeoe");
+        m.put("aoo*aooaa","o*aaaoaoo");
         m.put("eee*eoeeo","e*eeeeooe");
         m.put("aeeoooa*a","a*aoooeea");
         m.put("eoooa*eoe","o*eoaoeoe");
@@ -11815,6 +12307,7 @@ public class MapHashMap {
         m.put("aoeaeeo*a","a*oeeaeoa");
         m.put("aoeaeeo*e","e*oeeaeoa");
         m.put("eae*ooaoo","a*eooaooe");
+        m.put("oeoaeoo*o","o*ooeaoeo");
         m.put("oeeoa*aea","e*aeaeooa");
         m.put("oeaeeae*o","o*eaeeaeo");
         m.put("aeooa*aea","o*aeaeaoa");
@@ -11840,11 +12333,11 @@ public class MapHashMap {
         m.put("oeeae*aoe","e*eeeooaa");
         m.put("oeeoaae*o","o*eaaoeeo");
         m.put("aeaaoaa*a","a*aaoaaea");
-        m.put("oeo*eooaa","o*oaeeaoo");
+        m.put("ooa*oaaoa","a*ooooaaa");
         m.put("aoaea*aeo","a*ooaeaea");
         m.put("ooaeaoe*a","a*eoaeaoo");
         m.put("aoo*oeaeo","a*aeoooeo");
-        m.put("eao*oaoaa","o*eaoaaao");
+        m.put("aaaoa*aao","a*oaaaaoa");
         m.put("oaaae*aoo","a*oaeooaa");
         m.put("eoaeo*eoe","a*eoooeee");
         m.put("aoo*oeaee","a*aeooeeo");
@@ -11859,6 +12352,7 @@ public class MapHashMap {
         m.put("eoeoe*eoe","e*eoeoeoe");
         m.put("aaaoo*eae","a*eaoaaoe");
         m.put("aeo*aeooo","o*aoaeoeo");
+        m.put("ooo*aoaoo","a*ooaoooo");
         m.put("ooeaeaa*a","a*aaeaeoo");
         m.put("oaeaa*eee","e*eaaeoae");
         m.put("ooeaeaa*e","e*aaeaeoo");
@@ -11883,10 +12377,10 @@ public class MapHashMap {
         m.put("oeaae*aoo","a*oeeooaa");
         m.put("eeoeeoe*o","o*eoeeoee");
         m.put("aoaeo*ooe","a*eoooaeo");
-        m.put("eoeoeoo*o","o*ooeoeoe");
+        m.put("oaoaa*ooa","o*aaaooao");
         m.put("aea*oooeo","o*aeoeooa");
         m.put("eaaooao*a","a*oaooaae");
-        m.put("eoooeao*o","o*oaeoooe");
+        m.put("oaaoe*aao","a*oaeaooa");
         m.put("aeooa*aee","o*eeaeaoa");
         m.put("aoaeo*ooo","a*ooooaeo");
         m.put("eea*oaeoo","e*eooeoaa");
@@ -11899,6 +12393,7 @@ public class MapHashMap {
         m.put("eaoaa*aea","o*aaaeeaa");
         m.put("eoaao*eoe","a*eoooeae");
         m.put("eaeoaoo*o","o*ooaoeae");
+        m.put("oaaoooa*o","o*aoooaao");
         m.put("oaoea*eea","o*aaaeoee");
         m.put("aao*oeaao","a*aaoaoeo");
         m.put("eao*aaooa","o*eoaaaao");
@@ -11947,6 +12442,7 @@ public class MapHashMap {
         m.put("oae*aaooe","o*ooaaeae");
         m.put("oeo*eooeo","o*oeeeooo");
         m.put("eoo*ooooe","o*eoooeoo");
+        m.put("aaa*aoooa","o*aoaaaoa");
         m.put("eeaeo*aae","a*eeoaeea");
         m.put("aee*eoaee","a*aeeeeoe");
         m.put("eeaeo*aao","a*oeoaeea");
@@ -11971,7 +12467,7 @@ public class MapHashMap {
         m.put("aoe*oooeo","o*aeooooe");
         m.put("oeaaaoe*e","e*eoaaaeo");
         m.put("oeaeo*aaa","a*aeoaoea");
-        m.put("aoeaeee*o","o*eeeaeoa");
+        m.put("oaoaaaa*a","a*aaaaoao");
         m.put("aaa*eaoaa","o*aaeaaaa");
         m.put("aaaaaea*e","e*aeaaaaa");
         m.put("ooeaoee*e","e*eeoaeoo");
@@ -11993,6 +12489,7 @@ public class MapHashMap {
         m.put("eooeaae*e","e*eaaeooe");
         m.put("eea*oaooe","o*eooeeaa");
         m.put("oao*oeaeo","a*oeoaoeo");
+        m.put("ooo*aooao","o*oaaoooo");
         m.put("eooaaoe*e","e*eoaaooe");
         m.put("oaooo*eae","o*eaoaooe");
         m.put("eaa*aeaea","a*eeaaaea");
@@ -12001,6 +12498,7 @@ public class MapHashMap {
         m.put("eeeoeee*o","o*eeeoeee");
         m.put("eoeaaea*a","a*aeaaeoe");
         m.put("aao*eooao","o*aaeaooo");
+        m.put("aooaa*oao","o*ooaaaao");
         m.put("ooe*eoaoe","a*ooeoeoe");
         m.put("eoeoaaa*e","e*aaaoeoe");
         m.put("aee*oeaoa","a*aooeaee");
@@ -12015,7 +12513,6 @@ public class MapHashMap {
         m.put("aeoeo*eea","o*aeoeaee");
         m.put("aeoeaee*e","e*eeaeoea");
         m.put("aoa*eaaoa","a*aoeoaaa");
-    }    private void init_12() {
         m.put("oee*eeooe","o*ooeeeee");
         m.put("aea*eeeoo","e*aoeeoea");
         m.put("eoaaa*oae","a*eoaaeao");
@@ -12023,7 +12520,7 @@ public class MapHashMap {
         m.put("oaeao*aao","e*oaoaoaa");
         m.put("oeooo*oee","o*eeoeooo");
         m.put("oee*aeoae","o*oaaeeee");
-        m.put("aoa*oeoea","o*aeooaea");
+        m.put("eaaaaae*o","o*eaaaaae");
         m.put("eae*oaooa","o*eooaaae");
         m.put("eoaoaeo*o","o*oeaoaoe");
         m.put("aaaaaeo*o","o*oeaaaaa");
@@ -12068,6 +12565,7 @@ public class MapHashMap {
         m.put("ooo*oaoeo","o*oeoooao");
         m.put("aeooa*aeo","o*oeaeaoa");
         m.put("oeo*aaeao","e*oaaeoao");
+        m.put("oao*oooaa","o*oaoaaoo");
         m.put("eeoaa*eea","o*aeaeeae");
         m.put("aeoeaoo*a","a*ooaeoea");
         m.put("aoeea*aeo","e*ooaeaea");
@@ -12098,7 +12596,9 @@ public class MapHashMap {
         m.put("eaeeaeo*a","a*oeaeeae");
         m.put("oaaaa*aoe","a*eaaooaa");
         m.put("eoeae*oao","e*ooeaeao");
+        m.put("aoa*oooao","o*aaooooa");
         m.put("aaaee*eoe","a*eaeoaee");
+        m.put("oaoaoao*o","o*oaoaoao");
         m.put("aeaea*aee","a*eeaeaea");
         m.put("eea*oaooo","o*eooeoaa");
         m.put("oaaee*ooe","a*eaeooeo");
@@ -12119,11 +12619,13 @@ public class MapHashMap {
         m.put("eoe*oaaaa","a*eaooaae");
         m.put("oeaaoee*e","e*eeoaaeo");
         m.put("ooaaa*aeo","a*ooaeoaa");
+        m.put("ooeeeoe*o","o*eoeeeoo");
         m.put("oeaaoee*a","a*eeoaaeo");
         m.put("aoaea*eee","a*eoaeaee");
         m.put("eea*aoeoa","e*eoaeaoa");
         m.put("ooaaa*aee","a*eoaeoaa");
         m.put("oaeeo*eeo","e*oaoeoee");
+        m.put("oaooo*aao","o*oaoaooa");
         m.put("eee*oeaoe","a*eooeeee");
         m.put("oea*aoaao","a*oaaeooa");
         m.put("aoaeo*aoo","a*ooooaea");
@@ -12132,7 +12634,8 @@ public class MapHashMap {
         m.put("aao*aoeoa","e*aoaaaoo");
         m.put("ooe*aoeea","e*oeaoaoe");
         m.put("ooe*aoeeo","e*oeaoooe");
-        m.put("aeooeoo*o","o*ooeooea");
+        m.put("oaoaa*ooo","o*oaaooao");
+        m.put("oaoaoao*a","a*oaoaoao");
         m.put("eea*aoeoe","e*eoaeeoa");
         m.put("aeeoo*aae","e*eeoaaoa");
         m.put("eae*aeooo","o*eoaaoee");
@@ -12163,7 +12666,7 @@ public class MapHashMap {
         m.put("eaeaooe*a","a*eooaeae");
         m.put("oea*oeeoa","e*oooeaea");
         m.put("eooeeoe*a","a*eoeeooe");
-        m.put("oaa*eooea","o*oeeaaoa");
+        m.put("ooo*aaaoa","a*ooaoaao");
         m.put("eeooo*eoo","o*oeooeoe");
         m.put("eae*aoooe","o*eoaaeoe");
         m.put("aeeoeaa*o","o*aaeoeea");
@@ -12199,7 +12702,7 @@ public class MapHashMap {
         m.put("eeoeo*aeo","o*oeoeeea");
         m.put("aeeeaaa*e","e*aaaeeea");
         m.put("eoo*eoaae","a*eaeoeoo");
-        m.put("oaoae*aoe","o*eaeooaa");
+        m.put("oaa*ooaaa","a*oaoaaoa");
         m.put("aeeeaaa*a","a*aaaeeea");
         m.put("aoa*aeoee","o*aeaoeea");
         m.put("eao*aoeeo","e*eeaaooo");
@@ -12224,7 +12727,7 @@ public class MapHashMap {
         m.put("eeeeo*aae","e*eeoaeea");
         m.put("aaaao*aeo","a*oaoeaaa");
         m.put("eoeaaao*e","e*oaaaeoe");
-        m.put("aao*oeoea","o*aeoaaeo");
+        m.put("aao*ooaaa","a*aaoaaoo");
         m.put("eeeeo*aao","e*oeoaeea");
         m.put("oaaeo*ooe","a*eaoooeo");
         m.put("aaeae*aaa","e*aaeaaaa");
@@ -12243,7 +12746,7 @@ public class MapHashMap {
         m.put("oae*eeoae","o*oaeaeee");
         m.put("aoaoeee*a","a*eeeoaoa");
         m.put("oeeeooe*e","e*eooeeeo");
-        m.put("ooo*eeooa","o*ooeoaeo");
+        m.put("eeoae*oeo","o*oeeeeao");
         m.put("oaa*eeeoo","e*ooeaoea");
         m.put("ooe*eooee","o*oeeoeoe");
         m.put("oea*ooaee","a*oeoeeoa");
@@ -12256,6 +12759,7 @@ public class MapHashMap {
         m.put("eoeoa*eao","e*ooaaeoe");
         m.put("oeeaeoe*e","e*eoeaeeo");
         m.put("oeoeaea*a","a*aeaeoeo");
+        m.put("aooaa*oaa","o*aoaaaao");
         m.put("eaeeo*oao","e*oaoaeeo");
         m.put("oeoeaea*e","e*aeaeoeo");
         m.put("aoooooo*e","e*ooooooa");
@@ -12271,9 +12775,10 @@ public class MapHashMap {
         m.put("aeaea*eaa","a*aeaaaee");
         m.put("aeeoeaa*e","e*aaeoeea");
         m.put("aeo*eaaao","a*aaeeoao");
+        m.put("aoo*aaoao","o*aaaooao");
         m.put("aeaea*eao","a*oeaaaee");
         m.put("eoaao*aoo","a*ooooeaa");
-        m.put("aaoaaae*o","o*eaaaoaa");
+        m.put("aoooooo*a","a*ooooooa");
         m.put("aeooeoa*o","o*aoeooea");
         m.put("aaaoaae*a","a*eaaoaaa");
         m.put("oaaee*aao","a*oaeaoea");
@@ -12317,6 +12822,7 @@ public class MapHashMap {
         m.put("eaaea*ooo","a*oaaoeeo");
         m.put("aoeeeaa*a","a*aaeeeoa");
         m.put("eoa*oaaea","a*eeooaaa");
+        m.put("eeoeeae*o","o*eaeeoee");
         m.put("eaa*eaaoa","a*eoeaaaa");
         m.put("aaoeo*oee","o*eaoeaeo");
         m.put("aea*oeeao","e*aaoeoea");
@@ -12358,6 +12864,7 @@ public class MapHashMap {
         m.put("eooeooe*o","o*eooeooe");
         m.put("eaa*aeeoo","e*eoaaoea");
         m.put("oea*ooaeo","a*oeoeooa");
+        m.put("ooeaaeo*o","o*oeaaeoo");
         m.put("eeoaeao*o","o*oaeaoee");
         m.put("oeo*aeoae","o*oaaeeeo");
         m.put("eeeaooa*e","e*aooaeee");
@@ -12376,6 +12883,7 @@ public class MapHashMap {
         m.put("aee*ooeee","e*aeoeeoe");
         m.put("oao*oeaaa","a*oaoaaeo");
         m.put("aeo*aoeao","e*aaaeooo");
+        m.put("aoaaooa*o","o*aooaaoa");
         m.put("aee*ooeea","e*aeoeaoe");
         m.put("ooooeeo*e","e*oeeoooo");
         m.put("aooeo*eoo","o*ooooaee");
@@ -12395,13 +12903,16 @@ public class MapHashMap {
         m.put("oeeoaao*o","o*oaaoeeo");
         m.put("eooeooe*a","a*eooeooe");
         m.put("aeaeoea*o","o*aeoeaea");
+        m.put("aoooaaa*a","a*aaaoooa");
         m.put("aee*eaaoo","a*aoeeoae");
         m.put("ooaaa*eae","a*eoaaoae");
         m.put("aeaeoea*e","e*aeoeaea");
         m.put("aeaeoea*a","a*aeoeaea");
-        m.put("oeeaaao*a","a*oaaaeeo");
+        m.put("eeaeo*eeo","a*oeoeeee");
         m.put("oaooo*aoe","o*eaooooa");
+        m.put("oooooaa*a","a*aaooooo");
         m.put("aoeoooo*a","a*ooooeoa");
+        m.put("aoaaoaa*a","a*aaoaaoa");
         m.put("ooeea*eeo","e*ooaeoee");
         m.put("aoaaoaa*e","e*aaoaaoa");
         m.put("ooaaa*eaa","a*aoaaoae");
@@ -12415,18 +12926,19 @@ public class MapHashMap {
         m.put("eooooao*a","a*oaooooe");
         m.put("aeaaaao*o","o*oaaaaea");
         m.put("oaa*eoaeo","a*oeeaooa");
-        m.put("aeooe*aoe","o*eeeoaoa");
+        m.put("oooaoao*a","a*oaoaooo");
         m.put("aaaeaeo*o","o*oeaeaaa");
         m.put("ooe*ooeea","e*oeooaoe");
         m.put("ooeoeoe*o","o*eoeoeoo");
         m.put("aeoao*aee","o*eeoeaaa");
         m.put("eaeeeaa*o","o*aaeeeae");
+        m.put("oao*ooaoa","a*oooaaoo");
         m.put("aeoao*aea","o*aeoeaaa");
-        m.put("ooa*aooae","o*oaaoeoa");
+        m.put("aoooaaa*o","o*aaaoooa");
         m.put("oao*oaaee","a*oeoaeao");
         m.put("eeeaooa*a","a*aooaeee");
         m.put("aeaoo*eoa","a*aeooaoe");
-        m.put("eoo*oaooe","o*eoooeao");
+        m.put("aao*aaaoo","a*aoaaoao");
         m.put("aeoeaoo*e","e*ooaeoea");
         m.put("aeooe*aoa","o*aeeoaoa");
         m.put("oeaaooo*a","a*oooaaeo");
@@ -12448,6 +12960,7 @@ public class MapHashMap {
         m.put("aoa*eeaeo","a*aeeooea");
         m.put("aooea*eoa","o*aoaoaee");
         m.put("aooaeoo*e","e*ooeaooa");
+        m.put("ooa*ooooo","o*ooooooa");
         m.put("aooaeoo*a","a*ooeaooa");
         m.put("eoaaa*eea","a*aoaeeae");
         m.put("eoeoo*ooo","e*ooooeoo");
@@ -12461,9 +12974,10 @@ public class MapHashMap {
         m.put("eaeaaea*o","o*aeaaeae");
         m.put("eoeaaoa*o","o*aoaaeoe");
         m.put("oaeea*oao","e*oaaaoeo");
-        m.put("oeooo*oea","o*aeoeooo");
+        m.put("aoaaooa*a","a*aooaaoa");
         m.put("eaoooaa*o","o*aaoooae");
         m.put("ooaee*oao","a*ooeaoeo");
+        m.put("oooae*eoa","o*aoeooae");
         m.put("aooaeao*o","o*oaeaooa");
         m.put("aeoao*eae","o*eeoaaae");
         m.put("aeaoe*ooa","a*aeeoaoo");
@@ -12476,6 +12990,7 @@ public class MapHashMap {
         m.put("eaaaaee*a","a*eeaaaae");
         m.put("oeaeaae*a","a*eaaeaeo");
         m.put("eeaoaoa*e","e*aoaoaee");
+        m.put("ooooeeo*o","o*oeeoooo");
         m.put("oaaoeee*o","o*eeeoaao");
         m.put("aeeaoeo*e","e*oeoaeea");
         m.put("oaoeo*oea","o*aaoeoeo");
@@ -12491,7 +13006,7 @@ public class MapHashMap {
         m.put("eooao*eoe","o*eoooeae");
         m.put("eeeao*aao","e*oeoaeaa");
         m.put("oaeae*oeo","e*oaeeoao");
-        m.put("eooaa*aao","o*ooaaeaa");
+        m.put("aeoao*aoo","o*oeooaaa");
         m.put("aeaoooo*o","o*ooooaea");
         m.put("oaaeoee*e","e*eeoeaao");
         m.put("aoeoa*eoo","e*ooaoaoe");
@@ -12501,6 +13016,7 @@ public class MapHashMap {
         m.put("aaaoa*eee","a*eaaeaoe");
         m.put("eeeao*aaa","e*aeoaeaa");
         m.put("oeeoeea*e","e*aeeoeeo");
+    }    private void init_13() {
         m.put("eooao*eao","o*oooaeae");
         m.put("aaeoe*ooa","e*aaeoaoo");
         m.put("oeeoeea*a","a*aeeoeeo");
@@ -12530,7 +13046,7 @@ public class MapHashMap {
         m.put("eooaeae*a","a*eaeaooe");
         m.put("eooaeae*e","e*eaeaooe");
         m.put("eeeaooa*o","o*aooaeee");
-        m.put("oeeaeao*a","a*oaeaeeo");
+        m.put("aaaoo*ooa","a*aaooaoo");
         m.put("aea*aoooa","o*aoaeaoa");
         m.put("aeo*oaaeo","a*aeoeoao");
         m.put("aaaaa*aea","a*aaaeaaa");
@@ -12563,6 +13079,8 @@ public class MapHashMap {
         m.put("eeaoeoe*o","o*eoeoaee");
         m.put("aaeaoao*o","o*oaoaeaa");
         m.put("eaoae*aoa","o*aaeoeaa");
+        m.put("aoaoaoo*a","a*ooaoaoa");
+        m.put("oaaaoaa*o","o*aaoaaao");
         m.put("aoaoaoo*e","e*ooaoaoa");
         m.put("eeaeo*eee","a*eeoeeee");
         m.put("eeeoaoa*a","a*aoaoeee");
@@ -12570,7 +13088,7 @@ public class MapHashMap {
         m.put("eea*oaeaa","e*eaoeaaa");
         m.put("eeoaooa*a","a*aooaoee");
         m.put("eea*oaeae","e*eaoeeaa");
-        m.put("oeeaeao*o","o*oaeaeeo");
+        m.put("aaaoo*ooo","a*oaooaoo");
         m.put("eea*oaeao","e*eaoeoaa");
         m.put("eoeaaao*a","a*oaaaeoe");
         m.put("eooeoao*a","a*oaoeooe");
@@ -12644,7 +13162,7 @@ public class MapHashMap {
         m.put("oaaoaaa*e","e*aaaoaao");
         m.put("eee*eeoea","o*eeeeaee");
         m.put("eeeeoeo*o","o*oeoeeee");
-        m.put("aeoae*oee","o*eeeeaao");
+        m.put("oaaoaaa*a","a*aaaoaao");
         m.put("aoeaaoe*a","a*eoaaeoa");
         m.put("aeaeaee*a","a*eeaeaea");
         m.put("eeo*aoooa","o*eoaeaoo");
@@ -12661,15 +13179,18 @@ public class MapHashMap {
         m.put("eee*eeoee","o*eeeeeee");
         m.put("oaoeo*aoo","o*oaoooea");
         m.put("ooaoa*aoe","a*eoaoooa");
+        m.put("oaoeo*aoe","o*eaoooea");
         m.put("eeaao*eao","a*oeoaeae");
         m.put("aoeaoao*a","a*oaoaeoa");
         m.put("ooa*eoaoe","a*ooeoeoa");
+        m.put("eoooa*oeo","o*ooaeeoo");
         m.put("aoeaoao*e","e*oaoaeoa");
         m.put("eeaao*eae","a*eeoaeae");
         m.put("aaa*eaooo","o*aoeaoaa");
         m.put("eooao*eae","o*eooaeae");
         m.put("eeaao*eaa","a*aeoaeae");
         m.put("oeeae*eeo","e*oeeeoae");
+        m.put("aoa*aaoaa","o*aaaoaaa");
         m.put("aoo*eaooo","o*aoeooao");
         m.put("aoe*oeoeo","o*aeoooee");
         m.put("aoo*eaooe","o*aoeoeao");
@@ -12755,6 +13276,7 @@ public class MapHashMap {
         m.put("ooo*eoeoo","e*ooeoooo");
         m.put("aaoeeoe*o","o*eoeeoaa");
         m.put("aee*aeeoo","e*aoaeoee");
+        m.put("aoaaeeo*o","o*oeeaaoa");
         m.put("eaeoa*eoo","e*oaaoeoe");
         m.put("eae*oaeoe","e*eooaeae");
         m.put("eaeoa*eoe","e*eaaoeoe");
@@ -12762,12 +13284,13 @@ public class MapHashMap {
         m.put("eaeoa*eoa","e*aaaoeoe");
         m.put("eoooo*aea","o*aooeeoa");
         m.put("aee*aeeoa","e*aoaeaee");
-        m.put("oaoeo*aoe","o*eaoooea");
+        m.put("ooaaa*aoa","a*aoaooaa");
         m.put("oaaaa*aee","a*eaaeoaa");
         m.put("oea*eoeee","e*oeeeeoa");
         m.put("aoa*oeoao","o*aaoooea");
         m.put("aeeeeeo*e","e*oeeeeea");
         m.put("oaaaa*aeo","a*oaaeoaa");
+        m.put("oaoao*aao","o*oaoaoaa");
         m.put("ooaeeoe*a","a*eoeeaoo");
         m.put("aeo*aeaeo","a*aeaeoeo");
         m.put("aooeaoa*e","e*aoaeooa");
@@ -12800,6 +13323,7 @@ public class MapHashMap {
         m.put("oaaao*eoo","a*oaoooae");
         m.put("eaooaoo*a","a*ooaooae");
         m.put("eooeoeo*e","e*oeoeooe");
+        m.put("eeeaaea*o","o*aeaaeee");
         m.put("oaoeeoa*e","e*aoeeoao");
         m.put("eeaeo*eoa","a*aeooeee");
         m.put("aooae*aeo","o*ooeeaaa");
@@ -12809,14 +13333,16 @@ public class MapHashMap {
         m.put("aee*eooao","o*aaeeooe");
         m.put("aeeee*ooa","e*aeeoaeo");
         m.put("aaa*aeoao","o*aaaaoea");
-        m.put("eeaeo*eeo","a*oeoeeee");
+        m.put("oaaoaoa*a","a*aoaoaao");
         m.put("oao*oeaao","a*oaoaoeo");
+        m.put("oeooaoe*o","o*eoaooeo");
         m.put("eee*oeeee","e*eeoeeee");
         m.put("eee*oeeea","e*eeoeaee");
         m.put("oeeoe*aeo","e*oeeeooa");
         m.put("eeoaaoa*o","o*aoaaoee");
         m.put("eeoao*eao","o*oeoaeae");
         m.put("aaaaa*aoe","a*eaaoaaa");
+        m.put("oee*aaaao","a*oaaeoae");
         m.put("ooaaaoe*a","a*eoaaaoo");
         m.put("eoe*aeooe","o*eoaoeee");
         m.put("aeoaa*oaa","o*aeaaaao");
@@ -12862,7 +13388,7 @@ public class MapHashMap {
         m.put("eoaea*oae","a*eoaaeeo");
         m.put("aaeeeoo*o","o*ooeeeaa");
         m.put("aaeeeoo*a","a*ooeeeaa");
-        m.put("eooeo*aoo","o*ooooeea");
+        m.put("aaoaaao*o","o*oaaaoaa");
         m.put("aaeeeoo*e","e*ooeeeaa");
         m.put("aee*aeaoo","a*aoaeoee");
         m.put("aaeaaee*o","o*eeaaeaa");
@@ -12878,6 +13404,7 @@ public class MapHashMap {
         m.put("eeeae*eoo","e*oeeoeae");
         m.put("oooea*oeo","o*ooaeoeo");
         m.put("oaaao*oea","a*aaoeoao");
+        m.put("ooa*aooao","o*oaaoooa");
         m.put("eoo*aaeae","e*eaaoeao");
         m.put("eeeae*eoa","e*aeeoeae");
         m.put("aeaaa*oee","a*eeaeaao");
@@ -12911,6 +13438,7 @@ public class MapHashMap {
         m.put("eoa*eoooo","o*eoeoooa");
         m.put("aoe*aaaoo","a*aoaooae");
         m.put("ooeea*ooo","e*ooaooeo");
+        m.put("ooa*aooaa","o*oaaoaoa");
         m.put("aee*aoaao","a*aaaeooe");
         m.put("oeeaaao*o","o*oaaaeeo");
         m.put("aae*oaaeo","a*aeoaoae");
@@ -12948,8 +13476,10 @@ public class MapHashMap {
         m.put("eeeeaaa*a","a*aaaeeee");
         m.put("aae*oaaee","a*aeoaeae");
         m.put("eeeeaaa*e","e*aaaeeee");
+        m.put("oaa*ooaoo","a*oooaooa");
         m.put("aaoeooa*e","e*aooeoaa");
         m.put("oaoaeao*o","o*oaeaoao");
+        m.put("oaaaaoo*o","o*ooaaaao");
         m.put("aaa*aeoee","o*aeaaeea");
         m.put("aaoeooa*o","o*aooeoaa");
         m.put("aea*eeaaa","a*aaeeaea");
@@ -13016,7 +13546,6 @@ public class MapHashMap {
         m.put("eeoao*aae","o*eeoaeaa");
         m.put("aeo*oeaao","a*aaoeoeo");
         m.put("oaooaoe*o","o*eoaooao");
-    }    private void init_13() {
         m.put("eeoao*aaa","o*aeoaeaa");
         m.put("oooao*ooe","o*eooooao");
         m.put("aeaaeae*e","e*eaeaaea");
@@ -13048,6 +13577,7 @@ public class MapHashMap {
         m.put("oae*aoooe","o*ooaaeoe");
         m.put("eaeooaa*o","o*aaooeae");
         m.put("ooa*eeeeo","e*oeeooea");
+        m.put("ooa*aaaaa","a*oaaoaaa");
         m.put("eeeaoea*e","e*aeoaeee");
         m.put("eeoaoea*a","a*aeoaoee");
         m.put("aaeoaaa*o","o*aaaoeaa");
@@ -13055,8 +13585,9 @@ public class MapHashMap {
         m.put("eea*oaaoo","a*eooeoaa");
         m.put("eoaao*eeo","a*oooeeae");
         m.put("eea*oaaoa","a*eooeaaa");
+        m.put("oooao*ooo","o*oooooao");
         m.put("eea*oaaoe","a*eooeeaa");
-        m.put("oaooeoo*o","o*ooeooao");
+        m.put("aaa*oaooo","o*aooaoaa");
         m.put("eaa*ooooe","o*eooaeoa");
         m.put("eeeoooa*a","a*aoooeee");
         m.put("aeeoaae*a","a*eaaoeea");
@@ -13083,6 +13614,7 @@ public class MapHashMap {
         m.put("oae*eeaoo","a*ooeaoee");
         m.put("aea*aeaoo","a*aoaeoea");
         m.put("eeaaa*eoa","a*aeaoeae");
+        m.put("ooa*aaoao","o*oaaooaa");
         m.put("aoe*aaaoa","a*aoaoaae");
         m.put("eeaaa*eoe","a*eeaoeae");
         m.put("aeeoaeo*e","e*oeaoeea");
@@ -13120,6 +13652,7 @@ public class MapHashMap {
         m.put("eae*eeeoo","e*eoeaoee");
         m.put("eoaeoeo*a","a*oeoeaoe");
         m.put("aaa*aaooe","o*aoaaeaa");
+        m.put("ooa*ooooa","o*ooooaoa");
         m.put("eae*eeeoa","e*eoeaaee");
         m.put("ooaaa*oea","a*aoaeoao");
         m.put("eae*eeeoe","e*eoeaeee");
@@ -13154,6 +13687,7 @@ public class MapHashMap {
         m.put("eoo*eaeea","e*eeeoaao");
         m.put("aaeeeeo*a","a*oeeeeaa");
         m.put("aoeaaoa*o","o*aoaaeoa");
+        m.put("aaa*aaooo","o*aoaaoaa");
         m.put("eeaeaoa*o","o*aoaeaee");
         m.put("oaeoaee*o","o*eeaoeao");
         m.put("oae*aaaaa","a*oaaaaae");
@@ -13219,13 +13753,13 @@ public class MapHashMap {
         m.put("aao*oaoea","o*aeoaaao");
         m.put("oaaoeeo*o","o*oeeoaao");
         m.put("aeooeee*o","o*eeeooea");
-        m.put("ooe*aaaae","a*oaaoeae");
+        m.put("oaaoa*oao","a*oaaaooo");
         m.put("eoeoe*oee","e*eoeeeoo");
         m.put("ooe*aaaaa","a*oaaoaae");
         m.put("eaeooaa*a","a*aaooeae");
         m.put("oaaoa*oae","a*eaaaooo");
         m.put("eeeoeee*a","a*eeeoeee");
-        m.put("eaoae*eae","o*eaeaeae");
+        m.put("oaaoa*oaa","a*aaaaooo");
         m.put("ooa*oaoee","o*oeooeaa");
         m.put("eoooo*eaa","o*aooaeoe");
         m.put("oeoeeao*e","e*oaeeoeo");
@@ -13234,7 +13768,7 @@ public class MapHashMap {
         m.put("oeoeeao*a","a*oaeeoeo");
         m.put("aaaoe*oaa","a*aaeaaoo");
         m.put("aoa*oooea","o*aeooaoa");
-        m.put("oaaeeoo*o","o*ooeeaao");
+        m.put("aao*oooaa","o*aaoaaoo");
         m.put("aoeoo*aea","e*aooeaoa");
         m.put("eeeoooa*o","o*aoooeee");
         m.put("aaooe*oee","o*eaeeaoo");
@@ -13242,6 +13776,7 @@ public class MapHashMap {
         m.put("oooooea*e","e*aeooooo");
         m.put("ooe*eeooa","o*ooeoaee");
         m.put("eeeaa*aaa","e*aeaaeaa");
+        m.put("oao*oaooa","o*oooaaao");
         m.put("eoeaa*ooo","e*ooaoeao");
         m.put("aaaoaeo*o","o*oeaoaaa");
         m.put("eeeaa*aao","e*oeaaeaa");
@@ -13254,7 +13789,7 @@ public class MapHashMap {
         m.put("ooaeoee*e","e*eeoeaoo");
         m.put("aeeao*eeo","e*oeoeaae");
         m.put("oaaao*aee","a*eaoeoaa");
-        m.put("ooaoe*oaa","a*aoeaooo");
+        m.put("oaaaa*oaa","a*aaaaoao");
         m.put("aeeao*eea","e*aeoeaae");
         m.put("oaaaa*oae","a*eaaaoao");
         m.put("aeeao*eee","e*eeoeaae");
@@ -13299,6 +13834,7 @@ public class MapHashMap {
         m.put("aoa*aeaaa","a*aaaoaea");
         m.put("eaoeeoa*a","a*aoeeoae");
         m.put("aaaeo*eaa","a*aaoaaee");
+        m.put("aao*aaaaa","a*aaaaaao");
         m.put("eoooa*eao","o*ooaaeoe");
         m.put("eaoeeoa*e","e*aoeeoae");
         m.put("aaeeaoe*o","o*eoaeeaa");
@@ -13314,6 +13850,7 @@ public class MapHashMap {
         m.put("eoeeeoe*a","a*eoeeeoe");
         m.put("aaeeoea*a","a*aeoeeaa");
         m.put("eoa*aoooe","o*eoaoeoa");
+        m.put("oaaoaoo*o","o*ooaoaao");
         m.put("oae*eeaae","a*oaeaeee");
         m.put("eooee*aae","o*eoeaeea");
         m.put("aoo*aeeoo","e*aoaooeo");
@@ -13332,6 +13869,7 @@ public class MapHashMap {
         m.put("aee*aaaeo","a*aeaeoae");
         m.put("aoaee*aoe","a*eoeoaea");
         m.put("aae*eooaa","o*aaeaaoe");
+        m.put("eooaaee*o","o*eeaaooe");
         m.put("oeoaa*aae","o*eeaaoaa");
         m.put("ooaeo*aaa","a*aooaoea");
         m.put("eaaoooo*o","o*ooooaae");
@@ -13339,10 +13877,12 @@ public class MapHashMap {
         m.put("eaaaaoe*a","a*eoaaaae");
         m.put("aea*eeaee","a*aeeeeea");
         m.put("eaaaaoe*e","e*eoaaaae");
+        m.put("aao*oaaoo","a*aooaoao");
         m.put("oeeoeee*o","o*eeeoeeo");
         m.put("oee*oaeao","e*oaoeoae");
         m.put("eaaaaoe*o","o*eoaaaae");
         m.put("eoeaa*aao","e*ooaaeaa");
+        m.put("aooaaao*o","o*oaaaooa");
         m.put("ooooe*eoa","o*aoeoooe");
         m.put("eoaoeoa*e","e*aoeoaoe");
         m.put("eeeaaoa*o","o*aoaaeee");
@@ -13365,7 +13905,7 @@ public class MapHashMap {
         m.put("oeaaaoa*e","e*aoaaaeo");
         m.put("ooe*ooeeo","e*oeooooe");
         m.put("eooeeoe*e","e*eoeeooe");
-        m.put("oeaaaoa*a","a*aoaaaeo");
+        m.put("aaaoo*aaa","a*aaoaaoa");
         m.put("oae*aoaoa","a*ooaaaoe");
         m.put("aoe*aoeee","e*aeaoeoe");
         m.put("ooo*eaaae","a*oaeoeao");
@@ -13400,7 +13940,7 @@ public class MapHashMap {
         m.put("oeaee*eoo","a*oeeooee");
         m.put("aoeaaeo*o","o*oeaaeoa");
         m.put("eoa*eeaeo","a*eeeooea");
-        m.put("eea*eeoaa","o*eaeeaea");
+        m.put("eeoee*eee","o*eeeeeee");
         m.put("eeaeoae*o","o*eaoeaee");
         m.put("eoe*aooea","o*eeaoaoe");
         m.put("oeeaooo*e","e*oooaeeo");
@@ -13423,6 +13963,7 @@ public class MapHashMap {
         m.put("oaeeoaa*a","a*aaoeeao");
         m.put("eeoaa*ooa","o*aeaoeao");
         m.put("aae*eeeoe","e*aoeaeee");
+        m.put("oooaa*aao","o*ooaaoaa");
         m.put("oaeeoaa*e","e*aaoeeao");
         m.put("ooo*eeaee","a*oeeoeeo");
         m.put("aoeeoeo*a","a*oeoeeoa");
@@ -13442,7 +13983,7 @@ public class MapHashMap {
         m.put("aoooaoo*e","e*ooaoooa");
         m.put("oao*eaeee","e*oeeaeao");
         m.put("aoe*aaaoe","a*aoaoeae");
-        m.put("oea*oaaoa","a*oooeaaa");
+        m.put("aoooaoo*a","a*ooaoooa");
         m.put("oea*oaaoo","a*oooeoaa");
         m.put("eeo*aaaaa","a*eaaeaao");
         m.put("eeeeeoo*o","o*ooeeeee");
@@ -13461,6 +14002,7 @@ public class MapHashMap {
         m.put("eee*oeoea","o*eeoeaee");
         m.put("aaeaa*ooo","e*oaaoaao");
         m.put("aaeaa*ooa","e*aaaoaao");
+        m.put("aooaoao*o","o*oaoaooa");
         m.put("aaeaa*ooe","e*eaaoaao");
         m.put("aoeao*eea","e*aooeaae");
         m.put("oeeoe*aaa","e*aeeaooa");
@@ -13475,6 +14017,7 @@ public class MapHashMap {
         m.put("oeeoe*eea","e*aeeeooe");
         m.put("eeo*eaoao","o*eaeeoao");
         m.put("oeeoe*eee","e*eeeeooe");
+    }    private void init_14() {
         m.put("oeo*eoaao","a*oaeeooo");
         m.put("oooeoeo*o","o*oeoeooo");
         m.put("eeo*oaaae","a*eaoeeao");
@@ -13502,14 +14045,16 @@ public class MapHashMap {
         m.put("aeaaaoe*e","e*eoaaaea");
         m.put("eeaeaaa*o","o*aaaeaee");
         m.put("oaeea*aaa","e*aaaaoea");
+        m.put("aao*oaoao","o*aaoaoao");
         m.put("ooeoeee*o","o*eeeoeoo");
         m.put("aoa*eoooa","o*aoeoaoa");
-        m.put("aoe*oeaoe","a*aoooeee");
+        m.put("aaaoo*oaa","a*aaoaaoo");
         m.put("eaaee*oeo","a*oaeeeeo");
         m.put("eeoao*eeo","o*oeoeeae");
         m.put("aeaoeae*o","o*eaeoaea");
         m.put("aeoaaea*e","e*aeaaoea");
         m.put("aaaoaea*o","o*aeaoaaa");
+        m.put("aaoooaa*a","a*aaoooaa");
         m.put("oaaeaae*e","e*eaaeaao");
         m.put("aaoea*eea","o*aaaeaee");
         m.put("eoaaaeo*e","e*oeaaaoe");
@@ -13529,6 +14074,7 @@ public class MapHashMap {
         m.put("aaeaeee*o","o*eeeaeaa");
         m.put("ooe*eaaee","a*oeeoeae");
         m.put("eeeaeoa*a","a*aoeaeee");
+        m.put("aeeeoee*o","o*eeoeeea");
         m.put("ooe*eaaea","a*oeeoaae");
         m.put("oooeooa*e","e*aooeooo");
         m.put("eoaoeea*o","o*aeeoaoe");
@@ -13553,6 +14099,7 @@ public class MapHashMap {
         m.put("oooooea*a","a*aeooooo");
         m.put("eeooo*eea","o*aeoeeoe");
         m.put("eoo*aaeoe","e*eoaoeao");
+        m.put("ooa*aoaoo","a*ooaoooa");
         m.put("oeooa*aee","o*eeaeooa");
         m.put("eoo*aaeoo","e*eoaooao");
         m.put("oaoee*eoa","o*aaeooee");
@@ -13566,6 +14113,7 @@ public class MapHashMap {
         m.put("eooee*eae","o*eoeaeee");
         m.put("eoaaaoa*a","a*aoaaaoe");
         m.put("eaaaa*aaa","a*aaaaeaa");
+        m.put("aoa*oaoeo","o*aeoooaa");
         m.put("aoeee*eaa","e*aoeaaee");
         m.put("aoeee*eae","e*eoeaaee");
         m.put("eoooe*ooe","o*eoeoeoo");
@@ -13581,6 +14129,7 @@ public class MapHashMap {
         m.put("aaeae*aea","e*aaeeaaa");
         m.put("ooeeeeo*a","a*oeeeeoo");
         m.put("oooooea*o","o*aeooooo");
+        m.put("aoa*oaaao","a*aaoooaa");
         m.put("aaoeeae*a","a*eaeeoaa");
         m.put("eea*eaoeo","o*eeeeoaa");
         m.put("aaoeeae*e","e*eaeeoaa");
@@ -13593,6 +14142,7 @@ public class MapHashMap {
         m.put("eoooe*eoo","o*ooeoeoe");
         m.put("eeaooae*o","o*eaooaee");
         m.put("eeaooae*a","a*eaooaee");
+        m.put("aaa*ooooo","o*aooaooa");
         m.put("eeaooae*e","e*eaooaee");
         m.put("eoaaoao*a","a*oaoaaoe");
         m.put("aaaeaaa*a","a*aaaeaaa");
@@ -13690,12 +14240,13 @@ public class MapHashMap {
         m.put("eeoao*aoe","o*eeooeaa");
         m.put("oaaaooo*e","e*oooaaao");
         m.put("oae*oeaoe","a*oooaeee");
-        m.put("eeoao*aoo","o*oeooeaa");
+        m.put("oaaaooo*a","a*oooaaao");
         m.put("aoo*eaaaa","a*aaeoaao");
         m.put("eoe*eeeoo","e*eoeooee");
         m.put("aaaae*aea","a*aaeeaaa");
         m.put("aaaae*aee","a*eaeeaaa");
         m.put("eee*oeoeo","o*eeoeoee");
+        m.put("ooaoaoa*o","o*aoaoaoo");
         m.put("eae*aeaeo","a*eeaaoee");
         m.put("aaaae*aeo","a*oaeeaaa");
         m.put("aeeeoao*o","o*oaoeeea");
@@ -13712,6 +14263,7 @@ public class MapHashMap {
         m.put("oaeaeea*o","o*aeeaeao");
         m.put("oee*oeaea","a*oeoeaee");
         m.put("oeaee*eaa","a*aeeaoee");
+        m.put("oaaaa*oao","a*oaaaoao");
         m.put("eooaeea*a","a*aeeaooe");
         m.put("aoooe*oao","o*ooeaaoo");
         m.put("oaa*eoaae","a*oaeaeoa");
@@ -13728,7 +14280,7 @@ public class MapHashMap {
         m.put("oaooaao*e","e*oaaooao");
         m.put("aaa*aeaeo","a*aeaaoea");
         m.put("eoaea*oee","a*eoaeeeo");
-        m.put("aeeaeae*o","o*eaeaeea");
+        m.put("oaooaao*a","a*oaaooao");
         m.put("eao*eooaa","o*eaeaaoo");
         m.put("eaa*eaoea","o*eeeaaaa");
         m.put("ooeeoea*o","o*aeoeeoo");
@@ -13762,7 +14314,7 @@ public class MapHashMap {
         m.put("oaeaeoe*a","a*eoeaeao");
         m.put("aeo*eaeoo","e*aoeeoao");
         m.put("aeoea*aaa","o*aeaaaea");
-        m.put("oooee*oea","o*aoeeoeo");
+        m.put("aoa*oaaaa","a*aaooaaa");
         m.put("aoaaa*eoo","a*ooaoaae");
         m.put("aaaeaoe*o","o*eoaeaaa");
         m.put("eooae*ooa","o*aoeoeao");
@@ -13777,6 +14329,7 @@ public class MapHashMap {
         m.put("eooae*ooo","o*ooeoeao");
         m.put("ooaaeaa*o","o*aaeaaoo");
         m.put("eaeeoaa*a","a*aaoeeae");
+        m.put("aoa*aooaa","o*aaaoaoa");
         m.put("oaa*aaoeo","o*oeaaoaa");
         m.put("oaooe*ooo","o*oaeoooo");
         m.put("ooo*aeaeo","a*oeaooeo");
@@ -13800,6 +14353,7 @@ public class MapHashMap {
         m.put("aoaeoaa*a","a*aaoeaoa");
         m.put("oeaoa*eoo","a*oeaoooe");
         m.put("aaaee*ooe","a*eaeoaeo");
+        m.put("aoooa*ooa","o*aoaoaoo");
         m.put("eooaa*oeo","o*ooaeeao");
         m.put("aaaeaeo*e","e*oeaeaaa");
         m.put("aaa*eoaea","a*aeeaaoa");
@@ -13826,9 +14380,12 @@ public class MapHashMap {
         m.put("aeaoo*oao","a*oeoaaoo");
         m.put("eaoaeoo*e","e*ooeaoae");
         m.put("aee*eeeoa","e*aoeeaee");
+        m.put("aoa*oooaa","o*aaooaoa");
         m.put("ooa*aoeoe","e*ooaoeoa");
+        m.put("ooooo*aao","o*oooaooa");
         m.put("eeoae*oee","o*eeeeeao");
         m.put("ooo*aeaea","a*oeaoaeo");
+        m.put("ooa*ooaoa","a*ooooaoa");
         m.put("ooa*aoeoo","e*ooaoooa");
         m.put("eooaeao*o","o*oaeaooe");
         m.put("eoooe*eaa","o*aoeaeoe");
@@ -13869,7 +14426,9 @@ public class MapHashMap {
         m.put("oaeaeoe*o","o*eoeaeao");
         m.put("ooooeao*o","o*oaeoooo");
         m.put("aoe*ooaeo","a*aeooooe");
+        m.put("oea*oeaea","a*oeoeaea");
         m.put("ooaea*aao","a*ooaaoea");
+        m.put("aooaaao*a","a*oaaaooa");
         m.put("eao*eeaee","a*eeeaeeo");
         m.put("oaa*aoooe","o*ooaaeoa");
         m.put("oeaaooe*e","e*eooaaeo");
@@ -13893,8 +14452,11 @@ public class MapHashMap {
         m.put("eaa*oaaoe","a*eooaeaa");
         m.put("eea*oaeee","e*eeoeeaa");
         m.put("oeeooaa*o","o*aaooeeo");
+        m.put("oaa*oaaoo","a*oooaoaa");
         m.put("eea*oaeea","e*eeoeaaa");
         m.put("eaa*eoooo","o*eoeaooa");
+        m.put("aeo*eaoao","o*aaeeoao");
+        m.put("aaooeao*a","a*oaeooaa");
         m.put("eaeeaoe*o","o*eoaeeae");
         m.put("oeeaeoa*e","e*aoeaeeo");
         m.put("eee*aoaoo","a*eoaeooe");
@@ -13906,7 +14468,7 @@ public class MapHashMap {
         m.put("oee*oeooo","o*oooeoee");
         m.put("oaooo*oee","o*eaoeooo");
         m.put("oeooe*aoo","o*oeeoooa");
-        m.put("eeoae*oae","o*eeeaeao");
+        m.put("oao*oaaao","a*oaoaoao");
         m.put("aae*oeooa","o*aooaaee");
         m.put("oeaoo*aeo","a*oeoeooa");
         m.put("oaooo*oeo","o*oaoeooo");
@@ -13931,8 +14493,8 @@ public class MapHashMap {
         m.put("oaoao*eoe","o*eaoooae");
         m.put("aeaaooo*e","e*oooaaea");
         m.put("eooeaoe*a","a*eoaeooe");
-        m.put("eoo*oeoae","o*eaooeeo");
-        m.put("aooeo*oaa","o*aooaaeo");
+        m.put("oaaaaaa*a","a*aaaaaao");
+        m.put("oooaaoa*a","a*aoaaooo");
         m.put("eaaooea*o","o*aeooaae");
         m.put("eooaeao*a","a*oaeaooe");
         m.put("aooeo*oae","o*eooaaeo");
@@ -13962,7 +14524,7 @@ public class MapHashMap {
         m.put("oao*oaeeo","e*oeoaoao");
         m.put("eaeae*oaa","e*aaeaeao");
         m.put("oeoee*aee","o*eeeeoea");
-        m.put("aeoae*oao","o*oeeaaao");
+        m.put("aooaa*aoa","o*aoaoaaa");
         m.put("eeooe*aoo","o*oeeoeoa");
         m.put("oeoee*aea","o*aeeeoea");
         m.put("eeo*ooeoo","e*eooeooo");
@@ -13978,6 +14540,7 @@ public class MapHashMap {
         m.put("ooaae*aeo","a*ooeeoaa");
         m.put("eeooeee*o","o*eeeooee");
         m.put("eee*eeaaa","a*eaeeaee");
+        m.put("ooa*oaoao","o*oaoooaa");
         m.put("eee*eeaao","a*eaeeoee");
         m.put("ooa*eooaa","o*oaeoaoa");
         m.put("eeooe*oao","o*oeeaeoo");
@@ -14017,7 +14580,6 @@ public class MapHashMap {
         m.put("aooea*oea","o*aoaeaeo");
         m.put("oao*aoaae","a*oaaaeoo");
         m.put("eao*oeoao","o*eaoaoeo");
-    }    private void init_14() {
         m.put("aooaa*eae","o*eoaaaae");
         m.put("ooaea*oao","a*ooaaoeo");
         m.put("eaooaoa*e","e*aoaooae");
@@ -14053,6 +14615,7 @@ public class MapHashMap {
         m.put("eoo*eaeao","e*eaeooao");
         m.put("ooa*oaaoe","a*ooooeaa");
         m.put("eoaaa*aee","a*eoaeeaa");
+        m.put("aeeeaoo*o","o*ooaeeea");
         m.put("aoeooee*a","a*eeooeoa");
         m.put("eaa*eoeeo","e*eeeaooa");
         m.put("eooeaao*o","o*oaaeooe");
@@ -14077,6 +14640,7 @@ public class MapHashMap {
         m.put("eeaea*eae","a*eeaaeee");
         m.put("oeeaa*eoo","e*oeaooae");
         m.put("oeeaa*eoa","e*aeaooae");
+        m.put("aooeeoo*o","o*ooeeooa");
         m.put("eaaoa*eee","a*eaaeeoe");
         m.put("oeeaa*eoe","e*eeaooae");
         m.put("aaeooeo*a","a*oeooeaa");
@@ -14084,8 +14648,10 @@ public class MapHashMap {
         m.put("aooee*aaa","o*aoeaaea");
         m.put("eeo*eeeeo","e*eeeeoeo");
         m.put("aoe*aoaoa","a*aoaoaoe");
-        m.put("oeoaeoo*o","o*ooeaoeo");
+        m.put("oao*aoaaa","a*oaaaaoo");
         m.put("aoe*aoaoe","a*aoaoeoe");
+        m.put("eao*oaoaa","o*eaoaaao");
+        m.put("aaoaaae*o","o*eaaaoaa");
         m.put("eeo*eeeee","e*eeeeeeo");
         m.put("eeooaoe*a","a*eoaooee");
         m.put("aoe*aoaoo","a*aoaoooe");
@@ -14108,6 +14674,7 @@ public class MapHashMap {
         m.put("aeeaoeo*a","a*oeoaeea");
         m.put("oaaee*oao","a*oaeaoeo");
         m.put("oaaee*oaa","a*aaeaoeo");
+        m.put("aoe*eooee","o*aeeoeoe");
         m.put("aaeoooa*e","e*aoooeaa");
         m.put("oaaee*oae","a*eaeaoeo");
         m.put("eeo*oooae","o*eaoeeoo");
@@ -14135,9 +14702,11 @@ public class MapHashMap {
         m.put("aee*eeaoo","a*aoeeoee");
         m.put("oaaaoao*e","e*oaoaaao");
         m.put("eooaooe*o","o*eooaooe");
+        m.put("oaaaoao*a","a*oaoaaao");
         m.put("oeaoaea*o","o*aeaoaeo");
+        m.put("oaaaoao*o","o*oaoaaao");
         m.put("aee*eeaoe","a*aoeeeee");
-        m.put("eeaaeeo*o","o*oeeaaee");
+        m.put("aoo*aoooa","o*aoaoaoo");
         m.put("oeaoe*eea","a*aeeeooe");
         m.put("eeooe*aoe","o*eeeoeoa");
         m.put("ooo*ooeoa","e*ooooaoo");
@@ -14170,6 +14739,7 @@ public class MapHashMap {
         m.put("aeeeo*oae","e*eeoaaeo");
         m.put("eeeeoaa*a","a*aaoeeee");
         m.put("aeeeo*oaa","e*aeoaaeo");
+        m.put("oooaoaa*o","o*aaoaooo");
         m.put("eaeoooa*o","o*aoooeae");
         m.put("oeaaa*ooe","a*eeaooao");
         m.put("aeeeo*oao","e*oeoaaeo");
@@ -14190,6 +14760,8 @@ public class MapHashMap {
         m.put("eoeoe*ooo","e*ooeoeoo");
         m.put("oeo*oaaoa","a*oooeaao");
         m.put("eoaoeae*e","e*eaeoaoe");
+        m.put("aaoaaaa*o","o*aaaaoaa");
+        m.put("aoo*aoooo","o*aoaoooo");
         m.put("eoeoaae*a","a*eaaoeoe");
         m.put("oee*eaeoo","e*ooeeoae");
         m.put("oeeeoeo*o","o*oeoeeeo");
@@ -14197,6 +14769,7 @@ public class MapHashMap {
         m.put("aoaoe*eoa","a*aoeoaoe");
         m.put("eoeaeao*e","e*oaeaeoe");
         m.put("eea*aooaa","o*eaaeaoa");
+        m.put("aoa*oeoea","o*aeooaea");
         m.put("eaeoo*eeo","e*oaoeeoe");
         m.put("eoaao*eaa","a*aooaeae");
         m.put("aoaae*eao","a*ooeaaae");
@@ -14250,6 +14823,7 @@ public class MapHashMap {
         m.put("eeaoaeo*o","o*oeaoaee");
         m.put("aeeoeoa*o","o*aoeoeea");
         m.put("aaeaooa*o","o*aooaeaa");
+        m.put("oooeaoa*o","o*aoaeooo");
         m.put("eeaoaeo*e","e*oeaoaee");
         m.put("aae*eaaaa","a*aaeaaae");
         m.put("eeaoaeo*a","a*oeaoaee");
@@ -14322,6 +14896,7 @@ public class MapHashMap {
         m.put("aae*eaaae","a*aaeaeae");
         m.put("eeeoa*eoe","e*eeaoeoe");
         m.put("ooe*aaaoo","a*ooaooae");
+        m.put("ooaoo*oaa","a*aooaooo");
         m.put("ooeaeoa*a","a*aoeaeoo");
         m.put("ooaeooo*o","o*oooeaoo");
         m.put("aae*aeooo","o*aoaaoee");
@@ -14354,6 +14929,7 @@ public class MapHashMap {
         m.put("ooa*eeaea","a*oeeoaea");
         m.put("oeaoaoe*o","o*eoaoaeo");
         m.put("oaeee*oao","e*oaeaoeo");
+        m.put("ooo*ooaoa","a*ooooaoo");
         m.put("eoo*aeeaa","e*eaaoaeo");
         m.put("eea*eeaoe","a*eoeeeea");
         m.put("oeaoaoe*e","e*eoaoaeo");
@@ -14364,6 +14940,7 @@ public class MapHashMap {
         m.put("oaaeoeo*o","o*oeoeaao");
         m.put("eeaeaoa*a","a*aoaeaee");
         m.put("eeaaeoa*a","a*aoeaaee");
+        m.put("eaa*eeoee","o*eeeaeea");
         m.put("oeeooeo*a","a*oeooeeo");
         m.put("eeaeeaa*a","a*aaeeaee");
         m.put("eeaaeeo*a","a*oeeaaee");
@@ -14372,7 +14949,7 @@ public class MapHashMap {
         m.put("eeaaoae*o","o*eaoaaee");
         m.put("ooa*eooae","o*oaeoeoa");
         m.put("eae*aaaee","a*eeaaeae");
-        m.put("eaaaaae*o","o*eaaaaae");
+        m.put("ooa*oaaoo","a*oooooaa");
         m.put("eaoaooo*e","e*oooaoae");
         m.put("eae*aaaea","a*eeaaaae");
         m.put("eeaeeaa*o","o*aaeeaee");
@@ -14397,6 +14974,7 @@ public class MapHashMap {
         m.put("eea*eeoeo","o*eeeeoea");
         m.put("ooaaooa*e","e*aooaaoo");
         m.put("ooooeoo*a","a*ooeoooo");
+        m.put("aeeeooo*o","o*oooeeea");
         m.put("eaa*aeaeo","a*eeaaoea");
         m.put("ooeoeoa*a","a*aoeoeoo");
         m.put("aaaao*oee","a*eaoeaao");
@@ -14440,8 +15018,10 @@ public class MapHashMap {
         m.put("ooaee*eee","a*eoeeoee");
         m.put("eao*ooaoe","a*eooaeoo");
         m.put("aaaae*aoa","a*aaeoaaa");
+    }    private void init_15() {
+        m.put("aaoeo*eao","o*oaoaaee");
         m.put("ooaeaoa*e","e*aoaeaoo");
-        m.put("oeeoeeo*o","o*oeeoeeo");
+        m.put("oooaaoa*o","o*aoaaooo");
         m.put("oooee*eoa","o*aoeooee");
         m.put("aoa*aaeee","e*aeaoeaa");
         m.put("ooaeaoa*o","o*aoaeaoo");
@@ -14454,6 +15034,7 @@ public class MapHashMap {
         m.put("aaeeo*oeo","e*oaoeaeo");
         m.put("eaeoe*aeo","e*oaeeeoa");
         m.put("oaa*aeeoe","e*ooaaeea");
+        m.put("ooo*ooaoo","a*ooooooo");
         m.put("aaa*oaeea","e*aeoaaaa");
         m.put("oaa*aeeoa","e*ooaaaea");
         m.put("ooe*eoaoo","a*ooeoooe");
@@ -14465,7 +15046,7 @@ public class MapHashMap {
         m.put("aoeoo*ooo","e*ooooaoo");
         m.put("ooo*oeaeo","a*oeoooeo");
         m.put("oooea*eae","o*eoaaoee");
-        m.put("eae*eeoae","o*eaeaeee");
+        m.put("ooooaoo*a","a*ooaoooo");
         m.put("oeeeeae*o","o*eaeeeeo");
         m.put("eaoae*ooa","o*aaeoeao");
         m.put("aaaao*oea","a*aaoeaao");
@@ -14515,6 +15096,7 @@ public class MapHashMap {
         m.put("eeaae*oee","a*eeeeeao");
         m.put("oae*oaaee","a*oeoaeae");
         m.put("oee*eeaaa","a*oaeeaee");
+        m.put("aaa*oooaa","o*aaoaaoa");
         m.put("eeaae*oeo","a*oeeeeao");
         m.put("ooe*eeeao","e*oaeooee");
         m.put("aeaooeo*a","a*oeooaea");
@@ -14529,6 +15111,7 @@ public class MapHashMap {
         m.put("ooa*eeeoa","e*ooeoaea");
         m.put("eooaeoe*a","a*eoeaooe");
         m.put("aeaooaa*e","e*aaooaea");
+        m.put("oae*oooee","o*oeoaeoe");
         m.put("aeeeeoa*e","e*aoeeeea");
         m.put("eoaeo*aee","a*eooeeea");
         m.put("eaooaeo*a","a*oeaooae");
@@ -14574,6 +15157,7 @@ public class MapHashMap {
         m.put("aae*oeeoe","e*aooaeee");
         m.put("aeeao*eae","e*eeoaaae");
         m.put("aae*oeeoa","e*aooaaee");
+        m.put("aoo*ooaoo","a*aoooooo");
         m.put("eoa*eaeee","e*eeeoeaa");
         m.put("aeeao*eao","e*oeoaaae");
         m.put("aae*oeeoo","e*aooaoee");
@@ -14586,12 +15170,13 @@ public class MapHashMap {
         m.put("eeaeeea*a","a*aeeeaee");
         m.put("ooa*eaaeo","a*oeeooaa");
         m.put("eeoao*oao","o*oeoaeao");
-        m.put("eeaeeea*o","o*aeeeaee");
+        m.put("oaaoaao*a","a*oaaoaao");
+        m.put("oaa*oaoaa","o*oaoaaaa");
         m.put("aoaeeoe*a","a*eoeeaoa");
         m.put("oaaoaao*e","e*oaaoaao");
         m.put("oaaoo*oae","a*eaoaooo");
         m.put("eaooe*aoe","o*eaeoeoa");
-        m.put("aaaaaee*o","o*eeaaaaa");
+        m.put("oaaoo*oaa","a*aaoaooo");
         m.put("eaooe*aoa","o*aaeoeoa");
         m.put("oaa*eaooo","o*ooeaoaa");
         m.put("eaooe*aoo","o*oaeoeoa");
@@ -14607,7 +15192,7 @@ public class MapHashMap {
         m.put("eoo*oaaao","a*eaoooao");
         m.put("aee*oaaao","a*aaoeoae");
         m.put("oeo*aeooe","o*ooaeeeo");
-        m.put("eeaeaoo*o","o*ooaeaee");
+        m.put("ooo*aoaoa","a*ooaoaoo");
         m.put("aaaae*aoo","a*oaeoaaa");
         m.put("ooo*aoaoe","a*ooaoeoo");
         m.put("eoo*oeaoe","a*eoooeeo");
@@ -14624,6 +15209,7 @@ public class MapHashMap {
         m.put("eea*oaeoe","e*eooeeaa");
         m.put("eoaoa*ooe","a*eoaoeoo");
         m.put("oea*eeaoo","a*ooeeoea");
+        m.put("aea*oaooa","o*aooeaaa");
         m.put("oeeeooo*e","e*oooeeeo");
         m.put("aoe*oaaao","a*aaoooae");
         m.put("oeaeaeo*o","o*oeaeaeo");
@@ -14633,7 +15219,7 @@ public class MapHashMap {
         m.put("oeo*ooooa","o*oooeaoo");
         m.put("ooeae*eoe","e*eoeooae");
         m.put("aoooa*eee","o*eoaeaoe");
-        m.put("oaeoeoo*o","o*ooeoeao");
+        m.put("oaa*oaaoa","a*oooaaaa");
         m.put("ooeae*eoo","e*ooeooae");
         m.put("eea*oaeoa","e*eooeaaa");
         m.put("eaooooa*e","e*aooooae");
@@ -14645,6 +15231,7 @@ public class MapHashMap {
         m.put("eeaea*oeo","a*oeaeeeo");
         m.put("eee*eoaao","a*eaeeooe");
         m.put("aaoae*eae","o*eaeaaae");
+        m.put("ooa*aaooa","o*ooaoaaa");
         m.put("eae*aoooo","o*eoaaooe");
         m.put("aao*eooaa","o*aaeaaoo");
         m.put("eea*aaoaa","o*eaaeaaa");
@@ -14654,10 +15241,11 @@ public class MapHashMap {
         m.put("oaoaaoo*e","e*ooaaoao");
         m.put("aaeeooo*o","o*oooeeaa");
         m.put("eooaa*aee","o*eoaeeaa");
+        m.put("oaa*ooooo","o*oooaooa");
         m.put("eoeaeoe*o","o*eoeaeoe");
         m.put("oaeoaao*a","a*oaaoeao");
         m.put("oaaoo*eeo","a*oaoeooe");
-        m.put("oaaaaeo*o","o*oeaaaao");
+        m.put("oao*oaaoa","a*oooaaao");
         m.put("ooe*eeaea","a*oeeoaee");
         m.put("eae*oaaae","a*eaoaeae");
         m.put("oeo*eaaoa","a*ooeeaao");
@@ -14673,17 +15261,20 @@ public class MapHashMap {
         m.put("oeoeoao*a","a*oaoeoeo");
         m.put("aoo*eaoee","o*aeeoeao");
         m.put("eeaoa*ooe","a*eeaoeoo");
+        m.put("oaaoooo*o","o*ooooaao");
         m.put("oee*aoaae","a*oaaeeoe");
         m.put("aoo*eaoea","o*aeeoaao");
         m.put("oeo*oaooa","o*oooeaao");
         m.put("eae*aoaee","a*eeaaeoe");
         m.put("oaaoooo*e","e*ooooaao");
         m.put("eea*eeaoa","a*eoeeaea");
+        m.put("aoo*eeoae","o*aaeoeeo");
         m.put("eea*eeaoo","a*eoeeoea");
         m.put("ooa*eaaee","a*oeeoeaa");
         m.put("eoaoooa*e","e*aoooaoe");
         m.put("ooooo*eae","o*eooaooe");
         m.put("eoaoa*ooa","a*aoaoeoo");
+        m.put("eae*eooao","o*eaeaooe");
         m.put("eeaaaao*o","o*oaaaaee");
         m.put("oea*oaeoo","e*oooeoaa");
         m.put("oeoao*eoe","o*eeoooae");
@@ -14707,6 +15298,7 @@ public class MapHashMap {
         m.put("aaoeaoo*a","a*ooaeoaa");
         m.put("aaoeaoo*o","o*ooaeoaa");
         m.put("aae*oooao","o*aaoaooe");
+        m.put("eooao*eea","o*aooeeae");
         m.put("eaeoa*eeo","e*oaaeeoe");
         m.put("eaoaaae*e","e*eaaaoae");
         m.put("oaa*oooee","o*oeoaeoa");
@@ -14719,12 +15311,15 @@ public class MapHashMap {
         m.put("eaeoa*eea","e*aaaeeoe");
         m.put("ooaaoao*e","e*oaoaaoo");
         m.put("aoo*aaeeo","e*aeaooao");
+        m.put("ooaaoao*a","a*oaoaaoo");
         m.put("aaaao*eoa","a*aaooaae");
         m.put("eeo*oeaae","a*eaoeeeo");
+        m.put("ooaaoao*o","o*oaoaaoo");
         m.put("aoooa*eeo","o*ooaeaoe");
         m.put("aeo*eoeea","e*aeeeaoo");
         m.put("eoa*oaeoa","e*eoooaaa");
         m.put("ooaee*eao","a*ooeaoee");
+        m.put("aooao*oaa","o*aooaaao");
         m.put("eoa*oaeoe","e*eoooeaa");
         m.put("eao*aaoao","o*eaaaoao");
         m.put("eoa*oaeoo","e*eooooaa");
@@ -14807,6 +15402,7 @@ public class MapHashMap {
         m.put("ooaeo*eae","a*eooaoee");
         m.put("oeo*eaoaa","o*oaeeaao");
         m.put("aaeae*eea","e*aaeeaae");
+        m.put("aaaao*aoa","a*aaooaaa");
         m.put("aeeae*oae","e*eeeaaao");
         m.put("oaaoe*eao","a*oaeaooe");
         m.put("aaeae*eee","e*eaeeaae");
@@ -14825,13 +15421,14 @@ public class MapHashMap {
         m.put("oaeoaao*o","o*oaaoeao");
         m.put("eaoeeae*a","a*eaeeoae");
         m.put("eoeeaee*o","o*eeaeeoe");
+        m.put("oaoaooo*a","a*oooaoao");
         m.put("eaooaae*o","o*eaaooae");
         m.put("aeo*eaoae","o*aaeeeao");
         m.put("aeo*eaoaa","o*aaeeaao");
         m.put("eaaaeeo*a","a*oeeaaae");
         m.put("aeeae*oao","e*oeeaaao");
         m.put("oaoao*eao","o*oaoaoae");
-        m.put("aeo*eaoao","o*aaeeoao");
+        m.put("aaooaao*a","a*oaaooaa");
         m.put("oeooaao*o","o*oaaooeo");
         m.put("eeeoe*aoe","e*eeeoeoa");
         m.put("oeoaa*oea","o*aeaeoao");
@@ -14841,14 +15438,15 @@ public class MapHashMap {
         m.put("eoe*aaoao","o*eaaooae");
         m.put("eoe*aaoaa","o*eaaoaae");
         m.put("oee*aoaao","a*oaaeooe");
-        m.put("eeoee*eee","o*eeeeeee");
+        m.put("aooooao*a","a*oaooooa");
         m.put("eoe*aaoae","o*eaaoeae");
         m.put("eea*eeoae","o*eaeeeea");
         m.put("oeaae*oaa","a*aeeaoao");
         m.put("eeooa*oee","o*eeaeeoo");
         m.put("aaoaeee*o","o*eeeaoaa");
-        m.put("aeaeeoo*o","o*ooeeaea");
+        m.put("aooooao*o","o*oaooooa");
         m.put("aaoaeee*a","a*eeeaoaa");
+        m.put("aoaaa*oao","a*ooaaaao");
         m.put("eoaoo*oao","a*oooaeoo");
         m.put("aaoaeee*e","e*eeeaoaa");
         m.put("oae*oooae","o*oaoaeoe");
@@ -14897,6 +15495,7 @@ public class MapHashMap {
         m.put("aeaea*aoa","a*aeaoaea");
         m.put("aaoee*oaa","o*aaeaaeo");
         m.put("aoeaa*oao","e*ooaaaao");
+        m.put("ooaooaa*a","a*aaooaoo");
         m.put("eaoeoao*e","e*oaoeoae");
         m.put("aeoaooa*o","o*aooaoea");
         m.put("aaeoaee*a","a*eeaoeaa");
@@ -14913,10 +15512,12 @@ public class MapHashMap {
         m.put("eao*aaeaa","e*eaaaaao");
         m.put("aoe*eaeao","e*aaeooae");
         m.put("aee*eoaea","a*aeeeaoe");
+        m.put("ooo*oaooa","o*ooooaao");
         m.put("ooa*aeoae","o*oaaoeea");
         m.put("ooooa*ooe","o*eoaoooo");
         m.put("aoe*eaeae","e*aaeoeae");
         m.put("eoooe*aaa","o*aoeaeoa");
+        m.put("ooooa*ooa","o*aoaoooo");
         m.put("aoe*eaeaa","e*aaeoaae");
         m.put("eaeeeee*o","o*eeeeeae");
         m.put("eao*oeaee","a*eeoaeeo");
@@ -14956,6 +15557,7 @@ public class MapHashMap {
         m.put("eeaeaea*e","e*aeaeaee");
         m.put("oee*eeoee","o*oeeeeee");
         m.put("oeeoo*aeo","e*oeoeooa");
+        m.put("ooooeoo*o","o*ooeoooo");
         m.put("eaeoeoe*e","e*eoeoeae");
         m.put("aaaae*eeo","a*oaeeaae");
         m.put("eoeoe*ooa","e*aoeoeoo");
@@ -14971,6 +15573,7 @@ public class MapHashMap {
         m.put("aeoea*ooe","o*eeaoaeo");
         m.put("aao*eooae","o*aaeaeoo");
         m.put("aaoaeeo*o","o*oeeaoaa");
+        m.put("oaa*aaaoa","a*ooaaaaa");
         m.put("oaeeeee*e","e*eeeeeao");
         m.put("aoo*eoeeo","e*aeeoooo");
         m.put("aao*eaeaa","e*aaeaaao");
@@ -15004,12 +15607,14 @@ public class MapHashMap {
         m.put("aaaae*aaa","a*aaeaaaa");
         m.put("oao*oaoea","o*oeoaaao");
         m.put("aeeoaea*e","e*aeaoeea");
+        m.put("aaa*oooao","o*aaoaooa");
         m.put("oeo*ooeao","e*oaoeooo");
         m.put("eoo*oeoee","o*eeooeeo");
         m.put("ooa*aeoao","o*oaaooea");
         m.put("aaa*oooae","o*aaoaeoa");
         m.put("ooo*oaoee","o*oeooeao");
-        m.put("eoa*aaoaa","o*eaaoaaa");
+        m.put("aaoao*ooo","o*oaooaao");
+        m.put("aaaaa*ooa","a*aaaoaao");
         m.put("aaaaeea*a","a*aeeaaaa");
         m.put("ooeoaea*e","e*aeaoeoo");
         m.put("oeaeeoo*o","o*ooeeaeo");
@@ -15018,7 +15623,6 @@ public class MapHashMap {
         m.put("ooeoaea*o","o*aeaoeoo");
         m.put("oeaeeoo*a","a*ooeeaeo");
         m.put("ooa*eeeoo","e*ooeooea");
-    }    private void init_15() {
         m.put("oeaeeoo*e","e*ooeeaeo");
         m.put("oea*eeaoa","a*ooeeaea");
         m.put("eoo*oaaae","a*eaooeao");
@@ -15037,15 +15641,18 @@ public class MapHashMap {
         m.put("oeoaeao*e","e*oaeaoeo");
         m.put("oeooaaa*o","o*aaaooeo");
         m.put("eoaaooa*e","e*aooaaoe");
+        m.put("oaa*aooao","o*oaaaooa");
         m.put("oeoaeao*o","o*oaeaoeo");
         m.put("eoaaooa*a","a*aooaaoe");
-        m.put("eae*eooao","o*eaeaooe");
+        m.put("ooaaaao*o","o*oaaaaoo");
+        m.put("aoaaa*aao","a*ooaaaaa");
         m.put("aeoaa*oee","o*eeaeaao");
         m.put("aoooe*oeo","o*ooeeaoo");
         m.put("eae*eooae","o*eaeaeoe");
         m.put("aoooa*aea","o*aoaeaoa");
         m.put("ooaaaao*e","e*oaaaaoo");
         m.put("eae*eooaa","o*eaeaaoe");
+        m.put("ooaaaao*a","a*oaaaaoo");
         m.put("eoaeaoo*o","o*ooaeaoe");
         m.put("oaeeeeo*o","o*oeeeeao");
         m.put("eeoeaoo*o","o*ooaeoee");
@@ -15068,7 +15675,7 @@ public class MapHashMap {
         m.put("oeoee*oee","o*eeeeoeo");
         m.put("eeoae*eoo","o*oeeoeae");
         m.put("ooeoooo*a","a*ooooeoo");
-        m.put("aee*aaoea","o*aeaeaae");
+        m.put("oaa*aaaoo","a*ooaaoaa");
         m.put("eao*oaoae","o*eaoaeao");
         m.put("oaoeeoe*e","e*eoeeoao");
         m.put("ooa*eoooo","o*ooeoooa");
@@ -15087,6 +15694,7 @@ public class MapHashMap {
         m.put("eoo*eaeoa","e*eoeoaao");
         m.put("aoo*ooeae","e*aaooeoo");
         m.put("oeaeeae*a","a*eaeeaeo");
+        m.put("aooaaoo*o","o*ooaaooa");
         m.put("aoo*ooeaa","e*aaooaoo");
         m.put("eaoea*eoo","o*oaaoeee");
         m.put("eee*eoeoo","e*eoeeooe");
@@ -15125,13 +15733,15 @@ public class MapHashMap {
         m.put("eaooaaa*a","a*aaaooae");
         m.put("aoeoa*aae","e*eoaaaoa");
         m.put("eoa*aeeaa","e*eaaoaea");
+        m.put("oooee*oea","o*aoeeoeo");
+        m.put("aeoae*oao","o*oeeaaao");
         m.put("oeo*ooeoe","e*oooeeoo");
         m.put("ooeaa*aao","e*ooaaoaa");
         m.put("aooae*aaa","o*aoeaaaa");
         m.put("aea*eeaeo","a*aeeeoea");
         m.put("eoa*oeoao","o*eaoooea");
         m.put("aoaoe*eaa","a*aoeaaoe");
-        m.put("eaoao*ooe","o*eaooeao");
+        m.put("ooa*oaaao","a*oaoooaa");
         m.put("eeeao*eee","e*eeoeeae");
         m.put("eaoao*ooa","o*aaooeao");
         m.put("eeeao*eea","e*aeoeeae");
@@ -15140,6 +15750,7 @@ public class MapHashMap {
         m.put("eooeeao*e","e*oaeeooe");
         m.put("aoo*oeaoe","a*aoooeeo");
         m.put("eooeeao*a","a*oaeeooe");
+        m.put("oaa*aooaa","o*oaaaaoa");
         m.put("eeoeaae*o","o*eaaeoee");
         m.put("aoeaaea*a","a*aeaaeoa");
         m.put("oeo*ooeoo","e*oooeooo");
@@ -15148,6 +15759,7 @@ public class MapHashMap {
         m.put("aae*aeooa","o*aoaaaee");
         m.put("eeoeaae*e","e*eaaeoee");
         m.put("eeeooaa*e","e*aaooeee");
+        m.put("aaeoaae*o","o*eaaoeaa");
         m.put("eeoeaae*a","a*eaaeoee");
         m.put("oooaoeo*e","e*oeoaooo");
         m.put("eaoae*oeo","o*oaeeeao");
@@ -15205,7 +15817,8 @@ public class MapHashMap {
         m.put("eaeoo*eao","e*oaoaeoe");
         m.put("oao*oaeao","e*oaoaoao");
         m.put("aaoeo*eoa","o*aaooaee");
-        m.put("eooao*aee","o*eooeeaa");
+        m.put("oooaa*ooo","o*ooaooao");
+        m.put("eaoao*ooe","o*eaooeao");
         m.put("oaa*aooae","o*oaaaeoa");
         m.put("eoe*aaaee","a*eeaoeae");
         m.put("oao*oaeae","e*oaoaeao");
@@ -15236,6 +15849,7 @@ public class MapHashMap {
         m.put("oaaaeea*e","e*aeeaaao");
         m.put("ooaeaae*a","a*eaaeaoo");
         m.put("eaeae*eoe","e*eaeoeae");
+        m.put("aaeoaoo*o","o*ooaoeaa");
         m.put("ooaeaae*e","e*eaaeaoo");
         m.put("eaeae*eoa","e*aaeoeae");
         m.put("ooaoeoa*o","o*aoeoaoo");
@@ -15244,9 +15858,10 @@ public class MapHashMap {
         m.put("oee*eaoao","o*oaeeoae");
         m.put("eooao*eeo","o*oooeeae");
         m.put("ooaee*aaa","a*aoeaoea");
-        m.put("eaoaeaa*o","o*aaeaoae");
+        m.put("aee*aaoeo","o*aeaeoae");
         m.put("aoaoeoe*e","e*eoeoaoa");
         m.put("aoaoeoe*a","a*eoeoaoa");
+        m.put("ooa*eoooe","o*ooeoeoa");
         m.put("aoaoeoe*o","o*eoeoaoa");
         m.put("aeaeaaa*o","o*aaaeaea");
         m.put("eoooe*eoe","o*eoeoeoe");
@@ -15301,6 +15916,7 @@ public class MapHashMap {
         m.put("oeeaoae*a","a*eaoaeeo");
         m.put("aoaee*aae","a*eoeaaea");
         m.put("aeoaaaa*o","o*aaaaoea");
+        m.put("aaaoo*aao","a*oaoaaoa");
         m.put("ooaea*eoe","a*eoaooee");
         m.put("oeooe*ooo","o*oeeoooo");
         m.put("aeaeo*ooo","a*oeooaeo");
@@ -15316,6 +15932,7 @@ public class MapHashMap {
         m.put("aea*aooea","o*aeaeaoa");
         m.put("ooaee*aae","a*eoeaoea");
         m.put("eooeaoo*o","o*ooaeooe");
+        m.put("oooaa*ooa","o*aoaooao");
         m.put("oaoeooo*a","a*oooeoao");
         m.put("eoaaoao*o","o*oaoaaoe");
         m.put("aee*oaoaa","o*aaoeaae");
@@ -15344,6 +15961,7 @@ public class MapHashMap {
         m.put("aoe*aoeoa","e*aoaoaoe");
         m.put("eoooeoe*e","e*eoeoooe");
         m.put("eaa*eoeae","e*eaeaeoa");
+        m.put("eoeaeao*o","o*oaeaeoe");
         m.put("eoooeoe*a","a*eoeoooe");
         m.put("eaa*eoeaa","e*eaeaaoa");
         m.put("oaaeaoo*o","o*ooaeaao");
@@ -15361,7 +15979,7 @@ public class MapHashMap {
         m.put("aeaeeoo*e","e*ooeeaea");
         m.put("eea*aaaoa","a*eoaeaaa");
         m.put("eaaaeae*a","a*eaeaaae");
-        m.put("eaooo*aoo","o*oaooeoa");
+        m.put("oaooo*oao","o*oaoaooo");
         m.put("aeaea*oeo","a*oeaeaeo");
         m.put("aeeoa*eaa","e*aeaaaoe");
         m.put("ooooe*oao","o*ooeaooo");
@@ -15390,22 +16008,25 @@ public class MapHashMap {
         m.put("ooaaeoa*e","e*aoeaaoo");
         m.put("oeoae*eaa","o*aeeaoae");
         m.put("aaaee*eee","a*eaeeaee");
+        m.put("eaeeeoo*a","a*ooeeeae");
         m.put("ooaaeoa*a","a*aoeaaoo");
         m.put("oaoea*oeo","o*oaaeoeo");
         m.put("oaaee*oee","a*eaeeoeo");
         m.put("oea*eaoeo","o*oeeeoaa");
         m.put("oaaee*oea","a*aaeeoeo");
-        m.put("oaaoe*aoo","a*oaeoooa");
+        m.put("aoa*aoaoo","a*aoaoooa");
         m.put("oea*eaoee","o*oeeeeaa");
         m.put("oaaee*oeo","a*oaeeoeo");
         m.put("aeoaa*oea","o*aeaeaao");
         m.put("aaoeo*aao","o*oaoaaea");
+    }    private void init_16() {
         m.put("eoaoa*eoo","a*ooaoeoe");
         m.put("oeaoe*aaa","a*aeeaooa");
         m.put("aea*eoaao","a*aaeeooa");
         m.put("aoeeoao*e","e*oaoeeoa");
+        m.put("oaaaaaa*o","o*aaaaaao");
         m.put("oao*aaaea","a*oeaaaao");
-        m.put("aoo*eeoae","o*aaeoeeo");
+        m.put("aooea*eae","o*eoaaaee");
         m.put("eoaoa*oea","a*aoaeeoo");
         m.put("aeoaeeo*e","e*oeeaoea");
         m.put("oeaeo*eoa","a*aeoooee");
@@ -15420,6 +16041,7 @@ public class MapHashMap {
         m.put("ooooa*eeo","o*ooaeooe");
         m.put("eaeoo*aee","e*eaoeeoa");
         m.put("oao*eaeoe","e*ooeaeao");
+        m.put("aeaoeoo*o","o*ooeoaea");
         m.put("aoeeoao*a","a*oaoeeoa");
         m.put("oao*eaeoo","e*ooeaoao");
         m.put("oaeeo*aae","e*eaoaoea");
@@ -15428,6 +16050,7 @@ public class MapHashMap {
         m.put("aaoaeao*a","a*oaeaoaa");
         m.put("oeoee*ooa","o*aeeooeo");
         m.put("aaoeeaa*a","a*aaeeoaa");
+        m.put("aoa*aoooa","o*aoaoaoa");
         m.put("eaaeeee*e","e*eeeeaae");
         m.put("aeoee*aee","o*eeeeaea");
         m.put("aoo*aeaoa","a*aoaoaeo");
@@ -15436,9 +16059,10 @@ public class MapHashMap {
         m.put("aee*oaoao","o*aaoeoae");
         m.put("oeaoa*eea","a*aeaeooe");
         m.put("eeeaeao*e","e*oaeaeee");
-        m.put("eeeaeao*a","a*oaeaeee");
-        m.put("eeeaeao*o","o*oaeaeee");
-        m.put("aooee*oee","o*eoeeaeo");
+        m.put("ooaooao*o","o*oaooaoo");
+        m.put("aao*oaaao","a*aaoaoao");
+        m.put("aao*oaaaa","a*aaoaaao");
+        m.put("ooaooao*a","a*oaooaoo");
         m.put("aao*oaaae","a*aaoaeao");
         m.put("ooaooao*e","e*oaooaoo");
         m.put("eee*aaooe","o*eoaeeae");
@@ -15470,8 +16094,9 @@ public class MapHashMap {
         m.put("eeaaoaa*e","e*aaoaaee");
         m.put("eea*aooee","o*eeaeeoa");
         m.put("ooo*aaaae","a*oaaoeao");
+        m.put("aooaa*aoo","o*ooaoaaa");
         m.put("eea*aooea","o*eeaeaoa");
-        m.put("aoeaaoo*o","o*ooaaeoa");
+        m.put("ooo*aaaaa","a*oaaoaao");
         m.put("aeeeo*eoe","e*eeooaee");
         m.put("eeaao*aee","a*eeoeeaa");
         m.put("aeeeo*eoa","e*aeooaee");
@@ -15482,6 +16107,7 @@ public class MapHashMap {
         m.put("aeeeo*eoo","e*oeooaee");
         m.put("eaaao*eaa","a*aaoaeae");
         m.put("aoe*aoeae","e*aaaoeoe");
+        m.put("ooo*aaooo","o*ooaooao");
         m.put("aae*aooaa","o*aaaaaoe");
         m.put("eeooaao*e","e*oaaooee");
         m.put("eea*aoooo","o*eoaeooa");
@@ -15489,6 +16115,7 @@ public class MapHashMap {
         m.put("oaaeeao*e","e*oaeeaao");
         m.put("eeoee*aaa","o*aeeaeea");
         m.put("oaaeeao*a","a*oaeeaao");
+        m.put("eoooeao*o","o*oaeoooe");
         m.put("aoaae*eee","a*eoeeaae");
         m.put("aoaae*eea","a*aoeeaae");
         m.put("eee*oaoea","o*eeoeaae");
@@ -15503,14 +16130,15 @@ public class MapHashMap {
         m.put("eaaae*aea","a*aaeeeaa");
         m.put("eeaeo*eoe","a*eeooeee");
         m.put("oaoao*aae","o*eaoaoaa");
-        m.put("aee*aaoeo","o*aeaeoae");
+        m.put("eeoaaoe*o","o*eoaaoee");
         m.put("aeoaa*eoo","o*oeaoaae");
         m.put("eaaae*aeo","a*oaeeeaa");
         m.put("aoe*aooee","o*aeaoeoe");
         m.put("oaa*eeeaa","e*oaeaaea");
         m.put("eeooaoa*e","e*aoaooee");
         m.put("eeeeaoa*o","o*aoaeeee");
-        m.put("eoooe*eao","o*ooeaeoe");
+        m.put("aoaaaoa*a","a*aoaaaoa");
+        m.put("aoooeea*o","o*aeeoooa");
         m.put("eeeeaoa*a","a*aoaeeee");
         m.put("ooo*aeooo","o*ooaooeo");
         m.put("eeeaaaa*a","a*aaaaeee");
@@ -15520,6 +16148,7 @@ public class MapHashMap {
         m.put("eoe*aoooo","o*eoaoooe");
         m.put("ooooaeo*o","o*oeaoooo");
         m.put("aoe*aoaea","a*aeaoaoe");
+        m.put("oao*aaoaa","o*oaaaaao");
         m.put("aaeae*aoe","e*eaeoaaa");
         m.put("aaaaa*eao","a*oaaaaae");
         m.put("eeooeao*e","e*oaeooee");
@@ -15530,7 +16159,9 @@ public class MapHashMap {
         m.put("oaaao*oee","a*eaoeoao");
         m.put("aeoae*aao","o*oeeaaaa");
         m.put("oaeaooa*e","e*aooaeao");
+        m.put("aoa*aoooo","o*aoaoooa");
         m.put("oooea*eee","o*eoaeoee");
+        m.put("aoaooao*o","o*oaooaoa");
         m.put("aaoeeea*e","e*aeeeoaa");
         m.put("oooaoee*e","e*eeoaooo");
         m.put("eooae*eee","o*eoeeeae");
@@ -15550,9 +16181,12 @@ public class MapHashMap {
         m.put("aaeeaoe*e","e*eoaeeaa");
         m.put("oao*aoaea","a*oeaaaoo");
         m.put("oeoaaee*a","a*eeaaoeo");
+        m.put("aae*eeooa","o*aoeaaee");
         m.put("aaoeaao*e","e*oaaeoaa");
+        m.put("aoa*aaooa","o*aoaoaaa");
         m.put("oaa*eeaea","a*oeeaaea");
         m.put("aaoeaao*a","a*oaaeoaa");
+        m.put("aaa*aoaoo","a*aoaaooa");
         m.put("eeo*eeeoa","e*eoeeaeo");
         m.put("aaaaeoe*o","o*eoeaaaa");
         m.put("aaaoe*eeo","a*oaeeaoe");
@@ -15560,6 +16194,7 @@ public class MapHashMap {
         m.put("oaa*eeaeo","a*oeeaoea");
         m.put("aea*oeooa","o*aooeaea");
         m.put("eeoaeeo*a","a*oeeaoee");
+        m.put("aoaooao*a","a*oaooaoa");
         m.put("aoe*aoaeo","a*aeaoooe");
         m.put("oaoea*oee","o*eaaeoeo");
         m.put("oooooeo*e","e*oeooooo");
@@ -15568,7 +16203,8 @@ public class MapHashMap {
         m.put("eooeo*eoo","o*ooooeee");
         m.put("aaooooe*o","o*eooooaa");
         m.put("eaeee*aae","e*eaeaeea");
-        m.put("aeeeoee*o","o*eeoeeea");
+        m.put("aoooo*aoa","o*aoooaoa");
+        m.put("aoaaa*aaa","a*aoaaaaa");
         m.put("ooe*aoeoo","e*ooaoooe");
         m.put("eaeee*aao","e*oaeaeea");
         m.put("aoaoooa*e","e*aoooaoa");
@@ -15578,13 +16214,14 @@ public class MapHashMap {
         m.put("aeo*aeeao","e*aaaeoeo");
         m.put("ooa*aaoee","o*oeaoeaa");
         m.put("ooooa*oae","o*eoaaooo");
+        m.put("oooaaao*o","o*oaaaooo");
         m.put("aeaaeoe*e","e*eoeaaea");
         m.put("eae*aeoaa","o*eaaaaee");
         m.put("oooae*aaa","o*aoeaoaa");
         m.put("oaeaeoo*o","o*ooeaeao");
         m.put("aeo*aeeae","e*aaaeeeo");
         m.put("aea*oeoae","o*aaoeeea");
-        m.put("eoeaeao*o","o*oaeaeoe");
+        m.put("aoaaaoo*a","a*ooaaaoa");
         m.put("aeaeeeo*e","e*oeeeaea");
         m.put("aea*oeoaa","o*aaoeaea");
         m.put("oae*oeeao","e*oaoaoee");
@@ -15608,7 +16245,7 @@ public class MapHashMap {
         m.put("eaoeooa*a","a*aooeoae");
         m.put("oaeoe*oee","e*eaeeooo");
         m.put("ooeeaoo*o","o*ooaeeoo");
-        m.put("oea*oeooa","o*oooeaea");
+        m.put("oaa*aoaoo","a*ooaaooa");
         m.put("oooea*aea","o*aoaeoea");
         m.put("eee*aoeee","e*eeaeeoe");
         m.put("oaeoe*oeo","e*oaeeooo");
@@ -15621,7 +16258,7 @@ public class MapHashMap {
         m.put("oao*aoaee","a*oeaaeoo");
         m.put("eoeaeao*a","a*oaeaeoe");
         m.put("aaaoe*aoe","a*eaeoaoa");
-        m.put("eoeeaoe*o","o*eoaeeoe");
+        m.put("aaa*aaaoa","a*aoaaaaa");
         m.put("eoe*eeeea","e*eeeoaee");
         m.put("aaaoe*aoa","a*aaeoaoa");
         m.put("eoe*eeeee","e*eeeoeee");
@@ -15649,9 +16286,11 @@ public class MapHashMap {
         m.put("eeaaa*eoo","a*oeaoeae");
         m.put("eoaaeee*a","a*eeeaaoe");
         m.put("oeo*oooaa","o*oaoeaoo");
+        m.put("aoa*aaaoa","a*aoaoaaa");
         m.put("aeo*aooeo","o*aeaeooo");
         m.put("eoeaaae*o","o*eaaaeoe");
         m.put("eaeoo*aoo","e*oaooeoa");
+        m.put("aooaaaa*o","o*aaaaooa");
         m.put("aao*oeooe","o*aooaeeo");
         m.put("oeoaaae*e","e*eaaaoeo");
         m.put("ooeeaaa*o","o*aaaeeoo");
@@ -15675,7 +16314,7 @@ public class MapHashMap {
         m.put("eoo*eaaao","a*eaeooao");
         m.put("aaeaa*aee","e*eaaeaaa");
         m.put("aaaaeao*e","e*oaeaaaa");
-        m.put("aeoaa*ooe","o*eeaoaao");
+        m.put("ooaaaaa*a","a*aaaaaoo");
         m.put("eoo*eaaae","a*eaeoeao");
         m.put("eoa*eooea","o*eeeoaoa");
         m.put("oaooo*aeo","o*oaoeooa");
@@ -15711,7 +16350,7 @@ public class MapHashMap {
         m.put("oooaeao*a","a*oaeaooo");
         m.put("eoa*oooae","o*eaooeoa");
         m.put("oeaeeeo*e","e*oeeeaeo");
-        m.put("eoaoa*aoo","a*ooaoeoa");
+        m.put("ooooaaa*a","a*aaaoooo");
         m.put("oeaeeeo*a","a*oeeeaeo");
         m.put("eoa*eooeo","o*eeeoooa");
         m.put("eae*eoooe","o*eoeaeoe");
@@ -15730,12 +16369,13 @@ public class MapHashMap {
         m.put("aooaaeo*a","a*oeaaooa");
         m.put("eea*eaoaa","o*eaeeaaa");
         m.put("oea*aeoao","o*oaaeoea");
+        m.put("aaoaooo*o","o*oooaoaa");
         m.put("oaeea*ooo","e*oaaooeo");
         m.put("aeoaoee*e","e*eeoaoea");
         m.put("aoaooaa*e","e*aaooaoa");
         m.put("ooaee*eaa","a*aoeaoee");
         m.put("aoaae*ooa","a*aoeoaao");
-        m.put("ooe*ooaaa","a*oaooaoe");
+        m.put("aoaooaa*a","a*aaooaoa");
         m.put("oeaoeae*a","a*eaeoaeo");
         m.put("oaeea*ooe","e*eaaooeo");
         m.put("eoooe*aoe","o*eoeoeoa");
@@ -15752,10 +16392,11 @@ public class MapHashMap {
         m.put("oao*aaaee","a*oeaaeao");
         m.put("aaaee*eoo","a*oaeoaee");
         m.put("ooa*aoeea","e*oeaoaoa");
-        m.put("aoaoeaa*o","o*aaeoaoa");
+        m.put("oooaaao*a","a*oaaaooo");
         m.put("aoe*aeaoa","a*aoaoaee");
         m.put("ooa*aoeee","e*oeaoeoa");
         m.put("oooao*eeo","o*oooeoae");
+        m.put("oee*aaaae","a*oaaeeae");
         m.put("ooa*aoeeo","e*oeaoooa");
         m.put("eaaoaeo*o","o*oeaoaae");
         m.put("oaooe*ooe","o*eaeoooo");
@@ -15779,7 +16420,7 @@ public class MapHashMap {
         m.put("aoeoaae*a","a*eaaoeoa");
         m.put("aaoaooo*e","e*oooaoaa");
         m.put("eaaea*ooa","a*aaaoeeo");
-        m.put("oee*aaaao","a*oaaeoae");
+        m.put("eeaee*ooo","a*oeeoeeo");
         m.put("oeoaa*oaa","o*aeaaoao");
         m.put("oeaoooa*a","a*aoooaeo");
         m.put("eaoeooa*o","o*aooeoae");
@@ -15807,6 +16448,7 @@ public class MapHashMap {
         m.put("oeeoaaa*a","a*aaaoeeo");
         m.put("aoaae*ooe","a*eoeoaao");
         m.put("eeaee*oea","a*aeeeeeo");
+        m.put("aoaaaaa*a","a*aaaaaoa");
         m.put("aeoaaao*e","e*oaaaoea");
         m.put("oaaaeea*a","a*aeeaaao");
         m.put("eoooe*aoa","o*aoeoeoa");
@@ -15860,9 +16502,11 @@ public class MapHashMap {
         m.put("aoeeeoa*o","o*aoeeeoa");
         m.put("eeeeaoo*e","e*ooaeeee");
         m.put("oeaaa*aoo","a*oeaooaa");
+        m.put("oaooaaa*o","o*aaaooao");
+        m.put("aaoae*ooo","o*oaeoaao");
         m.put("aae*eeoaa","o*aaeaaee");
         m.put("aoa*aaeao","e*aaaooaa");
-        m.put("aeaaoeo*o","o*oeoaaea");
+        m.put("oooaooa*a","a*aooaooo");
         m.put("eaa*aeooa","o*eoaaaea");
         m.put("oaeeoae*a","a*eaoeeao");
         m.put("aae*eoooa","o*aoeaaoe");
@@ -15875,22 +16519,26 @@ public class MapHashMap {
         m.put("oeooaoe*a","a*eoaooeo");
         m.put("eeaooaa*o","o*aaooaee");
         m.put("ooaao*eae","a*eooaoae");
+        m.put("aaoaoao*a","a*oaoaoaa");
         m.put("oeooaoe*e","e*eoaooeo");
         m.put("eaeeoea*e","e*aeoeeae");
-        m.put("ooaeaae*o","o*eaaeaoo");
+        m.put("ooaaa*ooo","a*ooaooao");
         m.put("eaeeoea*o","o*aeoeeae");
         m.put("aaeoa*aoa","e*aaaoaoa");
         m.put("aeaooae*e","e*eaooaea");
         m.put("oeo*oooeo","o*oeoeooo");
         m.put("aaa*aeeae","e*aaaaeea");
         m.put("eoaoa*aao","a*ooaaeoa");
+        m.put("oeoeo*aeo","o*oeoeoea");
         m.put("eoaoa*aaa","a*aoaaeoa");
         m.put("aao*aeeoo","e*aoaaoeo");
         m.put("oao*aoeoo","e*ooaaooo");
         m.put("eoaoa*aae","a*eoaaeoa");
         m.put("aaa*aeeao","e*aaaaoea");
+        m.put("ooaoaoo*o","o*ooaoaoo");
         m.put("eoa*eaeao","e*eaeooaa");
         m.put("eoeaoea*o","o*aeoaeoe");
+        m.put("eeaaeeo*o","o*oeeaaee");
         m.put("ooaeo*ooo","a*oooooeo");
         m.put("aao*aeeoa","e*aoaaaeo");
         m.put("aeo*aooea","o*aeaeaoo");
@@ -15898,6 +16546,7 @@ public class MapHashMap {
         m.put("eoa*eaeaa","e*eaeoaaa");
         m.put("oeo*aoaea","a*oeaeaoo");
         m.put("aoo*oeeee","e*aeooeeo");
+        m.put("oaoaa*aoa","o*aaaooaa");
         m.put("oae*aeoaa","o*oaaaaee");
         m.put("aaoee*oae","o*eaeaaeo");
         m.put("aoeoo*aeo","e*oooeaoa");
@@ -15926,10 +16575,11 @@ public class MapHashMap {
         m.put("eoeeaeo*a","a*oeaeeoe");
         m.put("eee*eoaea","a*eeeeaoe");
         m.put("aoaoeaa*a","a*aaeoaoa");
-        m.put("aea*oaoaa","o*aaoeaaa");
+        m.put("aaaoaaa*o","o*aaaoaaa");
         m.put("eeeeaoo*a","a*ooaeeee");
         m.put("eao*aooee","o*eeaaeoo");
         m.put("eea*eeeoo","e*eoeeoea");
+        m.put("oee*oooeo","o*oeoeooe");
         m.put("eee*oeaoa","a*eooeaee");
         m.put("eoeeoea*o","o*aeoeeoe");
         m.put("oaoea*eae","o*eaaaoee");
@@ -15977,6 +16627,7 @@ public class MapHashMap {
         m.put("ooeeaoe*a","a*eoaeeoo");
         m.put("aaaeooa*a","a*aooeaaa");
         m.put("aee*aaaaa","a*aaaeaae");
+        m.put("ooaoo*aoa","a*aoooooa");
         m.put("eoaaeaa*a","a*aaeaaoe");
         m.put("oooeo*eao","o*oooaoee");
         m.put("aee*aaaae","a*aaaeeae");
@@ -15994,6 +16645,7 @@ public class MapHashMap {
         m.put("aaa*eoaoo","a*aoeaooa");
         m.put("oao*aoeoe","e*ooaaeoo");
         m.put("ooa*aeeoo","e*ooaooea");
+        m.put("ooo*aaooa","o*ooaoaao");
         m.put("eoa*eoeoo","e*eoeoooa");
         m.put("ooeao*oea","e*aooeoao");
         m.put("eoa*eoeoa","e*eoeoaoa");
@@ -16019,7 +16671,6 @@ public class MapHashMap {
         m.put("aoaao*eea","a*aooeaae");
         m.put("oeeaeeo*o","o*oeeaeeo");
         m.put("oaeaoee*o","o*eeoaeao");
-    }    private void init_16() {
         m.put("aoaao*eee","a*eooeaae");
         m.put("aoooeea*a","a*aeeoooa");
         m.put("eoaaooo*e","e*oooaaoe");
@@ -16034,6 +16685,7 @@ public class MapHashMap {
         m.put("aeo*eooee","o*aeeeeoo");
         m.put("aeaoa*oae","a*eeaaaoo");
         m.put("eoooe*aao","o*ooeaeoa");
+        m.put("oaooa*ooo","o*oaaoooo");
         m.put("aaeeaea*o","o*aeaeeaa");
         m.put("oaa*oooae","o*oaoaeoa");
         m.put("eaoao*oee","o*eaoeeao");
@@ -16046,7 +16698,7 @@ public class MapHashMap {
         m.put("aaaeoeo*o","o*oeoeaaa");
         m.put("aeaee*ooe","a*eeeoaeo");
         m.put("oooaaee*o","o*eeaaooo");
-        m.put("ooaoe*aoo","a*ooeoooa");
+        m.put("oaaaa*aoo","a*oaaooaa");
         m.put("oee*oaeoo","e*oooeoae");
         m.put("aeaee*ooo","a*oeeoaeo");
         m.put("eoeoe*eae","e*eoeaeoe");
@@ -16087,6 +16739,7 @@ public class MapHashMap {
         m.put("eooeo*eoe","o*eoooeee");
         m.put("oaeao*aea","e*aaoeoaa");
         m.put("aeoeeoo*e","e*ooeeoea");
+        m.put("oooae*aee","o*eoeeoaa");
         m.put("eoe*oaaoo","a*eooooae");
         m.put("ooa*eoaao","a*oaeoooa");
         m.put("aaeoa*oeo","e*oaaeaoo");
@@ -16103,6 +16756,7 @@ public class MapHashMap {
         m.put("aaeao*oee","e*eaoeaao");
         m.put("eaa*oeeae","e*eaoaeea");
         m.put("aaeae*eae","e*eaeaaae");
+        m.put("aoaao*ooo","a*ooooaao");
         m.put("oee*ooooo","o*oooeooe");
         m.put("eaa*oeeao","e*eaoaoea");
         m.put("eoeae*aao","e*ooeaeaa");
@@ -16137,7 +16791,7 @@ public class MapHashMap {
         m.put("eoaea*ooo","a*ooaoeeo");
         m.put("eeooe*oae","o*eeeaeoo");
         m.put("ooooo*eeo","o*oooeooe");
-        m.put("oea*oeaea","a*oeoeaea");
+        m.put("aaaaooa*a","a*aooaaaa");
         m.put("eeoea*aoe","o*eeaoeea");
         m.put("oaaoa*eoa","a*aaaoooe");
         m.put("eoaea*ooe","a*eoaoeeo");
@@ -16152,6 +16806,7 @@ public class MapHashMap {
         m.put("eeooe*oaa","o*aeeaeoo");
         m.put("eeeae*aae","e*eeeaeaa");
         m.put("aaoeeoa*a","a*aoeeoaa");
+        m.put("ooooo*ooo","o*ooooooo");
         m.put("eoe*aaoee","o*eeaoeae");
         m.put("eaeoe*aoo","e*oaeoeoa");
         m.put("eoe*aaoea","o*eeaoaae");
@@ -16173,9 +16828,10 @@ public class MapHashMap {
         m.put("aaoeeoa*o","o*aoeeoaa");
         m.put("oeooo*aao","o*oeoaooa");
         m.put("oaeeo*aeo","e*oaoeoea");
-        m.put("oooae*eoa","o*aoeooae");
+        m.put("eoaeaae*o","o*eaaeaoe");
         m.put("oeoae*oaa","o*aeeaoao");
         m.put("aoa*eooao","o*aaeoooa");
+        m.put("eeoao*aoo","o*oeooeaa");
         m.put("aaaoo*eea","a*aaoeaoe");
         m.put("oaaaa*eao","a*oaaaoae");
         m.put("aoa*aeooo","o*aoaooea");
@@ -16219,7 +16875,7 @@ public class MapHashMap {
         m.put("aoaoo*aae","a*eooaaoa");
         m.put("eea*aeeaa","e*eaaeaea");
         m.put("ooooe*aae","o*eoeaooa");
-        m.put("aae*eooeo","o*aeeaooe");
+        m.put("aaaao*oao","a*oaoaaao");
         m.put("eae*aeeeo","e*eeaaoee");
         m.put("ooe*oaaoe","a*ooooeae");
         m.put("eoaeeeo*o","o*oeeeaoe");
@@ -16277,6 +16933,7 @@ public class MapHashMap {
         m.put("aaoaaeo*a","a*oeaaoaa");
         m.put("eeoao*oae","o*eeoaeao");
         m.put("eoaeo*aoa","a*aoooeea");
+        m.put("ooooaaa*o","o*aaaoooo");
         m.put("eeoao*oaa","o*aeoaeao");
         m.put("eeeaeoo*e","e*ooeaeee");
         m.put("aaaea*oae","a*eaaaaeo");
@@ -16306,6 +16963,7 @@ public class MapHashMap {
         m.put("oee*aaeee","e*oeaeeae");
         m.put("ooooo*eee","o*eooeooe");
         m.put("oeeao*aaa","e*aeoaoaa");
+        m.put("ooooa*aoo","o*ooaoooa");
         m.put("aeoeeea*e","e*aeeeoea");
         m.put("oeeao*aae","e*eeoaoaa");
         m.put("aaaeeeo*e","e*oeeeaaa");
@@ -16326,7 +16984,9 @@ public class MapHashMap {
         m.put("ooe*oeooo","o*oooooee");
         m.put("eeaaoae*e","e*eaoaaee");
         m.put("aooee*ooa","o*aoeoaeo");
+        m.put("aaoaaoo*a","a*ooaaoaa");
         m.put("oooeoea*e","e*aeoeooo");
+        m.put("aooao*ooa","o*aoooaao");
         m.put("ooo*aaooe","o*ooaoeao");
         m.put("eeeaeea*a","a*aeeaeee");
         m.put("aaeooeo*o","o*oeooeaa");
@@ -16360,6 +17020,7 @@ public class MapHashMap {
         m.put("eaa*aoaao","a*eaaaooa");
         m.put("eoeeaao*o","o*oaaeeoe");
         m.put("aeeeooe*a","a*eooeeea");
+    }    private void init_17() {
         m.put("oae*eaeeo","e*oeeaoae");
         m.put("aaoeoaa*o","o*aaoeoaa");
         m.put("aaa*eeeeo","e*aeeaoea");
@@ -16405,13 +17066,17 @@ public class MapHashMap {
         m.put("aoo*oeeoa","e*aoooaeo");
         m.put("aoaeo*eae","a*eooaaee");
         m.put("eea*eooae","o*eaeeeoa");
+        m.put("aaa*oaaaa","a*aaoaaaa");
+        m.put("oaa*ooaoa","a*oooaaoa");
         m.put("aeoeeao*o","o*oaeeoea");
         m.put("eao*oeooe","o*eooaeeo");
         m.put("eaeaeaa*o","o*aaeaeae");
         m.put("aeo*oeoee","o*aeoeeeo");
         m.put("ooeea*oao","e*ooaaoeo");
+        m.put("aoa*aaooo","o*aoaooaa");
         m.put("aeoaeea*o","o*aeeaoea");
         m.put("oeooeao*o","o*oaeooeo");
+        m.put("ooo*aooaa","o*oaaoaoo");
         m.put("ooeea*oaa","e*aoaaoeo");
         m.put("oaa*eaooa","o*ooeaaaa");
         m.put("ooeea*oae","e*eoaaoeo");
@@ -16439,6 +17104,7 @@ public class MapHashMap {
         m.put("aeeoe*aoa","e*aeeoaoa");
         m.put("oee*oeoee","o*oeoeeee");
         m.put("oeeoa*oaa","e*aeaaooo");
+        m.put("oaoaaoo*o","o*ooaaoao");
         m.put("oeeoa*oao","e*oeaaooo");
         m.put("aeeoe*aoo","e*oeeoaoa");
         m.put("eooaeoa*a","a*aoeaooe");
@@ -16449,6 +17115,7 @@ public class MapHashMap {
         m.put("eoa*aeooe","o*eoaoeea");
         m.put("eeooo*oae","o*eeoaeoo");
         m.put("eoeaa*aoa","e*aoaoeaa");
+        m.put("aoooa*aao","o*ooaaaoa");
         m.put("eoa*aeooa","o*eoaoaea");
         m.put("ooooeaa*e","e*aaeoooo");
         m.put("oea*eeooe","o*ooeeeea");
@@ -16464,12 +17131,13 @@ public class MapHashMap {
         m.put("eooaeaa*o","o*aaeaooe");
         m.put("eoa*oaaoa","a*eoooaaa");
         m.put("aeeeoae*o","o*eaoeeea");
-        m.put("ooeaeoo*a","a*ooeaeoo");
+        m.put("aao*ooaao","a*aaoaooo");
         m.put("oaooeoa*a","a*aoeooao");
         m.put("eoaeo*aoo","a*ooooeea");
         m.put("eeoeo*ooo","o*oeooeeo");
         m.put("ooo*eeoeo","o*oeeooeo");
         m.put("ooe*oeeao","e*oaoooee");
+        m.put("eeeeooe*o","o*eooeeee");
         m.put("eeoeo*ooe","o*eeooeeo");
         m.put("ooe*oeeaa","e*oaooaee");
         m.put("eeoeo*ooa","o*aeooeeo");
@@ -16484,10 +17152,12 @@ public class MapHashMap {
         m.put("eooaeoa*o","o*aoeaooe");
         m.put("oeaaeoa*a","a*aoeaaeo");
         m.put("oeaaeoa*e","e*aoeaaeo");
+        m.put("ooa*aeoea","o*oeaoaea");
         m.put("oeaaoae*o","o*eaoaaeo");
+        m.put("ooo*oaoao","o*oaoooao");
         m.put("aae*eoeoa","e*aoeaaoe");
         m.put("eeaoaao*a","a*oaaoaee");
-        m.put("oeeeoaa*o","o*aaoeeeo");
+        m.put("aao*oeoea","o*aeoaaeo");
         m.put("eaeaeeo*a","a*oeeaeae");
         m.put("ooeeeae*e","e*eaeeeoo");
         m.put("eaooo*aoa","o*aaooeoa");
@@ -16559,12 +17229,14 @@ public class MapHashMap {
         m.put("aooeaoe*e","e*eoaeooa");
         m.put("eaoao*oeo","o*oaoeeao");
         m.put("eaooooo*e","e*oooooae");
+        m.put("oooao*aao","o*oooaoaa");
         m.put("oeaae*eea","a*aeeeoae");
         m.put("eoo*eaoee","o*eeeoeao");
         m.put("oeo*oeeoo","e*oooeoeo");
         m.put("eooao*eoo","o*ooooeae");
         m.put("oeo*oeeoa","e*oooeaeo");
         m.put("aoe*eaoao","o*aaeooae");
+        m.put("aoooaoa*o","o*aoaoooa");
         m.put("oaeaoae*e","e*eaoaeao");
         m.put("ooooo*eoe","o*eoooooe");
         m.put("eaoaa*eeo","o*oaaeeae");
@@ -16585,10 +17257,11 @@ public class MapHashMap {
         m.put("oaoao*aee","o*eaoeoaa");
         m.put("aaeeooa*a","a*aooeeaa");
         m.put("eaoaaea*o","o*aeaaoae");
-        m.put("eooaaee*o","o*eeaaooe");
+        m.put("ooa*aaaao","a*oaaooaa");
         m.put("aaeeooa*e","e*aooeeaa");
         m.put("eee*eaaao","a*eaeeoae");
         m.put("aoaoa*oea","a*aoaeaoo");
+        m.put("ooo*oaoaa","o*oaooaao");
         m.put("oooaeee*o","o*eeeaooo");
         m.put("aoo*aeeeo","e*aeaooeo");
         m.put("aoo*aeeea","e*aeaoaeo");
@@ -16609,6 +17282,7 @@ public class MapHashMap {
         m.put("oaeaeaa*e","e*aaeaeao");
         m.put("oaeaeoa*a","a*aoeaeao");
         m.put("ooeao*oao","e*oooaoao");
+        m.put("oaoaaoa*o","o*aoaaoao");
         m.put("oaeaeoa*e","e*aoeaeao");
         m.put("eae*eaooo","o*eoeaoae");
         m.put("ooeao*oae","e*eooaoao");
@@ -16652,6 +17326,7 @@ public class MapHashMap {
         m.put("eea*eeaae","a*eaeeeea");
         m.put("eaoaeao*o","o*oaeaoae");
         m.put("ooa*oaeae","e*oaooeaa");
+        m.put("ooo*eeoea","o*oeeoaeo");
         m.put("ooe*eeaoa","a*ooeoaee");
         m.put("aae*oaeeo","e*aeoaoae");
         m.put("ooe*eeaoe","a*ooeoeee");
@@ -16663,6 +17338,7 @@ public class MapHashMap {
         m.put("ooeoaaa*a","a*aaaoeoo");
         m.put("eeaeeeo*e","e*oeeeaee");
         m.put("aaoaooe*o","o*eooaoaa");
+        m.put("eoo*oeoae","o*eaooeeo");
         m.put("eoa*ooooe","o*eoooeoa");
         m.put("aoeaaaa*a","a*aaaaeoa");
         m.put("oeeea*aoo","e*oeaooea");
@@ -16701,7 +17377,7 @@ public class MapHashMap {
         m.put("oaoao*aeo","o*oaoeoaa");
         m.put("eoo*aeoeo","o*eeaooeo");
         m.put("eao*aeoea","o*eeaaaeo");
-        m.put("oeoee*aao","o*oeeaoea");
+        m.put("aaa*aeoeo","o*aeaaoea");
         m.put("oea*aaoao","o*oaaeoaa");
         m.put("eao*aeoee","o*eeaaeeo");
         m.put("oeo*eeoea","o*oeeeaeo");
@@ -16712,10 +17388,12 @@ public class MapHashMap {
         m.put("oea*oaaae","a*oaoeeaa");
         m.put("aoe*eeoea","o*aeeoaee");
         m.put("eeaao*oae","a*eeoaeao");
+        m.put("ooo*oooaa","o*oaooaoo");
         m.put("aoe*eeoee","o*aeeoeee");
         m.put("oeaaa*oeo","a*oeaeoao");
         m.put("eaoea*oeo","o*oaaeeeo");
         m.put("eaoea*oea","o*aaaeeeo");
+        m.put("oao*oaoao","o*oaoaoao");
         m.put("eoe*oeaee","a*eeooeee");
         m.put("aaaoo*aea","a*aaoeaoa");
         m.put("eeooa*eae","o*eeaaeoe");
@@ -16754,7 +17432,7 @@ public class MapHashMap {
         m.put("ooe*oaeeo","e*oeoooae");
         m.put("oeoeoae*e","e*eaoeoeo");
         m.put("oeaeeea*o","o*aeeeaeo");
-        m.put("aeoea*oea","o*aeaeaeo");
+        m.put("eea*eeoaa","o*eaeeaea");
         m.put("oeeoe*aoe","e*eeeoooa");
         m.put("oeoeoae*o","o*eaoeoeo");
         m.put("ooe*oaeee","e*oeooeae");
@@ -16804,6 +17482,7 @@ public class MapHashMap {
         m.put("oeaoooo*e","e*ooooaeo");
         m.put("oao*eoooa","o*ooeaaoo");
         m.put("eoeae*aee","e*eoeeeaa");
+        m.put("aoaaaoa*o","o*aoaaaoa");
         m.put("eooao*aaa","o*aooaeaa");
         m.put("aaoooee*o","o*eeoooaa");
         m.put("aee*oaoeo","o*aeoeoae");
@@ -16829,12 +17508,15 @@ public class MapHashMap {
         m.put("aeoea*oee","o*eeaeaeo");
         m.put("aaoaa*aoe","o*eaaoaaa");
         m.put("eaoeo*aoa","o*aaooeea");
+        m.put("oaooo*aaa","o*aaoaooa");
         m.put("oeooeaa*o","o*aaeooeo");
         m.put("eaoeo*aoe","o*eaooeea");
         m.put("aoo*aeooe","o*aoaoeeo");
         m.put("eaeoe*aaa","e*aaeaeoa");
         m.put("aoe*aeaao","a*aaaooee");
+        m.put("eoaaaaa*o","o*aaaaaoe");
         m.put("eaeoe*aae","e*eaeaeoa");
+        m.put("eaoao*aeo","o*oaoeeaa");
         m.put("ooeoo*eae","e*eooaooe");
         m.put("aoe*aeaaa","a*aaaoaee");
         m.put("eaeoe*aao","e*oaeaeoa");
@@ -16843,6 +17525,7 @@ public class MapHashMap {
         m.put("eaaeo*oeo","a*oaoeeeo");
         m.put("aeaeo*aee","a*eeoeaea");
         m.put("eeeoaaa*o","o*aaaoeee");
+        m.put("aaa*oaooa","o*aooaaaa");
         m.put("oaaaaaa*e","e*aaaaaao");
         m.put("eaeaeoa*o","o*aoeaeae");
         m.put("ooooe*oea","o*aoeeooo");
@@ -16932,6 +17615,7 @@ public class MapHashMap {
         m.put("aoooeao*e","e*oaeoooa");
         m.put("oeaoe*eoa","a*aeeoooe");
         m.put("aea*oeeoe","e*aooeeea");
+        m.put("aea*aaoae","o*aaaeeaa");
         m.put("oaoooao*e","e*oaoooao");
         m.put("ooooo*oeo","o*oooeooo");
         m.put("aea*oeeoa","e*aooeaea");
@@ -16944,7 +17628,7 @@ public class MapHashMap {
         m.put("aaeea*eao","e*oaaaaee");
         m.put("oea*ooaoa","a*oooeaoa");
         m.put("aoaeeea*o","o*aeeeaoa");
-        m.put("oea*ooaoo","a*oooeooa");
+        m.put("oaoooao*a","a*oaoooao");
         m.put("eae*aaoao","o*eaaaoae");
         m.put("oao*eaaoe","a*ooeaeao");
         m.put("oaeoe*oao","e*oaeaooo");
@@ -16981,6 +17665,7 @@ public class MapHashMap {
         m.put("aaeaa*eea","e*aaaeaae");
         m.put("aao*ooaoe","a*aooaeoo");
         m.put("eaaoeoe*e","e*eoeoaae");
+        m.put("aao*ooaoa","a*aooaaoo");
         m.put("aooaeoe*o","o*eoeaooa");
         m.put("eea*aaaoo","a*eoaeoaa");
         m.put("eooaa*eea","o*aoaeeae");
@@ -16993,10 +17678,12 @@ public class MapHashMap {
         m.put("aeeee*ooo","e*oeeoaeo");
         m.put("oeo*ooaae","a*oaoeeoo");
         m.put("aeaaaae*a","a*eaaaaea");
+        m.put("aao*aooao","o*aaaaooo");
+        m.put("oaaao*oao","a*oaoaoao");
         m.put("aeaaaae*e","e*eaaaaea");
         m.put("aeoae*aea","o*aeeeaaa");
         m.put("eoaoe*aae","a*eoeaeoa");
-        m.put("eoaoaoo*o","o*ooaoaoe");
+        m.put("aaa*ooooa","o*aooaaoa");
         m.put("aeooeea*e","e*aeeooea");
         m.put("eeeoeoo*o","o*ooeoeee");
         m.put("eoe*ooeoo","e*eoooooe");
@@ -17008,7 +17695,7 @@ public class MapHashMap {
         m.put("ooe*aoaoe","a*ooaoeoe");
         m.put("aoe*aooaa","o*aaaoaoe");
         m.put("aeaee*aao","a*oeeaaea");
-        m.put("ooa*aeoea","o*oeaoaea");
+        m.put("ooa*aoaaa","a*oaaoaoa");
         m.put("eaoee*oaa","o*aaeaeeo");
         m.put("oooea*aee","o*eoaeoea");
         m.put("eoo*oaaoo","a*eooooao");
@@ -17020,7 +17707,6 @@ public class MapHashMap {
         m.put("aoaeaea*e","e*aeaeaoa");
         m.put("aoaeooa*a","a*aooeaoa");
         m.put("aaeaa*aao","e*oaaaaaa");
-    }    private void init_17() {
         m.put("oaa*eeaao","a*oaeaoea");
         m.put("eoaeoee*o","o*eeoeaoe");
         m.put("eae*aeeaa","e*eaaaaee");
@@ -17037,10 +17723,12 @@ public class MapHashMap {
         m.put("eoeea*oeo","e*ooaeeeo");
         m.put("oeo*eaoeo","o*oeeeoao");
         m.put("eae*aeeae","e*eaaaeee");
+        m.put("aooaaaa*a","a*aaaaooa");
         m.put("eao*eeeoa","e*eoeaaeo");
         m.put("oeoeaoa*e","e*aoaeoeo");
         m.put("aoeeoae*o","o*eaoeeoa");
         m.put("eao*eeeoe","e*eoeaeeo");
+        m.put("oaeooao*a","a*oaooeao");
         m.put("eeo*aaaao","a*eaaeoao");
         m.put("eoe*ooeea","e*eeooaoe");
         m.put("oeaaoao*e","e*oaoaaeo");
@@ -17061,6 +17749,7 @@ public class MapHashMap {
         m.put("oaeaa*aoa","e*aaaooaa");
         m.put("oaeao*oee","e*eaoeoao");
         m.put("oaeaa*aoe","e*eaaooaa");
+        m.put("aaoaoao*o","o*oaoaoaa");
         m.put("eaeaeae*a","a*eaeaeae");
         m.put("eeoaeeo*o","o*oeeaoee");
         m.put("aoo*oeeaa","e*aaooaeo");
@@ -17074,6 +17763,7 @@ public class MapHashMap {
         m.put("aoo*oeeao","e*aaoooeo");
         m.put("oooae*ooe","o*eoeooao");
         m.put("eoaee*oeo","a*ooeeeeo");
+        m.put("aaoee*aoe","o*eaeoaea");
         m.put("eoeoo*aoa","e*aoooeoa");
         m.put("aeo*aoaeo","a*aeaeooo");
         m.put("eeeaaoo*o","o*ooaaeee");
@@ -17084,10 +17774,12 @@ public class MapHashMap {
         m.put("aoaoaae*o","o*eaaoaoa");
         m.put("aaeaoae*e","e*eaoaeaa");
         m.put("eoe*aaeoa","e*eoaoaae");
+        m.put("aao*aoaoa","a*aoaaaoo");
         m.put("oaaeaea*a","a*aeaeaao");
         m.put("eoe*aaeoe","e*eoaoeae");
         m.put("aooae*eae","o*eoeaaae");
         m.put("aoeeaae*e","e*eaaeeoa");
+        m.put("oeooo*aoa","o*aeooooa");
         m.put("eoe*aaeoo","e*eoaooae");
         m.put("eeeoeeo*o","o*oeeoeee");
         m.put("ooa*aoeao","e*oaaoooa");
@@ -17103,10 +17795,11 @@ public class MapHashMap {
         m.put("eaaoaoe*a","a*eoaoaae");
         m.put("aeooa*ooo","o*oeaoaoo");
         m.put("aaeea*eoe","e*eaaoaee");
+        m.put("oaaao*oaa","a*aaoaoao");
         m.put("aaoeo*oaa","o*aaoaaeo");
         m.put("eao*eoaee","a*eeeaeoo");
         m.put("oaeoe*aoo","e*oaeoooa");
-        m.put("oooae*eao","o*ooeaoae");
+        m.put("ooo*aaaao","a*oaaooao");
         m.put("oeoaaaa*a","a*aaaaoeo");
         m.put("oaeoe*aoa","e*aaeoooa");
         m.put("ooaee*ooo","a*ooeooeo");
@@ -17118,9 +17811,10 @@ public class MapHashMap {
         m.put("oea*ooaae","a*oaoeeoa");
         m.put("eaeoaeo*a","a*oeaoeae");
         m.put("eooeaee*a","a*eeaeooe");
-        m.put("aoeeeeo*o","o*oeeeeoa");
+        m.put("aaoaa*oaa","o*aaaaaao");
         m.put("oaoea*aea","o*aaaeoea");
         m.put("eaaeaeo*a","a*oeaeaae");
+        m.put("ooooooo*o","o*ooooooo");
         m.put("aaaae*oeo","a*oaeeaao");
         m.put("oeo*aeoee","o*oeaeeeo");
         m.put("oooao*eao","o*oooaoae");
@@ -17130,6 +17824,7 @@ public class MapHashMap {
         m.put("aaa*aoeoa","e*aoaaaoa");
         m.put("aaa*aoooe","o*aoaaeoa");
         m.put("aaa*aoeoe","e*aoaaeoa");
+        m.put("aaaoaoa*o","o*aoaoaaa");
         m.put("eooaa*aeo","o*ooaeeaa");
         m.put("aaa*aoeoo","e*aoaaooa");
         m.put("aao*eaooa","o*aoeaaao");
@@ -17155,6 +17850,7 @@ public class MapHashMap {
         m.put("eeoaaaa*o","o*aaaaoee");
         m.put("eea*aaaoe","a*eoaeeaa");
         m.put("aoeaooa*a","a*aooaeoa");
+        m.put("ooaao*aoo","a*oooooaa");
         m.put("aaoea*oee","o*eaaeaeo");
         m.put("aoe*aoaee","a*aeaoeoe");
         m.put("eeoaaaa*e","e*aaaaoee");
@@ -17185,6 +17881,7 @@ public class MapHashMap {
         m.put("eoeeoeo*a","a*oeoeeoe");
         m.put("eeo*ooaeo","a*eeoeooo");
         m.put("oaeao*eeo","e*oaoeoae");
+        m.put("eaoaaoa*o","o*aoaaoae");
         m.put("eoo*aeaoo","a*eoaooeo");
         m.put("aaa*oaaee","a*aeoaeaa");
         m.put("oaaoe*aea","a*aaeeooa");
@@ -17212,13 +17909,14 @@ public class MapHashMap {
         m.put("oeeoeaa*e","e*aaeoeeo");
         m.put("aaaoe*aeo","a*oaeeaoa");
         m.put("aaaeo*ooe","a*eaooaeo");
+        m.put("oeaaaoa*a","a*aoaaaeo");
         m.put("eeo*aeaao","a*eaaeoeo");
         m.put("eoaoa*aee","a*eoaeeoa");
         m.put("oaaoe*aeo","a*oaeeooa");
-        m.put("eoaoa*aea","a*aoaeeoa");
+        m.put("aoa*aaaao","a*aaaooaa");
         m.put("eeoao*eoa","o*aeooeae");
         m.put("oea*aeooo","o*ooaeoea");
-        m.put("eeaee*ooo","a*oeeoeeo");
+        m.put("aoa*aaaaa","a*aaaoaaa");
         m.put("oae*eaaoe","a*ooeaeae");
         m.put("aoa*aaaae","a*aaaoeaa");
         m.put("aaa*aeeeo","e*aeaaoea");
@@ -17237,6 +17935,7 @@ public class MapHashMap {
         m.put("aooeaae*o","o*eaaeooa");
         m.put("aaaaa*aeo","a*oaaeaaa");
         m.put("aea*aaooa","o*aoaeaaa");
+        m.put("eaeooeo*o","o*oeooeae");
         m.put("oaeeeea*a","a*aeeeeao");
         m.put("eeaae*aoo","a*oeeoeaa");
         m.put("aea*aaooe","o*aoaeeaa");
@@ -17256,7 +17955,9 @@ public class MapHashMap {
         m.put("aao*eaaeo","a*aeeaoao");
         m.put("oaeea*eoo","e*oaaooee");
         m.put("ooa*aeaoo","a*ooaooea");
+        m.put("aaooaaa*o","o*aaaooaa");
         m.put("aee*eeoae","o*aaeeeee");
+        m.put("oaoao*ooa","o*aaoooao");
         m.put("eoa*eooae","o*eaeoeoa");
         m.put("aeoae*aae","o*eeeaaaa");
         m.put("ooe*oaoeo","o*oeoooae");
@@ -17278,7 +17979,9 @@ public class MapHashMap {
         m.put("aeo*ooooo","o*aooeooo");
         m.put("aoaoa*eee","a*eoaeaoe");
         m.put("eeaae*eoo","a*oeeoeae");
+        m.put("oaaoa*aaa","a*aaaaooa");
         m.put("aoe*aeoao","o*aaaooee");
+        m.put("eoo*eeooo","o*eoeooeo");
         m.put("eoeeoae*o","o*eaoeeoe");
         m.put("oaeeeea*o","o*aeeeeao");
         m.put("ooeao*ooa","e*aooooao");
@@ -17318,6 +18021,7 @@ public class MapHashMap {
         m.put("eea*eoaeo","a*eeeeooa");
         m.put("eea*eaoee","o*eeeeeaa");
         m.put("eooeo*oae","o*eooaeeo");
+    }    private void init_18() {
         m.put("aaooooo*e","e*oooooaa");
         m.put("eeeee*aaa","e*aeeaeea");
         m.put("aee*oaeoe","e*aooeeae");
@@ -17374,6 +18078,7 @@ public class MapHashMap {
         m.put("eao*aoaoe","a*eoaaeoo");
         m.put("eoaaeoe*a","a*eoeaaoe");
         m.put("eao*aoaoa","a*eoaaaoo");
+        m.put("ooooooo*a","a*ooooooo");
         m.put("eao*aoaoo","a*eoaaooo");
         m.put("eoaaeoe*o","o*eoeaaoe");
         m.put("oooeeao*o","o*oaeeooo");
@@ -17389,12 +18094,15 @@ public class MapHashMap {
         m.put("aoe*eoaoo","a*aoeoooe");
         m.put("oeaoeee*o","o*eeeoaeo");
         m.put("oae*ooeea","e*oeoaaoe");
+        m.put("aoooooa*o","o*aoooooa");
+        m.put("eoo*aeoae","o*eaaoeeo");
         m.put("oae*ooeee","e*oeoaeoe");
         m.put("aoa*oeooe","o*aoooeea");
         m.put("eaeoo*aoa","e*aaooeoa");
         m.put("aoa*oeooa","o*aoooaea");
         m.put("aeo*aoaea","a*aeaeaoo");
         m.put("eaeoo*aoe","e*eaooeoa");
+        m.put("aoooo*ooo","o*ooooaoo");
         m.put("aoeaa*oae","e*eoaaaao");
         m.put("aoa*oeooo","o*aooooea");
         m.put("aeaooae*o","o*eaooaea");
@@ -17419,6 +18127,7 @@ public class MapHashMap {
         m.put("oaeaaae*a","a*eaaaeao");
         m.put("aoeaoae*e","e*eaoaeoa");
         m.put("oaeaaae*e","e*eaaaeao");
+        m.put("oooaooo*a","a*oooaooo");
         m.put("oao*aaeaa","e*oaaaaao");
         m.put("eoeeeae*e","e*eaeeeoe");
         m.put("oaoea*ooe","o*eaaooeo");
@@ -17431,12 +18140,14 @@ public class MapHashMap {
         m.put("oao*aaeao","e*oaaaoao");
         m.put("oea*aaooo","o*ooaeoaa");
         m.put("oaoaooe*a","a*eooaoao");
+        m.put("oaaoooo*a","a*ooooaao");
         m.put("oaoaooe*e","e*eooaoao");
         m.put("oooae*ooa","o*aoeooao");
         m.put("oooaoea*a","a*aeoaooo");
         m.put("eaaae*eoa","a*aaeoeae");
         m.put("aoooe*eea","o*aoeeaoe");
         m.put("aoaoo*aeo","a*oooeaoa");
+        m.put("aaaoaao*o","o*oaaoaaa");
         m.put("oaa*eaoee","o*oeeaeaa");
         m.put("aoeoaaa*e","e*aaaoeoa");
         m.put("oaoaooe*o","o*eooaoao");
@@ -17490,8 +18201,10 @@ public class MapHashMap {
         m.put("aoo*aaoae","o*aaaoeao");
         m.put("ooeaooe*o","o*eooaeoo");
         m.put("eeooe*oeo","o*oeeeeoo");
+        m.put("eooeoeo*o","o*oeoeooe");
         m.put("eeeae*aee","e*eeeeeaa");
         m.put("aaa*oeoaa","o*aaoaaea");
+        m.put("eee*oooao","o*eaoeooe");
         m.put("oaoaaae*o","o*eaaaoao");
         m.put("eeeae*aea","e*aeeeeaa");
         m.put("oaa*aeoaa","o*oaaaaea");
@@ -17538,7 +18251,7 @@ public class MapHashMap {
         m.put("aeoeo*aoa","o*aeooaea");
         m.put("oaa*eeeae","e*oaeaeea");
         m.put("aee*aoaoa","a*aoaeaoe");
-        m.put("aoaaeeo*o","o*oeeaaoa");
+        m.put("oooaooa*o","o*aooaooo");
         m.put("eaoeo*eao","o*oaoaeee");
         m.put("oeeaaoa*a","a*aoaaeeo");
         m.put("oeaoe*aee","a*eeeeooa");
@@ -17582,6 +18295,7 @@ public class MapHashMap {
         m.put("aoaoe*aoa","a*aoeoaoa");
         m.put("oao*aaaeo","a*oeaaoao");
         m.put("aea*oooee","o*aeoeeoa");
+        m.put("aaoae*aee","o*eaeeaaa");
         m.put("ooaae*aoa","a*aoeooaa");
         m.put("oea*aeaeo","a*oeaeoea");
         m.put("eaeeo*aao","e*oaoaeea");
@@ -17602,12 +18316,13 @@ public class MapHashMap {
         m.put("eoaoo*eoo","a*ooooeoe");
         m.put("eeeoa*eao","e*oeaaeoe");
         m.put("aoeeo*ooo","e*ooooaeo");
+        m.put("aaooaoo*a","a*ooaooaa");
         m.put("oea*oaaea","a*oeoeaaa");
         m.put("aoe*eaaea","a*aeeoaae");
         m.put("aoeeo*ooe","e*eoooaeo");
         m.put("aeoeo*aoe","o*eeooaea");
         m.put("eeeoa*eae","e*eeaaeoe");
-        m.put("eeoeeae*o","o*eaeeoee");
+        m.put("aaaaa*ooo","a*oaaoaao");
         m.put("aoeeo*ooa","e*aoooaeo");
         m.put("eeooeoa*o","o*aoeooee");
         m.put("eeeoa*eaa","e*aeaaeoe");
@@ -17623,10 +18338,12 @@ public class MapHashMap {
         m.put("aeeae*eea","e*aeeeaae");
         m.put("eaaee*oae","a*eaeaeeo");
         m.put("eoe*oeoea","o*eeooaee");
-        m.put("eoo*aaoao","o*eaaooao");
-        m.put("eao*eooee","o*eeeaeoo");
+        m.put("aaa*ooaoo","a*aooaooa");
+        m.put("oaooaoo*a","a*ooaooao");
+        m.put("aaa*ooaoa","a*aooaaoa");
         m.put("eoe*ooeee","e*eeooeoe");
         m.put("aaa*ooaoe","a*aooaeoa");
+        m.put("ooo*aoaao","a*oaaoooo");
         m.put("oeeao*aeo","e*oeoeoaa");
         m.put("eeooo*oea","o*aeoeeoo");
         m.put("eoo*eeeoo","e*eoeooeo");
@@ -17649,6 +18366,7 @@ public class MapHashMap {
         m.put("eeeae*eae","e*eeeaeae");
         m.put("oee*aaeae","e*oaaeeae");
         m.put("eeeae*eaa","e*aeeaeae");
+        m.put("aoeaooo*a","a*oooaeoa");
         m.put("oee*aaeaa","e*oaaeaae");
         m.put("aea*oooea","o*aeoeaoa");
         m.put("oee*aaeao","e*oaaeoae");
@@ -17661,6 +18379,7 @@ public class MapHashMap {
         m.put("oao*eeeea","e*oeeaaeo");
         m.put("eae*eoooo","o*eoeaooe");
         m.put("oea*aaaao","a*oaaeoaa");
+        m.put("oaaooaa*a","a*aaooaao");
         m.put("oao*eeeeo","e*oeeaoeo");
         m.put("aee*eeaee","a*aeeeeee");
         m.put("aoeoeao*o","o*oaeoeoa");
@@ -17674,6 +18393,7 @@ public class MapHashMap {
         m.put("oeaeeea*e","e*aeeeaeo");
         m.put("aeooe*eoo","o*oeeoaoe");
         m.put("oeeao*eao","e*oeoaoae");
+        m.put("eaooo*aoo","o*oaooeoa");
         m.put("eeaoo*eoo","a*oeooeoe");
         m.put("oeeao*eae","e*eeoaoae");
         m.put("aeo*aoooe","o*aoaeeoo");
@@ -17687,6 +18407,7 @@ public class MapHashMap {
         m.put("eaoooea*a","a*aeoooae");
         m.put("ooe*oooea","o*oeooaoe");
         m.put("eaeea*oaa","e*aaaaeeo");
+        m.put("eeo*eoooe","o*eoeeeoo");
         m.put("eeooeea*o","o*aeeooee");
         m.put("aaeoo*eea","e*aaoeaoe");
         m.put("aaeaa*aoa","e*aaaoaaa");
@@ -17701,6 +18422,7 @@ public class MapHashMap {
         m.put("aaeoo*eeo","e*oaoeaoe");
         m.put("oaoaa*eeo","o*oaaeoae");
         m.put("eeaaa*eae","a*eeaaeae");
+        m.put("aoooa*aaa","o*aoaaaoa");
         m.put("oaooo*aee","o*eaoeooa");
         m.put("aooaoao*e","e*oaoaooa");
         m.put("oao*aeooa","o*ooaaaeo");
@@ -17723,6 +18445,7 @@ public class MapHashMap {
         m.put("eaeaeoa*e","e*aoeaeae");
         m.put("eoooeoa*a","a*aoeoooe");
         m.put("eaeaoae*a","a*eaoaeae");
+        m.put("aoo*eooae","o*aaeoeoo");
         m.put("eeoee*oae","o*eeeaeeo");
         m.put("aeeae*aoe","e*eeeoaaa");
         m.put("eeoee*oaa","o*aeeaeeo");
@@ -17732,7 +18455,7 @@ public class MapHashMap {
         m.put("aeo*aaoaa","o*aaaeaao");
         m.put("ooeee*ooe","e*eoeooeo");
         m.put("ooa*ooaeo","a*oeooooa");
-        m.put("eeooo*oeo","o*oeoeeoo");
+        m.put("aaa*aaoaa","o*aaaaaaa");
         m.put("ooa*ooaea","a*oeooaoa");
         m.put("aoa*eooee","o*aeeoeoa");
         m.put("eae*eeaeo","a*eeeaoee");
@@ -17760,6 +18483,7 @@ public class MapHashMap {
         m.put("aao*aeeea","e*aeaaaeo");
         m.put("oea*aeaee","a*oeaeeea");
         m.put("ooeea*oee","e*eoaeoeo");
+        m.put("oaoao*ooo","o*oaoooao");
         m.put("ooeea*oea","e*aoaeoeo");
         m.put("ooeea*oeo","e*ooaeoeo");
         m.put("aaaoe*ooe","a*eaeoaoo");
@@ -17884,6 +18608,7 @@ public class MapHashMap {
         m.put("eoo*aoooo","o*eoaoooo");
         m.put("ooo*eaoea","o*oeeoaao");
         m.put("eooooeo*e","e*oeooooe");
+        m.put("ooaoooo*o","o*ooooaoo");
         m.put("eaaea*aee","a*eaaeeea");
         m.put("ooaaa*eao","a*ooaaoae");
         m.put("oooeeea*e","e*aeeeooo");
@@ -17896,26 +18621,28 @@ public class MapHashMap {
         m.put("eaooe*aea","o*aaeeeoa");
         m.put("aeaaoea*e","e*aeoaaea");
         m.put("aeeee*aoo","e*oeeoaea");
-        m.put("eaooe*aeo","o*oaeeeoa");
+        m.put("aoaoo*ooo","a*ooooaoo");
         m.put("eae*oaeoa","e*eooaaae");
         m.put("eaaea*aea","a*aaaeeea");
         m.put("aaooa*eea","o*aaaeaoe");
         m.put("oaa*aeooe","o*ooaaeea");
         m.put("oaa*oaoae","o*oaoaeaa");
-        m.put("oeooo*aoo","o*oeooooa");
+        m.put("ooaoa*oaa","a*aoaaooo");
         m.put("aaooa*eee","o*eaaeaoe");
         m.put("ooo*aoaeo","a*oeaoooo");
         m.put("eoaaa*oaa","a*aoaaeao");
         m.put("eoe*aaaae","a*eaaoeae");
         m.put("aaooo*eoe","o*eaooaoe");
         m.put("ooo*aoaee","a*oeaoeoo");
+        m.put("aaaaoao*a","a*oaoaaaa");
         m.put("aea*eaoae","o*aaeeeaa");
         m.put("aoaea*eoe","a*eoaoaee");
         m.put("eaa*aooaa","o*eaaaaoa");
         m.put("eaeaoee*a","a*eeoaeae");
         m.put("eoaooeo*e","e*oeooaoe");
         m.put("oeaaaae*e","e*eaaaaeo");
-        m.put("aeooo*aoa","o*aeooaoa");
+        m.put("aaaaaao*o","o*oaaaaaa");
+        m.put("aaoaaao*a","a*oaaaoaa");
         m.put("aeoaaaa*a","a*aaaaoea");
         m.put("aaoae*aaa","o*aaeaaaa");
         m.put("aaoaaao*e","e*oaaaoaa");
@@ -17927,6 +18654,7 @@ public class MapHashMap {
         m.put("aee*eeooo","o*aoeeoee");
         m.put("aeoaaoa*e","e*aoaaoea");
         m.put("ooeaaee*o","o*eeaaeoo");
+        m.put("oaa*oaoao","o*oaoaoaa");
         m.put("aeoooao*o","o*oaoooea");
         m.put("aeaeaae*o","o*eaaeaea");
         m.put("oeaae*eae","a*eeeaoae");
@@ -17943,13 +18671,14 @@ public class MapHashMap {
         m.put("oeeeeoo*a","a*ooeeeeo");
         m.put("aoo*aeeae","e*aaaoeeo");
         m.put("eee*eaaeo","a*eeeeoae");
-        m.put("eeooa*eoo","o*oeaoeoe");
+        m.put("aaoaoaa*o","o*aaoaoaa");
         m.put("aoo*aeeaa","e*aaaoaeo");
         m.put("ooa*aeooa","o*ooaoaea");
         m.put("aeaao*oeo","a*oeoeaao");
         m.put("eee*eaaee","a*eeeeeae");
         m.put("aoo*aeeao","e*aaaooeo");
         m.put("eee*eaaea","a*eeeeaae");
+        m.put("aao*aaooa","o*aoaaaao");
         m.put("oaeeoea*a","a*aeoeeao");
         m.put("eooeoea*a","a*aeoeooe");
         m.put("ooaee*oaa","a*aoeaoeo");
@@ -17961,11 +18690,13 @@ public class MapHashMap {
         m.put("ooe*eeeoo","e*ooeooee");
         m.put("aeo*eaaea","a*aeeeaao");
         m.put("eooaaao*o","o*oaaaooe");
+        m.put("aaa*aaooa","o*aoaaaaa");
         m.put("eeoeo*eoe","o*eeooeee");
         m.put("oeaoo*eoo","a*oeooooe");
         m.put("ooe*eeeoe","e*ooeoeee");
         m.put("aaeoaoa*o","o*aoaoeaa");
         m.put("ooe*eeeoa","e*ooeoaee");
+        m.put("oaoooao*o","o*oaoooao");
         m.put("eoe*aeaae","a*eaaoeee");
         m.put("eoe*aeaaa","a*eaaoaee");
         m.put("aeeooee*o","o*eeooeea");
@@ -17981,7 +18712,7 @@ public class MapHashMap {
         m.put("eoo*aoeoa","e*eoaoaoo");
         m.put("aeo*aaoao","o*aaaeoao");
         m.put("eeoaeea*o","o*aeeaoee");
-        m.put("aoo*ooooe","o*aoooeoo");
+        m.put("eeaoaee*o","o*eeaoaee");
         m.put("eoaoeaa*o","o*aaeoaoe");
         m.put("eeooe*aao","o*oeeaeoa");
         m.put("ooo*eaeoo","e*ooeooao");
@@ -18004,15 +18735,16 @@ public class MapHashMap {
         m.put("eooaoao*e","e*oaoaooe");
         m.put("eoeoooa*o","o*aoooeoe");
         m.put("oea*oaeee","e*oeoeeaa");
-        m.put("oeo*eaaaa","a*oaeeaao");
+        m.put("aoaoo*ooa","a*aoooaoo");
         m.put("oaeaeoe*e","e*eoeaeao");
         m.put("eaeeeoo*o","o*ooeeeae");
         m.put("eaaaaee*o","o*eeaaaae");
         m.put("oeaoa*eee","a*eeaeooe");
+        m.put("oao*ooooo","o*oooaooo");
         m.put("eee*aoeeo","e*eeaeooe");
-        m.put("oeooo*aoa","o*aeooooa");
+        m.put("ooaoa*oao","a*ooaaooo");
         m.put("aeaoa*ooo","a*oeaoaoo");
-        m.put("eoo*aeoae","o*eaaoeeo");
+        m.put("oaaoa*aao","a*oaaaooa");
         m.put("oee*oooaa","o*oaoeaoe");
         m.put("aae*eeaeo","a*aeeaoee");
         m.put("aoeae*eoe","e*eoeoaae");
@@ -18021,7 +18753,6 @@ public class MapHashMap {
         m.put("oaeoe*oea","e*aaeeooo");
         m.put("aoa*eeeoe","e*aoeoeea");
         m.put("aeo*oeoaa","o*aaoeaeo");
-    }    private void init_18() {
         m.put("eeeaaee*e","e*eeaaeee");
         m.put("aaooa*eoa","o*aaaoaoe");
         m.put("aoa*eeeoo","e*aoeooea");
@@ -18043,6 +18774,7 @@ public class MapHashMap {
         m.put("aoeoo*aoo","e*ooooaoa");
         m.put("oeoeaaa*a","a*aaaeoeo");
         m.put("eaeaoea*e","e*aeoaeae");
+        m.put("aooao*oao","o*oooaaao");
         m.put("ooaeoae*e","e*eaoeaoo");
         m.put("oaa*eaaoa","a*ooeaaaa");
         m.put("oae*aaeoe","e*ooaaeae");
@@ -18050,6 +18782,7 @@ public class MapHashMap {
         m.put("aoaoo*oee","a*eooeaoo");
         m.put("oaoaa*oeo","o*oaaeoao");
         m.put("eaoea*oae","o*eaaaeeo");
+        m.put("aoo*ooooa","o*aoooaoo");
         m.put("eaeeo*eoo","e*oaooeee");
         m.put("eoaeeae*o","o*eaeeaoe");
         m.put("eaeaaae*e","e*eaaaeae");
@@ -18086,6 +18819,7 @@ public class MapHashMap {
         m.put("oooao*oee","o*eooeoao");
         m.put("eeaaaoe*o","o*eoaaaee");
         m.put("oeaeo*oee","a*eeoeoeo");
+        m.put("oaooeoo*o","o*ooeooao");
         m.put("eaaaaoo*a","a*ooaaaae");
         m.put("aaeoa*ooe","e*eaaoaoo");
         m.put("aoa*aaeea","e*aeaoaaa");
@@ -18101,6 +18835,7 @@ public class MapHashMap {
         m.put("ooe*oaeao","e*oaoooae");
         m.put("oeooo*oae","o*eeoaooo");
         m.put("aeaaooo*o","o*oooaaea");
+        m.put("aoooa*aoo","o*ooaoaoa");
         m.put("aee*eeooa","o*aoeeaee");
         m.put("ooa*eeooo","o*ooeooea");
         m.put("aaa*aooeo","o*aeaaooa");
@@ -18114,7 +18849,7 @@ public class MapHashMap {
         m.put("aeoae*eoe","o*eeeoaae");
         m.put("oeeee*eae","e*eeeaoee");
         m.put("oeo*oaeae","e*oaoeeao");
-        m.put("aeoae*eoa","o*aeeoaae");
+        m.put("ooeaaeo*a","a*oeaaeoo");
         m.put("oaeoo*aaa","e*aaoaooa");
         m.put("aoeooee*e","e*eeooeoa");
         m.put("eeooa*eoe","o*eeaoeoe");
@@ -18140,6 +18875,7 @@ public class MapHashMap {
         m.put("aeoaoae*o","o*eaoaoea");
         m.put("aaeoooe*o","o*eoooeaa");
         m.put("eaoeooo*e","e*oooeoae");
+        m.put("oooaoao*o","o*oaoaooo");
         m.put("eeoeeaa*o","o*aaeeoee");
         m.put("oooeo*aoo","o*oooooea");
         m.put("aaeoooe*e","e*eoooeaa");
@@ -18159,11 +18895,12 @@ public class MapHashMap {
         m.put("aeo*ooooe","o*aooeeoo");
         m.put("eeooeoe*a","a*eoeooee");
         m.put("oaaooea*o","o*aeooaao");
+        m.put("aoo*ooooo","o*aoooooo");
         m.put("eeeaaoe*e","e*eoaaeee");
         m.put("eooea*eao","o*ooaaeee");
         m.put("aoaoeea*e","e*aeeoaoa");
         m.put("eoaaa*eee","a*eoaeeae");
-        m.put("aae*ooooe","o*aooaeoe");
+        m.put("aaaaaao*a","a*oaaaaaa");
         m.put("aoaoeea*a","a*aeeoaoa");
         m.put("oaaooea*e","e*aeooaao");
         m.put("eaeeaoa*o","o*aoaeeae");
@@ -18194,6 +18931,7 @@ public class MapHashMap {
         m.put("oao*eoeoa","e*ooeaaoo");
         m.put("oao*eoaae","a*oaeaeoo");
         m.put("eaeoe*aee","e*eaeeeoa");
+        m.put("eoeoeoo*o","o*ooeoeoe");
         m.put("eaeoe*aea","e*aaeeeoa");
         m.put("ooeoeea*o","o*aeeoeoo");
         m.put("aeaaa*eoo","a*oeaoaae");
@@ -18245,6 +18983,7 @@ public class MapHashMap {
         m.put("aeo*eoooa","o*aoeeaoo");
         m.put("aao*eaaoe","a*aoeaeao");
         m.put("eeo*oeeoa","e*eooeaeo");
+        m.put("aoeaaoo*o","o*ooaaeoa");
         m.put("aao*eaaoa","a*aoeaaao");
         m.put("oao*eaoao","o*oaeaoao");
         m.put("eeeoaeo*a","a*oeaoeee");
@@ -18283,6 +19022,7 @@ public class MapHashMap {
         m.put("aoeeo*oaa","e*aooaaeo");
         m.put("oooee*aae","o*eoeaoea");
         m.put("aoeeo*oae","e*eooaaeo");
+    }    private void init_19() {
         m.put("ooaeeoo*a","a*ooeeaoo");
         m.put("aaaaa*ooe","a*eaaoaao");
         m.put("aaaoe*eoo","a*oaeoaoe");
@@ -18310,6 +19050,7 @@ public class MapHashMap {
         m.put("eoaoaoo*a","a*ooaoaoe");
         m.put("oaaoe*eeo","a*oaeeooe");
         m.put("aeeeaee*e","e*eeaeeea");
+        m.put("aaooo*aoa","o*aaooaoa");
         m.put("ooo*aaeee","e*oeaoeao");
         m.put("oooea*eao","o*ooaaoee");
         m.put("aeeeaee*a","a*eeaeeea");
@@ -18329,6 +19070,8 @@ public class MapHashMap {
         m.put("ooo*aeaae","a*oaaoeeo");
         m.put("aaooaeo*o","o*oeaooaa");
         m.put("aoo*ooaea","a*aeooaoo");
+        m.put("oooooaa*o","o*aaooooo");
+        m.put("aoaoaoa*a","a*aoaoaoa");
         m.put("oeoeo*aee","o*eeoeoea");
         m.put("aeo*eeeeo","e*aeeeoeo");
         m.put("oeoeoee*o","o*eeoeoeo");
@@ -18362,6 +19105,7 @@ public class MapHashMap {
         m.put("eaa*aoaoo","a*eoaaooa");
         m.put("eaa*aoaoa","a*eoaaaoa");
         m.put("oea*eeaae","a*oaeeeea");
+        m.put("aao*aooaa","o*aaaaaoo");
         m.put("aoaaaoa*e","e*aoaaaoa");
         m.put("aae*aoaoo","a*aoaaooe");
         m.put("oeoae*eoa","o*aeeooae");
@@ -18381,17 +19125,21 @@ public class MapHashMap {
         m.put("oeoeo*aoo","o*oeoooea");
         m.put("ooeaeoe*e","e*eoeaeoo");
         m.put("aeo*oeaeo","a*aeoeoeo");
-        m.put("aee*eoooa","o*aoeeaoe");
+        m.put("aoaaa*ooa","a*aoaoaao");
+        m.put("aoaaa*ooo","a*ooaoaao");
         m.put("aooaeee*o","o*eeeaooa");
+        m.put("oeeaeae*o","o*eaeaeeo");
+        m.put("oeo*aaoaa","o*oaaeaao");
         m.put("aaa*eeeoa","e*aoeaaea");
         m.put("aooaeea*o","o*aeeaooa");
+        m.put("eoeeaoe*o","o*eoaeeoe");
         m.put("eeeao*oeo","e*oeoeeao");
         m.put("aeoeaoa*o","o*aoaeoea");
         m.put("eeeao*oea","e*aeoeeao");
         m.put("aoa*ooaee","a*aeooeoa");
         m.put("aaa*eeeoo","e*aoeaoea");
         m.put("eoe*oaoao","o*eaoooae");
-        m.put("eaooo*ooo","o*oaooeoo");
+        m.put("aoo*oooao","o*aaooooo");
         m.put("eaoeoea*a","a*aeoeoae");
         m.put("aoeoe*eeo","e*ooeeaoe");
         m.put("eaoeoea*e","e*aeoeoae");
@@ -18400,10 +19148,11 @@ public class MapHashMap {
         m.put("eeo*aooeo","o*eeaeooo");
         m.put("eeoee*ooo","o*oeeoeeo");
         m.put("aoeoaee*e","e*eeaoeoa");
+        m.put("oeooa*aao","o*oeaaooa");
         m.put("eaoeeoo*e","e*ooeeoae");
         m.put("eeaao*aoa","a*aeooeaa");
         m.put("aoaaeoo*o","o*ooeaaoa");
-        m.put("aeoea*aoa","o*aeaoaea");
+        m.put("aaooooa*a","a*aooooaa");
         m.put("aaeeeao*e","e*oaeeeaa");
         m.put("oao*eaoae","o*oaeaeao");
         m.put("aooeo*ooa","o*aoooaeo");
@@ -18415,6 +19164,7 @@ public class MapHashMap {
         m.put("eoo*aoaee","a*eeaoeoo");
         m.put("eeeooea*o","o*aeooeee");
         m.put("aaeoo*aoe","e*eaooaoa");
+        m.put("ooaoaao*o","o*oaaoaoo");
         m.put("aaeoo*aoa","e*aaooaoa");
         m.put("aoo*oeeeo","e*aeoooeo");
         m.put("ooo*aeeae","e*oaaoeeo");
@@ -18445,7 +19195,9 @@ public class MapHashMap {
         m.put("aoe*oaeeo","e*aeoooae");
         m.put("aee*eoooe","o*aoeeeoe");
         m.put("eoeea*eoo","e*ooaoeee");
+        m.put("ooaoo*ooo","a*ooooooo");
         m.put("ooo*ooaee","a*oeooeoo");
+        m.put("ooaoaao*a","a*oaaoaoo");
         m.put("aaeeaea*e","e*aeaeeaa");
         m.put("eeeeoea*a","a*aeoeeee");
         m.put("ooo*oooae","o*oaooeoo");
@@ -18458,11 +19210,12 @@ public class MapHashMap {
         m.put("eeeaooo*a","a*oooaeee");
         m.put("eaoae*oaa","o*aaeaeao");
         m.put("eaeooea*a","a*aeooeae");
+        m.put("eeooaaa*o","o*aaaooee");
         m.put("ooe*aeeeo","e*oeaooee");
         m.put("oeoee*oeo","o*oeeeoeo");
         m.put("aeaaaea*a","a*aeaaaea");
         m.put("aaaae*oae","a*eaeaaao");
-        m.put("oea*oaooe","o*oooeeaa");
+        m.put("aooooaa*a","a*aaooooa");
         m.put("ooeeaee*o","o*eeaeeoo");
         m.put("aaaae*oaa","a*aaeaaao");
         m.put("aaaae*oao","a*oaeaaao");
@@ -18477,6 +19230,7 @@ public class MapHashMap {
         m.put("aae*oaoao","o*aaoaoae");
         m.put("aeo*oeaee","a*aeoeeeo");
         m.put("aeaoooe*e","e*eoooaea");
+        m.put("ooo*aaoao","o*oaaooao");
         m.put("eoe*eeaae","a*eaeoeee");
         m.put("ooooeao*a","a*oaeoooo");
         m.put("oaoaaee*a","a*eeaaoao");
@@ -18484,8 +19238,9 @@ public class MapHashMap {
         m.put("eoaao*aoa","a*aoooeaa");
         m.put("aaaaeaa*e","e*aaeaaaa");
         m.put("eaeeaaa*a","a*aaaeeae");
-        m.put("eoaoe*eao","a*ooeaeoe");
+        m.put("ooo*oaaao","a*oaoooao");
         m.put("aaaaeaa*a","a*aaeaaaa");
+        m.put("aaaooao*o","o*oaooaaa");
         m.put("aooooaa*e","e*aaooooa");
         m.put("aoa*oeeae","e*aaooeea");
         m.put("oaaeo*ooa","a*aaoooeo");
@@ -18517,6 +19272,7 @@ public class MapHashMap {
         m.put("aae*eoeeo","e*aeeaooe");
         m.put("eeaoo*eao","a*oeoaeoe");
         m.put("ooaoaao*e","e*oaaoaoo");
+        m.put("eaoaeaa*o","o*aaeaoae");
         m.put("aoaoe*aeo","a*ooeeaoa");
         m.put("aeaaeee*a","a*eeeaaea");
         m.put("eao*eoooo","o*eoeaooo");
@@ -18531,12 +19287,13 @@ public class MapHashMap {
         m.put("eaaea*eaa","a*aaaaeee");
         m.put("eeeeeae*a","a*eaeeeee");
         m.put("eea*ooeao","e*eaoeooa");
+        m.put("oaa*aaoaa","o*oaaaaaa");
         m.put("eeeeeae*e","e*eaeeeee");
         m.put("aeaaeee*e","e*eeeaaea");
         m.put("oaooe*oae","o*eaeaooo");
         m.put("ooaoo*oae","a*eooaooo");
         m.put("ooa*aaeoo","e*ooaooaa");
-        m.put("oaeoaoo*o","o*ooaoeao");
+        m.put("aao*aaoaa","o*aaaaaao");
         m.put("aoaoe*aoe","a*eoeoaoa");
         m.put("ooa*aaeoa","e*ooaoaaa");
         m.put("aoooe*aea","o*aoeeaoa");
@@ -18605,7 +19362,7 @@ public class MapHashMap {
         m.put("eooae*eea","o*aoeeeae");
         m.put("eae*oeooe","o*eooaeee");
         m.put("aoaao*oae","a*eooaaao");
-        m.put("ooa*aeoeo","o*oeaooea");
+        m.put("ooa*aoaao","a*oaaoooa");
         m.put("aea*oooaa","o*aaoeaoa");
         m.put("aeaoa*aea","a*aeaeaoa");
         m.put("aoaoe*oae","a*eoeaaoo");
@@ -18667,7 +19424,7 @@ public class MapHashMap {
         m.put("eeo*aoooe","o*eoaeeoo");
         m.put("ooo*eoaae","a*oaeoeoo");
         m.put("eeaoo*aea","a*aeoeeoa");
-        m.put("oooea*eoo","o*ooaooee");
+        m.put("aeaoaee*o","o*eeaoaea");
         m.put("ooeooao*e","e*oaooeoo");
         m.put("eeaoo*aee","a*eeoeeoa");
         m.put("oooea*aae","o*eoaaoea");
@@ -18694,6 +19451,7 @@ public class MapHashMap {
         m.put("ooeeo*eoe","e*eooooee");
         m.put("eoa*eaaoe","a*eoeoeaa");
         m.put("oaa*aeoeo","o*oeaaoea");
+        m.put("ooa*aaoaa","o*oaaoaaa");
         m.put("ooeeo*eoo","e*oooooee");
         m.put("eooeoao*o","o*oaoeooe");
         m.put("aeooooa*o","o*aooooea");
@@ -18725,8 +19483,9 @@ public class MapHashMap {
         m.put("eao*aeooo","o*eoaaoeo");
         m.put("eaa*eoooe","o*eoeaeoa");
         m.put("aeo*aeoaa","o*aaaeaeo");
-        m.put("oeooo*ooo","o*oeooooo");
+        m.put("ooaoo*oao","a*oooaooo");
         m.put("oaoeooe*e","e*eooeoao");
+        m.put("ooaaaaa*o","o*aaaaaoo");
         m.put("oao*aaeeo","e*oeaaoao");
         m.put("eaeae*aaa","e*aaeaeaa");
         m.put("oea*aeoaa","o*oaaeaea");
@@ -18745,9 +19504,11 @@ public class MapHashMap {
         m.put("eaeoo*oea","e*aaoeeoo");
         m.put("oeaaoeo*a","a*oeoaaeo");
         m.put("eoeaoao*o","o*oaoaeoe");
+        m.put("oaa*aaooa","o*ooaaaaa");
         m.put("eaeoo*oee","e*eaoeeoo");
         m.put("oaaoaee*e","e*eeaoaao");
         m.put("ooaoeoo*e","e*ooeoaoo");
+        m.put("oooooao*a","a*oaooooo");
         m.put("oaaoaee*a","a*eeaoaao");
         m.put("ooaoeoo*a","a*ooeoaoo");
         m.put("ooaoeoo*o","o*ooeoaoo");
@@ -18839,13 +19600,14 @@ public class MapHashMap {
         m.put("aaeeeoe*e","e*eoeeeaa");
         m.put("aaeaa*eaa","e*aaaaaae");
         m.put("oeaoo*oea","a*aeoeooo");
+        m.put("aoaoaoo*o","o*ooaoaoa");
         m.put("eeeea*aao","e*oeaaeea");
         m.put("ooooeoa*o","o*aoeoooo");
         m.put("oaeee*ooa","e*aaeooeo");
         m.put("aeoeaea*e","e*aeaeoea");
         m.put("eoe*ooeoe","e*eoooeoe");
         m.put("oaaeaae*o","o*eaaeaao");
-        m.put("eaoaaoa*o","o*aoaaoae");
+        m.put("oaaoo*ooo","a*oaooooo");
         m.put("eeaoooa*a","a*aoooaee");
         m.put("oaoaoeo*o","o*oeoaoao");
         m.put("oaeee*ooo","e*oaeooeo");
@@ -18863,9 +19625,10 @@ public class MapHashMap {
         m.put("eeeeoea*e","e*aeoeeee");
         m.put("aaa*aoaeo","a*aeaaooa");
         m.put("eaoaeae*e","e*eaeaoae");
+        m.put("oooooao*o","o*oaooooo");
         m.put("ooaaa*ooe","a*eoaooao");
         m.put("oao*eoaea","a*oeeaaoo");
-        m.put("eaoaeae*o","o*eaeaoae");
+        m.put("ooaaa*ooa","a*aoaooao");
         m.put("eea*ooeaa","e*eaoeaoa");
         m.put("oea*aeaae","a*oaaeeea");
         m.put("eeoooee*a","a*eeoooee");
@@ -18874,6 +19637,7 @@ public class MapHashMap {
         m.put("aaooo*eea","o*aaoeaoe");
         m.put("aaoeaee*a","a*eeaeoaa");
         m.put("ooe*eeoae","o*oaeoeee");
+        m.put("oaaeeea*o","o*aeeeaao");
         m.put("aaoeaee*e","e*eeaeoaa");
         m.put("ooaoe*eea","a*aoeeooe");
         m.put("eea*oeeea","e*eeoeaea");
@@ -18892,14 +19656,16 @@ public class MapHashMap {
         m.put("eea*oeeee","e*eeoeeea");
         m.put("ooeeaea*a","a*aeaeeoo");
         m.put("ooo*eoaaa","a*oaeoaoo");
-        m.put("aoe*eooee","o*aeeoeoe");
+        m.put("ooe*oaaoo","a*oooooae");
         m.put("eaaee*aao","a*oaeaeea");
         m.put("oooaeoo*o","o*ooeaooo");
         m.put("eeooaee*e","e*eeaooee");
         m.put("aeaoeae*a","a*eaeoaea");
         m.put("aaoeooo*a","a*oooeoaa");
+        m.put("aoaoooa*o","o*aoooaoa");
         m.put("oeaaa*aeo","a*oeaeoaa");
         m.put("oeoae*eea","o*aeeeoae");
+        m.put("oaa*eooao","o*oaeaooa");
         m.put("eeaoe*eae","a*eeeaeoe");
         m.put("eaeee*aoo","e*oaeoeea");
         m.put("aao*eaaaa","a*aaeaaao");
@@ -18915,28 +19681,31 @@ public class MapHashMap {
         m.put("aaa*aeaea","a*aeaaaea");
         m.put("aaaea*aoo","a*oaaoaea");
         m.put("oao*aaaae","a*oaaaeao");
+        m.put("oaoae*eeo","o*oaeeoae");
         m.put("ooooo*aae","o*eooaooa");
         m.put("aaaea*aoa","a*aaaoaea");
         m.put("eeaeaea*a","a*aeaeaee");
         m.put("aeo*oeooa","o*aooeaeo");
         m.put("aaaea*aoe","a*eaaoaea");
         m.put("oae*oeoae","o*oaoaeee");
-        m.put("eaoaa*aee","o*eaaeeaa");
+        m.put("ooo*ooaaa","a*oaooaoo");
         m.put("aeaeo*aoo","a*oeooaea");
         m.put("aoooaoe*o","o*eoaoooa");
         m.put("eea*aaaeo","a*eeaeoaa");
         m.put("eaoaa*aeo","o*oaaeeaa");
-        m.put("aoa*eaooe","o*aoeoeaa");
+        m.put("aaaaa*aoa","a*aaaoaaa");
         m.put("eaooa*ooo","o*oaaoeoo");
         m.put("eoeea*oao","e*ooaaeeo");
+        m.put("ooe*oaaoa","a*ooooaae");
         m.put("eaooa*oao","o*oaaaeoo");
         m.put("eoe*eaoea","o*eeeoaae");
-        m.put("ooe*oaaoo","a*oooooae");
-        m.put("eoe*eaoee","o*eeeoeae");
+        m.put("oao*aaaao","a*oaaaoao");
+        m.put("ooo*ooaao","a*oaooooo");
+        m.put("eaa*aaoeo","o*eeaaoaa");
         m.put("eooaaoa*a","a*aoaaooe");
         m.put("aaoeaea*a","a*aeaeoaa");
         m.put("eeoooee*e","e*eeoooee");
-        m.put("ooe*oaaoa","a*ooooaae");
+        m.put("oao*aaaaa","a*oaaaaao");
         m.put("ooo*ooaae","a*oaooeoo");
     }
     public MapHashMap() {
@@ -18959,4 +19728,5 @@ public class MapHashMap {
         init_16();
         init_17();
         init_18();
+        init_19();
     }}

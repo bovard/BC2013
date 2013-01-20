@@ -85,9 +85,8 @@ for i0 in possibles:
                         for i7 in possibles:
                             for i8 in possibles:
                                 map = i0+'*'+i2+i3+i4+i5+i6+i7+i8
-                                if 'e' in map:
-                                    if not in_results(map):
-                                        results[map] = eval_map(map)
+                                if not in_results(map):
+                                    results[map] = eval_map(map)
 
 
 
@@ -101,7 +100,7 @@ def init_hash(f, name, type):
     f.write("import java.util.Map;\n")
     f.write("\n")
     f.write("public class %s {\n" % name)
-    f.write("    private static final Map<String, %s> m = new HashMap<String, %s>();\n" % (type, type))
+    f.write("    public Map<String, %s> m = new HashMap<String, %s>();\n" % (type, type))
 
 def write_constructor(f, num_o_inits, name):
     f.write("    public %s() {\n" % name)

@@ -63,7 +63,7 @@ public class Soldier extends TeamRobot {
 		if (enemyInSight) {
 			// check to see if there is anyone in range that can shoot us
 			// TODO: change this to detect only soldiers
-			meleeObjects = rc.senseNearbyGameObjects(Robot.class, 8);
+			meleeObjects = rc.senseNearbyGameObjects(Robot.class, 15);
 			for (Robot object:meleeObjects) {
 				if (object.getTeam() == info.enemyTeam) {
 					enemyInMelee = true;
