@@ -12,7 +12,6 @@ import battlecode.common.RobotType;
 
 public class MoveCalculator {
 	
-	private CombatHashMap combatHash;
 	private char[][] map;
 	private Soldier robot;
 	

@@ -2,8 +2,6 @@ package team122;
 
 import java.util.HashMap;
 
-import team122.communication.Communicator;
-import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.Team;

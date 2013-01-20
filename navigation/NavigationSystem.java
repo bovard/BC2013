@@ -3,9 +3,6 @@ package team122.navigation;
 import battlecode.common.*;
 
 import java.util.HashMap;
-import java.util.Random;
-
-import team122.AStar;
 import team122.RobotInformation;
 import team122.robot.TeamRobot;
 

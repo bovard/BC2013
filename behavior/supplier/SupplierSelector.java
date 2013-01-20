@@ -2,7 +2,6 @@ package team122.behavior.supplier;
 
 import team122.behavior.Decision;
 import team122.behavior.Node;
-import team122.robot.HQ;
 import team122.robot.Supplier;
 
 public class SupplierSelector extends Decision {

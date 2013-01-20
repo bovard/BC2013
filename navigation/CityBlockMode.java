@@ -24,7 +24,6 @@ public class CityBlockMode extends MoveWithDefuseMode {
 
 		MapLocation currentLoc;
 		Direction dirToGo;
-		Team team;
 
 		// Goes through the limit and processes the city block
 		destinationTries++;

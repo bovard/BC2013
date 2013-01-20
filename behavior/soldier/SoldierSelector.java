@@ -1,6 +1,5 @@
 package team122.behavior.soldier;
 
-import battlecode.common.Clock;
 import battlecode.common.GameActionException;
 import team122.behavior.Behavior;
 import team122.behavior.Decision;

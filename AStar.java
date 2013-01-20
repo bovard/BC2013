@@ -1,6 +1,5 @@
 package team122;
 
-import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 
 public class AStar {

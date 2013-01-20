@@ -1,6 +1,5 @@
 package team122.behavior.soldier;
 
-import java.util.HashMap;
 import battlecode.common.GameActionException;
 import battlecode.common.GameObject;
 import battlecode.common.MapLocation;
