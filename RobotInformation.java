@@ -23,6 +23,7 @@ public class RobotInformation {
 	public int id;
 	public int width;
 	public int height;
+	public int enemyHqDistance;
 	public int totalEncampments;
 	public RobotController rc;
 	
@@ -41,6 +42,7 @@ public class RobotInformation {
 		enemyTeam = myTeam.opponent();
 		hq = rc.senseHQLocation();
 		enemyHq = rc.senseEnemyHQLocation();
+		enemyHqDistance = hq.distanceSquaredTo(enemyHq);
 		id = rc.getRobot().getID();
 		width = rc.getMapWidth();
 		height = rc.getMapHeight();
@@ -79,6 +81,20 @@ public class RobotInformation {
 	 */
 	public void setNeutralMines() {
 		neutralMines = rc.senseMineLocations(center, width * 1000, Team.NEUTRAL);
+	}
+	
+	/**
+	 * Generator/supplier sort algorithm.
+	 */
+	public void setEncampmentsGenSort() {
+		setEncampments();
+		
+		int[] distances = new int[totalEncampments];
+		for (int i = 0; i < totalEncampments; i++) {
+			distances[i] = encampmentsDistances[i] - enemyDistances[i];
+		}
+		
+		MapUtils.sort(encampments, distances);
 	}
 	
 	/**

@@ -2,6 +2,7 @@ package team122.behavior.soldier;
 
 import java.util.HashMap;
 import battlecode.common.GameActionException;
+import battlecode.common.GameObject;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotType;
 import team122.RobotInformation;
@@ -13,7 +14,6 @@ import team122.robot.Soldier;
 public class SoldierEncamper extends Behavior implements IComBehavior {
 
 	public Soldier robot;
-	public HashMap<MapLocation, Boolean> alliedEncampment;
 	public boolean encamp = true;
 	public RobotType encampmentType;
 	public boolean capturingNearHQ = false;
@@ -23,7 +23,6 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 
 	public SoldierEncamper(Soldier robot) {
 		this.robot = robot;
-		alliedEncampment = new HashMap<MapLocation, Boolean>();
 		info = robot.info;
 	}
 
@@ -31,25 +30,28 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	 * When we start we determine if there is any allied encampments
 	 */
 	public void start() throws GameActionException {
-		robot.info.setEncampmentsAndSort();
 
 		// Setups the data : type and what generator to start with.
 		int camperType = robot.initialData % 100;
-		int campToTry = (robot.initialData) / 1000;
-
-		System.out.println("CamperType: " + camperType + " :: " + campToTry);
+		encampmentToTry = (robot.initialData) / 1000;
 
 		// We are readying the generator encamper.
-		if (robot.initialData == SoldierSelector.GENERATOR_ENCAMPER) {
+		if (camperType == SoldierSelector.GENERATOR_ENCAMPER || camperType == SoldierSelector.SUPPLIER_ENCAMPER) {
+			robot.info.setEncampmentsGenSort();
 
 			// These encampments should be furthest away from enemy hq.
-			encampmentToTry = info.totalEncampments - (1 + campToTry);
-			encampmentType = RobotType.GENERATOR;
+			encampmentType = camperType == SoldierSelector.GENERATOR_ENCAMPER ? 
+					RobotType.GENERATOR : RobotType.SUPPLIER;
 		} else {
+			robot.info.setEncampmentsAndSort();
+			
+			//TODO: Other encampments.
 
 			// Other encampments should be close to the HQ.
+			encampmentType = RobotType.ARTILLERY;
 			encampmentToTry = 0;
 		}
+		
 
 		_setDestination();
 	}
@@ -84,23 +86,36 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 
 					// Else it cannot capture encampment, someone is there.
 				} else {
-
-					_setDestination();
+					GameObject obj = robot.rc.senseObjectAtLocation(robot.navSystem.navMode.destination);
+					
+					if (obj == null) {
+						//Killed Encampment so move then capture.
+						robot.rc.move(robot.rc.getLocation().directionTo(robot.navSystem.navMode.destination));
+						
+					} else if (obj.getTeam() != info.myTeam) {
+						//Wait until dead.
+						return;
+					} else {
+						info.alliedEncampments.put(robot.navSystem.navMode.destination, true);
+						_setDestination();
+					}
 				}
 			}
 		}
 	}
 
+	/**
+	 * only will try to capture half the encampments.
+	 */
 	@Override
 	public boolean pre() {
-		return true;
+		return info.totalEncampments / 2 > info.alliedEncampments.size();
 	}
 
 	/**
 	 * Sets the destination of the robot encamper.
 	 */
 	private boolean _setDestination() {
-		MapLocation encamp;
 
 		// Depending on the initial data is what the encamper should do.
 		// One big and obvious thing is that the encamper should pick
@@ -109,34 +124,20 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 		// A good rule of thumb is that any generator/supplier should be picked
 		// from the end of the
 		// enemy list.
-		System.out.println("Selecting Encampment: " + encampmentType);
-		if (encampmentType == RobotType.GENERATOR) {
-
-			// Generator will find the best possible fit, if there is one
-			// required.
-			while (encampmentToTry > -1
-					&& encampmentToTry < info.totalEncampments) {
-				encamp = info.encampments[encampmentToTry];
-
-				System.out.println("Attempting Location: " + encamp + " with: "
-						+ info.alliedEncampments.containsKey(encamp) + " : "
-						+ info.encampmentsDistances[encampmentToTry] + " < "
-						+ info.enemyDistances[encampmentToTry] + " && "
-						+ info.encampmentsDistances[encampmentToTry] + " > "
-						+ ARTILLERY_MED_BAY_DISTANCE);
-
-				// The encampment we are going for should not be an encampment.
-				if (!info.alliedEncampments.containsKey(encamp)
-						&& info.encampmentsDistances[encampmentToTry] < info.enemyDistances[encampmentToTry]
-						&& info.encampmentsDistances[encampmentToTry] > ARTILLERY_MED_BAY_DISTANCE) {
-
-					// We have found our destination.
-					robot.navSystem.navMode.setDestination(encamp);
-					return true;
+		if (encampmentType == RobotType.GENERATOR || encampmentType == RobotType.SUPPLIER) {
+			MapLocation mapLoc = null;
+			
+			while (encampmentToTry < info.totalEncampments) {
+				mapLoc = info.encampments[encampmentToTry];
+				
+				if (info.alliedEncampments.containsKey(mapLoc) ||
+					info.hq.distanceSquaredTo(mapLoc) <= ARTILLERY_MED_BAY_DISTANCE) {
+					encampmentToTry++;
+					continue;
 				}
-
-				encampmentToTry--;
-				continue;
+				
+				robot.navSystem.navMode.setDestination(mapLoc);
+				return true;
 			}
 		}
 

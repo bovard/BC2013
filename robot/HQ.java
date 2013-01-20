@@ -1,9 +1,7 @@
 package team122.robot;
-
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
-import battlecode.common.GameConstants;
 import battlecode.common.RobotController;
 import battlecode.common.Team;
 import team122.RobotInformation;
@@ -14,10 +12,9 @@ import team122.trees.HQTree;
 public class HQ extends TeamRobot {
 	public HQUtils hqUtils;
 	public int military;
-	public int econ;
-	public int tech;
-	public int defensive;
-	public int enemyHQDistance;
+	public boolean econ;
+	public boolean mid;
+	public boolean rush;
 	
 	public HQ(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -33,9 +30,9 @@ public class HQ extends TeamRobot {
 			Communicator.CHANNEL_ENCAMPER_COUNT
 		});
 		military = 0;
-		econ = 0;
-		tech = 0;
-		defensive = 0;
+		econ = false;
+		mid = false;
+		rush = false;
 	}
 
 	@Override
@@ -45,9 +42,9 @@ public class HQ extends TeamRobot {
 		if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
 			
-//			if (Clock.getRoundNum() % (HQ_COUNT_ROUND * 10) == 0) {
-//				hqUtils.printState();
-//			}
+			if (Clock.getRoundNum() % (HQ_COUNT_ROUND * 500) == 0) {
+				hqUtils.printState();
+			}
 		}
 	}
 
@@ -77,18 +74,64 @@ public class HQ extends TeamRobot {
 	 * 
 	 * -- NOTE WILL TAKE 2 ROUNDS -- 
 	 */
-	public void calculateStrategyPoints() {
+	public void calculateStrategyPoints() throws GameActionException {
 		info.setEncampmentsAndSort();
 		info.setNeutralMines();
 		
-		//We determine what strategy to use.
+		if (info.enemyHqDistance <= RUSH_ENEMY_MAP) {
+			rush = true;
+			return;
+		}
+
 		
+		//We determine what strategy to use.
+		int radiusSquared = info.enemyHqDistance / 2;
+		double area = (Math.PI * radiusSquared);
+		int mineCount = rc.senseMineLocations(info.center, radiusSquared, Team.NEUTRAL).length;
+		double density = mineCount / area;
+		
+		System.out.println(info.enemyHqDistance + " : " + density);
+		
+		if (info.enemyHqDistance <= RUSH_ENEMY_MAP_LONG && density <= RUSH_ENEMY_MAP_LONG_DENSITY) {
+			rush = true;
+			return;
+		}
+		
+		//Mid is just for sizing.
+		if (info.enemyHqDistance < MID_DISTANCE_MAX && info.enemyHqDistance > MID_DISTANCE_MIN) {
+			mid = true;
+			
+			if (density > MID_ECON_DENSITY || info.totalEncampments > MID_ECON_ENCAMPMENTS) {
+				econ = true;
+			}
+			return;
+		}
+		
+		//Mid long
+		if (info.enemyHqDistance < MID_LONG_DISTANCE_MAX && info.enemyHqDistance > MID_LONG_DISTANCE_MIN) {
+			mid = true;
+			
+			if (density > MID_LONG_ECON_DENSITY || info.totalEncampments > MID_LONG_ECON_ENCAMPMENTS) {
+				econ = true;
+			}
+			return;
+		}
+
+		econ = true;
+		return;
 	}
 	
 	public static final int HQ_COUNT_ROUND = 3;
-
-	public static final int ECON_ENCAMPMENT_DENOMINATOR = 8;
-	public static final int DEFENSIVE_HQ_DIST_DENOMINATOR = 128;
-	public static final int TECH_HQ_DIST_DENOMINATOR = 64; 
-	public static final int TECH_MINE_RATIO_MUL = 3;
+	public static final double MINE_DENSITY_FOR_ECON = 0.33;
+	public static final int RUSH_ENEMY_MAP = 400;
+	public static final int RUSH_ENEMY_MAP_LONG = 900;
+	public static final double RUSH_ENEMY_MAP_LONG_DENSITY = 0.25;
+	public static final int MID_DISTANCE_MIN = 900;
+	public static final int MID_DISTANCE_MAX = 1600;
+	public static final double MID_ECON_DENSITY = 0.35;
+	public static final double MID_ECON_ENCAMPMENTS = 40;
+	public static final int MID_LONG_DISTANCE_MIN = 1600;
+	public static final int MID_LONG_DISTANCE_MAX = 2500;
+	public static final double MID_LONG_ECON_DENSITY = 0.2;
+	public static final double MID_LONG_ECON_ENCAMPMENTS = 50;
 }

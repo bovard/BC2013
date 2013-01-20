@@ -14,11 +14,11 @@ public class HQSelector extends Decision {
 		this.robot = robot;
 		calc = new HQCalculate(robot);
 		
-		this.children.add(new HQSpawn(robot));
+		this.children.add(new HQSpawnSelector(robot));
 		this.children.add(new HQIdle(robot));
 		this.children.add(calc);
 		
-		this.children.get(SPAWNING_HQ).parent = this;
+		this.children.get(SPAWNING_SELECTOR_HQ).parent = this;
 		this.children.get(IDLE_HQ).parent = this;
 		this.children.get(CALCULATE_HQ).parent = this;
 	}
@@ -32,7 +32,7 @@ public class HQSelector extends Decision {
 		}
 		
 		if (robot.rc.isActive()) {
-			return children.get(SPAWNING_HQ);
+			return children.get(SPAWNING_SELECTOR_HQ);
 		}
 		
 		return children.get(IDLE_HQ);		
@@ -43,7 +43,7 @@ public class HQSelector extends Decision {
 		return true;
 	}
 
-	public static final int SPAWNING_HQ = 0;
+	public static final int SPAWNING_SELECTOR_HQ = 0;
 	public static final int IDLE_HQ = 1;
 	public static final int CALCULATE_HQ = 2;
 }

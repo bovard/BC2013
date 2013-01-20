@@ -64,6 +64,7 @@ public class SoldierSelector extends Decision {
 	public static final int SOLDIER_SWARMER = 1;
 	public static final int SOLDIER_ENCAMPER = 2;
 	public static final int SOLDIER_COMBAT = 2;
-	
+
 	public static final int GENERATOR_ENCAMPER = 10;
+	public static final int SUPPLIER_ENCAMPER = 20;
 }
