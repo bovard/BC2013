@@ -93,7 +93,7 @@ public class SoldierDefenseMiner
 
 	@Override
 	public boolean pre() {
-		return true;
+		return !robot.enemyInMelee;
 	}
 	
 	private void _setMiningLocations() {

@@ -21,6 +21,7 @@ public class SoldierSelector extends Decision {
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SWARMER).parent = this;
 		children.get(SOLDIER_ENCAMPER).parent = this;
+		children.get(SOLDIER_COMBAT).parent = this;
 		children.get(SOLDIER_DEFENDER).parent = this;
 	}
 	

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import battlecode.common.GameActionException;
 
-import team122.robot.TeamRobot;
-
 /**
  * The base Node.
  * Most every node has children and a parent

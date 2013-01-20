@@ -58,13 +58,17 @@ public abstract class Tree {
 				}
 				
 				newB = false;
-				robot.rc.setIndicatorString(0, "-");
+				
 				
 			} catch (Exception e) {
 				System.out.println("Error: " + e.getMessage());
+				e.printStackTrace();	
 			}
 
+			
+			robot.load();
 			robot.rc.yield();
+			robot.rc.setIndicatorString(0, "-");
 		}
 	}
 }
