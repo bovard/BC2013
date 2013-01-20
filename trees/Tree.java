@@ -4,24 +4,23 @@ import team122.behavior.Behavior;
 import team122.behavior.Decision;
 import team122.behavior.Node;
 
-import team122.robot.Robot;
+import team122.robot.TeamRobot;
 
 
 public abstract class Tree {
 
-	public Robot robot;
+	public TeamRobot robot;
 	public Node current;
 	
 	/**
 	 * This is where you would build up the tree. 
 	 */
-	public Tree(Robot robot) {
+	public Tree(TeamRobot robot) {
 		this.robot = robot;
 	}
 	
 	public void run() {
 		boolean newB = true;
-		
 		while (true) {
 			try {
 				// at the start of the round, update with an environment check
@@ -59,6 +58,7 @@ public abstract class Tree {
 				}
 				
 				newB = false;
+				robot.rc.setIndicatorString(0, "-");
 				
 			} catch (Exception e) {
 				System.out.println("Error: " + e.getMessage());

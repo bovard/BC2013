@@ -11,7 +11,7 @@ import team122.behavior.hq.HQUtils;
 import team122.communication.Communicator;
 import team122.trees.HQTree;
 
-public class HQ extends Robot {
+public class HQ extends TeamRobot {
 	public HQUtils hqUtils;
 	public int military;
 	public int econ;
