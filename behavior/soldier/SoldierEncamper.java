@@ -5,6 +5,7 @@ import battlecode.common.GameActionException;
 import battlecode.common.GameObject;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotType;
+import team122.MapInformation;
 import team122.RobotInformation;
 import team122.behavior.Behavior;
 import team122.behavior.IComBehavior;
@@ -20,10 +21,12 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	public int encampmentToTry = -1;
 	public int initialData;
 	public RobotInformation info;
+	public MapInformation mapInfo;
 
 	public SoldierEncamper(Soldier robot) {
 		this.robot = robot;
 		info = robot.info;
+		mapInfo = new MapInformation(robot.rc, info);
 	}
 
 	/**
@@ -37,13 +40,15 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 
 		// We are readying the generator encamper.
 		if (camperType == SoldierSelector.GENERATOR_ENCAMPER || camperType == SoldierSelector.SUPPLIER_ENCAMPER) {
-			robot.info.setEncampmentsGenSort();
+			mapInfo.setEncampmentsGenSort();
 
 			// These encampments should be furthest away from enemy hq.
 			encampmentType = camperType == SoldierSelector.GENERATOR_ENCAMPER ? 
 					RobotType.GENERATOR : RobotType.SUPPLIER;
+		} else if (camperType == SoldierSelector.ARTILLERY_ENCAMPER) {
+			
 		} else {
-			robot.info.setEncampmentsAndSort();
+			mapInfo.setEncampmentsAndSort();
 			
 			//TODO: Other encampments.
 
@@ -96,7 +101,7 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 						//Wait until dead.
 						return;
 					} else {
-						info.alliedEncampments.put(robot.navSystem.navMode.destination, true);
+						mapInfo.alliedEncampments.put(robot.navSystem.navMode.destination, true);
 						_setDestination();
 					}
 				}
@@ -109,7 +114,7 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	 */
 	@Override
 	public boolean pre() {
-		return info.totalEncampments / 2 > info.alliedEncampments.size();
+		return mapInfo.totalEncampments / 2 > mapInfo.alliedEncampments.size();
 	}
 
 	/**
@@ -127,10 +132,10 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 		if (encampmentType == RobotType.GENERATOR || encampmentType == RobotType.SUPPLIER) {
 			MapLocation mapLoc = null;
 			
-			while (encampmentToTry < info.totalEncampments) {
-				mapLoc = info.encampments[encampmentToTry];
+			while (encampmentToTry < mapInfo.totalEncampments) {
+				mapLoc = mapInfo.encampments[encampmentToTry];
 				
-				if (info.alliedEncampments.containsKey(mapLoc) ||
+				if (mapInfo.alliedEncampments.containsKey(mapLoc) ||
 					info.hq.distanceSquaredTo(mapLoc) <= ARTILLERY_MED_BAY_DISTANCE) {
 					encampmentToTry++;
 					continue;

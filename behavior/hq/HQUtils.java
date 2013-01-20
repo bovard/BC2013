@@ -3,6 +3,7 @@ package team122.behavior.hq;
 import battlecode.common.GameActionException;
 import battlecode.common.GameConstants;
 import battlecode.common.RobotController;
+import team122.MapInformation;
 import team122.RobotInformation;
 import team122.communication.Communicator;
 
@@ -123,7 +124,7 @@ public class HQUtils {
 	 * @param defensive
 	 * @return
 	 */
-	public boolean shouldCreateEncampment(RobotInformation info) {
+	public boolean shouldCreateEncampment(MapInformation info) {
 		return info.totalEncampments / 2 > totalEncampmentCount + encamperCount;
 	}
 	

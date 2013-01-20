@@ -22,7 +22,7 @@ public class HQSpawnRush extends Behavior {
 			robot.spawn(SoldierSelector.SOLDIER_MINER);
 		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3) { // more gen more soldiers.
 			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
-		} else if (utils.shouldCreateEncampment(robot.info) && utils.encamperCount < ROBOT_ENCAMPER_COUNT) {
+		} else if (utils.shouldCreateEncampment(robot.mapInfo) && utils.encamperCount < ROBOT_ENCAMPER_COUNT) {
 			System.out.println("Create Encampment");
 			if (utils.supplierCount < ROBOT_SUPPLIER_COUNT) {
 				System.out.println("Create Supplier");

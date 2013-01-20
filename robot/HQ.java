@@ -4,6 +4,7 @@ import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.RobotController;
 import battlecode.common.Team;
+import team122.MapInformation;
 import team122.RobotInformation;
 import team122.behavior.hq.HQUtils;
 import team122.communication.Communicator;
@@ -15,6 +16,7 @@ public class HQ extends TeamRobot {
 	public boolean econ;
 	public boolean mid;
 	public boolean rush;
+	public MapInformation mapInfo;
 	
 	public HQ(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -33,6 +35,7 @@ public class HQ extends TeamRobot {
 		econ = false;
 		mid = false;
 		rush = false;
+		mapInfo = new MapInformation(rc, info);
 	}
 
 	@Override
@@ -75,8 +78,8 @@ public class HQ extends TeamRobot {
 	 * -- NOTE WILL TAKE 2 ROUNDS -- 
 	 */
 	public void calculateStrategyPoints() throws GameActionException {
-		info.setEncampmentsAndSort();
-		info.setNeutralMines();
+		mapInfo.setEncampmentsAndSort();
+		mapInfo.setNeutralMines();
 		
 		if (info.enemyHqDistance <= RUSH_ENEMY_MAP) {
 			rush = true;
@@ -101,7 +104,7 @@ public class HQ extends TeamRobot {
 		if (info.enemyHqDistance < MID_DISTANCE_MAX && info.enemyHqDistance > MID_DISTANCE_MIN) {
 			mid = true;
 			
-			if (density > MID_ECON_DENSITY || info.totalEncampments > MID_ECON_ENCAMPMENTS) {
+			if (density > MID_ECON_DENSITY || mapInfo.totalEncampments > MID_ECON_ENCAMPMENTS) {
 				econ = true;
 			}
 			return;
@@ -111,7 +114,7 @@ public class HQ extends TeamRobot {
 		if (info.enemyHqDistance < MID_LONG_DISTANCE_MAX && info.enemyHqDistance > MID_LONG_DISTANCE_MIN) {
 			mid = true;
 			
-			if (density > MID_LONG_ECON_DENSITY || info.totalEncampments > MID_LONG_ECON_ENCAMPMENTS) {
+			if (density > MID_LONG_ECON_DENSITY || mapInfo.totalEncampments > MID_LONG_ECON_ENCAMPMENTS) {
 				econ = true;
 			}
 			return;
