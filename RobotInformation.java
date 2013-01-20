@@ -23,6 +23,7 @@ public class RobotInformation {
 	public int id;
 	public int width;
 	public int height;
+	public int enemyHqDistance;
 	public int totalEncampments;
 	public RobotController rc;
 	
@@ -41,6 +42,7 @@ public class RobotInformation {
 		enemyTeam = myTeam.opponent();
 		hq = rc.senseHQLocation();
 		enemyHq = rc.senseEnemyHQLocation();
+		enemyHqDistance = hq.distanceSquaredTo(enemyHq);
 		id = rc.getRobot().getID();
 		width = rc.getMapWidth();
 		height = rc.getMapHeight();

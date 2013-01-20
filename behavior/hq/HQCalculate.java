@@ -40,7 +40,7 @@ public class HQCalculate extends Behavior {
 		robot.calculateStrategyPoints();
 		calculating = false;
 
-		System.out.println("Finished Calculating");
+		System.out.println("Finished Calculating: " + robot.rush + " :: " + robot.econ + " : " + robot.mid);
 	}
 
 	@Override

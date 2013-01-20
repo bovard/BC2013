@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import team122.behavior.Behavior;
+import team122.behavior.IComBehavior;
+import team122.communication.Communicator;
 import team122.robot.Soldier;
 import battlecode.common.Clock;
 import battlecode.common.Direction;
@@ -13,12 +15,22 @@ import battlecode.common.Robot;
 import battlecode.common.RobotInfo;
 import battlecode.common.RobotType;
 
-public class SoldierCombat extends Behavior{
+public class SoldierCombat 
+		extends Behavior
+		implements IComBehavior {
 	protected Soldier robot;
 	
 	public SoldierCombat(Soldier robot) {
 		super();
 		this.robot = robot;
+	}
+
+	/**
+	 * echos the com behavior to the communicator.
+	 */
+	@Override
+	public void comBehavior() throws GameActionException {
+		robot.com.increment(Communicator.CHANNEL_SOLDIER_COUNT);
 	}
 	
 	public static Direction getDirection(int x, int y) {

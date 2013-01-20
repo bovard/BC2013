@@ -57,7 +57,6 @@ public class HQUtils {
 		com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
 		
 		// Basic calculations that are needed by the HQ.
-		System.out.println("TotalSoldierCount: " + soldierCount + " + " + encamperCount + " + " + minerCount);
 		totalSoldierCount = soldierCount + encamperCount + minerCount;
 		totalEncampmentCount = generatorCount + supplierCount;
 		
@@ -91,7 +90,6 @@ public class HQUtils {
 	 * @return
 	 */
 	public boolean requireSoldier(int defensive, int econ) {
-		System.out.println("Soldier: " + totalSoldierCount + " - " + defensive + " / " + REQUIRE_DEFENSIVE_SOLDIER_DIVIDER + " < " + REQUIRE_DEFENSIVE_SOLDIER_CUTOFF_LINE);
 		return totalSoldierCount - defensive / REQUIRE_DEFENSIVE_SOLDIER_DIVIDER < REQUIRE_DEFENSIVE_SOLDIER_CUTOFF_LINE;
 	}
 	
@@ -100,7 +98,6 @@ public class HQUtils {
 	 * @return
 	 */
 	public boolean requireGenerator() {
-		System.out.println("Generator: (" + powerProduction + " - " + powerConsumptionFromSoldiers + ") "+ " * " + REQUIRE_GENERATOR_MUL + " < " + powerToCaptureEncampment);
 		return (powerProduction - powerConsumptionFromSoldiers) * REQUIRE_GENERATOR_MUL < powerToCaptureEncampment;
 	}
 	
@@ -126,8 +123,8 @@ public class HQUtils {
 	 * @param defensive
 	 * @return
 	 */
-	public boolean shouldCreateEncampment(RobotInformation info, int defensive) {
-		return info.totalEncampments / 2 < totalEncampmentCount + encamperCount;
+	public boolean shouldCreateEncampment(RobotInformation info) {
+		return info.totalEncampments / 2 > totalEncampmentCount + encamperCount;
 	}
 	
 	public void printState() {
