@@ -109,7 +109,7 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	 */
 	@Override
 	public boolean pre() {
-		return info.totalEncampments / 2 > info.alliedEncampments.size();
+		return info.totalEncampments / 2 > info.alliedEncampments.size() && !robot.enemyInMelee;
 	}
 
 	/**

@@ -40,7 +40,7 @@ public class SoldierSwarm
 	
 	@Override
 	public boolean pre() {
-		return true;
+		return !robot.enemyInMelee;
 	}
 
 }

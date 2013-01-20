@@ -6,14 +6,12 @@ import battlecode.common.GameObject;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.Robot;
+import battlecode.common.Team;
 import team122.RobotInformation;
 import team122.behavior.IComBehavior;
 import team122.behavior.Node;
-import team122.behavior.soldier.SoldierDefenseMiner;
-import team122.behavior.soldier.SoldierEncamper;
-import team122.behavior.soldier.SoldierSwarm;
+import team122.combat.MoveCalculator;
 import team122.communication.Communicator;
-import team122.navigation.NavigationMode;
 import team122.navigation.NavigationSystem;
 import team122.trees.SoldierTree;
 
@@ -31,6 +29,11 @@ public class Soldier extends TeamRobot {
 	public boolean isNew = true;
 	public int initialData;
 	public int initialMode;
+	public MoveCalculator mCalc;
+	public boolean loadDone = false;
+	public MapLocation[] neutral_mines;
+	public MapLocation[] allied_mines;
+	public MapLocation[] enemy_mines;
 	
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -43,6 +46,12 @@ public class Soldier extends TeamRobot {
 			Communicator.CHANNEL_ENCAMPER_COUNT,
 			Communicator.CHANNEL_SOLDIER_COUNT
 		});
+		mCalc = new MoveCalculator(this);
+	}
+	
+	@Override
+	public void load() {
+		
 	}
 
 	@Override
@@ -50,6 +59,10 @@ public class Soldier extends TeamRobot {
 		enemyInMelee = false;
 		previousLoc = currentLoc;
 		currentLoc = rc.getLocation();
+		//System.out.println("im at "+currentLoc.toString());
+		neutral_mines = rc.senseMineLocations(currentLoc, 3, Team.NEUTRAL);
+		allied_mines = rc.senseMineLocations(currentLoc, 3, info.myTeam);
+		
 		
 		// check to see if there is an enemy near our base!
 		enemiesAtTheGates = rc.senseNearbyGameObjects(Robot.class, info.hq, 36, info.enemyTeam);
@@ -61,9 +74,10 @@ public class Soldier extends TeamRobot {
 		enemyInSight = enemiesInSight.length > 0;
 		
 		if (enemyInSight) {
+			enemy_mines = rc.senseMineLocations(currentLoc, 3, info.enemyTeam);
 			// check to see if there is anyone in range that can shoot us
 			// TODO: change this to detect only soldiers
-			meleeObjects = rc.senseNearbyGameObjects(Robot.class, 8);
+			meleeObjects = rc.senseNearbyGameObjects(Robot.class, 15);
 			for (Robot object:meleeObjects) {
 				if (object.getTeam() == info.enemyTeam) {
 					enemyInMelee = true;
@@ -78,5 +92,8 @@ public class Soldier extends TeamRobot {
 				((IComBehavior)curr).comBehavior();
 			}
 		}
+		
+		
+		
 	}
 }

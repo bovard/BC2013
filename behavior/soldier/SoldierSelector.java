@@ -20,6 +20,7 @@ public class SoldierSelector extends Decision {
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SWARMER).parent = this;
 		children.get(SOLDIER_ENCAMPER).parent = this;
+		children.get(SOLDIER_COMBAT).parent = this;
 	}
 	
 	@Override
@@ -63,7 +64,7 @@ public class SoldierSelector extends Decision {
 	public static final int SOLDIER_MINER = 0;
 	public static final int SOLDIER_SWARMER = 1;
 	public static final int SOLDIER_ENCAMPER = 2;
-	public static final int SOLDIER_COMBAT = 2;
+	public static final int SOLDIER_COMBAT = 3;
 
 	public static final int GENERATOR_ENCAMPER = 10;
 	public static final int SUPPLIER_ENCAMPER = 20;
