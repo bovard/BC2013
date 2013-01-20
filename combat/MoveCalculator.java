@@ -2,7 +2,6 @@ package team122.combat;
 
 
 import team122.robot.Soldier;
-import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -33,7 +32,7 @@ public class MoveCalculator {
 		for(int x=-1;x<=1;x++) {
 			for (int y=1;y>=-1;y--) {
 				if (map[3+x][3+y] == 'o' || map[3+x][3+y] == 'c') {
-					temp = _evalMove(3+x,3+y,x,y);
+					temp = _evalMove(3+x,3+y);
 					if (temp > score) {
 						score = temp;
 						xyDir[0] = x;
@@ -156,11 +155,10 @@ public class MoveCalculator {
 			return -100;
 		}
 		
-		int time = Clock.getBytecodeNum();
+		//int time = Clock.getBytecodeNum();
 		int aCount = 0;
 		int eCount = 0;
 		int fCount = 0;
-		int vCount = 0;
 		for (int i = 0; i < hash.length(); i++) {
 			char c = hash.charAt(i);
 			if (c == 'e') {
@@ -170,6 +168,7 @@ public class MoveCalculator {
 			} else if (c == 'f') {
 				fCount++;
 			} else if (c == 'v') {
+				// found their hq, kill it!
 				return 1000;
 			}
 		}
@@ -189,83 +188,27 @@ public class MoveCalculator {
 	}
 	
 	
-	private int _evalMove(int x, int y, int right_switch, int up_switch) {
-		int score = 0;
-		int num = 0;
-		
-		String hash;
+	private int _evalMove(int x, int y) {
 		/*
-		boolean not_vert = up_switch == 0;
-		boolean not_hor = right_switch == 0;
-		boolean zero_switch = up_switch == 0 && right_switch == 0;
-		//int i, j;
 		
 		// pointed up!
-		
-//		for (j = 0; j <= 2; j++ ) {
-//			for (i = -1; i <= 1; i++ ) {
-//				hash += map[x+i][y+j];
-//			}
-//		}
-		if (up_switch > 0 || not_hor || zero_switch) {
-			//System.out.println("Hash: "+hash);
-			hash = "" + map[x-1][y] + map[x][y] + map[x+1][y] + map[x-1][y+1] + map[x][y+1] + map[x+1][y+1] + map[x-1][y+2] + map[x][y+2] + map[x+1][y+2];
-			score += _scoreHash(hash);
-			num++;
-		}
-		
-//		hash = "";
-//		// pointed right
-//		for (i = 0; i <= 2; i++ ) {
-//			for (j = 1; j >= -1; j-- ) {
-//				hash += map[x+i][y+j];
-//			}
-//		}
-		if (right_switch > 0 || not_vert) {
-			hash = "" + map[x][y+1] + map[x][y] + map[x][y-1] + map[x+1][y+1] + map[x+1][y] + map[x+1][y-1] + map[x+2][y+1] + map[x+2][y] + map[x+2][y-1]; 
-			//System.out.println("Hash: "+hash);
-			score += _scoreHash(hash);
-			num++;
-		}
-		
-		
-//		hash = "";
-//		// pointed left
-//		for (i = 0; i >= -2; i-- ) {
-//			for (j = -1; j <= 1; j++ ) {
-//				hash += map[x+i][y+j];
-//			}
-//		}
-		if (right_switch < 0 || not_vert) {
-			hash = "" + map[x][y-1] + map[x][y] + map[x][y+1] + map[x-1][y-1] + map[x-1][y] + map[x-1][y+1] + map[x-2][y-1] + map[x-2][y] + map[x-2][y+1];
-			//System.out.println("Hash: "+hash);
-			score += _scoreHash(hash);
-			num ++;
-		}
-		
-//		hash = "";
-//		// pointed down
-//		for (j = 0; j >= -2; j-- ) {
-//			for (i = 1; i >= -1; i-- ) {
-//				hash += map[x+i][y+j];
-//			}
-//		}
-		if (up_switch < 0 || not_hor || zero_switch) {
-			hash = "" + map[x+1][y] + map[x][y] + map[x-1][y] + map[x+1][y-1] + map[x][y-1] + map[x-1][y-1] + map[x+1][y-2] + map[x][y-2] + map[x-1][y-2];
-			//System.out.println("Hash: "+hash);
-			score += _scoreHash(hash);
-			num++;
-		}
-		
+		hash = "" + map[x-1][y] + map[x][y] + map[x+1][y] + map[x-1][y+1] + map[x][y+1] + map[x+1][y+1] + map[x-1][y+2] + map[x][y+2] + map[x+1][y+2];
+
+		// pointed right
+		hash = "" + map[x][y+1] + map[x][y] + map[x][y-1] + map[x+1][y+1] + map[x+1][y] + map[x+1][y-1] + map[x+2][y+1] + map[x+2][y] + map[x+2][y-1]; 
+	
+		// pointed left
+		hash = "" + map[x][y-1] + map[x][y] + map[x][y+1] + map[x-1][y-1] + map[x-1][y] + map[x-1][y+1] + map[x-2][y-1] + map[x-2][y] + map[x-2][y+1];
+			
+		// pointed down
+		hash = "" + map[x+1][y] + map[x][y] + map[x-1][y] + map[x+1][y-1] + map[x][y-1] + map[x-1][y-1] + map[x+1][y-2] + map[x][y-2] + map[x-1][y-2];
+			
 		time += Clock.getBytecodeNum();
 		System.out.println("One evalMove is " + time);
 		*/
-		hash = "" + map[x-1][y-1] + map[x][y-1] + map[x+1][y-1] + map[x-1][y] + map[x][y] + map[x+1][y] + map[x-1][y+1] + map[x][y+1] + map[x+1][y+1];
-		//System.out.println("Hash: "+hash);
-		score += _scoreHash(hash);
-		num++;
 		
-		return score/num;
+		return _scoreHash("" + map[x-1][y-1] + map[x][y-1] + map[x+1][y-1] + map[x-1][y] + map[x][y] + map[x+1][y] + map[x-1][y+1] + map[x][y+1] + map[x+1][y+1]);
+		//System.out.println("Hash: "+hash);
 	}
 	
 
