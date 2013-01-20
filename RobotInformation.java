@@ -23,6 +23,7 @@ public class RobotInformation {
 	public int id;
 	public int width;
 	public int height;
+	public int totalEncampments;
 	public RobotController rc;
 	
 	
@@ -56,6 +57,7 @@ public class RobotInformation {
 			encampments = rc.senseAllEncampmentSquares();
 			encampmentsDistances = new int[encampments.length];
 			enemyDistances = new int[encampments.length];
+			totalEncampments = encampments.length;
 	
 			for (int i = 0, len = encampments.length; i < len; i++) {
 				encampmentsDistances[i] = encampments[i].distanceSquaredTo(hq);

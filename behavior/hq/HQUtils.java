@@ -20,6 +20,7 @@ public class HQUtils {
 	public double powerProduction;
 	public double powerToCaptureEncampment;
 	public double powerConsumptionFromSoldiers;
+	public double teamPower;
 	
 	public HQUtils(RobotController rc, Communicator com) {
 		this.rc = rc;
@@ -45,8 +46,18 @@ public class HQUtils {
 		generatorCount = com.receive(Communicator.CHANNEL_GENERATOR_COUNT, 0);
 		supplierCount = com.receive(Communicator.CHANNEL_SUPPLIER_COUNT, 0);
 		soldierCount = com.receive(Communicator.CHANNEL_SOLDIER_COUNT, 0);
-		encamperCount = com.receive(Communicator.CHANNEL_MINER_COUNT, 0);
-		minerCount = com.receive(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
+		encamperCount = com.receive(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
+		minerCount = com.receive(Communicator.CHANNEL_MINER_COUNT, 0);
+
+		//Erases so counts will be accurate.
+		com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, 0);
+		com.communicate(Communicator.CHANNEL_SUPPLIER_COUNT, 0);
+		com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, 0);
+		com.communicate(Communicator.CHANNEL_MINER_COUNT, 0);
+		com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
+		
+		// Basic calculations that are needed by the HQ.
+		System.out.println("TotalSoldierCount: " + soldierCount + " + " + encamperCount + " + " + minerCount);
 		totalSoldierCount = soldierCount + encamperCount + minerCount;
 		totalEncampmentCount = generatorCount + supplierCount;
 		
@@ -54,13 +65,7 @@ public class HQUtils {
 		powerProduction = generatorCount * GameConstants.GENERATOR_POWER_PRODUCTION + GameConstants.HQ_POWER_PRODUCTION;
 		powerToCaptureEncampment = GameConstants.CAPTURE_POWER_COST * (1 + totalEncampmentCount + encamperCount);
 		powerConsumptionFromSoldiers = GameConstants.UNIT_POWER_UPKEEP * totalSoldierCount;
-		
-		//Erases so counts will be accurate.
-		com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_SUPPLIER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_MINER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
+		teamPower = rc.getTeamPower();
 	}
 
 	/**
@@ -68,7 +73,9 @@ public class HQUtils {
 	 * @return
 	 */
 	public boolean requireMiner(int defensive) {
-		return defensive / REQUIRE_DEFENSIVE_MINER_DIVIDER > 0;
+		
+		//TODO: If an emeny is near, then what?
+		return defensive / ((minerCount + 1) * REQUIRE_DEFENSIVE_MINER_DIVIDER) > 0;
 	}
 	
 	/**
@@ -84,7 +91,8 @@ public class HQUtils {
 	 * @return
 	 */
 	public boolean requireSoldier(int defensive, int econ) {
-		return totalSoldierCount - defensive / REQUIRE_DEFENSIVE_SOLDIER_DIVIDER > REQUIRE_DEFENSIVE_SOLDIER_CUTOFF_LINE;
+		System.out.println("Soldier: " + totalSoldierCount + " - " + defensive + " / " + REQUIRE_DEFENSIVE_SOLDIER_DIVIDER + " < " + REQUIRE_DEFENSIVE_SOLDIER_CUTOFF_LINE);
+		return totalSoldierCount - defensive / REQUIRE_DEFENSIVE_SOLDIER_DIVIDER < REQUIRE_DEFENSIVE_SOLDIER_CUTOFF_LINE;
 	}
 	
 	/**
@@ -92,7 +100,8 @@ public class HQUtils {
 	 * @return
 	 */
 	public boolean requireGenerator() {
-		return powerProduction - powerConsumptionFromSoldiers < powerToCaptureEncampment * REQUIRE_GENERATOR_MUL;
+		System.out.println("Generator: (" + powerProduction + " - " + powerConsumptionFromSoldiers + ") "+ " * " + REQUIRE_GENERATOR_MUL + " < " + powerToCaptureEncampment);
+		return (powerProduction - powerConsumptionFromSoldiers) * REQUIRE_GENERATOR_MUL < powerToCaptureEncampment;
 	}
 	
 	/**
@@ -118,7 +127,7 @@ public class HQUtils {
 	 * @return
 	 */
 	public boolean shouldCreateEncampment(RobotInformation info, int defensive) {
-		return info.encampments.length / 2 < totalEncampmentCount + encamperCount;
+		return info.totalEncampments / 2 < totalEncampmentCount + encamperCount;
 	}
 	
 	public void printState() {
@@ -136,5 +145,5 @@ public class HQUtils {
 	public final static int REQUIRE_ARTILLERY_MUL = 5;
 	public final static int REQUIRE_DEFENSIVE_MINER_DIVIDER = 33;
 	public final static int REQUIRE_DEFENSIVE_SOLDIER_DIVIDER = 3;
-	public final static int REQUIRE_DEFENSIVE_SOLDIER_CUTOFF_LINE = 10;
+	public final static int REQUIRE_DEFENSIVE_SOLDIER_CUTOFF_LINE = 0;
 }

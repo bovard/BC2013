@@ -59,11 +59,12 @@ public abstract class Tree {
 				}
 				
 				newB = false;
-				robot.rc.yield();	
 				
 			} catch (Exception e) {
-				e.printStackTrace();
+				System.out.println("Error: " + e.getMessage());
 			}
+
+			robot.rc.yield();
 		}
 	}
 }

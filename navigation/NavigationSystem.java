@@ -64,44 +64,6 @@ public class NavigationSystem {
 		  		break;
     	}
     }
-    
-    public void forfeitNearestEncampment() {
-    	alliedEncampments.put(navMode.destination, true);
-    	setNearestEncampmentAsDestination();
-    }
-
-	/**
-	 * Gets the nearest unused encampment.
-	 * @return
-	 */
-	public void setNearestEncampmentAsDestination() {
-		MapLocation[] encampments = rc.senseAllEncampmentSquares();
-		MapLocation closest = null;
-		MapLocation location = rc.getLocation();
-		int closestDistance = 0;
-		int currDistance = 0;
-		
-		for (MapLocation encampment : encampments) {
-			
-			//The first one is always the closest.
-			if (closest == null) {
-				closest = encampment;
-				closestDistance = location.distanceSquaredTo(closest);
-			} else {
-				
-				//Next the distances need to be compared.
-				currDistance = location.distanceSquaredTo(encampment);
-				if (currDistance < closestDistance && 
-						!alliedEncampments.containsKey(encampment)) {
-					
-					closestDistance = currDistance;
-					closest = encampment;
-				}
-			}
-		}
-		
-		navMode.setDestination(closest);
-	}
 	
 	/**
 	 * Sets the rally point that is in the direction of the enemy castle.

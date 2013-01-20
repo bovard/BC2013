@@ -21,6 +21,7 @@ public class HQ extends Robot {
 	
 	public HQ(RobotController rc, RobotInformation info) {
 		super(rc, info);
+		hqUtils = new HQUtils(rc, com);
 		tree = new HQTree(this);
 		com.seedChannels(5, new int[] {
 			Communicator.CHANNEL_NEW_SOLDIER_MODE, 
@@ -31,7 +32,6 @@ public class HQ extends Robot {
 			Communicator.CHANNEL_MINER_COUNT, 
 			Communicator.CHANNEL_ENCAMPER_COUNT
 		});
-		hqUtils = new HQUtils(rc, com);
 		military = 0;
 		econ = 0;
 		tech = 0;
@@ -45,9 +45,9 @@ public class HQ extends Robot {
 		if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
 			
-			if (Clock.getRoundNum() % (HQ_COUNT_ROUND * 10) == 0) {
-				hqUtils.printState();
-			}
+//			if (Clock.getRoundNum() % (HQ_COUNT_ROUND * 10) == 0) {
+//				hqUtils.printState();
+//			}
 		}
 	}
 

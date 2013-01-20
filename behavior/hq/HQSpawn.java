@@ -23,17 +23,24 @@ public class HQSpawn extends Behavior {
 		
 		//Miners are super required.
 		if (utils.requireMiner(robot.defensive)) {
+			System.out.println("Building miner!");
 			robot.spawn(SoldierSelector.SOLDIER_MINER);
 			return;
 		}
 		
 		//Generators and suppliers are needed.
 		if (utils.canSpawnSoldier() && utils.requireSoldier(robot.defensive, robot.econ)) {
+			System.out.println("Building Swarmer!");
 			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+			return;
 		}
 		
 		if (utils.requireGenerator()) {
-			robot.spawn(SoldierSelector.GENERATOR_ENCAMPER + SoldierSelector.SOLDIER_ENCAMPER);
+			System.out.println("Building encamper!");
+			int encampData = SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, 
+					utils.generatorCount + utils.supplierCount + utils.encamperCount);
+			robot.spawn(encampData);
+			return;
 		}
 	}
 

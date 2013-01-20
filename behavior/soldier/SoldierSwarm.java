@@ -19,12 +19,15 @@ public class SoldierSwarm
 
 	@Override
 	public void run() throws GameActionException {
+		
+		//TODO: We need to turn this into an actual smart soldier.
+		
 		if (!robot.navSystem.navMode.hasDestination && !robot.navSystem.navMode.atDestination) {
 			robot.navSystem.setInitialSwarmRallyPoint();
 		}
 		
 		if (Clock.getRoundNum() % 400 == 0) {
-			robot.navSystem.setToEnemyHQ();
+			robot.navSystem.navMode.setDestination(robot.info.enemyHq);
 		} else {
 			robot.navSystem.navMode.move();
 		}

@@ -59,7 +59,7 @@ public class Soldier extends Robot {
 		enemyInSight = enemiesInSight.length > 0;
 		
 		//Continue 
-		if (Clock.getRoundNum() % (HQ.HQ_COUNT_ROUND - 1) == 0) {
+		if (Clock.getRoundNum() % HQ.HQ_COUNT_ROUND - 1 == 0) {
 			Node curr = tree.current;
 			if (curr instanceof IComBehavior) {
 				((IComBehavior)curr).comBehavior();

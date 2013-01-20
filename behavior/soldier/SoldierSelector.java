@@ -28,7 +28,7 @@ public class SoldierSelector extends Decision {
 			int data = robot.com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
 			
 			robot.initialMode = data % 10;
-			robot.initialData = data % 100 - robot.initialMode;
+			robot.initialData = data - robot.initialMode;
 			robot.isNew = false;
 			
 			Behavior behavior = (Behavior)children.get(robot.initialMode);
@@ -43,6 +43,16 @@ public class SoldierSelector extends Decision {
 	@Override
 	public boolean pre() {
 		return true;
+	}
+	
+	/**
+	 * Builds encampment data.  NO way to screw this up :)
+	 * @param encampmentType
+	 * @param encampmentToTry
+	 * @return
+	 */
+	public static int setEncamperData(int encampmentType, int encampmentToTry) {
+		return encampmentToTry * 100 + encampmentType + SOLDIER_ENCAMPER;
 	}
 
 	public static final int SOLDIER_MINER = 0;

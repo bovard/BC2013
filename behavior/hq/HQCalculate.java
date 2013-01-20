@@ -29,6 +29,9 @@ public class HQCalculate extends Behavior {
 		//use our time best.
 		// -- SPAWNS a soldier intentionally to help make the calculation time problem better--
 		//Will likely finish before next rc is active.
+
+		System.out.println("Calculating");
+		
 		if (robot.rc.isActive()) {
 			robot.spawn(SoldierSelector.SOLDIER_MINER);
 		}
@@ -36,6 +39,8 @@ public class HQCalculate extends Behavior {
 		//Calculates information about the map, strategy, ect. ect.
 		robot.calculateStrategyPoints();
 		calculating = false;
+
+		System.out.println("Finished Calculating");
 	}
 
 	@Override
