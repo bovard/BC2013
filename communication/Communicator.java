@@ -197,6 +197,12 @@ public class Communicator {
 				c[0] = CHANNEL_ENCAMPER_COUNT_RANGE[0] + seedMul % CHANNEL_ENCAMPER_COUNT_RANGE[1];
 				c[1] = CHANNEL_ENCAMPER_COUNT_RANGE[0] + seedMulDiff % CHANNEL_ENCAMPER_COUNT_RANGE[1];
 				c[2] = CHANNEL_ENCAMPER_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_ENCAMPER_COUNT_RANGE[1];
+			} else if (channels[i] == CHANNEL_ENCAMPER_COUNT) {
+				
+				//Defender Count
+				c[0] = CHANNEL_DEFENDER_COUNT_RANGE[0] + seedMul % CHANNEL_DEFENDER_COUNT_RANGE[1];
+				c[1] = CHANNEL_DEFENDER_COUNT_RANGE[0] + seedMulDiff % CHANNEL_DEFENDER_COUNT_RANGE[1];
+				c[2] = CHANNEL_DEFENDER_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_DEFENDER_COUNT_RANGE[1];
 			}
 
 			modeToChannels.put(channels[i], c);
@@ -214,6 +220,7 @@ public class Communicator {
 	public static final int CHANNEL_SOLDIER_COUNT = 5;
 	public static final int CHANNEL_ENCAMPER_COUNT = 6;
 	public static final int CHANNEL_MINER_COUNT = 7;
+	public static final int CHANNEL_DEFENDER_COUNT = 7;
 	public static final int SEED_MULTIPLIER = 17;
 	
 	//Ranges:   {StartPt, Range}
@@ -224,4 +231,5 @@ public class Communicator {
 	public static final Integer[] CHANNEL_MINER_COUNT_RANGE = new Integer[] {19000, 4000};
 	public static final Integer[] CHANNEL_SOLDIER_COUNT_RANGE = new Integer[] {23000, 4000};
 	public static final Integer[] CHANNEL_ENCAMPER_COUNT_RANGE = new Integer[] {27000, 4000};
+	public static final Integer[] CHANNEL_DEFENDER_COUNT_RANGE = new Integer[] {31000, 4000};
 }

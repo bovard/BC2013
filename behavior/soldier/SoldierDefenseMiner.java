@@ -11,7 +11,6 @@ import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.Team;
-import battlecode.common.TerrainTile;
 import battlecode.common.Upgrade;
 
 public class SoldierDefenseMiner 

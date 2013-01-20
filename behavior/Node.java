@@ -2,6 +2,8 @@ package team122.behavior;
 
 import java.util.ArrayList;
 
+import battlecode.common.GameActionException;
+
 import team122.robot.TeamRobot;
 
 /**
@@ -28,7 +30,7 @@ public abstract class Node {
 	 * 
 	 * @return If the conditions are met for the behavior. If they aren't call the parent!
 	 */
-	public abstract boolean pre();
+	public abstract boolean pre() throws GameActionException;
 	
 	
 }

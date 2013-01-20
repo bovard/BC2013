@@ -12,21 +12,19 @@ public class HQSpawnSelector extends Decision {
 	public HQSpawnSelector(HQ robot) {
 		super();
 		this.robot = robot;
-		
+
 		this.children.add(new HQSpawnRush(robot));
+		this.children.add(new HQSpawnEcon(robot));
 		this.children.get(HQ_SPAWN_RUSH).parent = this;
+		this.children.get(HQ_SPAWN_ECON).parent = this;
 	}
 
 	@Override
 	public Node select() throws GameActionException {
 		if (robot.rush) {
 			return this.children.get(HQ_SPAWN_RUSH);
-		} else if (robot.mid && !robot.econ) {
-			
-		} else if (robot.mid && robot.econ) {
-			
-		} else {
-			
+		} else if (robot.econ) {
+			return this.children.get(HQ_SPAWN_ECON);
 		}
 
 		//defaults to rush.
@@ -39,7 +37,5 @@ public class HQSpawnSelector extends Decision {
 	}
 
 	public static final int HQ_SPAWN_RUSH = 0;
-	public static final int HQ_SPAWN_MID = 1;
-	public static final int HQ_SPAWN_MID_ECON = 2;
-	public static final int HQ_SPAWN_ECON = 3;
+	public static final int HQ_SPAWN_ECON = 1;
 }

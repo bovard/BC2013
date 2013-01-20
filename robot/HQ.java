@@ -1,4 +1,6 @@
 package team122.robot;
+import java.util.Arrays;
+
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
@@ -29,7 +31,8 @@ public class HQ extends TeamRobot {
 			Communicator.CHANNEL_ARTILLERY_COUNT, 
 			Communicator.CHANNEL_SOLDIER_COUNT, 
 			Communicator.CHANNEL_MINER_COUNT, 
-			Communicator.CHANNEL_ENCAMPER_COUNT
+			Communicator.CHANNEL_ENCAMPER_COUNT,
+			Communicator.CHANNEL_DEFENDER_COUNT
 		});
 		military = 0;
 		econ = false;
@@ -37,7 +40,7 @@ public class HQ extends TeamRobot {
 		rush = false;
 		mapInfo = new MapInformation(rc, info);
 	}
-
+	
 	@Override
 	public void environmentCheck() throws GameActionException {
 		//TODO: What's the environment check here?
@@ -45,8 +48,8 @@ public class HQ extends TeamRobot {
 		if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
 			
-			if (Clock.getRoundNum() % (HQ_COUNT_ROUND * 500) == 0) {
-				hqUtils.printState();
+			if (Clock.getRoundNum() % (HQ_COUNT_ROUND * 250) == 0) {
+				hqUtils.printState();	
 			}
 		}
 	}
@@ -99,42 +102,13 @@ public class HQ extends TeamRobot {
 			rush = true;
 			return;
 		}
-		
-		//Mid is just for sizing.
-		if (info.enemyHqDistance < MID_DISTANCE_MAX && info.enemyHqDistance > MID_DISTANCE_MIN) {
-			mid = true;
-			
-			if (density > MID_ECON_DENSITY || mapInfo.totalEncampments > MID_ECON_ENCAMPMENTS) {
-				econ = true;
-			}
-			return;
-		}
-		
-		//Mid long
-		if (info.enemyHqDistance < MID_LONG_DISTANCE_MAX && info.enemyHqDistance > MID_LONG_DISTANCE_MIN) {
-			mid = true;
-			
-			if (density > MID_LONG_ECON_DENSITY || mapInfo.totalEncampments > MID_LONG_ECON_ENCAMPMENTS) {
-				econ = true;
-			}
-			return;
-		}
 
 		econ = true;
 		return;
 	}
 	
 	public static final int HQ_COUNT_ROUND = 3;
-	public static final double MINE_DENSITY_FOR_ECON = 0.33;
 	public static final int RUSH_ENEMY_MAP = 400;
-	public static final int RUSH_ENEMY_MAP_LONG = 900;
+	public static final int RUSH_ENEMY_MAP_LONG = 1600;
 	public static final double RUSH_ENEMY_MAP_LONG_DENSITY = 0.25;
-	public static final int MID_DISTANCE_MIN = 900;
-	public static final int MID_DISTANCE_MAX = 1600;
-	public static final double MID_ECON_DENSITY = 0.35;
-	public static final double MID_ECON_ENCAMPMENTS = 40;
-	public static final int MID_LONG_DISTANCE_MIN = 1600;
-	public static final int MID_LONG_DISTANCE_MAX = 2500;
-	public static final double MID_LONG_ECON_DENSITY = 0.2;
-	public static final double MID_LONG_ECON_ENCAMPMENTS = 50;
 }

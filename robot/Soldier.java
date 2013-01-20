@@ -41,7 +41,8 @@ public class Soldier extends TeamRobot {
 			Communicator.CHANNEL_NEW_SOLDIER_MODE,
 			Communicator.CHANNEL_MINER_COUNT,
 			Communicator.CHANNEL_ENCAMPER_COUNT,
-			Communicator.CHANNEL_SOLDIER_COUNT
+			Communicator.CHANNEL_SOLDIER_COUNT,
+			Communicator.CHANNEL_DEFENDER_COUNT
 		});
 	}
 

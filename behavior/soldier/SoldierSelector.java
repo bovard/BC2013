@@ -17,9 +17,11 @@ public class SoldierSelector extends Decision {
 		children.add(new SoldierSwarm(this.robot));
 		children.add(new SoldierEncamper(this.robot));
 		children.add(new SoldierCombat(this.robot));
+		children.add(new SoldierDefender(this.robot));
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SWARMER).parent = this;
 		children.get(SOLDIER_ENCAMPER).parent = this;
+		children.get(SOLDIER_DEFENDER).parent = this;
 	}
 	
 	@Override
@@ -63,7 +65,8 @@ public class SoldierSelector extends Decision {
 	public static final int SOLDIER_MINER = 0;
 	public static final int SOLDIER_SWARMER = 1;
 	public static final int SOLDIER_ENCAMPER = 2;
-	public static final int SOLDIER_COMBAT = 2;
+	public static final int SOLDIER_COMBAT = 3;
+	public static final int SOLDIER_DEFENDER = 4;
 
 	public static final int GENERATOR_ENCAMPER = 10;
 	public static final int SUPPLIER_ENCAMPER = 20;

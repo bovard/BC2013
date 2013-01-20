@@ -2,6 +2,7 @@ package team122;
 
 import java.util.HashMap;
 
+import battlecode.common.Direction;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.Team;
@@ -17,6 +18,8 @@ public class MapInformation {
 	public int totalEncampments;
 	public RobotController rc;
 	public RobotInformation info;
+	public MapLocation[] artilleryEncamp;
+	public int[] artilleryDistances;
 	
 	// private stuff for state.
 	private boolean calculatedSetEncampments = false;
@@ -50,6 +53,56 @@ public class MapInformation {
 			}
 			
 			calculatedSetEncampments = true;
+		}
+	}
+	
+	/**
+	 * The artillery sort is to make all the encampments sorted in an artillery ordered sort.
+	 */
+	public void setEncampmentsArtillerySort() {
+		
+		//TODO: Artillery sort
+		setEncampments();
+		artilleryEncamp = new MapLocation[totalEncampments];
+		artilleryDistances = new int[totalEncampments];
+
+		Direction edir = info.enemyHq.directionTo(info.hq);
+		Direction hdir = info.hq.directionTo(info.enemyHq);
+
+		Direction e = edir;
+		Direction h = hdir;
+		Direction oE = edir.opposite();
+		Direction oH = hdir.opposite();
+		
+		MapLocation hq = info.hq;
+		MapLocation enemyHq = info.enemyHq;
+		
+		int dirChangeMul = 25;
+		int hEncampPenalty = 0;
+		int eEncampPenalty = 0;
+		
+		for (int i = 0; i < totalEncampments; i++) {
+			artilleryEncamp[i] = encampments[i];
+		}
+		
+		for (int i = 0; i < 8; i++) {
+			hEncampPenalty = i * dirChangeMul;
+			eEncampPenalty = -i * dirChangeMul;
+			
+			for (int j = 0; j < totalEncampments; j++) {
+				if ((hq.directionTo(encampments[i]).equals(h) && 
+					enemyHq.directionTo(encampments[i]).equals(e)) ||
+					(hq.directionTo(encampments[i]).equals(h) && 
+					enemyHq.directionTo(encampments[i]).equals(e))) {
+					
+					artilleryDistances[i] = (encampmentsDistances[j] + hEncampPenalty) - (enemyDistances[j] + eEncampPenalty);
+				}
+			}
+			
+			e = e.rotateLeft();
+			h = h.rotateRight();
+			oE = e.opposite();
+			oH = h.opposite();
 		}
 	}
 	
@@ -166,4 +219,9 @@ public class MapInformation {
 			_quicksort(locsDists, nmeDists, locs, low, i);
 		}
 	}
+	
+	/**
+	 * Might increase it.
+	 */
+	private static final int ARTILLERY_RADIUS = 225;
 }

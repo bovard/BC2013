@@ -3,6 +3,7 @@ package team122;
 import java.util.HashMap;
 
 import team122.communication.Communicator;
+import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
@@ -19,6 +20,7 @@ public class RobotInformation {
 	public int height;
 	public int enemyHqDistance;
 	public RobotController rc;
+	public Direction enemyDir;
 
 	/**
 	 * Will construct a robot information. These are common operations that
@@ -36,6 +38,7 @@ public class RobotInformation {
 		width = rc.getMapWidth();
 		height = rc.getMapHeight();
 		center = new MapLocation(width / 2, height / 2);
+		enemyDir = hq.directionTo(enemyHq);
 		this.rc = rc;
 	}
 }

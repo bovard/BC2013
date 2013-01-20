@@ -1,6 +1,9 @@
 package team122;
 
+import battlecode.common.Direction;
 import battlecode.common.MapLocation;
+import battlecode.common.RobotController;
+import battlecode.common.Team;
 
 public class MapUtils {
 
@@ -91,4 +94,29 @@ public class MapUtils {
 			_quicksort(locsDists, locs, low, i);
 		}
 	}
+	
+	/**
+	 * Attempts to move in the direction with defusion.
+	 * @param rc
+	 * @param dir
+	 * @return
+	 */
+	public static final int canMove(RobotController rc, RobotInformation info, Direction dir) {
+		MapLocation loc = rc.getLocation();
+		
+		if (rc.canMove(dir)) {
+			Team t = rc.senseMine(loc.add(dir));
+			if (t != null && t != info.myTeam) {
+				return MUST_DEFUSE;
+			}
+
+			return CAN_MOVE;
+		} else {
+			return CANT_MOVE;
+		}	
+	}
+
+	public static final int CAN_MOVE = 0;
+	public static final int MUST_DEFUSE = 1;
+	public static final int CANT_MOVE = 2;
 }
