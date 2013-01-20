@@ -101,8 +101,8 @@ public class SoldierCombat extends Behavior{
 		
 		// then do the enemy calculations
 		for(RobotInfo rInfo:enemySoldiers) {
-			x = robot.currentLoc.x - rInfo.location.x;
-			y = robot.currentLoc.y - rInfo.location.y;
+			x = -robot.currentLoc.x + rInfo.location.x;
+			y = -robot.currentLoc.y + rInfo.location.y;
 			cantMoveSoldier[MIDDLE + x][MIDDLE + y] = true;
 			for(ix = -1; ix <= 1; ix++) {
 				for(iy = -1; iy <= 1; iy++) {
@@ -130,8 +130,8 @@ public class SoldierCombat extends Behavior{
 
 		// then do the allied calculations
 		for(RobotInfo rInfo:alliedSoldiers) {
-			x = robot.currentLoc.x - rInfo.location.x;
-			y = robot.currentLoc.y - rInfo.location.y;
+			x = - robot.currentLoc.x + rInfo.location.x;
+			y = - robot.currentLoc.y + rInfo.location.y;
 			cantMoveSoldier[MIDDLE + x][MIDDLE + y] = true;
 			for(ix = -1; ix <= 1; ix++) {
 				for(iy = -1; iy <= 1; iy++) {
