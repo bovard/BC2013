@@ -14,7 +14,7 @@ public class MapUtils {
 			dists[i] = locs[i].distanceSquaredTo(start);
 		}
 		
-		sort(start, locs, dists);
+		sort(locs, dists);
 	}
 	
 	/**
@@ -22,7 +22,7 @@ public class MapUtils {
 	 * @param locs
 	 * @param dists
 	 */
-	public static void sort(MapLocation start, MapLocation[] locs, int[] dists) {
+	public static void sort(MapLocation[] locs, int[] dists) {
 		if (locs.length < 5) {
 
 			int currentDist;

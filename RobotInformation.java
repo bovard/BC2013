@@ -84,6 +84,20 @@ public class RobotInformation {
 	}
 	
 	/**
+	 * Generator/supplier sort algorithm.
+	 */
+	public void setEncampmentsGenSort() {
+		setEncampments();
+		
+		int[] distances = new int[totalEncampments];
+		for (int i = 0; i < totalEncampments; i++) {
+			distances[i] = encampmentsDistances[i] - enemyDistances[i];
+		}
+		
+		MapUtils.sort(encampments, distances);
+	}
+	
+	/**
 	 * set encampments and sorts them along with enemy distances.
 	 * 
 	 * NOTE**: The insertion sort and quick sort values have changed

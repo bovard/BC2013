@@ -30,7 +30,6 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	 * When we start we determine if there is any allied encampments
 	 */
 	public void start() throws GameActionException {
-		robot.info.setEncampmentsAndSort();
 
 		// Setups the data : type and what generator to start with.
 		int camperType = robot.initialData % 100;
@@ -38,19 +37,21 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 
 		// We are readying the generator encamper.
 		if (camperType == SoldierSelector.GENERATOR_ENCAMPER || camperType == SoldierSelector.SUPPLIER_ENCAMPER) {
+			robot.info.setEncampmentsGenSort();
 
 			// These encampments should be furthest away from enemy hq.
 			encampmentType = camperType == SoldierSelector.GENERATOR_ENCAMPER ? 
 					RobotType.GENERATOR : RobotType.SUPPLIER;
 		} else {
+			robot.info.setEncampmentsAndSort();
 			
 			//TODO: Other encampments.
 
 			// Other encampments should be close to the HQ.
 			encampmentType = RobotType.ARTILLERY;
+			encampmentToTry = 0;
 		}
 		
-		encampmentToTry = 0;
 
 		_setDestination();
 	}
@@ -115,7 +116,6 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	 * Sets the destination of the robot encamper.
 	 */
 	private boolean _setDestination() {
-		MapLocation encamp;
 
 		// Depending on the initial data is what the encamper should do.
 		// One big and obvious thing is that the encamper should pick
@@ -125,49 +125,23 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 		// from the end of the
 		// enemy list.
 		if (encampmentType == RobotType.GENERATOR || encampmentType == RobotType.SUPPLIER) {
-			int loc;
-			int offset = encampmentToTry;
 			MapLocation mapLoc = null;
 			
-			while (offset < info.totalEncampments) {
-				loc = miniMaxLocation(offset);
-				mapLoc = info.encampments[loc];
+			while (encampmentToTry < info.totalEncampments) {
+				mapLoc = info.encampments[encampmentToTry];
 				
 				if (info.alliedEncampments.containsKey(mapLoc) ||
 					info.hq.distanceSquaredTo(mapLoc) <= ARTILLERY_MED_BAY_DISTANCE) {
-					offset++;
+					encampmentToTry++;
 					continue;
 				}
 				
 				robot.navSystem.navMode.setDestination(mapLoc);
-				break;
+				return true;
 			}
 		}
 
 		return false;
-	}
-	
-	/**
-	 * Attempting to find the 
-	 * @param start
-	 * @return
-	 */
-	private int miniMaxLocation(int offset) {
-		
-		int max = -1, min = -1, index = 0;
-		for (int i = 0, len = info.totalEncampments; i < len; i++) {
-			if (max == -1) {
-				max = info.enemyDistances[i];
-				min = info.encampmentsDistances[i];
-				index = i;
-			} else if (info.encampmentsDistances[i] < min && info.enemyDistances[i] > max) {
-				index = i;
-				max = info.enemyDistances[i];
-				min = info.encampmentsDistances[i];
-			}
-		}
-		
-		return index;
 	}
 
 	public final static int ARTILLERY_MED_BAY_DISTANCE = 58;
