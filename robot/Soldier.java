@@ -46,9 +46,7 @@ public class Soldier extends TeamRobot {
 			Communicator.CHANNEL_ENCAMPER_COUNT,
 			Communicator.CHANNEL_SOLDIER_COUNT
 		});
-		int time = Clock.getBytecodeNum();
 		mCalc = new MoveCalculator(this);
-		System.out.println("init takes " + (Clock.getBytecodeNum()-time));
 	}
 	
 	@Override
@@ -61,7 +59,7 @@ public class Soldier extends TeamRobot {
 		enemyInMelee = false;
 		previousLoc = currentLoc;
 		currentLoc = rc.getLocation();
-		System.out.println("im at "+currentLoc.toString());
+		//System.out.println("im at "+currentLoc.toString());
 		neutral_mines = rc.senseMineLocations(currentLoc, 3, Team.NEUTRAL);
 		allied_mines = rc.senseMineLocations(currentLoc, 3, info.myTeam);
 		

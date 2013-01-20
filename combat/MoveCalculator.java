@@ -1,6 +1,5 @@
 package team122.combat;
 
-import java.util.Arrays;
 
 import team122.robot.Soldier;
 import battlecode.common.Clock;
@@ -19,21 +18,12 @@ public class MoveCalculator {
 	
 	
 	public MoveCalculator(Soldier robot) {
-		combatHash = new CombatHashMap();
 		this.robot = robot;
 	}
 	
-	public boolean load() {
-		if (combatHash.count < combatHash.TO_LOAD) {
-			combatHash.load();
-			return false;
-		}
-		return true;
-	}
-	
 	public Direction calculateMove (Robot[] nearby, MapLocation loc) throws GameActionException{
-		int time = -Clock.getBytecodeNum();
-		System.out.println("Starting caclMove at " + -time);
+		//int time = -Clock.getBytecodeNum();
+		//System.out.println("Starting caclMove at " + -time);
 		
 		_makeMap(nearby, loc);
 		
@@ -55,12 +45,12 @@ public class MoveCalculator {
 			}
 		}
 		
-		System.out.println("One CALC move takes " + (Clock.getBytecodeNum() + time));
+		//System.out.println("One CALC move takes " + (Clock.getBytecodeNum() + time));
 		
 		Direction dir = _xyToDir(xyDir[0], xyDir[1]);
-		System.out.println("DECISION========================");
-		System.out.println(dir.toString());
-		System.out.println("DECISION========================");
+		//System.out.println("DECISION========================");
+		//System.out.println(dir.toString());
+		//System.out.println("DECISION========================");
 		robot.rc.setIndicatorString(0, dir.toString());
 		return dir;
 	}
@@ -91,7 +81,7 @@ public class MoveCalculator {
 	}
 
 	private void _makeMap(Robot[] nearby, MapLocation loc) throws GameActionException{
-		int time = - Clock.getBytecodeNum();
+		//int time = - Clock.getBytecodeNum();
 		map = new char[7][7];
 		for (int i=0;i<7;i++) {
 			for (int j=0;j<7;j++) {
@@ -102,24 +92,24 @@ public class MoveCalculator {
 		for (MapLocation l : robot.allied_mines) {
 			int x = l.x - loc.x;
 			int y = l.y - loc.y;
-			System.out.println("Found a allied mine at "+l.toString());
-			System.out.println("Found a allied mine at "+x+","+ y);
+			//System.out.println("Found a allied mine at "+l.toString());
+			//System.out.println("Found a allied mine at "+x+","+ y);
 			map[3+x][3+y] = 'c';
 		}
 		
 		for (MapLocation l : robot.enemy_mines) {
 			int x = l.x - loc.x;
 			int y = l.y - loc.y;
-			System.out.println("Found an enemy mine at "+l.toString());
-			System.out.println("Found an enemy mine at "+x+","+ y);
+			//System.out.println("Found an enemy mine at "+l.toString());
+			//System.out.println("Found an enemy mine at "+x+","+ y);
 			map[3+x][3+y] = 'g';
 		}
 		
 		for (MapLocation l : robot.neutral_mines) {
 			int x = l.x - loc.x;
 			int y = l.y - loc.y;
-			System.out.println("Found a neutral mine at "+l.toString());
-			System.out.println("Found a neutral mine at "+x+","+ y);
+			//System.out.println("Found a neutral mine at "+l.toString());
+			//System.out.println("Found a neutral mine at "+x+","+ y);
 			map[3+x][3+y] = 'g';
 		}
 		
@@ -140,17 +130,23 @@ public class MoveCalculator {
 			}
 		}
 		
-		System.out.println("MAP========================");
-		for (int i = 0; i < 7; i++ ) {
-			System.out.println(Arrays.toString(map[i]));
+		int enemyX = robot.info.enemyHq.x - loc.x;
+		int enemyY = robot.info.enemyHq.y - loc.y;
+		if (Math.abs(enemyX) < 3 && Math.abs(enemyY) < 3) {
+			map[3+enemyX][3+enemyY] = 'v';
 		}
-		System.out.println("MAP========================");
+		
+		//System.out.println("MAP========================");
+		//for (int i = 0; i < 7; i++ ) {
+		//	System.out.println(Arrays.toString(map[i]));
+		//}
+		//System.out.println("MAP========================");
 		
 		
 
 		
-		time += Clock.getBytecodeNum();
-		System.out.println("One makeMap is " + time);
+		//time += Clock.getBytecodeNum();
+		//System.out.println("One makeMap is " + time);
 	}
 	
 	private int _scoreHash(String hash) {
@@ -165,20 +161,27 @@ public class MoveCalculator {
 		int aCount = 0;
 		int eCount = 0;
 		int fCount = 0;
+		int vCount = 0;
 		for (int i = 0; i < hash.length(); i++) {
 			char c = hash.charAt(i);
 			if (c == 'e') {
 				eCount++;
 			} else if (c == 'a') {
 				aCount++;
+			} else if (c == 'f') {
+				fCount++;
+			} else if (c == 'v') {
+				return 1000;
 			}
 		}
-		System.out.println("one eval takes " + (Clock.getBytecodeNum()-time));
+		//System.out.println("one eval takes " + (Clock.getBytecodeNum()-time));
 		if (eCount > 0) {
-			if(aCount + 1 > eCount) {
-				return 10 * (aCount-eCount) + 10 * fCount;
+			if(aCount + 1 > (eCount + fCount)) {
+				return 100;
 			}
-			return 6 * (aCount - eCount) + 10;
+			return 6 * (aCount - (eCount+fCount)) + 5;
+		} else if (fCount > 0) {
+			return 100;
 		} else {
 			return 3 * aCount;
 		}
@@ -188,7 +191,6 @@ public class MoveCalculator {
 	
 	
 	private int _evalMove(int x, int y, int right_switch, int up_switch) {
-		int time = - Clock.getBytecodeNum();
 		int score = 0;
 		int num = 0;
 		
@@ -259,7 +261,7 @@ public class MoveCalculator {
 		time += Clock.getBytecodeNum();
 		System.out.println("One evalMove is " + time);
 		*/
-		hash = "" + map[x-1][y] + map[x][y] + map[x-1][y] + map[x+1][y-1] + map[x][y-1] + map[x-1][y-1] + map[x+1][y+1] + map[x][y+1] + map[x-1][y+1];
+		hash = "" + map[x-1][y-1] + map[x][y-1] + map[x+1][y-1] + map[x-1][y] + map[x][y] + map[x+1][y] + map[x-1][y+1] + map[x][y+1] + map[x+1][y+1];
 		//System.out.println("Hash: "+hash);
 		score += _scoreHash(hash);
 		num++;
