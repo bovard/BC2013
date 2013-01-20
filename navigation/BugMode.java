@@ -1,7 +1,6 @@
 package team122.navigation;
 
 import team122.RobotInformation;
-import battlecode.common.Direction;
 import battlecode.common.RobotController;
 
 public class BugMode extends NavigationMode {
