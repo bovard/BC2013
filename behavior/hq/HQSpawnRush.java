@@ -46,8 +46,8 @@ public class HQSpawnRush extends Behavior {
 	
 	public static final int MINER_COUNT = 1;
 	public static final int ROBOT_LOWER_SOLDIER_COUNT = 10;
-	public static final int ROBOT_UPPER_SOLDIER_COUNT = 30;
+	public static final int ROBOT_UPPER_SOLDIER_COUNT = 40;
 	public static final int ROBOT_SUPPLIER_COUNT = 3;
 	public static final int ROBOT_GENERATOR_COUNT = 3;
-	public static final int ROBOT_ENCAMPER_COUNT = 2;
+	public static final int ROBOT_ENCAMPER_COUNT = 1;
 }
