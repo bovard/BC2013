@@ -4,6 +4,7 @@ import team122.behavior.Behavior;
 import team122.behavior.soldier.SoldierSelector;
 import team122.robot.HQ;
 import battlecode.common.GameActionException;
+import battlecode.common.Upgrade;
 
 public class HQSpawnRush extends Behavior {
 	
@@ -20,6 +21,8 @@ public class HQSpawnRush extends Behavior {
 	public void run() throws GameActionException {
 		if (utils.minerCount < MINER_COUNT) {
 			robot.spawn(SoldierSelector.SOLDIER_MINER);
+		} else if (!robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
+			robot.rc.researchUpgrade(Upgrade.PICKAXE);
 		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3) { // more gen more soldiers.
 			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
 		} else if (utils.shouldCreateEncampment(robot.info) && utils.encamperCount < ROBOT_ENCAMPER_COUNT) {
@@ -47,7 +50,7 @@ public class HQSpawnRush extends Behavior {
 	public static final int MINER_COUNT = 1;
 	public static final int ROBOT_LOWER_SOLDIER_COUNT = 10;
 	public static final int ROBOT_UPPER_SOLDIER_COUNT = 30;
-	public static final int ROBOT_SUPPLIER_COUNT = 3;
-	public static final int ROBOT_GENERATOR_COUNT = 3;
+	public static final int ROBOT_SUPPLIER_COUNT = 2;
+	public static final int ROBOT_GENERATOR_COUNT = 2;
 	public static final int ROBOT_ENCAMPER_COUNT = 2;
 }
