@@ -85,43 +85,58 @@ for i0 in possibles:
                         for i7 in possibles:
                             for i8 in possibles:
                                 map = i0+'*'+i2+i3+i4+i5+i6+i7+i8
-                                if not in_results(map):
-                                    results[map] = eval_map(map)
+                                if 'e' in map:
+                                    if not in_results(map):
+                                        results[map] = eval_map(map)
 
 
 
 ## ================== WRITE HASH FILES ==========================
 
-def init_hash(f, name):
+
+
+def init_hash(f, name, type):
+    f.write("package team122.combat;\n")
     f.write("import java.util.HashMap;\n")
     f.write("import java.util.Map;\n")
     f.write("\n")
     f.write("public class %s {\n" % name)
-    f.write("    private static final Map<String, Integer> myMap = new HashMap<Integer, String>();\n")
-    f.write("    static {\n")
+    f.write("    private static final Map<String, %s> m = new HashMap<String, %s>();\n" % (type, type))
+
+def write_constructor(f, num_o_inits, name):
+    f.write("    public %s() {\n" % name)
+    for i in range(0, num_o_inits+1):
+        f.write("        init_%s();\n" % i)
+    f.write("    }")
 
 
+def write_hash(hash, name, type):
 
-f = open('behavior/CombatHashMap.java', 'w')
-print("making hash")
-init_hash(f, 'CombatHashMap')
-for key in results.keys():
-    f.write("        myMap.put(%s,%s);\n" % (key, results[key]))
+    f = open('combat/%s.java' % name, 'w')
+    init_hash(f, name, type)
+    i = 1000
+    num_o_inits = 0
+    f.write('    private void init_0() {\n')
+    for key in hash.keys():
+        i -= 1
+        if i <= 0:
+            num_o_inits += 1
+            i = 1000
+            f.write('    }')
+            f.write('    private void init_%s() {\n' % num_o_inits)
+        if type == 'String':
+            f.write('        m.put("%s","%s");\n' % (key, hash[key]))
+        elif type == 'Integer':
+            f.write('        m.put("%s",%s);\n' % (key, hash[key]))
 
-f.write("    }\n")
-f.write("}\n")
-f.close()
+    f.write("    }\n")
+    write_constructor(f, num_o_inits, name)
+    f.write("}\n")
+    f.close()
 
 
-f = open('behavior/MapHashMap.java', 'w')
-print("making hash")
-init_hash(f, 'MapHashMap')
-for key in rotate_hash.keys():
-    f.write("        myMap.put(%s,%s);\n" % (key, rotate_hash[key]))
-
-f.write("    }\n")
-f.write("}\n")
-f.close()
+write_hash(results, "CombatHashMap", "Integer")
+write_hash(rotate_hash, "MapHashMap", "String")
 
 def something():
     """
