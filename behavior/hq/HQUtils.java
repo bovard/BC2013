@@ -63,17 +63,33 @@ public class HQUtils {
 		double movementCost = hqDist * (1 + (mineDensity * defuseRate));
 		boolean inMiddleGrounds = mapInfo.inRangeOfCenterPath(encampment, 81);
 		
+		//TODO: Power production is to high so we need to have another cost.
+		
 		return (int)(roundsUntilPayback + enemyCost + movementCost + (inMiddleGrounds ? 20 : -10));
 	}
 	
-	public int supplierCost(MapLocation hq, MapLocation encampment, MapLocation enemy) {
+	public int supplierCost(MapLocation hq, MapLocation encampment, MapLocation enemy) throws GameActionException {
+
+		//TODO:  THIS IS BAD CALCULATIONS ONLY CONSIDERED MOVEMENT.
 		
-		return 0;
+		double mineDensity = mapInfo.updateMineDensity();
+		int hqDist = hq.distanceSquaredTo(encampment);
+		double decayRate = rc.hasUpgrade(Upgrade.FUSION) ? GameConstants.POWER_DECAY_RATE_FUSION : GameConstants.POWER_DECAY_RATE;
+		int defuseRate = rc.hasUpgrade(Upgrade.DEFUSION) ? GameConstants.MINE_DEFUSE_DEFUSION_DELAY : GameConstants.MINE_DEFUSE_DELAY;
+		double movementCost = hqDist * (1 + (mineDensity * defuseRate));
+		return (int)(0 - artilleryCount + movementCost);
 	}
 	
-	public int artilleryCost(MapLocation hq, MapLocation encampment, MapLocation enemy) {
+	public int artilleryCost(MapLocation hq, MapLocation encampment, MapLocation enemy)  throws GameActionException {
+
+		//TODO:  THIS IS BAD CALCULATIONS ONLY CONSIDERED MOVEMENT.
 		
-		return 1;
+		double mineDensity = mapInfo.updateMineDensity();
+		int hqDist = hq.distanceSquaredTo(encampment);
+		double decayRate = rc.hasUpgrade(Upgrade.FUSION) ? GameConstants.POWER_DECAY_RATE_FUSION : GameConstants.POWER_DECAY_RATE;
+		int defuseRate = rc.hasUpgrade(Upgrade.DEFUSION) ? GameConstants.MINE_DEFUSE_DEFUSION_DELAY : GameConstants.MINE_DEFUSE_DELAY;
+		double movementCost = hqDist * (1 + (mineDensity * defuseRate));
+		return (int)(1 - supplierCount);
 	}
 
 	/**

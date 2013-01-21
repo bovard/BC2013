@@ -39,6 +39,7 @@ public class SoldierSelector extends Decision {
 			robot.initialData = data - robot.initialMode;
 			robot.isNew = false;
 			
+			System.out.println("Getting new robot behavior with : " + robot.initialMode + " : " + robot.initialData);
 			Behavior behavior = (Behavior)children.get(robot.initialMode);
 			behavior.setInitialData(robot.initialData);
 			
@@ -52,24 +53,10 @@ public class SoldierSelector extends Decision {
 	public boolean pre() {
 		return true;
 	}
-	
-	/**
-	 * Builds encampment data.  NO way to screw this up :)
-	 * @param encampmentType
-	 * @param encampmentToTry
-	 * @return
-	 */
-	public static int setEncamperData(int encampmentType, int encampmentToTry) {
-		return encampmentToTry * 1000 + encampmentType + SOLDIER_ENCAMPER;
-	}
 
 	public static final int SOLDIER_MINER = 0;
 	public static final int SOLDIER_SWARMER = 1;
 	public static final int SOLDIER_ENCAMPER = 2;
 	public static final int SOLDIER_COMBAT = 3;
 	public static final int SOLDIER_DEFENDER = 4;
-
-	public static final int GENERATOR_ENCAMPER = 10;
-	public static final int SUPPLIER_ENCAMPER = 20;
-	public static final int ARTILLERY_ENCAMPER = 30;
 }
