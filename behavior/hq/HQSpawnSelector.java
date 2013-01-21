@@ -20,14 +20,16 @@ public class HQSpawnSelector extends Decision {
 		this.children.get(HQ_SPAWN_ECON).parent = this;
 		this.children.get(HQ_SPAWN_NUKE).parent = this;
 	}
+	
 
 	@Override
 	public Node select() throws GameActionException {
-//		if (robot.rush) {
-//			return this.children.get(HQ_SPAWN_RUSH);
-//		} else if (robot.nuke) {
-//			return this.children.get(HQ_SPAWN_NUKE);
-//		}
+		
+		if (robot.rush) {
+			return this.children.get(HQ_SPAWN_RUSH);
+		} else if (robot.nuke) {
+			return this.children.get(HQ_SPAWN_NUKE);
+		}
 		robot.nuke = true;
 		return this.children.get(HQ_SPAWN_NUKE);
 	}

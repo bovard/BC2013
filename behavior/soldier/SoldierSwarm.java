@@ -22,17 +22,21 @@ public class SoldierSwarm
 	
 	@Override
 	public void start() {
-		Direction dir = robot.info.enemyDir;
-		robot.move.destination = robot.info.hq
-				.add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir);
+		
 	}
 
 	@Override
 	public void run() throws GameActionException {
 		
 		//TODO: We need to turn this into an actual smart soldier.
+		if (robot.move.destination == null) {
+			Direction dir = robot.info.enemyDir;
+			robot.move.destination = robot.info.hq
+					.add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir);
+		}
 		
-		if (Clock.getRoundNum() % 400 >= 300) {
+		
+		if (Clock.getRoundNum() % 150 >= 125) {
 			robot.move.destination = robot.info.enemyHq;
 		}
 		robot.move.move();
