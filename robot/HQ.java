@@ -38,6 +38,7 @@ public class HQ extends TeamRobot {
 		econ = false;
 		mid = false;
 		rush = false;
+		nuke = false;
 		mapInfo = new MapInformation(rc, info);
 	}
 	
@@ -87,28 +88,31 @@ public class HQ extends TeamRobot {
 		if (info.enemyHqDistance <= RUSH_ENEMY_MAP) {
 			rush = true;
 			return;
-		}
-
-		
-		//We determine what strategy to use.
-		int radiusSquared = info.enemyHqDistance / 2;
-		double area = (Math.PI * radiusSquared);
-		int mineCount = rc.senseMineLocations(info.center, radiusSquared, Team.NEUTRAL).length;
-		double density = mineCount / area;
-		
-		System.out.println(info.enemyHqDistance + " : " + density);
-		
-		if (info.enemyHqDistance <= RUSH_ENEMY_MAP_LONG && density <= RUSH_ENEMY_MAP_LONG_DENSITY) {
-			rush = true;
+		} else {
+			nuke = true;
 			return;
 		}
 
-		econ = true;
-		return;
+		
+//		//We determine what strategy to use.
+//		int radiusSquared = info.enemyHqDistance / 2;
+//		double area = (Math.PI * radiusSquared);
+//		int mineCount = rc.senseMineLocations(info.center, radiusSquared, Team.NEUTRAL).length;
+//		double density = mineCount / area;
+//		
+//		System.out.println(info.enemyHqDistance + " : " + density);
+//		
+//		if (info.enemyHqDistance <= RUSH_ENEMY_MAP_LONG && density <= RUSH_ENEMY_MAP_LONG_DENSITY) {
+//			rush = true;
+//			return;
+//		}
+//
+//		econ = true;
+//		return;
 	}
 	
 	public static final int HQ_COUNT_ROUND = 3;
-	public static final int RUSH_ENEMY_MAP = 400;
+	public static final int RUSH_ENEMY_MAP = 300;
 	public static final int RUSH_ENEMY_MAP_LONG = 1600;
 	public static final double RUSH_ENEMY_MAP_LONG_DENSITY = 0.25;
 }
