@@ -31,7 +31,7 @@ public class HQSpawnEcon extends Behavior {
 		} else if (!rc.hasUpgrade(Upgrade.PICKAXE)) {
 			rc.researchUpgrade(Upgrade.PICKAXE);
 		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3) { // more gen more soldiers.
-			robot.spawn(SoldierSelector.SOLDIER_DEFENDER);
+			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
 		} else if (utils.shouldCreateEncampment(robot.mapInfo) && utils.encamperCount < ROBOT_ENCAMPER_COUNT) {
 			System.out.println("Create Encampment");
 			
@@ -45,7 +45,7 @@ public class HQSpawnEcon extends Behavior {
 		} else if (!rc.hasUpgrade(Upgrade.DEFUSION)) {
 			rc.researchUpgrade(Upgrade.DEFUSION);
 		} else if (utils.soldierCount < ROBOT_UPPER_SOLDIER_COUNT + utils.generatorCount * 3) { // more gen more soldiers.
-			robot.spawn(SoldierSelector.SOLDIER_DEFENDER);
+			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
 		} else if (!rc.hasUpgrade(Upgrade.NUKE)) {
 			rc.researchUpgrade(Upgrade.NUKE);
 		}

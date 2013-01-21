@@ -11,35 +11,40 @@ public class HQSpawnRush extends Behavior {
 	
 	protected HQ robot;
 	protected HQUtils utils;
+	protected Upgrade[] upgrades;
 
 	public HQSpawnRush(HQ robot) {
 		super();
 		this.robot = robot;
 		this.utils = robot.hqUtils;
+		upgrades = new Upgrade[5];
+		upgrades[0] = Upgrade.PICKAXE;
+		upgrades[1] = Upgrade.DEFUSION;
+		upgrades[2] = Upgrade.VISION;
+		upgrades[3] = Upgrade.FUSION;
+		upgrades[4] = Upgrade.NUKE;
 	}
 	
 	@Override
 	public void run() throws GameActionException {
 		if (utils.minerCount < MINER_COUNT) {
 			robot.spawn(SoldierSelector.SOLDIER_MINER);
-		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3) { // more gen more soldiers.
-			robot.spawn(SoldierSelector.SOLDIER_DEFENDER);
-		} else if (utils.shouldCreateEncampment(robot.mapInfo) && utils.encamperCount < ROBOT_ENCAMPER_COUNT) {
-			System.out.println("Create Encampment");
-			
-			if (utils.supplierCount < ROBOT_SUPPLIER_COUNT) {
-				System.out.println("Create Supplier");
-				robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.SUPPLIER_ENCAMPER, utils.generatorCount + utils.supplierCount + utils.encamperCount));
-			} else if (utils.generatorCount< ROBOT_SUPPLIER_COUNT) {
-				System.out.println("Create Generator");
-				robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, utils.generatorCount + utils.supplierCount + utils.encamperCount));
+		} else if (utils.generatorCount < 1 && utils.encamperCount < 2) {
+			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, 0));
+		} else if (utils.supplierCount < 1 && utils.encamperCount < 2) {
+			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.SUPPLIER_ENCAMPER, 0));
+		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
+			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+		} else if (utils.soldierCount < ROBOT_UPPER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
+			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+		} else {
+			for (Upgrade u : upgrades) {
+				if (!robot.rc.hasUpgrade(u)) {
+					robot.rc.researchUpgrade(u);
+					break;
+				}
 			}
-		} else if (!robot.rc.hasUpgrade(Upgrade.DEFUSION) && Clock.getRoundNum() % 2 == 0) {
-			robot.rc.researchUpgrade(Upgrade.DEFUSION);
-		} else if (utils.soldierCount < ROBOT_UPPER_SOLDIER_COUNT + utils.generatorCount * 3) { // more gen more soldiers.
-			robot.spawn(SoldierSelector.SOLDIER_DEFENDER);
 		}
-		
 		//Nothign to do.  DO not over commit.
 		return;
 	}
