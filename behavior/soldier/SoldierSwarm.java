@@ -1,10 +1,13 @@
 package team122.behavior.soldier;
 
 import battlecode.common.Clock;
+import battlecode.common.Direction;
 import battlecode.common.GameActionException;
+import battlecode.common.MapLocation;
 import team122.behavior.Behavior;
 import team122.behavior.IComBehavior;
 import team122.communication.Communicator;
+import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
 
 public class SoldierSwarm  
@@ -12,9 +15,11 @@ public class SoldierSwarm
 		implements IComBehavior {
 	
 	public Soldier robot;
+	private SoldierMove move;
 	
 	public SoldierSwarm(Soldier robot) {
 		this.robot = robot;
+		move = new SoldierMove(robot);
 	}
 
 	@Override
@@ -22,15 +27,16 @@ public class SoldierSwarm
 		
 		//TODO: We need to turn this into an actual smart soldier.
 		
-		if (!robot.navSystem.navMode.hasDestination && !robot.navSystem.navMode.atDestination) {
-			robot.navSystem.setInitialSwarmRallyPoint();
+		if (move.destination == null) {
+			Direction dir = robot.info.enemyDir;
+			move.destination = robot.info.hq
+					.add(dir).add(dir).add(dir).add(dir).add(dir).add(dir);
 		}
 		
-		if (Clock.getRoundNum() % 400 == 0) {
-			robot.navSystem.navMode.setDestination(robot.info.enemyHq);
-		} else {
-			robot.navSystem.navMode.move();
+		if (Clock.getRoundNum() % 400 >= 300) {
+			move.destination = robot.info.enemyHq;
 		}
+		move.move();
 	}
 
 	@Override

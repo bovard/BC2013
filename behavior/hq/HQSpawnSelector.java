@@ -21,11 +21,11 @@ public class HQSpawnSelector extends Decision {
 
 	@Override
 	public Node select() throws GameActionException {
-		if (robot.rush) {
-			return this.children.get(HQ_SPAWN_RUSH);
-		} else if (robot.econ) {
-			return this.children.get(HQ_SPAWN_ECON);
-		}
+//		if (robot.rush) {
+//			return this.children.get(HQ_SPAWN_RUSH);
+//		} else if (robot.econ) {
+//			return this.children.get(HQ_SPAWN_ECON);
+//		}
 
 		//defaults to rush.
 		return this.children.get(HQ_SPAWN_RUSH);

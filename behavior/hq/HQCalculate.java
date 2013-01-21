@@ -36,6 +36,7 @@ public class HQCalculate extends Behavior {
 		
 		//Calculates information about the map, strategy, ect. ect.
 		robot.calculateStrategyPoints();
+		robot.rush = true;
 		calculating = false;
 	}
 
