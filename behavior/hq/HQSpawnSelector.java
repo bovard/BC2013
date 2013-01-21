@@ -24,7 +24,8 @@ public class HQSpawnSelector extends Decision {
 
 	@Override
 	public Node select() throws GameActionException {
-		
+		System.out.println("DISTANCE is " + robot.info.enemyHqDistance);
+		System.out.println("RUSH is " + robot.rush);
 		if (robot.rush) {
 			return this.children.get(HQ_SPAWN_RUSH);
 		} else if (robot.nuke) {

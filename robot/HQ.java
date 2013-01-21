@@ -112,7 +112,7 @@ public class HQ extends TeamRobot {
 	}
 	
 	public static final int HQ_COUNT_ROUND = 3;
-	public static final int RUSH_ENEMY_MAP = 400;
+	public static final int RUSH_ENEMY_MAP = 1000;
 	public static final int RUSH_ENEMY_MAP_LONG = 1600;
 	public static final double RUSH_ENEMY_MAP_LONG_DENSITY = 0.25;
 }

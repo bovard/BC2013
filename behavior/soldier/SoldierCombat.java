@@ -33,8 +33,10 @@ public class SoldierCombat
 		if (!robot.rc.isActive())
 			return;
 		Direction toMove = robot.mCalc.calculateMove(robot.meleeObjects, robot.currentLoc);
-		if (toMove != Direction.NONE)
+		if (toMove != Direction.NONE) {
 			robot.rc.move(toMove);
+		} else {
+		}
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package team122.behavior.soldier;
 
+import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -21,6 +22,11 @@ public class SoldierNukeDefender extends Behavior {
 	public void run() throws GameActionException {
 		if (!robot.rc.isActive())
 			return;
+		
+		if(Clock.getRoundNum() > 530) {
+			robot.move.destination = robot.info.hq;
+			robot.move.move();
+		}
 		
 		MapLocation loc = robot.currentLoc;
 
