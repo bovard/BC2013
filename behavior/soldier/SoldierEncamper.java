@@ -8,6 +8,7 @@ import team122.behavior.Behavior;
 import team122.behavior.IComBehavior;
 import team122.communication.CommunicationDecoder;
 import team122.communication.Communicator;
+import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
 
 public class SoldierEncamper extends Behavior implements IComBehavior {
@@ -18,10 +19,12 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	public RobotInformation info;
 	public MapLocation encampment;
 	public boolean canCapture = true;
+	private SoldierMove move;
 
 	public SoldierEncamper(Soldier robot) {
 		this.robot = robot;
 		info = robot.info;
+		move = new SoldierMove(robot);
 		
 		//Grabs the communcation for the encamp location.
 		try {
@@ -39,6 +42,8 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 			}
 			
 			System.out.println("Spawning a soldier with : " + encampmentType + " Specified for " + encampment);
+			move.destination = encampment;
+			robot.com.clear(Communicator.CHANNEL_ENCAMPER_LOCATION);
 		} catch (Exception e) {
 			
 			robot.initialMode = SoldierSelector.SOLDIER_DEFENDER;
@@ -50,7 +55,7 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	 * When we start we determine if there is any allied encampments
 	 */
 	public void start() throws GameActionException {
-		
+		//Anything to do?
 	}
 
 	/**
@@ -64,8 +69,13 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	@Override
 	public void run() throws GameActionException {
 		if (robot.rc.isActive()) {
-			//TODO: Move.
-			TOOD: BOvard!
+			
+			//Move or capture.
+			if (move.destination.equals(robot.rc.getLocation())) {
+				robot.rc.captureEncampment(encampmentType);
+			} else {
+				move.move();
+			}
 		}
 	}
 

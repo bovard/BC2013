@@ -36,6 +36,78 @@ public class EncampmentSorter {
 		enemyHqDistance = info.hq.distanceSquaredTo(info.enemyHq);
 	}
 
+	/**
+	 * This will remove all artilleries from general encampments.
+	 */
+	public void intersectArtilleryWithEncampments() {
+		
+		//Removes the artillery encampments from the actual encampments.
+		for (int i = 0; i < totalArtillerySpots; i++) {
+			for (int j = 0; j < totalEncampments; j++) {
+				if (encampments[j] != null && encampments[j].equals(artilleryEncamp[i])) {
+					encampments[j] = null;
+					break;
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Removes any encampments that block the HQ.
+	 */
+	public void removeBlockerEncamps() throws GameActionException {
+		//Allows for 2 encampments.
+		Direction dir = info.enemyDir.rotateLeft();
+		MapLocation loc = info.hq.add(dir);
+		
+		while (loc.distanceSquaredTo(info.hq) < 16) {
+			for (int i = 0; i < totalEncampments; i++) {
+				if (encampments[i] != null && loc.equals(encampments[i])) {
+					System.out.println("Removing encampment");
+					encampments[i] = null;
+					break;
+				}
+			}
+			
+			for (int i = 0; i < totalArtillerySpots; i++) {
+				if (artilleryEncamp[i] != null && loc.equals(artilleryEncamp[i])) {
+
+					System.out.println("Removing artillery");
+					artilleryEncamp[i] = null;
+					break;
+				}
+			}
+			
+			loc = loc.add(dir);
+		}
+	}
+	
+	/**
+	 * A shortened version of the regular artillery sort.
+	 */
+	public void setEncampmentsNearbyArtillery() throws GameActionException {
+		Direction hToE = info.enemyDir;
+		Direction eToH = info.enemyDir.opposite();
+		MapLocation hqLoc = info.hq.add(hToE).add(hToE).add(hToE).add(hToE).add(hToE);
+		MapLocation enemyLoc = info.hq.add(eToH).add(eToH).add(eToH).add(eToH).add(eToH);
+		MapLocation[] hqArts = rc.senseEncampmentSquares(hqLoc, 100, Team.NEUTRAL);
+		MapLocation[] enemyArts = rc.senseEncampmentSquares(enemyLoc, 100, Team.NEUTRAL);
+		
+		totalArtillerySpots = hqArts.length + enemyArts.length;
+		artilleryEncamp = new MapLocation[totalArtillerySpots];
+		artilleryDistances = new int[totalArtillerySpots];
+		
+		int i = 0;
+		for (i = 0; i < hqArts.length; i++) {
+			artilleryEncamp[i] = hqArts[i];
+			artilleryDistances[i] = hqArts[i].distanceSquaredTo(info.hq);
+		}
+		
+		for (int j = 0; j < enemyArts.length; j++) {
+			artilleryEncamp[i + j] = enemyArts[j];
+			artilleryDistances[i + j] = enemyArts[j].distanceSquaredTo(info.hq);			
+		}
+	}
 	
 	/**
 	 * Sets just the encampments no sorting.
@@ -101,6 +173,30 @@ public class EncampmentSorter {
 		
 		MapUtils.sort(artilleryEncamp, artilleryDistances);
 		totalArtillerySpots = artilleryDistances.length;
+	}
+	
+	/**
+	 * The simpliest strategy.
+	 */
+	public void setEncampmentsBasicArtillery() throws GameActionException {
+		Direction hToE = info.enemyDir;
+		MapLocation hqLoc = info.hq.add(hToE).add(hToE).add(hToE).add(hToE).add(hToE);
+		MapLocation[] hqArts = rc.senseEncampmentSquares(hqLoc, 100, Team.NEUTRAL);
+
+		totalArtillerySpots = hqArts.length;
+		artilleryEncamp = new MapLocation[totalArtillerySpots];
+		artilleryDistances = new int[totalArtillerySpots];
+
+		for (int i = 0; i < hqArts.length; i++) {
+			artilleryEncamp[i] = hqArts[i];
+			artilleryDistances[i] = hqArts[i].distanceSquaredTo(info.hq);
+			
+			for (int j = 0; j < totalEncampments; j++) {
+				if (encampments[j] != null && encampments[j].equals(artilleryEncamp[i])) {
+					encampments[j] = null;
+				}
+			}
+		}
 	}
 	
 	/**

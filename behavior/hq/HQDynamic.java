@@ -27,12 +27,23 @@ public class HQDynamic extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
-		if (robot.peekEncampment() != null) {
-			TODO: BOVARD
-			//Make this use utils.generatorCost/supplierCost/artilleryCost to figure out what encampment to make
-			
-			robot.spawn(SoldierSelector.SOLDIER_ENCAMPER, new CommunicationDecoder(robot.popEncampment(), SoldierEncamper.GENERATOR_ENCAMPER), Communicator.CHANNEL_ENCAMPER_LOCATION);
+		int i = 0;
+		
+		
+		if (i % 2 == 0 && robot.hasMoreGenSpots && utils.encamperCount < 1) {
+			if (robot.peekGeneratorEncampment() != null) {
+				//Make this use utils.generatorCost/supplierCost/artilleryCost to figure out what encampment to make
+				
+				robot.spawn(SoldierSelector.SOLDIER_ENCAMPER, new CommunicationDecoder(robot.popGeneratorEncampment(), SoldierEncamper.GENERATOR_ENCAMPER), Communicator.CHANNEL_ENCAMPER_LOCATION);
+			}
+		} else if (robot.hasMoreArtillerySpots && utils.encamperCount < 2) {
+			if (robot.peekArtilleryEncampment() != null) {
+				//Make this use utils.generatorCost/supplierCost/artilleryCost to figure out what encampment to make
+				
+				robot.spawn(SoldierSelector.SOLDIER_ENCAMPER, new CommunicationDecoder(robot.popArtilleryEncampment(), SoldierEncamper.ARTILLERY_ENCAMPER), Communicator.CHANNEL_ENCAMPER_LOCATION);
+			}
 		}
+		i++;
 	}
 
 	@Override

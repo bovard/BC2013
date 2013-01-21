@@ -6,7 +6,6 @@ import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
-import battlecode.common.Team;
 import team122.EncampmentSorter;
 import team122.MapInformation;
 import team122.RobotInformation;
@@ -19,7 +18,10 @@ public class HQ extends TeamRobot {
 	public HQUtils hqUtils;
 	public EncampmentSorter encampmentSorter;
 	public MapInformation mapInfo;
-	public int currentEncampment;
+	public int currentGenSupSpot;
+	public int currentArtillerySpot;
+	public boolean hasMoreArtillerySpots;
+	public boolean hasMoreGenSpots;
 	
 	public HQ(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -37,6 +39,8 @@ public class HQ extends TeamRobot {
 			Communicator.CHANNEL_ENCAMPER_LOCATION,
 		});
 		encampmentSorter = new EncampmentSorter(rc, info);
+		currentGenSupSpot = 0;
+		currentArtillerySpot = 0;
 	}
 	
 	@Override
@@ -93,22 +97,86 @@ public class HQ extends TeamRobot {
 	 * 
 	 * -- NOTE WILL TAKE 2 ROUNDS -- 
 	 */
-	public void calculateStrategyPoints() throws GameActionException {
-		encampmentSorter.setEncampmentsAndSort();
-		currentEncampment = 0;
+	public void calculateEncamperSpots() throws GameActionException {
+		
+		//TODO: Make this smarter.
+		encampmentSorter.setEncampments();
+		
+		//Basic strategy
+		System.out.println("Encampers: " + encampmentSorter.totalEncampments);
+		System.out.println("Clock: " + Clock.getBytecodeNum() + " : " + Clock.getRoundNum());
+		if (encampmentSorter.totalEncampments <= 30) {
+
+			System.out.println("Small Sort");
+			encampmentSorter.setEncampmentsGenSort();
+			encampmentSorter.setEncampmentsArtillerySort();
+			encampmentSorter.intersectArtilleryWithEncampments();
+		} else if (encampmentSorter.totalEncampments <= 50) {
+			
+			//Big map startegy.
+			System.out.println("Medium Sort");
+			encampmentSorter.setEncampmentsAndSort();
+			encampmentSorter.setEncampmentsNearbyArtillery();
+			encampmentSorter.intersectArtilleryWithEncampments();
+			
+		//Worst case senario.
+		} else {
+			
+			//No strat
+			System.out.println("Big Sort");
+			encampmentSorter.setEncampmentsAndSort();
+			encampmentSorter.setEncampmentsBasicArtillery();
+		}
+		
+		if (encampmentSorter.totalArtillerySpots > 0) {
+			hasMoreArtillerySpots = true;
+		}
+		if (encampmentSorter.totalEncampments > 0) {
+			hasMoreGenSpots = true;
+		}
+		encampmentSorter.removeBlockerEncamps();
+		
+		System.out.println("Clock: " + Clock.getBytecodeNum() + " : " + Clock.getRoundNum());
+		System.out.println("ArtillerY: " + Arrays.toString(encampmentSorter.artilleryEncamp));
+		System.out.println("Gen: " + Arrays.toString(encampmentSorter.encampments));
+		currentGenSupSpot = 0;
 	}
 	
-	public MapLocation peekEncampment() {
-		if (currentEncampment < encampmentSorter.totalEncampments) {
-			return encampmentSorter.encampments[currentEncampment];
+	public MapLocation peekGeneratorEncampment() {
+		if (currentGenSupSpot < encampmentSorter.totalEncampments) {
+			while (currentGenSupSpot < encampmentSorter.totalEncampments && encampmentSorter.encampments[currentGenSupSpot] == null) {
+				currentGenSupSpot++;
+			}
+			return encampmentSorter.encampments[currentGenSupSpot];
 		}
+		hasMoreGenSpots = false;
 		return null;
 	}
 	
-	public MapLocation popEncampment() {
-		if (currentEncampment < encampmentSorter.totalEncampments) {
-			return encampmentSorter.encampments[currentEncampment++];
+	public MapLocation popGeneratorEncampment() {
+		if (currentGenSupSpot < encampmentSorter.totalEncampments) {
+			return encampmentSorter.encampments[currentGenSupSpot++];
 		}
+		hasMoreGenSpots = false;
+		return null;
+	}
+	
+	public MapLocation peekArtilleryEncampment() {
+		if (currentArtillerySpot < encampmentSorter.totalArtillerySpots) {
+			while (currentArtillerySpot < encampmentSorter.totalArtillerySpots && encampmentSorter.artilleryEncamp[currentArtillerySpot] == null) {
+				currentArtillerySpot++;
+			}
+			return encampmentSorter.artilleryEncamp[currentArtillerySpot];
+		}
+		hasMoreArtillerySpots = false;
+		return null;
+	}
+	
+	public MapLocation popArtilleryEncampment() {
+		if (currentArtillerySpot < encampmentSorter.totalArtillerySpots) {
+			return encampmentSorter.artilleryEncamp[currentArtillerySpot++];
+		}
+		hasMoreArtillerySpots = false;
 		return null;
 	}
 	

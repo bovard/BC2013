@@ -47,6 +47,19 @@ public class Communicator {
 	}
 	
 	/**
+	 * Clears the channel of any data.
+	 * @param mode
+	 * @throws GameActionException
+	 */
+	public void clear(int mode) throws GameActionException {
+		Integer[] channels = modeToChannels.get(mode);
+		
+		rc.broadcast(channels[0], -1);
+		rc.broadcast(channels[1], -1);
+		rc.broadcast(channels[2], -1);
+	}
+	
+	/**
 	 * increments the value within the given mode, if no value is provided then it will communicate 1.
 	 * @param mode
 	 * @throws GameActionException 
