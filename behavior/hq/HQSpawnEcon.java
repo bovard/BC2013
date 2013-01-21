@@ -50,6 +50,7 @@ public class HQSpawnEcon extends Behavior {
 			rc.researchUpgrade(Upgrade.NUKE);
 		}
 		
+		
 		//Nothign to do.  DO not over commit.
 		return;
 	}
@@ -63,6 +64,6 @@ public class HQSpawnEcon extends Behavior {
 	public static final int ROBOT_LOWER_SOLDIER_COUNT = 8;
 	public static final int ROBOT_UPPER_SOLDIER_COUNT = 80;
 	public static final int ROBOT_SUPPLIER_COUNT = 15;
-	public static final int ROBOT_GENERATOR_COUNT = 15;
-	public static final int ROBOT_ENCAMPER_COUNT = 4;
+	public static final int ROBOT_GENERATOR_COUNT = 5;
+	public static final int ROBOT_ENCAMPER_COUNT = 3;
 }

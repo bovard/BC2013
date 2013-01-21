@@ -18,10 +18,6 @@ public class GeneratorIdle extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
-		//Sets the count 1 round before the HQ checks.
-		if (Clock.getRoundNum() % HQ.HQ_COUNT_ROUND - 1 == 0) {
-			robot.com.increment(Communicator.CHANNEL_GENERATOR_COUNT);
-		}
 	}
 
 	@Override
