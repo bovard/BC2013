@@ -25,13 +25,15 @@ public class HQSpawnRush extends Behavior {
 		upgrades[4] = Upgrade.NUKE;
 	}
 	
+	private final int SPAWN = 300;
+	
 	@Override
 	public void run() throws GameActionException {
 		if (utils.minerCount < MINER_COUNT) {
 			robot.spawn(SoldierSelector.SOLDIER_MINER);
-		} else if (utils.generatorCount < 1 && utils.encamperCount < 2) {
+		} else if (utils.generatorCount < 1+Clock.getRoundNum()/SPAWN && utils.encamperCount < 2 + 2*Clock.getRoundNum()/SPAWN) {
 			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, 0));
-		} else if (utils.supplierCount < 1 && utils.encamperCount < 2) {
+		} else if (utils.supplierCount < 1+Clock.getRoundNum()/SPAWN && utils.encamperCount < 2 + 2*Clock.getRoundNum()/SPAWN) {
 			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.SUPPLIER_ENCAMPER, 0));
 		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
 			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
