@@ -1,5 +1,4 @@
 package team122.robot;
-import java.util.Arrays;
 
 import battlecode.common.Clock;
 import battlecode.common.Direction;
@@ -18,6 +17,7 @@ public class HQ extends TeamRobot {
 	public boolean econ;
 	public boolean mid;
 	public boolean rush;
+	public boolean nuke;
 	public MapInformation mapInfo;
 	
 	public HQ(RobotController rc, RobotInformation info) {
