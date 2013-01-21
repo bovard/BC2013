@@ -31,9 +31,14 @@ public class HQSpawnRush extends Behavior {
 	public void run() throws GameActionException {
 		if (utils.minerCount < MINER_COUNT) {
 			robot.spawn(SoldierSelector.SOLDIER_MINER);
-		} else if (utils.generatorCount < 1+Clock.getRoundNum()/SPAWN && utils.encamperCount < 2 + 2*Clock.getRoundNum()/SPAWN) {
+		} else if (utils.generatorCount < 1 && utils.encamperCount < 2) {
+			
+			//TODO: WONT WORK NO MORE
 			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, 0));
-		} else if (utils.supplierCount < 1+Clock.getRoundNum()/SPAWN && utils.encamperCount < 2 + 2*Clock.getRoundNum()/SPAWN) {
+		} else if (utils.supplierCount < 1 && utils.encamperCount < 2) {
+			
+			
+			//TODO: WONT WORK NO MORE -- SEE NOTE ON HQDynamic
 			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.SUPPLIER_ENCAMPER, 0));
 		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
 			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
@@ -53,7 +58,7 @@ public class HQSpawnRush extends Behavior {
 
 	@Override
 	public boolean pre() {
-		return robot.rc.isActive() && robot.rush;
+		return robot.rc.isActive();
 	}
 	
 	public static final int MINER_COUNT = 1;

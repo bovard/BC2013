@@ -4,23 +4,22 @@ import java.util.Arrays;
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
+import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.Team;
 import team122.EncampmentSorter;
 import team122.MapInformation;
 import team122.RobotInformation;
 import team122.behavior.hq.HQUtils;
+import team122.communication.CommunicationDecoder;
 import team122.communication.Communicator;
 import team122.trees.HQTree;
 
 public class HQ extends TeamRobot {
 	public HQUtils hqUtils;
-	public int military;
-	public boolean econ;
-	public boolean mid;
-	public boolean rush;
 	public EncampmentSorter encampmentSorter;
 	public MapInformation mapInfo;
+	public int currentEncampment;
 	
 	public HQ(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -34,12 +33,9 @@ public class HQ extends TeamRobot {
 			Communicator.CHANNEL_SOLDIER_COUNT, 
 			Communicator.CHANNEL_MINER_COUNT, 
 			Communicator.CHANNEL_ENCAMPER_COUNT,
-			Communicator.CHANNEL_DEFENDER_COUNT
+			Communicator.CHANNEL_DEFENDER_COUNT,
+			Communicator.CHANNEL_ENCAMPER_LOCATION,
 		});
-		military = 0;
-		econ = false;
-		mid = false;
-		rush = false;
 		encampmentSorter = new EncampmentSorter(rc, info);
 	}
 	
@@ -73,6 +69,25 @@ public class HQ extends TeamRobot {
 	}
 	
 	/**
+	 * 
+	 * @param type
+	 * @param dec
+	 */
+	public void spawn(int type, CommunicationDecoder dec, int decChannel) throws GameActionException {
+
+		int tries = 0;
+		while (tries < 8) {
+			Direction dir = Direction.values()[(int)(Math.random() * 8)];
+			if (rc.canMove(dir)) {
+				com.communicate(Communicator.CHANNEL_NEW_SOLDIER_MODE, type);
+				com.communicateWithPosition(dec, decChannel);
+				rc.spawn(dir);
+				break;
+			}
+		}
+	}
+	
+	/**
 	 * calculates the economics of the board.  This is 
 	 * what type of board we will attempt to get.
 	 * 
@@ -80,29 +95,21 @@ public class HQ extends TeamRobot {
 	 */
 	public void calculateStrategyPoints() throws GameActionException {
 		encampmentSorter.setEncampmentsAndSort();
-		encampmentSorter.setNeutralMines();
-		
-		if (info.enemyHqDistance <= RUSH_ENEMY_MAP) {
-			rush = true;
-			return;
+		currentEncampment = 0;
+	}
+	
+	public MapLocation peekEncampment() {
+		if (currentEncampment < encampmentSorter.totalEncampments) {
+			return encampmentSorter.encampments[currentEncampment];
 		}
-
-		
-		//We determine what strategy to use.
-		int radiusSquared = info.enemyHqDistance / 2;
-		double area = (Math.PI * radiusSquared);
-		int mineCount = rc.senseMineLocations(info.center, radiusSquared, Team.NEUTRAL).length;
-		double density = mineCount / area;
-		
-		System.out.println(info.enemyHqDistance + " : " + density);
-		
-		if (info.enemyHqDistance <= RUSH_ENEMY_MAP_LONG && density <= RUSH_ENEMY_MAP_LONG_DENSITY) {
-			rush = true;
-			return;
+		return null;
+	}
+	
+	public MapLocation popEncampment() {
+		if (currentEncampment < encampmentSorter.totalEncampments) {
+			return encampmentSorter.encampments[currentEncampment++];
 		}
-
-		econ = true;
-		return;
+		return null;
 	}
 	
 	public static final int HQ_COUNT_ROUND = 3;
