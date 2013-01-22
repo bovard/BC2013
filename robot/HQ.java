@@ -123,49 +123,9 @@ public class HQ extends TeamRobot {
 		}
 		
 		encampmentSorter.getEncampments();
-		encampmentSorter.calculate(8);
+		encampmentSorter.calculate();
 		
 		currentGenSupSpot = currentArtillerySpot = 0;
-	}
-	
-	public MapLocation peekGeneratorEncampment() {
-		while (currentGenSupSpot < encampmentSorter.totalEncampments && encampmentSorter.encampments[currentGenSupSpot] == null) {
-			currentGenSupSpot++;
-		}
-		
-		if (currentGenSupSpot < encampmentSorter.totalEncampments) {
-			return encampmentSorter.encampments[currentGenSupSpot];
-		}
-		hasMoreGenSpots = false;
-		return null;
-	}
-	
-	public MapLocation popGeneratorEncampment() {
-		if (currentGenSupSpot < encampmentSorter.totalEncampments) {
-			return encampmentSorter.encampments[currentGenSupSpot++];
-		}
-		hasMoreGenSpots = false;
-		return null;
-	}
-	
-	public MapLocation peekArtilleryEncampment() {
-//		while (currentArtillerySpot < encampmentSorter.totalArtillerySpots && encampmentSorter.artilleryEncamp[currentArtillerySpot] == null) {
-//			currentArtillerySpot++;
-//		}
-//		
-//		if (currentArtillerySpot < encampmentSorter.totalArtillerySpots) {
-//			return encampmentSorter.artilleryEncamp[currentArtillerySpot];
-//		}
-//		hasMoreArtillerySpots = false;
-		return null;
-	}
-	
-	public MapLocation popArtilleryEncampment() {
-//		if (currentArtillerySpot < encampmentSorter.totalArtillerySpots) {
-//			return encampmentSorter.artilleryEncamp[currentArtillerySpot++];
-//		}
-//		hasMoreArtillerySpots = false;
-		return null;
 	}
 	
 	/**
@@ -174,8 +134,9 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public boolean spawnGenerator() throws GameActionException {
-		if (peekGeneratorEncampment() != null) {
-			CommunicationDecoder decoder = new CommunicationDecoder(popGeneratorEncampment(), SoldierEncamper.GENERATOR_ENCAMPER);
+		MapLocation loc = encampmentSorter.popGenerator();
+		if (loc != null) {
+			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.GENERATOR_ENCAMPER);
 			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		
 			return true;
 		}
@@ -188,8 +149,9 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public boolean spawnSupplier() throws GameActionException {
-		if (peekGeneratorEncampment() != null) {
-			CommunicationDecoder decoder = new CommunicationDecoder(popGeneratorEncampment(), SoldierEncamper.SUPPLIER_ENCAMPER);
+		MapLocation loc = encampmentSorter.popGenerator();
+		if (loc != null) {
+			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.SUPPLIER_ENCAMPER);
 			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		
 			return true;
 		}
@@ -202,8 +164,9 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public boolean spawnArtillery() throws GameActionException {
-		if (peekArtilleryEncampment() != null) {
-			CommunicationDecoder decoder = new CommunicationDecoder(popArtilleryEncampment(), SoldierEncamper.ARTILLERY_ENCAMPER);
+		MapLocation loc = encampmentSorter.popArtillery();
+		if (loc!= null) {
+			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.ARTILLERY_ENCAMPER);
 			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		
 			return true;
 		}

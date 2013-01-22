@@ -27,29 +27,29 @@ public class HQSpawnRush extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
-		if (utils.minerCount < MINER_COUNT) {
-			robot.spawn(SoldierSelector.SOLDIER_MINER);
-		} else if (utils.generatorCount < 1 && utils.encamperCount < 2) {
-			
-			//TODO: WONT WORK NO MORE
-			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, 0));
-		} else if (utils.supplierCount < 1 && utils.encamperCount < 2) {
-			
-			
-			//TODO: WONT WORK NO MORE -- SEE NOTE ON HQDynamic
-			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.SUPPLIER_ENCAMPER, 0));
-		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
-			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
-		} else if (utils.soldierCount < ROBOT_UPPER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
-			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
-		} else {
-			for (Upgrade u : upgrades) {
-				if (!robot.rc.hasUpgrade(u)) {
-					robot.rc.researchUpgrade(u);
-					break;
-				}
-			}
-		}
+//		if (utils.minerCount < MINER_COUNT) {
+//			robot.spawn(SoldierSelector.SOLDIER_MINER);
+//		} else if (utils.generatorCount < 1 && utils.encamperCount < 2) {
+//			
+//			//TODO: WONT WORK NO MORE
+//			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, 0));
+//		} else if (utils.supplierCount < 1 && utils.encamperCount < 2) {
+//			
+//			
+//			//TODO: WONT WORK NO MORE -- SEE NOTE ON HQDynamic
+//			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.SUPPLIER_ENCAMPER, 0));
+//		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
+//			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+//		} else if (utils.soldierCount < ROBOT_UPPER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
+//			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+//		} else {
+//			for (Upgrade u : upgrades) {
+//				if (!robot.rc.hasUpgrade(u)) {
+//					robot.rc.researchUpgrade(u);
+//					break;
+//				}
+//			}
+//		}
 		//Nothign to do.  DO not over commit.
 		return;
 	}

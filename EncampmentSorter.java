@@ -7,25 +7,20 @@ import java.util.HashMap;
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
+import battlecode.common.GameConstants;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
+import battlecode.common.RobotType;
 import battlecode.common.Team;
 
 public class EncampmentSorter {
 
 	public MapLocation[] encampments;
-	public MapLocation[] usuableEncampments;
 	public int[] encampmentDistances;
 	public int[] enemyDistances;
-	public int[] encampmentSqrtDistances;
-	public int[] enemySqrtDistances;
-	public int[] encampmentAngles;
-	public int[] enemyAngles;
 	public int totalEncampments;
 	public RobotController rc;
 	public boolean finishBaseCalculation;
-	public boolean finishArtilleryCalculation;
-	public boolean finishGeneratorCalculation;
 
 	/**
 	 * State information about generators and artilleries being searched.
@@ -37,22 +32,39 @@ public class EncampmentSorter {
 	private MapLocation[] _artilleryPossibleList;
 	private MapLocation[] _generatorPossibleList;
 	private int _currentRound;
-	private int _currentRoundArt;
-	private int _currentRoundGen;
+	private MapLocation[] sortGens;
+	private MapLocation[] sortArts;
+	private int[] sortGensDistance;
+	private int[] sortArtsDistance;
+	private int sortArtsLength = 5;
+	private int sortGensLength = 15;
+	private int artsLength = 0;
+	private int gensLength = 0;
+	private boolean genSorted = false;
+	private boolean artillerySorted = false;
+	private int gensIndex = 0;
+	private int artsIndex = 0;
 	
 	public EncampmentSorter(RobotController rc) {
 		this.rc = rc;
 		_currentRound = 0;
-		_currentRoundArt = 0;
-		_currentRoundGen = 0;
-		
 		_lastAlliedUpdate = 50;
 		_generators = new ArrayList<MapLocation>(); 
 		_artilleries = new ArrayList<MapLocation>(); 
 		_alliedEncampments = new MapLocation[0];
-		finishArtilleryCalculation = false;
 		finishBaseCalculation = false;
-		finishGeneratorCalculation = false;
+
+		sortArts = new MapLocation[sortArtsLength];
+		sortGens = new MapLocation[sortGensLength];
+		sortArtsDistance = new int[sortArtsLength];
+		sortGensDistance = new int[sortGensLength];
+
+		for (int i = 0; i < sortArtsLength; i++) {
+			sortArtsDistance[i] = 100000;
+		}
+		for (int i = 0; i < sortGensLength; i++) {
+			sortGensDistance[i] = 100000;
+		}
 	}
 	
 	/**
@@ -60,14 +72,9 @@ public class EncampmentSorter {
 	 */
 	public void getEncampments() {
 		encampments = rc.senseAllEncampmentSquares();
-		usuableEncampments = rc.senseAllEncampmentSquares();
 		totalEncampments = encampments.length;
 		encampmentDistances = new int[totalEncampments];
-		encampmentSqrtDistances = new int[totalEncampments];
-		encampmentAngles = new int[totalEncampments];
 		enemyDistances = new int[totalEncampments];
-		enemySqrtDistances = new int[totalEncampments];
-		enemyAngles = new int[totalEncampments];
 	}
 	
 	/**
@@ -76,83 +83,30 @@ public class EncampmentSorter {
 	 */
 	public MapLocation popGenerator() {
 		
-//		if (currentRound == 0 || totalEncampments == 0) {
-//			return null;
-//		} else {
-//			
-//			if (_lastGenSearch < 0 || _lastGenSearch < Clock.getRoundNum() - SEARCH_FREQUENCY) {
-//				
-//			}
-//		}
+		if (!genSorted) {
+			MapUtils.sort(sortGens, sortGensDistance);
+		} else {
+			if (gensIndex < gensLength) {
+				return sortGens[gensIndex++];
+			}
+		}
 		return null;
 	}
-
-	public boolean calculateArtilleryLocations(int turns) {
-		
-		if (finishArtilleryCalculation) {
-			return true;
-		}
-
-		int loopsToExecute = ((10000 - Clock.getBytecodeNum() - (200 * (turns - 1))) + ((turns - 1) * 10000)) / 52;
-		for (int i = _currentRoundArt, j = 0; j < loopsToExecute && i < totalEncampments; i++, j++) { // 52 Bytecodes
-			System.out.println(" Encampment: " + encampmentAngles[i]);
-			if ((encampmentAngles[i] < ARTILLERY_ANGLE_LOW || encampmentAngles[i] > ARTILLERY_ANGLE_HIGH) && 
-				(enemyAngles[i] < ARTILLERY_ANGLE_LOW || enemyAngles[i] > ARTILLERY_ANGLE_HIGH)) {
-				_artilleries.add(encampments[i]);
-			}
-			_currentRoundArt = i;
-		}
-		_currentRoundArt++;
-		
-		finishArtilleryCalculation = !(_currentRoundArt < totalEncampments);
-		
-		//Finishes the artillery calculation by setting up the list.
-		if (finishArtilleryCalculation) {
-			_artilleryPossibleList = new MapLocation[_artilleries.size()];
-			for (int i = 0, len = _artilleryPossibleList.length; i < len; i++) {
-				_artilleryPossibleList[i] = _artilleries.get(i);
-			}
-			
-			_artilleries.clear();
-		}
-		
-		return finishArtilleryCalculation;
-	}
-
+	
 	/**
-	 * Calculate generator locations
-	 * @param turns
+	 * Will do a generator search.
 	 * @return
 	 */
-	public boolean calculateGeneratorLocations(int turns) {
+	public MapLocation popArtillery() {
 		
-		if (finishGeneratorCalculation) {
-			return true;
-		}
-
-		int loopsToExecute = ((10000 - Clock.getBytecodeNum() - (200 * turns)) + ((turns - 1) * 10000)) / 52;
-		for (int i = _currentRoundGen, j = 0; j < loopsToExecute && i < totalEncampments; i++, j++) { // 52 Bytecodes
-			if (!((encampmentAngles[i] > ARTILLERY_ANGLE_LOW || encampmentAngles[i] < ARTILLERY_ANGLE_HIGH) && 
-				(enemyAngles[i] > ARTILLERY_ANGLE_LOW || enemyAngles[i] < ARTILLERY_ANGLE_HIGH))) {
-				_generators.add(encampments[i]);
+		if (!artillerySorted) {
+			MapUtils.sort(sortArts, sortArtsDistance);
+		} else {
+			if (artsIndex < artsLength) {
+				return sortArts[artsIndex++];
 			}
-			_currentRoundGen = i;
 		}
-		_currentRoundGen++;
-		
-		finishGeneratorCalculation = !(_currentRoundGen < totalEncampments);
-		
-		//Finishes the artillery calculation by setting up the list.
-		if (finishGeneratorCalculation) {
-			_generatorPossibleList = new MapLocation[_generators.size()];
-			for (int i = 0, len = _generatorPossibleList.length; i < len; i++) {
-				_generatorPossibleList[i] = _generators.get(i);
-			}
-			
-			_generators.clear();
-		}
-
-		return finishGeneratorCalculation;
+		return null;
 	}
 	
 	/**
@@ -160,7 +114,7 @@ public class EncampmentSorter {
 	 * @param turns
 	 * @return
 	 */
-	public boolean calculate(int turns) {
+	public boolean calculate() {
 		
 		if (finishBaseCalculation) {
 			return true;
@@ -168,33 +122,49 @@ public class EncampmentSorter {
 		
 		MapLocation hq = rc.senseHQLocation();
 		MapLocation enemy = rc.senseEnemyHQLocation();
-		int hypot = hq.distanceSquaredTo(enemy);
-		int sqrtHypot = (int)Math.sqrt(hypot);
 		MapLocation enc;
-		
-		//We seem to be off by larger amounts once the turns get to high.
-		int loopsToExecute = ((10000 - Clock.getBytecodeNum() - (150 * turns)) + ((turns - 1) * 10000)) / 269;
 
-		// 267 Bytecodes
-		for (int i = _currentRound, j = 0; j < loopsToExecute && i < totalEncampments; i++, j++) {
+		int i, k;
+		int x1 = enemy.x - hq.x;
+		int y1 = enemy.y - hq.y;
+		int dot;
+		int artRange = RobotType.ARTILLERY.attackRadiusMaxSquared;
+		int artMaxEnemyHQ = RobotType.ARTILLERY.attackRadiusMaxSquared + hq.distanceSquaredTo(enemy);
+		int startingClock = Clock.getRoundNum();
+
+		// 110 bytecodes
+		for (i = _currentRound; Clock.getRoundNum() - startingClock < 1 && Clock.getBytecodesLeft() > 170 && i < totalEncampments; i++) {
 			enc = encampments[i];
 			encampmentDistances[i] = hq.distanceSquaredTo(enc);
 			enemyDistances[i] = enemy.distanceSquaredTo(enc);
-			encampmentSqrtDistances[i] = (int)Math.sqrt(encampmentDistances[i]);
-			enemySqrtDistances[i] = (int)Math.sqrt(enemyDistances[i]);
+			
+			//Now we update the b2
+			dot = x1 * (enc.x - hq.x) + y1 * (enc.y - hq.y);
+			dot *= dot;
+			if (encampmentDistances[i] - dot < artRange && artMaxEnemyHQ < enemyDistances[i]) {
+				
+				for (k = 0; k < sortArtsLength; k++) {
+					if (encampmentDistances[i] < sortArtsDistance[k]) {
+						sortArtsDistance[k]= encampmentDistances[i];
+						sortArts[k]= encampments[i]; 
+						artsLength++;
+						break;
+					}
+				}
+			} else {
 
-			//computes the angle.
-			encampmentAngles[i] = 
-					(int)Math.acos(Math.toDegrees((encampmentDistances[i] + hypot - enemyDistances[i]) / 
-							(2 * encampmentSqrtDistances[i] * sqrtHypot)));
-
-			encampmentAngles[i] = 
-					(int)Math.acos(Math.toDegrees((encampmentDistances[i] + hypot - enemyDistances[i]) / 
-							(2 * encampmentSqrtDistances[i] * sqrtHypot)));
-
-			_currentRound = i;
+				for (k = 0; k < sortArtsLength; k++) {
+					if (encampmentDistances[i] - enemyDistances[i] < sortGensDistance[k]) {
+						sortGensDistance[k]= encampmentDistances[i];
+						sortGens[k]= encampments[i]; 
+						gensLength++;
+						break;
+					}
+				}
+			}
 		}
-		_currentRound++;
+
+		_currentRound = i;
 
 		finishBaseCalculation = !(_currentRound < totalEncampments);
 		return finishBaseCalculation;
