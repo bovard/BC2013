@@ -15,11 +15,12 @@ public class HQIdle extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
+		if (!robot.enemyResearchedNuke) {
+			robot.rc.senseEnemyNukeHalfDone();
+		}
 		if (!robot.encampmentSorter.finishBaseCalculation) {
-			System.out.println("Calculating...");
 			robot.encampmentSorter.calculate();
 		} else {
-			System.out.println("Finished...");
 		}
 	}
 

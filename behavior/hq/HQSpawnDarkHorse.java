@@ -7,12 +7,12 @@ import team122.behavior.Behavior;
 import team122.behavior.soldier.SoldierSelector;
 import team122.robot.HQ;
 
-public class HQSpawnNuke extends Behavior {
+public class HQSpawnDarkHorse extends Behavior {
 	
 	protected HQ robot;
 	protected HQUtils utils;
 	
-	public HQSpawnNuke(HQ robot) {
+	public HQSpawnDarkHorse(HQ robot) {
 		super();
 		this.robot = robot;
 		this.utils = robot.hqUtils;
@@ -42,18 +42,14 @@ public class HQSpawnNuke extends Behavior {
 //				robot.rc.researchUpgrade(Upgrade.NUKE);
 //			}
 //		}
-		if (robot.encampmentSorter.finishBaseCalculation) {
-			if (count % 3 == 0) {
-				robot.spawnGenerator();
-			} else if (count % 3 == 1) {
-				robot.spawnSupplier();
-			} else {
-				robot.spawnArtillery();
-			}
+
+		if (count < 30) {
+			robot.spawnDarkHorse();
 			count++;
 		} else {
-			robot.encampmentSorter.calculate();
+			robot.rc.researchUpgrade(Upgrade.NUKE);
 		}
+		
 		return;
 		
 	}
@@ -61,13 +57,7 @@ public class HQSpawnNuke extends Behavior {
 	@Override
 	public boolean pre() throws GameActionException {
 		
-		return robot.rc.isActive() && robot.nuke;
+		return robot.rc.isActive() && robot.darkHorse;
 	}
-	
-	
-	public static final int MINER_COUNT = 3;
-	public static final int ROBOT_LOWER_SOLDIER_COUNT = 10;
-	public static final int ROBOT_UPPER_SOLDIER_COUNT = 40;
-	public static final int ROBOT_UPPER_DEFUSION_SOLDIER_COUNT = 60;
 
 }

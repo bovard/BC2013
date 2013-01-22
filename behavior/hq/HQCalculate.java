@@ -28,11 +28,7 @@ public class HQCalculate extends Behavior {
 		//Spawns a soldier since its an "active" option so we can
 		//use our time best.
 		// -- SPAWNS a soldier intentionally to help make the calculation time problem better--
-		//Will likely finish before next rc is active.
-		
-		if (robot.rc.isActive()) {
-			robot.spawn(SoldierSelector.SOLDIER_MINER);
-		}
+		//Will likely finish before next rc is active		
 		
 		//Calculates information about the map, strategy, ect. ect.
 		robot.calculateEncamperSpots();

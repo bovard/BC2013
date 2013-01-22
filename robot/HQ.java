@@ -21,15 +21,16 @@ public class HQ extends TeamRobot {
 	public HQUtils hqUtils;
 	public int military;
 	public boolean econ;
-	public boolean mid;
 	public boolean rush;
 	public boolean nuke;
+	public boolean darkHorse;
 	public EncampmentSorter encampmentSorter;
 	public MapInformation mapInfo;
 	public int currentGenSupSpot;
 	public int currentArtillerySpot;
 	public boolean hasMoreArtillerySpots;
 	public boolean hasMoreGenSpots;
+	public boolean enemyResearchedNuke;
 	
 	public HQ(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -49,9 +50,10 @@ public class HQ extends TeamRobot {
 		});
 		military = 0;
 		econ = false;
-		mid = false;
 		rush = false;
 		nuke = false;
+		darkHorse = false;
+		enemyResearchedNuke = false;
 		mapInfo = new MapInformation(rc);
 		encampmentSorter = new EncampmentSorter(rc);
 		currentGenSupSpot = 0;
@@ -121,9 +123,20 @@ public class HQ extends TeamRobot {
 		} else {
 			nuke = true;
 		}
-		
+
 		encampmentSorter.getEncampments();
-		encampmentSorter.calculate();
+		if (encampmentSorter.isDarkHorse(5)) {
+			rush = false;
+			nuke = false;
+			darkHorse = true;
+		} else {
+
+			if (rc.isActive()) {
+				spawn(SoldierSelector.SOLDIER_MINER);
+			}
+			
+			encampmentSorter.calculate();
+		}
 		
 		currentGenSupSpot = currentArtillerySpot = 0;
 	}
@@ -135,6 +148,7 @@ public class HQ extends TeamRobot {
 	 */
 	public boolean spawnGenerator() throws GameActionException {
 		MapLocation loc = encampmentSorter.popGenerator();
+		
 		if (loc != null) {
 			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.GENERATOR_ENCAMPER);
 			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		
@@ -165,6 +179,22 @@ public class HQ extends TeamRobot {
 	 */
 	public boolean spawnArtillery() throws GameActionException {
 		MapLocation loc = encampmentSorter.popArtillery();
+		if (loc!= null) {
+			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.ARTILLERY_ENCAMPER);
+			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		
+			return true;
+		}
+		return false;
+	}
+
+
+	/**
+	 * Spawns a artillery soldier if there are artillery spots left, else it returns false if no 
+	 * encamper has been spawned.
+	 * @return
+	 */
+	public boolean spawnDarkHorse() throws GameActionException {
+		MapLocation loc = encampmentSorter.popDarkHorse();
 		if (loc!= null) {
 			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.ARTILLERY_ENCAMPER);
 			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		

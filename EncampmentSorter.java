@@ -1,13 +1,8 @@
 package team122;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
-import battlecode.common.GameConstants;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.RobotType;
@@ -21,16 +16,16 @@ public class EncampmentSorter {
 	public int totalEncampments;
 	public RobotController rc;
 	public boolean finishBaseCalculation;
+	public MapLocation hq;
+	public MapLocation enemy;
+	public int artRange;
+	public int artMaxEnemyHQ;
+	public MapLocation[] darkHorseArt;
+	public int darkHorseIdx;
 
 	/**
 	 * State information about generators and artilleries being searched.
 	 */
-	private int _lastAlliedUpdate;
-	private ArrayList<MapLocation> _generators;
-	private ArrayList<MapLocation> _artilleries;
-	private MapLocation[] _alliedEncampments;
-	private MapLocation[] _artilleryPossibleList;
-	private MapLocation[] _generatorPossibleList;
 	private int _currentRound;
 	private MapLocation[] sortGens;
 	private MapLocation[] sortArts;
@@ -48,10 +43,6 @@ public class EncampmentSorter {
 	public EncampmentSorter(RobotController rc) {
 		this.rc = rc;
 		_currentRound = 0;
-		_lastAlliedUpdate = 50;
-		_generators = new ArrayList<MapLocation>(); 
-		_artilleries = new ArrayList<MapLocation>(); 
-		_alliedEncampments = new MapLocation[0];
 		finishBaseCalculation = false;
 
 		sortArts = new MapLocation[sortArtsLength];
@@ -65,6 +56,34 @@ public class EncampmentSorter {
 		for (int i = 0; i < sortGensLength; i++) {
 			sortGensDistance[i] = 100000;
 		}
+
+		hq = rc.senseHQLocation();
+		enemy = rc.senseEnemyHQLocation();
+		artMaxEnemyHQ = RobotType.ARTILLERY.attackRadiusMaxSquared + hq.distanceSquaredTo(enemy);
+		artRange = RobotType.ARTILLERY.attackRadiusMaxSquared;
+	}
+	
+	/**
+	 * Determines if darkhourse
+	 * @return
+	 */
+	public boolean isDarkHorse(int required) throws GameActionException {
+		
+		//TODO: Do a sense and just do a local check.  It will make it fast and easy to tell when dark horse (300ish byte codes).
+		//Only when finished.
+		Direction toEnemy = hq.directionTo(enemy);
+		MapLocation[] locs = rc.senseEncampmentSquares(
+				hq.add(toEnemy).add(toEnemy).add(toEnemy).add(toEnemy), artRange, Team.NEUTRAL);
+		
+		if (locs.length >= required) {
+			darkHorseArt = locs;
+			darkHorseIdx = 0;
+			
+			MapUtils.sort(hq, locs, false);
+			
+			return true;
+		}
+		return false;
 	}
 	
 	/**
@@ -76,6 +95,20 @@ public class EncampmentSorter {
 		encampmentDistances = new int[totalEncampments];
 		enemyDistances = new int[totalEncampments];
 	}
+
+	
+	/**
+	 * Will do a generator search.
+	 * @return
+	 */
+	public MapLocation popDarkHorse() {
+		
+		if (darkHorseIdx < darkHorseArt.length) {
+			return darkHorseArt[darkHorseIdx++];
+		}
+		return null;
+	}
+	
 	
 	/**
 	 * Will do a generator search.
@@ -84,11 +117,12 @@ public class EncampmentSorter {
 	public MapLocation popGenerator() {
 		
 		if (!genSorted) {
-			MapUtils.sort(sortGens, sortGensDistance);
-		} else {
-			if (gensIndex < gensLength) {
-				return sortGens[gensIndex++];
-			}
+			MapUtils.sort(sortGens, sortGensDistance, true);
+			genSorted = true;
+		}
+		
+		if (gensIndex < gensLength) {
+			return sortGens[gensIndex++];
 		}
 		return null;
 	}
@@ -100,11 +134,12 @@ public class EncampmentSorter {
 	public MapLocation popArtillery() {
 		
 		if (!artillerySorted) {
-			MapUtils.sort(sortArts, sortArtsDistance);
-		} else {
-			if (artsIndex < artsLength) {
-				return sortArts[artsIndex++];
-			}
+			MapUtils.sort(sortArts, sortArtsDistance, true);
+			artillerySorted = true;
+		}
+
+		if (artsIndex < artsLength) {
+			return sortArts[artsIndex++];
 		}
 		return null;
 	}
@@ -120,46 +155,73 @@ public class EncampmentSorter {
 			return true;
 		}
 		
-		MapLocation hq = rc.senseHQLocation();
-		MapLocation enemy = rc.senseEnemyHQLocation();
 		MapLocation enc;
 
-		int i, k;
+		int i, j, k;
 		int x1 = enemy.x - hq.x;
 		int y1 = enemy.y - hq.y;
 		int dot;
-		int artRange = RobotType.ARTILLERY.attackRadiusMaxSquared;
-		int artMaxEnemyHQ = RobotType.ARTILLERY.attackRadiusMaxSquared + hq.distanceSquaredTo(enemy);
 		int startingClock = Clock.getRoundNum();
+		int newEncampIdx;
+		int encampmentDistance;
+		int largestEncampDistance;
 
 		// 110 bytecodes
-		for (i = _currentRound; Clock.getRoundNum() - startingClock < 1 && Clock.getBytecodesLeft() > 170 && i < totalEncampments; i++) {
+		for (i = _currentRound; Clock.getRoundNum() - startingClock < 1 && Clock.getBytecodeNum() < 9400 && i < totalEncampments; i++) {
 			enc = encampments[i];
 			encampmentDistances[i] = hq.distanceSquaredTo(enc);
 			enemyDistances[i] = enemy.distanceSquaredTo(enc);
 			
 			//Now we update the b2
+			
 			dot = x1 * (enc.x - hq.x) + y1 * (enc.y - hq.y);
-			dot *= dot;
-			if (encampmentDistances[i] - dot < artRange && artMaxEnemyHQ < enemyDistances[i]) {
+			if (encampmentDistances[i] - dot < artRange && enemyDistances[i] < artMaxEnemyHQ) {
+				
+				newEncampIdx = -1;
+				largestEncampDistance = 0;
+				encampmentDistance = encampmentDistances[i];
 				
 				for (k = 0; k < sortArtsLength; k++) {
-					if (encampmentDistances[i] < sortArtsDistance[k]) {
-						sortArtsDistance[k]= encampmentDistances[i];
-						sortArts[k]= encampments[i]; 
-						artsLength++;
-						break;
+					if (artsLength < sortArtsLength) {
+						if (sortArtsDistance[k] == 100000) {
+							sortArtsDistance[k]= encampmentDistances[i];
+							sortArts[k]= encampments[i]; 
+							artsLength++;
+							break;
+						}
+					} else if (encampmentDistance < sortArtsDistance[k] && (newEncampIdx == -1 || sortArtsDistance[k] > largestEncampDistance)) {
+						newEncampIdx = k;
+						largestEncampDistance = sortArtsDistance[k];
 					}
 				}
-			} else {
 
-				for (k = 0; k < sortArtsLength; k++) {
-					if (encampmentDistances[i] - enemyDistances[i] < sortGensDistance[k]) {
-						sortGensDistance[k]= encampmentDistances[i];
-						sortGens[k]= encampments[i]; 
-						gensLength++;
-						break;
+				
+				if (newEncampIdx != -1) {
+					sortArtsDistance[newEncampIdx] = encampmentDistances[i];
+					sortArts[newEncampIdx] = encampments[i];
+				}
+			} else {
+				newEncampIdx = -1;
+				encampmentDistance = encampmentDistances[i] - enemyDistances[i];
+				largestEncampDistance = 0;
+				
+				for (k = 0; k < sortGensLength; k++) {
+					if (gensLength < sortGensLength) {
+						if (sortGensDistance[k] == 100000) {
+							sortGensDistance[k]= encampmentDistances[i];
+							sortGens[k]= encampments[i]; 
+							gensLength++;
+							break;
+						}
+					} else if (encampmentDistance < sortGensDistance[k] && (newEncampIdx == -1 || sortGensDistance[k] > largestEncampDistance)) {
+						newEncampIdx = k;
+						largestEncampDistance = sortGensDistance[k];
 					}
+				}
+				
+				if (newEncampIdx != -1) {
+					sortGensDistance[newEncampIdx] = encampmentDistances[i];
+					sortGens[newEncampIdx] = encampments[i];
 				}
 			}
 		}
