@@ -17,37 +17,35 @@ public class HQSpawnDarkHorse extends Behavior {
 		this.robot = robot;
 		this.utils = robot.hqUtils;
 	}
-
-	private final int NUKE_TIME = 225;
 	
 	int count = 0;
+	int nukeCount = 0;
+	final int NUKE_HOLDOUT_TIME = 213;
+	final int VISION_COUNT = 5;
+	final int MAX_COUNT = 10;
+	
 	@Override
 	public void run() throws GameActionException {
-//		if (Clock.getRoundNum() < NUKE_TIME) {
-//			if (utils.minerCount < MINER_COUNT) {
-//				robot.spawn(SoldierSelector.SOLDIER_MINER);
-//			} else if (utils.artilleryCount < 5 && utils.encamperCount < 5 && robot.spawnArtillery()) {
-//			} else if (utils.generatorCount < 2 && utils.encamperCount < 2 && robot.spawnGenerator()) {
-//			} else if (utils.supplierCount < 2 && utils.encamperCount < 3 && robot.spawnSupplier()) {
-//				robot.spawnSupplier();
-//			} else if (!robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
-//				robot.rc.researchUpgrade(Upgrade.PICKAXE);
-//			} else if (robot.rc.getTeamPower() > 50 && Clock.getRoundNum() < NUKE_TIME) { // more gen more soldiers.
-//				robot.spawn(SoldierSelector.SOLDIER_NUKE);
-//			}
-//		} else {
-//			if (utils.nukeDefenderCount < 10) {
-//				robot.spawn(SoldierSelector.SOLDIER_NUKE);
-//			} else {
-//				robot.rc.researchUpgrade(Upgrade.NUKE);
-//			}
-//		}
 
-		if (count < 30) {
+		//We always spawn 3.
+		if (count < 3) {
 			robot.spawnDarkHorse();
 			count++;
 		} else {
-			robot.rc.researchUpgrade(Upgrade.NUKE);
+			
+			if (nukeCount < NUKE_HOLDOUT_TIME) {
+				robot.rc.researchUpgrade(Upgrade.NUKE);
+				nukeCount++;
+			} else {
+				boolean sensedNuke = robot.rc.senseEnemyNukeHalfDone();
+				if (!sensedNuke && count > VISION_COUNT && !robot.rc.hasUpgrade(Upgrade.VISION)) {
+					robot.rc.researchUpgrade(Upgrade.VISION);
+				} else if (!sensedNuke && count < MAX_COUNT && robot.spawnDarkHorse()) {
+					count++;
+				} else {
+					robot.rc.researchUpgrade(Upgrade.NUKE);
+				}
+			}
 		}
 		
 		return;

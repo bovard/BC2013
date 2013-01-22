@@ -1,6 +1,7 @@
 package team122.behavior.artillery;
 
 import team122.behavior.Behavior;
+import team122.combat.ArtilleryShotCalculator;
 import team122.robot.Artillery;
 import battlecode.common.GameActionException;
 import battlecode.common.GameObject;
@@ -9,22 +10,17 @@ import battlecode.common.RobotType;
 public class ArtilleryShoot extends Behavior{
 	
 	protected Artillery robot;
+	protected ArtilleryShotCalculator shotCalc;
 	
 	public ArtilleryShoot(Artillery robot) {
 		super();
 		this.robot = robot;
+		shotCalc = new ArtilleryShotCalculator(robot);
 	}
 
 	@Override
 	public void run() throws GameActionException {
-		if (robot.rc.isActive()) {
-			GameObject[] robots = robot.rc.senseNearbyGameObjects(GameObject.class, RobotType.ARTILLERY.attackRadiusMaxSquared, robot.info.enemyTeam);
-			
-			if (robots.length > 0) {
-				robot.rc.attackSquare(robot.rc.senseLocationOf(robots[0]));
-			}
-		} // end is active.
-		
+		shotCalc.shoot();
 	}
 
 	@Override

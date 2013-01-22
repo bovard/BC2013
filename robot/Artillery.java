@@ -6,13 +6,16 @@ import team122.RobotInformation;
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
 import battlecode.common.GameObject;
+import battlecode.common.Robot;
 import battlecode.common.RobotController;
+import battlecode.common.RobotType;
 
 public class Artillery extends TeamRobot{
 	public boolean canShoot;
-	public GameObject[] nearbyObjects;
+	public Robot[] nearbyObjects;
 	public boolean enemyNearby;
-	public GameObject[] enemiesNearby;
+	public Robot[] enemiesNearby;
+	public int artilleryRange;
 
 	public Artillery(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -23,17 +26,18 @@ public class Artillery extends TeamRobot{
 		com.seedChannels(5, new int[] {
 			Communicator.CHANNEL_ARTILLERY_COUNT
 		});
+		artilleryRange = RobotType.ARTILLERY.attackRadiusMaxSquared;
 	}
 
 	@Override
 	public void environmentCheck() throws GameActionException {
 		canShoot = rc.isActive();
 		if (canShoot) {
-			enemiesNearby = rc.senseNearbyGameObjects(GameObject.class, 81, info.enemyTeam);
+			enemiesNearby = rc.senseNearbyGameObjects(Robot.class, artilleryRange, info.enemyTeam);
 			enemyNearby = enemiesNearby.length > 0;
 			
 			if (enemyNearby) {
-				nearbyObjects = rc.senseNearbyGameObjects(GameObject.class, 81);
+				nearbyObjects = rc.senseNearbyGameObjects(Robot.class, artilleryRange);
 			}
 		}
 

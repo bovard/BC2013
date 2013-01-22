@@ -50,6 +50,8 @@ public class HQSpawnRush extends Behavior {
 //				}
 //			}
 //		}
+		
+		robot.spawn(SoldierSelector.SOLDIER_SWARMER);
 		//Nothign to do.  DO not over commit.
 		return;
 	}

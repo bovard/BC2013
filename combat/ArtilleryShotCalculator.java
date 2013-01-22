@@ -1,6 +1,5 @@
 package team122.combat;
 
-import java.util.ArrayList;
 
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
@@ -8,7 +7,6 @@ import battlecode.common.MapLocation;
 import battlecode.common.RobotInfo;
 import battlecode.common.RobotType;
 import battlecode.common.Robot;
-import battlecode.common.Team;
 import team122.robot.Artillery;
 
 public class ArtilleryShotCalculator {
@@ -59,7 +57,7 @@ public class ArtilleryShotCalculator {
 		map = new int[size][size];
 		int x,y;
 		
-		Robot[] objs = robot.rc.senseNearbyGameObjects(Robot.class, RobotType.ARTILLERY.attackRadiusMaxSquared);
+		Robot[] objs = robot.nearbyObjects;
 		xToCheck = new int[objs.length];
 		yToCheck = new int[objs.length];
 		toCheck = 0;

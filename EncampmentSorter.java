@@ -60,7 +60,7 @@ public class EncampmentSorter {
 		hq = rc.senseHQLocation();
 		enemy = rc.senseEnemyHQLocation();
 		artMaxEnemyHQ = RobotType.ARTILLERY.attackRadiusMaxSquared + hq.distanceSquaredTo(enemy);
-		artRange = RobotType.ARTILLERY.attackRadiusMaxSquared;
+		artRange = 35;
 	}
 	
 	/**
@@ -73,7 +73,7 @@ public class EncampmentSorter {
 		//Only when finished.
 		Direction toEnemy = hq.directionTo(enemy);
 		MapLocation[] locs = rc.senseEncampmentSquares(
-				hq.add(toEnemy).add(toEnemy).add(toEnemy).add(toEnemy), artRange, Team.NEUTRAL);
+				hq.add(toEnemy).add(toEnemy), artRange, Team.NEUTRAL);
 		
 		if (locs.length >= required) {
 			darkHorseArt = locs;
