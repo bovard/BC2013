@@ -85,6 +85,17 @@ public class SoldierMove {
 		}
 		
 			
+		// still can't move?  Lets just add intentional error move to get somewhere at least
+
+		int tries = 0;
+		while (tries < 10 && robot.rc.isActive()) {
+			Direction dir = Direction.values()[(int) (Math.random() * 8)];
+			
+			if (robot.rc.canMove(dir)) {
+				robot.rc.move(dir);
+			}
+			tries++;
+		}
 	}
 	
 }

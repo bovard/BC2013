@@ -40,7 +40,6 @@ public class Soldier extends TeamRobot {
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);
 		navSystem = new NavigationSystem(rc, info);
-		this.tree = new SoldierTree(this);
 		this.move = new SoldierMove(this);
 
 		com.seedChannels(5, new int[] {
@@ -48,8 +47,12 @@ public class Soldier extends TeamRobot {
 			Communicator.CHANNEL_MINER_COUNT,
 			Communicator.CHANNEL_ENCAMPER_COUNT,
 			Communicator.CHANNEL_SOLDIER_COUNT,
-			Communicator.CHANNEL_DEFENDER_COUNT
+			Communicator.CHANNEL_DEFENDER_COUNT,
+			Communicator.CHANNEL_NUKE_COUNT,
+			Communicator.CHANNEL_ENCAMPER_LOCATION
 		});
+		
+		this.tree = new SoldierTree(this);
 		mCalc = new MoveCalculator(this);
 	}
 	

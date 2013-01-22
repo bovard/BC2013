@@ -2,10 +2,12 @@ package team122.behavior.soldier;
 
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
+import battlecode.common.MapLocation;
 import team122.behavior.Behavior;
 import team122.behavior.Decision;
 import team122.behavior.Node;
 import team122.communication.Communicator;
+import team122.robot.HQ;
 import team122.robot.Soldier;
 
 public class SoldierSelector extends Decision {
@@ -41,6 +43,7 @@ public class SoldierSelector extends Decision {
 			robot.initialData = data - robot.initialMode;
 			robot.isNew = false;
 			
+			System.out.println("Getting new robot behavior with : " + robot.initialMode + " : " + robot.initialData);
 			Behavior behavior = (Behavior)children.get(robot.initialMode);
 			behavior.setInitialData(robot.initialData);
 			
@@ -49,20 +52,10 @@ public class SoldierSelector extends Decision {
 
 		return children.get(robot.initialMode);
 	}
-
+	
 	@Override
 	public boolean pre() {
 		return true;
-	}
-	
-	/**
-	 * Builds encampment data.  NO way to screw this up :)
-	 * @param encampmentType
-	 * @param encampmentToTry
-	 * @return
-	 */
-	public static int setEncamperData(int encampmentType, int encampmentToTry) {
-		return encampmentToTry * 1000 + encampmentType + SOLDIER_ENCAMPER;
 	}
 
 	public static final int SOLDIER_MINER = 0;
@@ -71,8 +64,4 @@ public class SoldierSelector extends Decision {
 	public static final int SOLDIER_COMBAT = 3;
 	public static final int SOLDIER_DEFENDER = 4;
 	public static final int SOLDIER_NUKE = 5;
-
-	public static final int GENERATOR_ENCAMPER = 10;
-	public static final int SUPPLIER_ENCAMPER = 20;
-	public static final int ARTILLERY_ENCAMPER = 30;
 }

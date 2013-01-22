@@ -25,35 +25,33 @@ public class HQSpawnRush extends Behavior {
 		upgrades[4] = Upgrade.NUKE;
 	}
 	
-	private final int SPAWN = 300;
-	
 	@Override
 	public void run() throws GameActionException {
-		if (utils.minerCount < MINER_COUNT) {
-			robot.spawn(SoldierSelector.SOLDIER_MINER);
-		} else if (utils.generatorCount < Clock.getRoundNum()/SPAWN && utils.encamperCount < 2*Clock.getRoundNum()/SPAWN) {
-			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, 0));
-		} else if (utils.supplierCount < Clock.getRoundNum()/SPAWN && utils.encamperCount < 2*Clock.getRoundNum()/SPAWN) {
-			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.SUPPLIER_ENCAMPER, 0));
-		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
-			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
-		} else if (utils.soldierCount < ROBOT_UPPER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
-			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
-		} else {
-			for (Upgrade u : upgrades) {
-				if (!robot.rc.hasUpgrade(u)) {
-					robot.rc.researchUpgrade(u);
-					break;
-				}
-			}
-		}
-		//Nothign to do.  DO not over commit.
-		return;
+//		if (utils.minerCount < MINER_COUNT) {
+//			robot.spawn(SoldierSelector.SOLDIER_MINER);
+//		} else if (utils.generatorCount < 1 && utils.encamperCount < 2) {
+//			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, 0));
+//		} else if (utils.supplierCount < 1 && utils.encamperCount < 2) {
+//			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.SUPPLIER_ENCAMPER, 0));
+//		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
+//			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+//		} else if (utils.soldierCount < ROBOT_UPPER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
+//			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+//		} else {
+//			for (Upgrade u : upgrades) {
+//				if (!robot.rc.hasUpgrade(u)) {
+//					robot.rc.researchUpgrade(u);
+//					break;
+//				}
+//			}
+//		}
+//		//Nothign to do.  DO not over commit.
+//		return;
 	}
 
 	@Override
 	public boolean pre() {
-		return robot.rc.isActive() && robot.rush;
+		return robot.rc.isActive();
 	}
 	
 	public static final int MINER_COUNT = 1;

@@ -62,7 +62,7 @@ public abstract class Tree {
 				
 			} catch (Exception e) {
 				System.out.println("Error: " + e.getMessage());
-				e.printStackTrace();	
+//				e.printStackTrace();	
 			}
 
 			

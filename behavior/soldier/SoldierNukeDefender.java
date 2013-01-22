@@ -6,9 +6,11 @@ import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.Team;
 import team122.behavior.Behavior;
+import team122.behavior.IComBehavior;
+import team122.communication.Communicator;
 import team122.robot.Soldier;
 
-public class SoldierNukeDefender extends Behavior {
+public class SoldierNukeDefender extends Behavior implements IComBehavior {
 	
 	protected Soldier robot;
 	private final int MAX_DISTANCE = 900;
@@ -16,6 +18,14 @@ public class SoldierNukeDefender extends Behavior {
 	public SoldierNukeDefender(Soldier robot) {
 		this.robot = robot;
 		
+	}
+
+	/**
+	 * echos the com behavior to the communicator.
+	 */
+	@Override
+	public void comBehavior() throws GameActionException {
+		robot.com.increment(Communicator.CHANNEL_NUKE_COUNT);
 	}
 
 	@Override

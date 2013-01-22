@@ -3,6 +3,8 @@ package team122.robot;
 import team122.communication.Communicator;
 import team122.trees.GeneratorTree;
 import team122.RobotInformation;
+import battlecode.common.Clock;
+import battlecode.common.GameActionException;
 import battlecode.common.GameObject;
 import battlecode.common.RobotController;
 
@@ -21,7 +23,7 @@ public class Generator extends TeamRobot {
 	}
 
 	@Override
-	public void environmentCheck() {
+	public void environmentCheck() throws GameActionException {
 		canShoot = rc.isActive();
 		if (canShoot) {
 			enemiesNearby = rc.senseNearbyGameObjects(GameObject.class, 81, info.enemyTeam);
@@ -30,6 +32,10 @@ public class Generator extends TeamRobot {
 			if (enemyNearby) {
 				nearbyObjects = rc.senseNearbyGameObjects(GameObject.class, 81);
 			}
+		}
+
+		if (Clock.getRoundNum() % HQ.HQ_COUNT_ROUND - 1 == 0) {
+			com.increment(Communicator.CHANNEL_GENERATOR_COUNT);
 		}
 	}
 }
