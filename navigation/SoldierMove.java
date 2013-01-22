@@ -111,34 +111,42 @@ public class SoldierMove {
 				if (j < .1) {
 					if (robot.rc.canMove(Direction.NORTH)) {
 						robot.rc.move(Direction.NORTH);
+						break;
 					}
 				} else if (j < .2) {
 					if (robot.rc.canMove(Direction.NORTH_EAST)) {
 						robot.rc.move(Direction.NORTH_EAST);
+						break;
 					}
 				} else if (j < .3) {
 					if (robot.rc.canMove(Direction.EAST)) {
 						robot.rc.move(Direction.EAST);
+						break;
 					}
 				} else if (j < .4) {
 					if (robot.rc.canMove(Direction.SOUTH_EAST)) {
 						robot.rc.move(Direction.SOUTH_EAST);
+						break;
 					}
 				} else if (j < .5) {
 					if (robot.rc.canMove(Direction.SOUTH)) {
 						robot.rc.move(Direction.SOUTH);
+						break;
 					}
 				} else if (j < .6) {
 					if (robot.rc.canMove(Direction.SOUTH_WEST)) {
 						robot.rc.move(Direction.SOUTH_WEST);
+						break;
 					}
 				} else if (j < .7) {
 					if (robot.rc.canMove(Direction.WEST)) {
 						robot.rc.move(Direction.WEST);
+						break;
 					}
 				} else if (j < .8) {
 					if (robot.rc.canMove(Direction.NORTH_WEST)) {
 						robot.rc.move(Direction.NORTH_WEST);
+						return;
 					}
 				}
 				
