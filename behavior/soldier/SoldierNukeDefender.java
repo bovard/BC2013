@@ -23,6 +23,11 @@ public class SoldierNukeDefender extends Behavior {
 		if (!robot.rc.isActive())
 			return;
 		
+		if (robot.enemyAtTheGates) {
+			robot.move.destination = robot.info.hq;
+			robot.move.move();
+		}
+		
 		if(Clock.getRoundNum() > 530) {
 			robot.move.destination = robot.info.hq;
 			robot.move.move();
