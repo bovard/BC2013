@@ -49,6 +49,7 @@ public class SoldierMove {
 					Team mineTeam = robot.rc.senseMine(robot.currentLoc.add(toMove));
 					if (mineTeam != Team.NEUTRAL && mineTeam != robot.info.enemyTeam) {
 						robot.rc.move(toMove);
+						done = true;
 					}
 				}
 				toMove.rotateLeft();
