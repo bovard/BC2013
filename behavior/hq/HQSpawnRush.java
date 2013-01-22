@@ -25,8 +25,6 @@ public class HQSpawnRush extends Behavior {
 		upgrades[4] = Upgrade.NUKE;
 	}
 	
-	private final int SPAWN = 300;
-	
 	@Override
 	public void run() throws GameActionException {
 		if (utils.minerCount < MINER_COUNT) {

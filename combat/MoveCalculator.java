@@ -9,6 +9,7 @@ import battlecode.common.MapLocation;
 import battlecode.common.Robot;
 import battlecode.common.RobotInfo;
 import battlecode.common.RobotType;
+import battlecode.common.Team;
 
 public class MoveCalculator {
 	
@@ -20,7 +21,7 @@ public class MoveCalculator {
 		this.robot = robot;
 	}
 	
-	public Direction calculateMove (Robot[] nearby, MapLocation loc) throws GameActionException{
+	public void move (Robot[] nearby, MapLocation loc) throws GameActionException{
 		//int time = -Clock.getBytecodeNum();
 		//System.out.println("Starting caclMove at " + -time);
 		
@@ -51,7 +52,27 @@ public class MoveCalculator {
 		//System.out.println(dir.toString());
 		//System.out.println("DECISION========================");
 		robot.rc.setIndicatorString(0, dir.toString());
-		return dir;
+		
+		// if we calculated a move, move it!
+		if (dir != Direction.NONE){
+			robot.rc.move(dir);	
+		} 
+		
+		// otherwise try and defuse
+		else {
+			// score 12 = surrounded by 4 allies, 27 is surrounded by 9 allies
+			if (score >= 12 && score <= 27 ) {
+				dir = robot.info.enemyDir;
+				for (int i = 0; i < 8; i++ ) {
+					if(robot.rc.senseMine(robot.currentLoc.add(dir)) == robot.info.enemyTeam) {
+						robot.rc.defuseMine(robot.currentLoc.add(dir));
+						return;
+					}
+					dir = dir.rotateLeft();
+				}
+			}
+		}
+		
 	}
 	
 	private Direction _xyToDir(int x, int y) {

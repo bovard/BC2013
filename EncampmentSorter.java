@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -13,212 +14,194 @@ import battlecode.common.Team;
 public class EncampmentSorter {
 
 	public MapLocation[] encampments;
-	public int[] encampmentsDistances;
+	public MapLocation[] usuableEncampments;
+	public int[] encampmentDistances;
 	public int[] enemyDistances;
-	public MapLocation[] nearHQ;
-	public MapLocation[] neutralMines;
-	public ArrayList<MapLocation> alliedEncampments;
+	public int[] encampmentSqrtDistances;
+	public int[] enemySqrtDistances;
+	public int[] encampmentAngles;
+	public int[] enemyAngles;
 	public int totalEncampments;
 	public RobotController rc;
-	public RobotInformation info;
-	public MapLocation[] artilleryEncamp;
-	public int[] artilleryDistances;
-	public int totalArtillerySpots;
-	public int enemyHqDistance;
+	public boolean finishBaseCalculation;
+	public boolean finishArtilleryCalculation;
+	public boolean finishGeneratorCalculation;
+
+	/**
+	 * State information about generators and artilleries being searched.
+	 */
+	private int _lastAlliedUpdate;
+	private ArrayList<MapLocation> _generators;
+	private ArrayList<MapLocation> _artilleries;
+	private MapLocation[] _alliedEncampments;
+	private MapLocation[] _artilleryPossibleList;
+	private MapLocation[] _generatorPossibleList;
+	private int _currentRound;
+	private int _currentRoundArt;
+	private int _currentRoundGen;
 	
-	// private stuff for state.
-	private boolean calculatedSetEncampments = false;
-	
-	public EncampmentSorter(RobotController rc, RobotInformation info) {
+	public EncampmentSorter(RobotController rc) {
 		this.rc = rc;
-		this.info = info;
-		alliedEncampments = new ArrayList<MapLocation>();
-		enemyHqDistance = info.hq.distanceSquaredTo(info.enemyHq);
+		_currentRound = 0;
+		_currentRoundArt = 0;
+		_currentRoundGen = 0;
+		
+		_lastAlliedUpdate = 50;
+		_generators = new ArrayList<MapLocation>(); 
+		_artilleries = new ArrayList<MapLocation>(); 
+		_alliedEncampments = new MapLocation[0];
+		finishArtilleryCalculation = false;
+		finishBaseCalculation = false;
+		finishGeneratorCalculation = false;
+	}
+	
+	/**
+	 * Gets the encampments
+	 */
+	public void getEncampments() {
+		encampments = rc.senseAllEncampmentSquares();
+		usuableEncampments = rc.senseAllEncampmentSquares();
+		totalEncampments = encampments.length;
+		encampmentDistances = new int[totalEncampments];
+		encampmentSqrtDistances = new int[totalEncampments];
+		encampmentAngles = new int[totalEncampments];
+		enemyDistances = new int[totalEncampments];
+		enemySqrtDistances = new int[totalEncampments];
+		enemyAngles = new int[totalEncampments];
+	}
+	
+	/**
+	 * Will do a generator search.
+	 * @return
+	 */
+	public MapLocation popGenerator() {
+		
+//		if (currentRound == 0 || totalEncampments == 0) {
+//			return null;
+//		} else {
+//			
+//			if (_lastGenSearch < 0 || _lastGenSearch < Clock.getRoundNum() - SEARCH_FREQUENCY) {
+//				
+//			}
+//		}
+		return null;
 	}
 
-	
-	/**
-	 * Sets just the encampments no sorting.
-	 */
-	public void setEncampments() {
-		if (!calculatedSetEncampments) {
-			encampments = rc.senseAllEncampmentSquares();
-			encampmentsDistances = new int[encampments.length];
-			enemyDistances = new int[encampments.length];
-			totalEncampments = encampments.length;
-	
-			for (int i = 0, len = encampments.length; i < len; i++) {
-				encampmentsDistances[i] = encampments[i].distanceSquaredTo(info.hq);
-				enemyDistances[i] = encampments[i].distanceSquaredTo(info.enemyHq);
-			}
+	public boolean calculateArtilleryLocations(int turns) {
+		
+		if (finishArtilleryCalculation) {
+			return true;
+		}
 
-			//Sets allied encampments.
-			MapLocation[] ae = rc.senseAlliedEncampmentSquares();
-			for (int i = 0, len = ae.length; i < len; i++) {
-				alliedEncampments.add(ae[i]);
+		int loopsToExecute = ((10000 - Clock.getBytecodeNum() - (200 * (turns - 1))) + ((turns - 1) * 10000)) / 52;
+		for (int i = _currentRoundArt, j = 0; j < loopsToExecute && i < totalEncampments; i++, j++) { // 52 Bytecodes
+			System.out.println(" Encampment: " + encampmentAngles[i]);
+			if ((encampmentAngles[i] < ARTILLERY_ANGLE_LOW || encampmentAngles[i] > ARTILLERY_ANGLE_HIGH) && 
+				(enemyAngles[i] < ARTILLERY_ANGLE_LOW || enemyAngles[i] > ARTILLERY_ANGLE_HIGH)) {
+				_artilleries.add(encampments[i]);
+			}
+			_currentRoundArt = i;
+		}
+		_currentRoundArt++;
+		
+		finishArtilleryCalculation = !(_currentRoundArt < totalEncampments);
+		
+		//Finishes the artillery calculation by setting up the list.
+		if (finishArtilleryCalculation) {
+			_artilleryPossibleList = new MapLocation[_artilleries.size()];
+			for (int i = 0, len = _artilleryPossibleList.length; i < len; i++) {
+				_artilleryPossibleList[i] = _artilleries.get(i);
 			}
 			
-			calculatedSetEncampments = true;
+			_artilleries.clear();
 		}
-	}
-	
-	/**
-	 * The artillery sort is to make all the encampments sorted in an artillery ordered sort.
-	 */
-	public void setEncampmentsArtillerySort() throws GameActionException {
 		
-		//The plan is that we only check along the line between the enemy hq and ours.
-		ArrayList<MapLocation> map = new ArrayList<MapLocation>(10);
-		ArrayList<Integer> hqDist = new ArrayList<Integer>(10);
-		ArrayList<Integer> enemyDist = new ArrayList<Integer>(10);
+		return finishArtilleryCalculation;
+	}
 
-		Direction t = info.hq.directionTo(info.enemyHq);
-		MapLocation loc = info.hq.add(t).add(t).add(t).add(t).add(t);
-		
-		while (loc.distanceSquaredTo(info.hq) < enemyHqDistance) {
-			MapLocation[] encamps = rc.senseEncampmentSquares(loc, 100, Team.NEUTRAL);
-			
-			for (int i = 0; i < encamps.length; i++) {
-				if (!map.contains(encamps[i])) {
-					map.add(encamps[i]);
-					hqDist.add(info.hq.distanceSquaredTo(encamps[i]));
-					enemyDist.add(info.enemyHq.distanceSquaredTo(encamps[i]));
-				}
-			}
-			
-			//Moves toward the enemyhq.
-			loc = loc.add(t).add(t).add(t).add(t)
-					.add(t).add(t).add(t).add(t)
-					.add(t).add(t).add(t).add(t)
-					.add(t).add(t).add(t).add(t);
-		}
-		
-		artilleryEncamp = map.toArray(new MapLocation[map.size()]);
-		artilleryDistances = new int[artilleryEncamp.length];
-		for (int i = 0, len = artilleryEncamp.length; i < len; i++) {
-			artilleryDistances[i] = hqDist.get(i) - enemyDist.get(i);
-		}
-		
-		MapUtils.sort(artilleryEncamp, artilleryDistances);
-		totalArtillerySpots = artilleryDistances.length;
-	}
-	
 	/**
-	 * Sets the neutral mines.
+	 * Calculate generator locations
+	 * @param turns
+	 * @return
 	 */
-	public void setNeutralMines() {
-		neutralMines = rc.senseMineLocations(info.center, info.width * 1000, Team.NEUTRAL);
-	}
-	
-	/**
-	 * Generator/supplier sort algorithm.
-	 */
-	public void setEncampmentsGenSort() {
-		setEncampments();
+	public boolean calculateGeneratorLocations(int turns) {
 		
-		int[] distances = new int[totalEncampments];
-		for (int i = 0; i < totalEncampments; i++) {
-			distances[i] = encampmentsDistances[i] - enemyDistances[i];
+		if (finishGeneratorCalculation) {
+			return true;
 		}
-		
-		MapUtils.sort(encampments, distances);
-	}
-	
-	/**
-	 * set encampments and sorts them along with enemy distances.
-	 * 
-	 * NOTE**: The insertion sort and quick sort values have changed
-	 * i hade the setEncampments more efficient, no more temp variable 
-	 * instantiated.
-	 */
-	public void setEncampmentsAndSort() { 	/* o(n^2) InsertionSort */
-											/* n = 2  : 397  */
-											/* n = 4  : 706  */
-											/* n = 8  : 1690 */
-											/* n = 20 : 7706 */
-											/* o(nlogn) QuickSort */
-											/* n = 2  : 405  */
-											/* n = 4  : 709  */
-											/* n = 8  : 1515 */
-											/* n = 96 : 14582 */
-		setEncampments();
-		
-		if (encampments.length < 5) {
 
-			int currentDist;
-			MapLocation currentLoc;
-			
-			//InsertionSort
-			for (int i = 1, j, len = encampments.length; i < len; i++) {
-				currentDist = encampmentsDistances[i];
-				currentLoc = encampments[i];
-				
-				for (j = i; j > 0 && currentDist < encampmentsDistances[j - 1]; j--) {
-					encampments[j] = encampments[j - 1];
-					encampmentsDistances[j] = encampmentsDistances[j - 1];
-					enemyDistances[j] = enemyDistances[j - 1];
-				}
-	
-				encampmentsDistances[j] = currentDist;
-				encampments[j] = currentLoc;
+		int loopsToExecute = ((10000 - Clock.getBytecodeNum() - (200 * turns)) + ((turns - 1) * 10000)) / 52;
+		for (int i = _currentRoundGen, j = 0; j < loopsToExecute && i < totalEncampments; i++, j++) { // 52 Bytecodes
+			if (!((encampmentAngles[i] > ARTILLERY_ANGLE_LOW || encampmentAngles[i] < ARTILLERY_ANGLE_HIGH) && 
+				(enemyAngles[i] > ARTILLERY_ANGLE_LOW || enemyAngles[i] < ARTILLERY_ANGLE_HIGH))) {
+				_generators.add(encampments[i]);
 			}
-		} else {
-			
-			//QuickSort
-			_quicksort(encampmentsDistances, enemyDistances, encampments, 0, encampmentsDistances.length - 1);
+			_currentRoundGen = i;
 		}
+		_currentRoundGen++;
+		
+		finishGeneratorCalculation = !(_currentRoundGen < totalEncampments);
+		
+		//Finishes the artillery calculation by setting up the list.
+		if (finishGeneratorCalculation) {
+			_generatorPossibleList = new MapLocation[_generators.size()];
+			for (int i = 0, len = _generatorPossibleList.length; i < len; i++) {
+				_generatorPossibleList[i] = _generators.get(i);
+			}
+			
+			_generators.clear();
+		}
+
+		return finishGeneratorCalculation;
 	}
 	
 	/**
-	 * The quicksort algorithm uses recursion, maybe we can make it
-	 * into while loops.
-	 * 
-	 * @param numbers
-	 * @param low
-	 * @param high
+	 * Calculates for the next x amount of turns (10,000 byte codes * turns)
+	 * @param turns
+	 * @return
 	 */
-	private void _quicksort(int[] locsDists, int[] nmeDists, MapLocation[] locs, int low, int high) {
-		int i = low, j = high;
-		int pivot = locsDists[low + (high - low) / 2];
+	public boolean calculate(int turns) {
 		
-		while (i <= j) {
-			
-			while (locsDists[i] < pivot) {
-				i++;
-			}
-			
-			while (locsDists[j] > pivot) {
-				j--;
-			}
-			
-			if (i <= j) {
-				int temp = locsDists[i];
-				locsDists[i] = locsDists[j];
-				locsDists[j] = temp;
-				
-				temp = nmeDists[i];
-				nmeDists[i] = nmeDists[j];
-				nmeDists[j] = temp;
-				
-				MapLocation t = locs[i];
-				locs[i] = locs[j];
-				locs[j] = t;
-				
-				i++;
-				j--;
-			}
+		if (finishBaseCalculation) {
+			return true;
 		}
 		
-		if (low < j) {
-			_quicksort(locsDists, nmeDists, locs, low, j);
+		MapLocation hq = rc.senseHQLocation();
+		MapLocation enemy = rc.senseEnemyHQLocation();
+		int hypot = hq.distanceSquaredTo(enemy);
+		int sqrtHypot = (int)Math.sqrt(hypot);
+		MapLocation enc;
+		
+		//We seem to be off by larger amounts once the turns get to high.
+		int loopsToExecute = ((10000 - Clock.getBytecodeNum() - (150 * turns)) + ((turns - 1) * 10000)) / 269;
+
+		// 267 Bytecodes
+		for (int i = _currentRound, j = 0; j < loopsToExecute && i < totalEncampments; i++, j++) {
+			enc = encampments[i];
+			encampmentDistances[i] = hq.distanceSquaredTo(enc);
+			enemyDistances[i] = enemy.distanceSquaredTo(enc);
+			encampmentSqrtDistances[i] = (int)Math.sqrt(encampmentDistances[i]);
+			enemySqrtDistances[i] = (int)Math.sqrt(enemyDistances[i]);
+
+			//computes the angle.
+			encampmentAngles[i] = 
+					(int)Math.acos(Math.toDegrees((encampmentDistances[i] + hypot - enemyDistances[i]) / 
+							(2 * encampmentSqrtDistances[i] * sqrtHypot)));
+
+			encampmentAngles[i] = 
+					(int)Math.acos(Math.toDegrees((encampmentDistances[i] + hypot - enemyDistances[i]) / 
+							(2 * encampmentSqrtDistances[i] * sqrtHypot)));
+
+			_currentRound = i;
 		}
-		if (i < high) {
-			_quicksort(locsDists, nmeDists, locs, low, i);
-		}
+		_currentRound++;
+
+		finishBaseCalculation = !(_currentRound < totalEncampments);
+		return finishBaseCalculation;
 	}
 	
-	/**
-	 * Might increase it.
-	 */
-	private static final int ARTILLERY_RADIUS = 225;
+	public static final int SEARCH_FREQUENCY = 200;
+	public static final int ARTILLERY_STORE = 3;
+	public static final int ARTILLERY_ANGLE_LOW = 11;
+	public static final int ARTILLERY_ANGLE_HIGH = 349;
 }

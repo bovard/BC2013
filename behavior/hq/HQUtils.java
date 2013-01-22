@@ -18,6 +18,7 @@ public class HQUtils {
 	public int supplierCount;
 	public int soldierCount;
 	public int defenderCount;
+	public int nukeDefenderCount;
 	public int encamperCount;
 	public int minerCount;
 	public int totalSoldierCount;
@@ -42,6 +43,7 @@ public class HQUtils {
 		powerProduction = 0;
 		powerToCaptureEncampment = 0;
 		powerConsumptionFromSoldiers = 0;
+		nukeDefenderCount = 0;
 		this.mapInfo = mapInfo;
 	}
 	
@@ -105,6 +107,7 @@ public class HQUtils {
 		encamperCount = com.receive(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
 		minerCount = com.receive(Communicator.CHANNEL_MINER_COUNT, 0);
 		defenderCount = com.receive(Communicator.CHANNEL_DEFENDER_COUNT, 0);
+		nukeDefenderCount = com.receive(Communicator.CHANNEL_NUKE_COUNT, 0);
 
 		//Erases so counts will be accurate.
 		com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, 0);
@@ -113,9 +116,10 @@ public class HQUtils {
 		com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, 0);
 		com.communicate(Communicator.CHANNEL_MINER_COUNT, 0);
 		com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
+		com.communicate(Communicator.CHANNEL_NUKE_COUNT, 0);
 		
 		// Basic calculations that are needed by the HQ.
-		totalSoldierCount = soldierCount + encamperCount + minerCount + defenderCount;
+		totalSoldierCount = soldierCount + encamperCount + minerCount + defenderCount + nukeDefenderCount;
 		totalEncampmentCount = generatorCount + supplierCount + artilleryCount;
 		
 		//Power production is correct but powerToCapture is incorrect.  Its overestimated.

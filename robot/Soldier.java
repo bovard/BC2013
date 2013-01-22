@@ -13,6 +13,7 @@ import team122.behavior.Node;
 import team122.combat.MoveCalculator;
 import team122.communication.Communicator;
 import team122.navigation.NavigationSystem;
+import team122.navigation.SoldierMove;
 import team122.trees.SoldierTree;
 
 public class Soldier extends TeamRobot {
@@ -34,16 +35,20 @@ public class Soldier extends TeamRobot {
 	public MapLocation[] neutral_mines;
 	public MapLocation[] allied_mines;
 	public MapLocation[] enemy_mines;
+	public SoldierMove move;
 	
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);
 		navSystem = new NavigationSystem(rc, info);
+		this.move = new SoldierMove(this);
+
 		com.seedChannels(5, new int[] {
 			Communicator.CHANNEL_NEW_SOLDIER_MODE,
 			Communicator.CHANNEL_MINER_COUNT,
 			Communicator.CHANNEL_ENCAMPER_COUNT,
 			Communicator.CHANNEL_SOLDIER_COUNT,
 			Communicator.CHANNEL_DEFENDER_COUNT,
+			Communicator.CHANNEL_NUKE_COUNT,
 			Communicator.CHANNEL_ENCAMPER_LOCATION
 		});
 		

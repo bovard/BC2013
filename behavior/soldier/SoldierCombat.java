@@ -32,9 +32,7 @@ public class SoldierCombat
 	public void run() throws GameActionException {
 		if (!robot.rc.isActive())
 			return;
-		Direction toMove = robot.mCalc.calculateMove(robot.meleeObjects, robot.currentLoc);
-		if (toMove != Direction.NONE)
-			robot.rc.move(toMove);
+		robot.mCalc.move(robot.meleeObjects, robot.currentLoc);
 	}
 
 	@Override

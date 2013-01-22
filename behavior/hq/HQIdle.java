@@ -15,7 +15,17 @@ public class HQIdle extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
-		//The soldier is not active but it can still process signals.
+		if (!robot.encampmentSorter.finishBaseCalculation) {
+			robot.encampmentSorter.calculate(1);
+		} else if (!robot.encampmentSorter.finishArtilleryCalculation) {
+			System.out.println("EncampmentSorter base done");
+			robot.encampmentSorter.calculateArtilleryLocations(1);
+		} else if (!robot.encampmentSorter.finishGeneratorCalculation) {
+			System.out.println("EncampmentSorter artillery done");
+			robot.encampmentSorter.calculateGeneratorLocations(1);
+		} else {
+			System.out.println("OFFICIAL FINISH!");
+		}
 	}
 
 	@Override

@@ -47,6 +47,19 @@ public class Communicator {
 	}
 	
 	/**
+	 * Clears the channel of any data.
+	 * @param mode
+	 * @throws GameActionException
+	 */
+	public void clear(int mode) throws GameActionException {
+		Integer[] channels = modeToChannels.get(mode);
+		
+		rc.broadcast(channels[0], -1);
+		rc.broadcast(channels[1], -1);
+		rc.broadcast(channels[2], -1);
+	}
+	
+	/**
 	 * increments the value within the given mode, if no value is provided then it will communicate 1.
 	 * @param mode
 	 * @throws GameActionException 
@@ -206,10 +219,15 @@ public class Communicator {
 			} else if (channels[i] == CHANNEL_ENCAMPER_LOCATION) {
 
 				//Encamper Location
-				System.out.println("Encamper Location!:");
 				c[0] = CHANNEL_ENCAMPER_LOCATION_RANGE[0] + seedMul % CHANNEL_ENCAMPER_LOCATION_RANGE[1];
 				c[1] = CHANNEL_ENCAMPER_LOCATION_RANGE[0] + seedMulDiff % CHANNEL_ENCAMPER_LOCATION_RANGE[1];
 				c[2] = CHANNEL_ENCAMPER_LOCATION_RANGE[0] + seedMulDiff2x % CHANNEL_ENCAMPER_LOCATION_RANGE[1];
+			} else if (channels[i] == CHANNEL_NUKE_COUNT) {
+
+				//Encamper Location
+				c[0] = CHANNEL_NUKE_COUNT_RANGE[0] + seedMul % CHANNEL_NUKE_COUNT_RANGE[1];
+				c[1] = CHANNEL_NUKE_COUNT_RANGE[0] + seedMulDiff % CHANNEL_NUKE_COUNT_RANGE[1];
+				c[2] = CHANNEL_NUKE_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_NUKE_COUNT_RANGE[1];
 			}
 
 			modeToChannels.put(channels[i], c);
@@ -228,7 +246,8 @@ public class Communicator {
 	public static final int CHANNEL_ENCAMPER_COUNT = 6;
 	public static final int CHANNEL_MINER_COUNT = 7;
 	public static final int CHANNEL_DEFENDER_COUNT = 8;
-	public static final int CHANNEL_ENCAMPER_LOCATION = 9;
+	public static final int CHANNEL_NUKE_COUNT = 9;
+	public static final int CHANNEL_ENCAMPER_LOCATION = 15;
 	public static final int SEED_MULTIPLIER = 17;
 	
 	//Ranges:   {StartPt, Range}
@@ -241,4 +260,5 @@ public class Communicator {
 	public static final Integer[] CHANNEL_ENCAMPER_COUNT_RANGE = new Integer[] {27000, 4000};
 	public static final Integer[] CHANNEL_DEFENDER_COUNT_RANGE = new Integer[] {31000, 4000};
 	public static final Integer[] CHANNEL_ENCAMPER_LOCATION_RANGE = new Integer[] {35000, 4000};
+	public static final Integer[] CHANNEL_NUKE_COUNT_RANGE = new Integer[] {39000, 4000};
 }
