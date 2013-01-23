@@ -19,18 +19,17 @@ import team122.trees.HQTree;
 
 public class HQ extends TeamRobot {
 	public HQUtils hqUtils;
-	public int military;
-	public boolean econ;
 	public boolean rush;
-	public boolean nuke;
 	public boolean darkHorse;
+	public boolean vsNukeBot;
+	public boolean vsNukeBotAndMiner;
+	public boolean vsNukeBotAndMinerPickax;
+	public boolean forceNukeRush;
 	public EncampmentSorter encampmentSorter;
 	public MapInformation mapInfo;
-	public int currentGenSupSpot;
-	public int currentArtillerySpot;
-	public boolean hasMoreArtillerySpots;
-	public boolean hasMoreGenSpots;
 	public boolean enemyResearchedNuke;
+	public int nukeCount;
+	
 	
 	public HQ(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -48,21 +47,22 @@ public class HQ extends TeamRobot {
 			Communicator.CHANNEL_NUKE_COUNT,
 			Communicator.CHANNEL_ENCAMPER_LOCATION,
 		});
-		military = 0;
-		econ = false;
+		nukeCount = 0;
 		rush = false;
-		nuke = false;
 		darkHorse = false;
+		vsNukeBot = false;
+		vsNukeBotAndMiner = false;
+		vsNukeBotAndMinerPickax = false;
 		enemyResearchedNuke = false;
+		forceNukeRush = false;
 		mapInfo = new MapInformation(rc);
 		encampmentSorter = new EncampmentSorter(rc);
-		currentGenSupSpot = 0;
-		currentArtillerySpot = 0;
 	}
 	
 	@Override
 	public void environmentCheck() throws GameActionException {
 		//TODO: What's the environment check here?
+		_checkForNuke();
 		
 		if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
@@ -80,6 +80,7 @@ public class HQ extends TeamRobot {
 		int tries = 0;
 		while (tries < 8) {
 			Direction dir = Direction.values()[(int)(Math.random() * 8)];
+			
 			if (rc.canMove(dir)) {
 				rc.spawn(dir);	
 				System.out.println("Spawning: " + type);
@@ -120,14 +121,11 @@ public class HQ extends TeamRobot {
 		
 		if (info.enemyHqDistance <= RUSH_ENEMY_MAP) {
 			rush = true;
-		} else {
-			nuke = true;
 		}
 
 		encampmentSorter.getEncampments();
 		if (encampmentSorter.isDarkHorse(5)) {
 			rush = false;
-			nuke = false;
 			darkHorse = true;
 		} else {
 
@@ -137,8 +135,22 @@ public class HQ extends TeamRobot {
 			
 			encampmentSorter.calculate();
 		}
-		
-		currentGenSupSpot = currentArtillerySpot = 0;
+	}
+
+	/**
+	 * Spawns a swarmer.
+	 * @return
+	 */
+	public void spawnSwarmer() throws GameActionException {
+		spawn(SoldierSelector.SOLDIER_SWARMER);
+	}
+
+	/**
+	 * Spawns a swarmer.
+	 * @return
+	 */
+	public void spawnMiner() throws GameActionException {
+		spawn(SoldierSelector.SOLDIER_MINER);
 	}
 	
 	/**
@@ -202,6 +214,59 @@ public class HQ extends TeamRobot {
 		}
 		return false;
 	}
+	
+
+	
+	/**
+	 * Checks for nuke and performs an upgrade on state if there is a rush nuke.
+	 * @throws GameActionException
+	 */
+	private void _checkForNuke() throws GameActionException {
+		if (!enemyResearchedNuke && !forceNukeRush) {
+			
+			enemyResearchedNuke = rc.senseEnemyNukeHalfDone();
+			
+			if (enemyResearchedNuke) {
+
+				//The minimum amount of nuke space we need between our enemy.
+				//If we beat them, then beat them
+				if (nukeCount > 202) {
+					forceNukeRush = true;
+					return;
+				}
+				
+				//If the round is 200 - 205 then the user is a pure nuke bot.  Send enemies one at a time.
+				int round = Clock.getRoundNum();
+				
+				if (round < 205) {
+					vsNukeBot = true;
+					rush = false;
+					vsNukeBotAndMiner = false;
+					vsNukeBotAndMinerPickax = false;
+					darkHorse = false;
+					
+				//Either he has 1 miner and a nuke or he has a single artillery and a nuke
+				//Do not send 1 at a time.
+				} else if (round < 215) {
+
+					vsNukeBotAndMiner = true;
+					vsNukeBot = false;
+					rush = false;
+					vsNukeBotAndMinerPickax = false;
+					darkHorse = false;
+					
+				//More than likely 4 miners, 1 miner + pickax, 
+				} else if (round < 240) {
+
+					vsNukeBotAndMinerPickax = true;
+					vsNukeBotAndMiner = false;
+					vsNukeBot = false;
+					rush = false;
+					darkHorse = false;
+				}
+			}
+		}
+	} // end check for nuke
 	
 	public static final int HQ_COUNT_ROUND = 3;
 	public static final int RUSH_ENEMY_MAP = 1000;

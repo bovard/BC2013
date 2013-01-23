@@ -7,12 +7,12 @@ import team122.behavior.Behavior;
 import team122.behavior.soldier.SoldierSelector;
 import team122.robot.HQ;
 
-public class HQSpawnNukeFast extends Behavior {
+public class HQSpawnForceResearchNuke extends Behavior {
 	
 	protected HQ robot;
 	protected HQUtils utils;
 	
-	public HQSpawnNukeFast(HQ robot) {
+	public HQSpawnForceResearchNuke(HQ robot) {
 		super();
 		this.robot = robot;
 		this.utils = robot.hqUtils;
@@ -22,17 +22,7 @@ public class HQSpawnNukeFast extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
-		if (Clock.getRoundNum() < 25) {
-			if (utils.minerCount < MINER_COUNT) {
-				robot.spawn(SoldierSelector.SOLDIER_MINER);
-			} else if (!robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
-				robot.rc.researchUpgrade(Upgrade.PICKAXE);
-			} else if (robot.rc.getTeamPower() > 50 && Clock.getRoundNum() < NUKE_TIME) { // more gen more soldiers.
-				robot.spawn(SoldierSelector.SOLDIER_NUKE);
-			}
-		} else {
-			robot.rc.researchUpgrade(Upgrade.NUKE);
-		}
+		robot.rc.researchUpgrade(Upgrade.NUKE);
 		return;
 		
 	}
@@ -40,7 +30,7 @@ public class HQSpawnNukeFast extends Behavior {
 	@Override
 	public boolean pre() throws GameActionException {
 		
-		return robot.rc.isActive() && robot.nuke;
+		return robot.rc.isActive() && robot.forceNukeRush;
 	}
 	
 	

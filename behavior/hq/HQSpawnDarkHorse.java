@@ -19,7 +19,6 @@ public class HQSpawnDarkHorse extends Behavior {
 	}
 	
 	int count = 0;
-	int nukeCount = 0;
 	final int NUKE_HOLDOUT_TIME = 213;
 	final int VISION_COUNT = 5;
 	final int MAX_COUNT = 10;
@@ -33,9 +32,9 @@ public class HQSpawnDarkHorse extends Behavior {
 			count++;
 		} else {
 			
-			if (nukeCount < NUKE_HOLDOUT_TIME) {
+			if (robot.nukeCount < NUKE_HOLDOUT_TIME) {
 				robot.rc.researchUpgrade(Upgrade.NUKE);
-				nukeCount++;
+				robot.nukeCount++;
 			} else {
 				boolean sensedNuke = robot.rc.senseEnemyNukeHalfDone();
 				if (!sensedNuke && count > VISION_COUNT && !robot.rc.hasUpgrade(Upgrade.VISION)) {
