@@ -28,10 +28,9 @@ public class HQSpawnRush extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
-		double energy = robot.rc.getEnergon();
 		int round = Clock.getRoundNum();
 		
-		if (energy > 50) {
+		if (robot.powerThisRound > 50) {
 			if (round < 50 && robot.info.enemyHqDistance > 300) {
 				System.out.println("spawning Generator");
 				if (robot.spawnGenerator()) {
@@ -43,11 +42,12 @@ public class HQSpawnRush extends Behavior {
 				if (robot.spawnSupplier()) {
 					System.out.println("ReallyS");
 				}
-			} else if (energy > 200 && robot.spawnSupplier()) {
+			} else if (robot.powerThisRound > 200 && robot.spawnSupplier()) {
 				
-			} else if (energy < 100 || !robot.energyPositive && robot.spawnGenerator()) {
+			} else if (robot.powerThisRound < 100 || !robot.powerPositive && robot.spawnGenerator()) {
 				
-			} else {
+			} 
+			if (robot.rc.isActive()){
 				robot.spawnSwarmer();
 			}
 		} 

@@ -32,9 +32,9 @@ public class HQ extends TeamRobot {
 	private boolean threeTurnsAgoPositive = true;
 	private boolean twoTurnsAgoPositive = true;
 	private boolean oneTurnAgoPositive = true;
-	private double energyLastRound = 0;
-	public double energyThisRound = 0;
-	public boolean energyPositive = true;
+	private double powerLastRound = 0;
+	public double powerThisRound = 0;
+	public boolean powerPositive = true;
 	
 	
 	public HQ(RobotController rc, RobotInformation info) {
@@ -71,11 +71,11 @@ public class HQ extends TeamRobot {
 		_checkForNuke();
 		
 		// check to see if we have positive energy growth
-		energyThisRound = rc.getEnergon();
+		powerThisRound = rc.getTeamPower();
 		threeTurnsAgoPositive = twoTurnsAgoPositive;
 		twoTurnsAgoPositive = oneTurnAgoPositive;
-		oneTurnAgoPositive = energyThisRound > energyLastRound;
-		energyPositive =  threeTurnsAgoPositive && twoTurnsAgoPositive && oneTurnAgoPositive;
+		oneTurnAgoPositive = powerThisRound > powerLastRound;
+		powerPositive =  threeTurnsAgoPositive && twoTurnsAgoPositive && oneTurnAgoPositive;
 		
 		if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
