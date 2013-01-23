@@ -8,36 +8,40 @@ import battlecode.common.GameActionException;
 public class HQCalculate extends Behavior {
 	
 	protected HQ robot;
-	public boolean calculating;
 	protected HQSelector parent;
+	protected boolean init;
 	
 
 	public HQCalculate(HQ robot) {
 		super();
 		this.robot = robot;
-		calculating = true;
+		init = false;
 	}
 	
+	/**
+	 * When we first start we need to calculate the encamper spots.
+	 */
 	@Override
-	public void start() { 
-		
+	public void start() throws GameActionException { 
+		if (!init) {
+			init = true;
+			robot.calculateEncamperSpots();
+		}
 	}
 	
 	@Override
 	public void run() throws GameActionException {
-		//Spawns a soldier since its an "active" option so we can
-		//use our time best.
-		// -- SPAWNS a soldier intentionally to help make the calculation time problem better--
-		//Will likely finish before next rc is active		
 		
-		//Calculates information about the map, strategy, ect. ect.
-		robot.calculateEncamperSpots();
-		calculating = false;
+		//While it calculates, it needs to make sure that it continues to spawn.
+		if (robot.rc.isActive()) {
+			robot.spawnSwarmer();
+		}
+		robot.encampmentSorter.calculate();
 	}
 
 	@Override
 	public boolean pre() {
-		return calculating;
+		return !robot.encampmentSorter.finishBaseCalculation;
 	}
 
 }
