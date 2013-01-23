@@ -12,13 +12,11 @@ import team122.behavior.IComBehavior;
 import team122.behavior.Node;
 import team122.combat.MoveCalculator;
 import team122.communication.Communicator;
-import team122.navigation.NavigationSystem;
 import team122.navigation.SoldierMove;
 import team122.trees.SoldierTree;
 
 public class Soldier extends TeamRobot {
 	
-	public NavigationSystem navSystem = null;
 	public GameObject[] enemiesAtTheGates;
 	public boolean enemyAtTheGates;
 	public Robot[] enemiesInSight;
@@ -39,7 +37,6 @@ public class Soldier extends TeamRobot {
 	
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);
-		navSystem = new NavigationSystem(rc, info);
 		this.move = new SoldierMove(this);
 
 		com.seedChannels(5, new int[] {

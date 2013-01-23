@@ -4,7 +4,9 @@ import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.Team;
+import battlecode.common.TerrainTile;
 import team122.robot.Soldier;
+import team122.robot.TeamRobot;
 
 public class SoldierMove {
 
@@ -13,6 +15,13 @@ public class SoldierMove {
 	
 	public SoldierMove(Soldier robot) {
 		this.robot = robot;
+	}
+	
+	public boolean atDestination() {
+		if (robot.currentLoc.equals(destination)) {
+			return true;
+		}
+		return false;
 	}
 
 	public void move() throws GameActionException {
@@ -104,69 +113,40 @@ public class SoldierMove {
 			robot.rc.defuseMine(left);
 		}
 		
-		// we're confused, try moving in a random direction (until we can get some bug algorithm going or something)
-		// TODO: get some better code here
-		else {
-			for (int i = 0; i < 10; i++) {
-				double j = Math.random();
-				if (j < .1) {
-					if (robot.rc.canMove(Direction.NORTH)) {
-						robot.rc.move(Direction.NORTH);
-						break;
-					}
-				} else if (j < .2) {
-					if (robot.rc.canMove(Direction.NORTH_EAST)) {
-						robot.rc.move(Direction.NORTH_EAST);
-						break;
-					}
-				} else if (j < .3) {
-					if (robot.rc.canMove(Direction.EAST)) {
-						robot.rc.move(Direction.EAST);
-						break;
-					}
-				} else if (j < .4) {
-					if (robot.rc.canMove(Direction.SOUTH_EAST)) {
-						robot.rc.move(Direction.SOUTH_EAST);
-						break;
-					}
-				} else if (j < .5) {
-					if (robot.rc.canMove(Direction.SOUTH)) {
-						robot.rc.move(Direction.SOUTH);
-						break;
-					}
-				} else if (j < .6) {
-					if (robot.rc.canMove(Direction.SOUTH_WEST)) {
-						robot.rc.move(Direction.SOUTH_WEST);
-						break;
-					}
-				} else if (j < .7) {
-					if (robot.rc.canMove(Direction.WEST)) {
-						robot.rc.move(Direction.WEST);
-						break;
-					}
-				} else if (j < .8) {
-					if (robot.rc.canMove(Direction.NORTH_WEST)) {
-						robot.rc.move(Direction.NORTH_WEST);
-						return;
-					}
-				}
-				
-			}
-		}
-		
-		
-			
 		// still can't move?  Lets just add intentional error move to get somewhere at least
 
 		int tries = 0;
 		while (tries < 10 && robot.rc.isActive()) {
 			Direction dir = Direction.values()[(int) (Math.random() * 8)];
-			
-			if (robot.rc.canMove(dir)) {
+			Team mine = robot.rc.senseMine(robot.currentLoc.add(dir)); 
+			if (mine == Team.NEUTRAL || mine == robot.info.enemyTeam) {
+				robot.rc.defuseMine(robot.currentLoc.add(dir));
+			} else if (robot.rc.canMove(dir)) {
 				robot.rc.move(dir);
 			}
 			tries++;
 		}
+	}
+	
+	public static MapLocation BoundToBoard(TeamRobot robot, MapLocation loc) {
+        if (robot.rc.senseTerrainTile(loc) == TerrainTile.OFF_MAP) {
+                int newX = loc.x, newY = loc.y;
+                
+                if (newX < 0) {
+                        newX = 0;
+                } else if (newX >= robot.info.width) {
+                        newX = robot.info.width - 1;
+                }
+                
+                if (newY < 0) {
+                        newY = 0;
+                } else if (newY >= robot.info.height) {
+                        newY = robot.info.height - 1;
+                }
+                
+                return new MapLocation(newX, newY);
+        }
+        return loc;
 	}
 	
 }

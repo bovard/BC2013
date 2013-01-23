@@ -5,7 +5,7 @@ import java.util.HashMap;
 import team122.behavior.Behavior;
 import team122.behavior.IComBehavior;
 import team122.communication.Communicator;
-import team122.navigation.NavigationSystem;
+import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
@@ -63,16 +63,16 @@ public class SoldierDefenseMiner
 				_setMiningLocations();
 			}
 			
-			if (robot.navSystem.navMode.atDestination) {
-				Team t = robot.rc.senseMine(robot.navSystem.navMode.destination);
+			if (robot.move.atDestination()) {
+				Team t = robot.rc.senseMine(robot.move.destination);
 				if (t != robot.info.myTeam) {
 					robot.rc.layMine();
 				} else {
 				}
 				_setDestination();
 			} else {
-				if (robot.navSystem.navMode.hasDestination) {
-					robot.navSystem.navMode.move();
+				if (robot.move.destination != null) {
+					robot.move.move();
 				} else {
 					_setDestination();
 				}
@@ -87,7 +87,7 @@ public class SoldierDefenseMiner
 	private void _setDestination() {
 		MapLocation loc = (MapLocation)mineSpots.keySet().toArray()[0];
 		mineSpots.remove(loc);
-		robot.navSystem.navMode.setDestination(loc);
+		robot.move.destination = loc;
 		
 	}
 
@@ -98,13 +98,13 @@ public class SoldierDefenseMiner
 	
 	private void _setMiningLocations() {
 		MapLocation hqLoc = robot.info.hq;
-		MapLocation seenUpperLeft = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.NORTH_WEST, radius / 2));
-		MapLocation seenLowerRight = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.SOUTH_EAST, radius / 2));
+		MapLocation seenUpperLeft = SoldierMove.BoundToBoard(robot, hqLoc.add(Direction.NORTH_WEST, radius / 2));
+		MapLocation seenLowerRight = SoldierMove.BoundToBoard(robot, hqLoc.add(Direction.SOUTH_EAST, radius / 2));
 
 		radius++;
 		radiusSquared = radius * radius;
-		MapLocation upperLeft = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.NORTH_WEST, radius / 2));
-		MapLocation lowerRight = NavigationSystem.BoundToBoard(robot, hqLoc.add(Direction.SOUTH_EAST, radius / 2));
+		MapLocation upperLeft = SoldierMove.BoundToBoard(robot, hqLoc.add(Direction.NORTH_WEST, radius / 2));
+		MapLocation lowerRight = SoldierMove.BoundToBoard(robot, hqLoc.add(Direction.SOUTH_EAST, radius / 2));
 		
 		MapLocation created;
 		if (robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
