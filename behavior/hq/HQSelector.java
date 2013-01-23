@@ -7,16 +7,14 @@ import team122.robot.HQ;
 public class HQSelector extends Decision {
 
 	protected HQ robot;
-	protected HQCalculate calc;
 	
 	public HQSelector(HQ robot) {
 		super();
 		this.robot = robot;
-		calc = new HQCalculate(robot);
 		
 		this.children.add(new HQSpawnSelector(robot));
 		this.children.add(new HQIdle(robot));
-		this.children.add(calc);
+		this.children.add(new HQCalculate(robot));
 		
 		this.children.get(SPAWNING_SELECTOR_HQ).parent = this;
 		this.children.get(IDLE_HQ).parent = this;
@@ -27,11 +25,10 @@ public class HQSelector extends Decision {
 	public Node select() {
 		
 		//Initializes the basic data (strategy and such).
-		if (calc.calculating) {
-			return calc;
-		}
 		
-		if (robot.rc.isActive()) {
+		if (!robot.encampmentSorter.finishBaseCalculation) {
+			return children.get(CALCULATE_HQ);
+		} else if (robot.rc.isActive()) {
 			return children.get(SPAWNING_SELECTOR_HQ);
 		}
 		
