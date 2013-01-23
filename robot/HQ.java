@@ -83,7 +83,6 @@ public class HQ extends TeamRobot {
 			
 			if (rc.canMove(dir)) {
 				rc.spawn(dir);	
-				System.out.println("Spawning: " + type);
 				com.communicate(Communicator.CHANNEL_NEW_SOLDIER_MODE, type);
 				break;
 			}
@@ -124,17 +123,17 @@ public class HQ extends TeamRobot {
 		}
 
 		encampmentSorter.getEncampments();
-		if (encampmentSorter.isDarkHorse(5)) {
-			rush = false;
-			darkHorse = true;
-		} else {
+//		if (encampmentSorter.isDarkHorse(5)) {
+//			rush = false;
+//			darkHorse = true;
+//		} else {
 
 			if (rc.isActive()) {
 				spawn(SoldierSelector.SOLDIER_MINER);
 			}
 			
 			encampmentSorter.calculate();
-		}
+//		}
 	}
 
 	/**

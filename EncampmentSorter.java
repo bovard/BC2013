@@ -1,5 +1,7 @@
 package team122;
 
+import java.util.Arrays;
+
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
@@ -40,6 +42,14 @@ public class EncampmentSorter {
 	private int gensIndex = 0;
 	private int artsIndex = 0;
 	
+	//Sorting
+	private boolean specialCaseX;
+	private boolean specialCaseY;
+	private double xLower, xHigher, yLower, yHigher;
+	private double intersectX, intersectY;
+	private double b1, b2, m, inverseM, mMinusInverseM;
+	
+	
 	public EncampmentSorter(RobotController rc) {
 		this.rc = rc;
 		_currentRound = 0;
@@ -61,6 +71,27 @@ public class EncampmentSorter {
 		enemy = rc.senseEnemyHQLocation();
 		artMaxEnemyHQ = RobotType.ARTILLERY.attackRadiusMaxSquared + hq.distanceSquaredTo(enemy);
 		artRange = 35;
+
+		
+		if (enemy.x == hq.x) {
+			specialCaseX = true;
+			xLower = enemy.x - artRange;
+			xHigher = enemy.x + artRange;
+			
+		} else if (enemy.y == hq.y) {
+			specialCaseY = true;
+			yLower = enemy.y - artRange;
+			yHigher = enemy.y + artRange;
+		} else {
+			
+			System.out.println(enemy + " : " + hq);
+			m = (enemy.y - hq.y) / (1.0 * (enemy.x - hq.x));
+			inverseM = -1 / m;
+			b1 = hq.y - m * hq.x;
+			
+			System.out.println(b1 + " : " + m + " inverseM: " + inverseM);
+			mMinusInverseM = m - inverseM;
+		}
 	}
 	
 	/**
@@ -156,15 +187,12 @@ public class EncampmentSorter {
 		}
 		
 		MapLocation enc;
-
 		int i, j, k;
-		int x1 = enemy.x - hq.x;
-		int y1 = enemy.y - hq.y;
-		int dot;
 		int startingClock = Clock.getRoundNum();
 		int newEncampIdx;
 		int encampmentDistance;
 		int largestEncampDistance;
+		double answer, xSquared, ySquared;
 
 		// 110 bytecodes
 		for (i = _currentRound; Clock.getRoundNum() - startingClock < 1 && Clock.getBytecodeNum() < 9400 && i < totalEncampments; i++) {
@@ -172,10 +200,27 @@ public class EncampmentSorter {
 			encampmentDistances[i] = hq.distanceSquaredTo(enc);
 			enemyDistances[i] = enemy.distanceSquaredTo(enc);
 			
-			//Now we update the b2
+			if (specialCaseX) {
+				answer = hq.x - enc.x;
+				answer *= answer;
+			} else if (specialCaseY) {
+				answer = hq.y - enc.y;
+				answer *= answer;
+			} else {
+				//Now we update the b2
+				b2 = enc.y - inverseM * enc.x;
+				intersectX = (b2 - b1) / mMinusInverseM;
+				intersectY = inverseM * intersectX + b2;
+				xSquared = (enc.x - intersectX);
+				xSquared *= xSquared;
+	
+				ySquared = (enc.y - intersectY);
+				ySquared *= ySquared;
+				
+				answer = xSquared + ySquared;
+			}
 			
-			dot = x1 * (enc.x - hq.x) + y1 * (enc.y - hq.y);
-			if (encampmentDistances[i] - dot < artRange && enemyDistances[i] < artMaxEnemyHQ) {
+			if (answer < artRange && enemyDistances[i] < artMaxEnemyHQ) {
 				
 				newEncampIdx = -1;
 				largestEncampDistance = 0;
@@ -229,6 +274,11 @@ public class EncampmentSorter {
 		_currentRound = i;
 
 		finishBaseCalculation = !(_currentRound < totalEncampments);
+		
+		if (finishBaseCalculation) {
+			System.out.println(Arrays.toString(sortGens));
+			System.out.println(Arrays.toString(sortArts));
+		}
 		return finishBaseCalculation;
 	}
 	
