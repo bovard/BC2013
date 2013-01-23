@@ -35,8 +35,9 @@ public class SoldierSwarm
 					.add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir);
 		}
 		
-		
-		if (Clock.getRoundNum() % 150 >= 125) {
+		int round = Clock.getRoundNum();
+		int modifier = round/400 + 1;
+		if (Clock.getRoundNum() % (modifier*150) >= (modifier*125)) {
 			robot.move.destination = robot.info.enemyHq;
 		}
 		robot.move.move();
