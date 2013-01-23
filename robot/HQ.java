@@ -29,6 +29,12 @@ public class HQ extends TeamRobot {
 	public MapInformation mapInfo;
 	public boolean enemyResearchedNuke;
 	public int nukeCount;
+	private boolean threeTurnsAgoPositive = true;
+	private boolean twoTurnsAgoPositive = true;
+	private boolean oneTurnAgoPositive = true;
+	private double energyLastRound = 0;
+	public double energyThisRound = 0;
+	public boolean energyPositive = true;
 	
 	
 	public HQ(RobotController rc, RobotInformation info) {
@@ -63,6 +69,13 @@ public class HQ extends TeamRobot {
 	public void environmentCheck() throws GameActionException {
 		//TODO: What's the environment check here?
 		_checkForNuke();
+		
+		// check to see if we have positive energy growth
+		energyThisRound = rc.getEnergon();
+		threeTurnsAgoPositive = twoTurnsAgoPositive;
+		twoTurnsAgoPositive = oneTurnAgoPositive;
+		oneTurnAgoPositive = energyThisRound > energyLastRound;
+		energyPositive =  threeTurnsAgoPositive && twoTurnsAgoPositive && oneTurnAgoPositive;
 		
 		if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
