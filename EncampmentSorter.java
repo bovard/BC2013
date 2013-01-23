@@ -174,6 +174,7 @@ public class EncampmentSorter {
 			
 			//Now we update the b2
 			
+			// TODO: Check this BOVARD
 			dot = x1 * (enc.x - hq.x) + y1 * (enc.y - hq.y);
 			if (encampmentDistances[i] - dot < artRange && enemyDistances[i] < artMaxEnemyHQ) {
 				

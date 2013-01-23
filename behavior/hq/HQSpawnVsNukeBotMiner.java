@@ -20,7 +20,9 @@ public class HQSpawnVsNukeBotMiner extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		//Perhaps swarmers?
-		if (!robot.rc.hasUpgrade(Upgrade.DEFUSION)) {
+		if (utils.soldierCount < 1) {
+			robot.spawnSwarmer();
+		} else if (!robot.rc.hasUpgrade(Upgrade.DEFUSION)) {
 			robot.rc.researchUpgrade(Upgrade.DEFUSION);
 		} else {
 			robot.spawnSwarmer();

@@ -1,6 +1,8 @@
 package team122.combat;
 
 
+import team122.RobotInformation;
+import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
 import battlecode.common.Clock;
 import battlecode.common.Direction;
@@ -15,10 +17,14 @@ public class MoveCalculator {
 	
 	private char[][] map;
 	private Soldier robot;
+	private boolean soldierNearby;
+	private SoldierMove combatMove;
+	private boolean hq;
 	
 	
 	public MoveCalculator(Soldier robot) {
 		this.robot = robot;
+		combatMove = new SoldierMove(robot);
 	}
 	
 	public void move (Robot[] nearby, MapLocation loc) throws GameActionException{
@@ -26,6 +32,8 @@ public class MoveCalculator {
 		//System.out.println("Starting caclMove at " + -time);
 		
 		_makeMap(nearby, loc);
+		
+		hq = false;
 		
 		int[] xyDir = new int[2];
 		int score = -1000;
@@ -41,7 +49,6 @@ public class MoveCalculator {
 						xyDir[1] = y;
 					}
 				}
-				
 			}
 		}
 		
@@ -52,14 +59,25 @@ public class MoveCalculator {
 		//System.out.println(dir.toString());
 		//System.out.println("DECISION========================");
 		robot.rc.setIndicatorString(0, dir.toString());
+		robot.rc.setIndicatorString(0, "Soldier " +soldierNearby);
 		
 		// if we calculated a move, move it!
 		if (dir != Direction.NONE){
-			robot.rc.move(dir);	
+			if (robot.rc.canMove(dir)) {
+				robot.rc.move(dir);
+			}
 		} 
 		
+		// if there are no enemies in site and we aren't moving 
+		if (robot.rc.isActive() && !hq && !soldierNearby) {
+			Robot r = robot.enemiesInSight[0];
+			RobotInfo info = robot.rc.senseRobotInfo(r);
+			combatMove.destination = info.location;
+			combatMove.move();
+		}
+		
 		// otherwise try and defuse
-		else {
+		if (robot.rc.isActive() && !hq) {
 			// score 12 = surrounded by 4 allies, 27 is surrounded by 9 allies
 			if (score >= 12 && score <= 27 ) {
 				dir = robot.info.enemyDir;
@@ -133,6 +151,7 @@ public class MoveCalculator {
 			map[3+x][3+y] = 'g';
 		}
 		
+		soldierNearby = false;
 		for (Robot r : nearby) {
 			RobotInfo info = robot.rc.senseRobotInfo(r);
 			int x = info.location.x - loc.x;
@@ -140,6 +159,7 @@ public class MoveCalculator {
 			if (Math.abs(x) < 3 && Math.abs(y) < 3) {
 				if (info.team == robot.info.enemyTeam) {
 					if (info.type == RobotType.SOLDIER){
+						soldierNearby = true;
 						map[3+x][3+y] = 'e';
 					} else {
 						map[3+x][3+y] = 'f';
@@ -161,9 +181,6 @@ public class MoveCalculator {
 		//	System.out.println(Arrays.toString(map[i]));
 		//}
 		//System.out.println("MAP========================");
-		
-		
-
 		
 		//time += Clock.getBytecodeNum();
 		//System.out.println("One makeMap is " + time);
@@ -191,6 +208,7 @@ public class MoveCalculator {
 				fCount++;
 			} else if (c == 'v') {
 				// found their hq, kill it!
+				hq = true;
 				return 1000;
 			}
 		}

@@ -1,6 +1,7 @@
 package team122.behavior.hq;
 
 import battlecode.common.GameActionException;
+import battlecode.common.Upgrade;
 import team122.behavior.Behavior;
 import team122.robot.HQ;
 
@@ -19,7 +20,13 @@ public class HQSpawnVsNukeBotMinerPickax extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		//Perhaps swarmers?
-		robot.spawnSwarmer();
+		if (utils.soldierCount < 1) {
+			robot.spawnSwarmer();
+		} else if (!robot.rc.hasUpgrade(Upgrade.DEFUSION)) {
+			robot.rc.researchUpgrade(Upgrade.DEFUSION);
+		} else {
+			robot.spawnSwarmer();
+		}
 	}
 
 	@Override

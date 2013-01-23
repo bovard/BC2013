@@ -51,14 +51,14 @@ public class HQSpawnRush extends Behavior {
 //			}
 //		}
 		
-		robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+		robot.spawnArtillery();
 		//Nothign to do.  DO not over commit.
 		return;
 	}
 
 	@Override
 	public boolean pre() {
-		return robot.rc.isActive();
+		return robot.rc.isActive() && robot.rush;
 	}
 	
 	public static final int MINER_COUNT = 1;

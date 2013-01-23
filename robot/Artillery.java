@@ -31,14 +31,21 @@ public class Artillery extends TeamRobot{
 
 	@Override
 	public void environmentCheck() throws GameActionException {
+		rc.setIndicatorString(0, "-");
 		canShoot = rc.isActive();
 		if (canShoot) {
+			
 			enemiesNearby = rc.senseNearbyGameObjects(Robot.class, artilleryRange, info.enemyTeam);
 			enemyNearby = enemiesNearby.length > 0;
 			
 			if (enemyNearby) {
+				rc.setIndicatorString(0, "Found enemies!");
 				nearbyObjects = rc.senseNearbyGameObjects(Robot.class, artilleryRange);
+			} else {
+				rc.setIndicatorString(0, "No enemies nearby");
 			}
+		} else {
+			rc.setIndicatorString(0, "Can't shoot");
 		}
 
 		if (Clock.getRoundNum() % HQ.HQ_COUNT_ROUND - 1 == 0) {
