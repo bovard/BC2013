@@ -9,6 +9,7 @@ mkdir ../team100
 cp -r . ../team100
 find ../team100 -name '*.java' -type f -exec  sed -i.bak 's/team122/team100/g' {} +
 find ../team100 -name '*.java' -type f -exec  sed -i.bak 's/SEED_MULTIPLIER = 17;/SEED_MULTIPLIER = 3;/g' {} + 
+rm -f ../team100 '*.bak'
 
 
 # 2.0
