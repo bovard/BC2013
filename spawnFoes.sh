@@ -6,9 +6,9 @@ git stash
 git checkout 1.0
 rm -rdf ../team100
 mkdir ../team100
-cp -r . ../team100/
-find ../team100 -type f -exec sed -i.bak 's/team122/team100/g' {} +
-find ../team100 -type f -exec sed -i.bak 's/SEED_MULTIPLIER = 17;/SEED_MULTIPLIER = 3;/g' {} + 
+cp -r . ../team100
+find ../team100 -type f -exec LANG=C sed -i.bak 's/team122/team100/g' {} +
+find ../team100 -type f -exec LANG=C sed -i.bak 's/SEED_MULTIPLIER = 17;/SEED_MULTIPLIER = 3;/g' {} + 
 
 
 # 2.0
