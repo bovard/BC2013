@@ -25,32 +25,39 @@ public class HQSpawnRush extends Behavior {
 		upgrades[4] = Upgrade.NUKE;
 	}
 	
+	private int genSpawn = 0;
+	private int supSpawn = 0;
+	private int artSpawn = 0;
+	
 	@Override
 	public void run() throws GameActionException {
 		
 		int round = Clock.getRoundNum();
 		
-		if (robot.powerThisRound > 50) {
-			if (round < 50 && robot.info.enemyHqDistance > 300) {
-				System.out.println("spawning Generator");
-				if (robot.spawnGenerator()) {
-					System.out.println("reallyG");
-					robot.rc.yield();
-				}
+		if (robot.powerThisRound > 75) {
+			if (round < 50 && robot.info.enemyHqDistance > 1000) {
 				
-				System.out.println("spawning Supplier");
-				if (robot.spawnSupplier()) {
-					System.out.println("ReallyS");
+				if (genSpawn < 2 && robot.spawnGenerator()) {
+					genSpawn++;
+				} else if (supSpawn < 2 && robot.spawnSupplier()) {
+					supSpawn++;
 				}
 			} else if (robot.powerThisRound > 200 && robot.spawnSupplier()) {
 				
-			} else if (robot.powerThisRound < 100 || !robot.powerPositive && robot.spawnGenerator()) {
+			} else if (!robot.powerPositive && robot.spawnGenerator()) {
 				
-			} 
+			} else if (round/500 + 1 > artSpawn && robot.spawnArtillery()) {
+				artSpawn++;
+			}
 			if (robot.rc.isActive()){
 				robot.spawnSwarmer();
 			}
 		} 
+		if (robot.rc.isActive() && robot.powerThisRound < 70 && robot.spawnGenerator()) {
+			
+		} else if (robot.rc.isActive() && !robot.powerPositive && robot.spawnGenerator()) {
+			
+		}
 		
 		// if we are active, research something!
 		if (robot.rc.isActive()) {

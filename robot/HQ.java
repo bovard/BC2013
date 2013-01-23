@@ -75,7 +75,9 @@ public class HQ extends TeamRobot {
 		threeTurnsAgoPositive = twoTurnsAgoPositive;
 		twoTurnsAgoPositive = oneTurnAgoPositive;
 		oneTurnAgoPositive = powerThisRound > powerLastRound;
-		powerPositive =  threeTurnsAgoPositive && twoTurnsAgoPositive && oneTurnAgoPositive;
+		powerPositive =  (threeTurnsAgoPositive && twoTurnsAgoPositive) || 
+						 (twoTurnsAgoPositive && oneTurnAgoPositive) || 
+						 (threeTurnsAgoPositive && oneTurnAgoPositive);
 		
 		if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
@@ -137,7 +139,7 @@ public class HQ extends TeamRobot {
 		}
 
 		encampmentSorter.getEncampments();
-		if (encampmentSorter.isDarkHorse(5)) {
+		if (encampmentSorter.isDarkHorse(5) && info.enemyHqDistance > 1000) {
 			rush = false;
 			darkHorse = true;
 		} else {
