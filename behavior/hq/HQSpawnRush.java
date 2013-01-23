@@ -18,47 +18,65 @@ public class HQSpawnRush extends Behavior {
 		this.robot = robot;
 		this.utils = robot.hqUtils;
 		upgrades = new Upgrade[5];
-		upgrades[0] = Upgrade.PICKAXE;
+		upgrades[0] = Upgrade.FUSION;
 		upgrades[1] = Upgrade.DEFUSION;
 		upgrades[2] = Upgrade.VISION;
-		upgrades[3] = Upgrade.FUSION;
+		upgrades[3] = Upgrade.PICKAXE;
 		upgrades[4] = Upgrade.NUKE;
 	}
 	
+	private int genSpawn = 0;
+	private int supSpawn = 0;
+	private int artSpawn = 0;
+	
 	@Override
 	public void run() throws GameActionException {
-//		if (utils.minerCount < MINER_COUNT) {
-//			robot.spawn(SoldierSelector.SOLDIER_MINER);
-//		} else if (utils.generatorCount < 1 && utils.encamperCount < 2) {
-//			
-//			//TODO: WONT WORK NO MORE
-//			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.GENERATOR_ENCAMPER, 0));
-//		} else if (utils.supplierCount < 1 && utils.encamperCount < 2) {
-//			
-//			
-//			//TODO: WONT WORK NO MORE -- SEE NOTE ON HQDynamic
-//			robot.spawn(SoldierSelector.setEncamperData(SoldierSelector.SUPPLIER_ENCAMPER, 0));
-//		} else if (utils.soldierCount < ROBOT_LOWER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
-//			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
-//		} else if (utils.soldierCount < ROBOT_UPPER_SOLDIER_COUNT + utils.generatorCount * 3 && robot.rc.getTeamPower() > 50) { // more gen more soldiers.
-//			robot.spawn(SoldierSelector.SOLDIER_SWARMER);
-//		} else {
-//			for (Upgrade u : upgrades) {
-//				if (!robot.rc.hasUpgrade(u)) {
-//					robot.rc.researchUpgrade(u);
-//					break;
-//				}
-//			}
-//		}
 		
-		robot.spawn(SoldierSelector.SOLDIER_SWARMER);
+		int round = Clock.getRoundNum();
+		
+		if (robot.powerThisRound > 75) {
+			if (round < 50 && robot.info.enemyHqDistance > 1000) {
+				
+				if (genSpawn < 2 && robot.spawnGenerator()) {
+					genSpawn++;
+				} else if (supSpawn < 2 && robot.spawnSupplier()) {
+					supSpawn++;
+				}
+			} else if (robot.powerThisRound > 200 && robot.spawnSupplier()) {
+				
+			} else if (!robot.powerPositive && robot.spawnGenerator()) {
+				
+			} else if (round/500 + 1 > artSpawn && robot.spawnArtillery()) {
+				artSpawn++;
+			}
+			if (robot.rc.isActive()){
+				robot.spawnSwarmer();
+			}
+		} 
+		if (robot.rc.isActive() && robot.powerThisRound < 70 && robot.spawnGenerator()) {
+			
+		} else if (robot.rc.isActive() && !robot.powerPositive && robot.spawnGenerator()) {
+			
+		}
+		
+		// if we are active, research something!
+		if (robot.rc.isActive()) {
+			for (int i = 0; i < upgrades.length; i++) {
+				if (!robot.rc.hasUpgrade(upgrades[i])) {
+					robot.rc.researchUpgrade(upgrades[i]);
+					break;
+				}
+			}
+		}
+		
+		
 		//Nothign to do.  DO not over commit.
 		return;
 	}
 
 	@Override
 	public boolean pre() {
-		return robot.rc.isActive();
+		return robot.rc.isActive() && robot.rush;
 	}
 	
 	public static final int MINER_COUNT = 1;

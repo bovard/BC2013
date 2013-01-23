@@ -29,6 +29,12 @@ public class HQ extends TeamRobot {
 	public MapInformation mapInfo;
 	public boolean enemyResearchedNuke;
 	public int nukeCount;
+	private boolean threeTurnsAgoPositive = true;
+	private boolean twoTurnsAgoPositive = true;
+	private boolean oneTurnAgoPositive = true;
+	private double powerLastRound = 0;
+	public double powerThisRound = 0;
+	public boolean powerPositive = true;
 	
 	
 	public HQ(RobotController rc, RobotInformation info) {
@@ -64,6 +70,15 @@ public class HQ extends TeamRobot {
 		//TODO: What's the environment check here?
 		_checkForNuke();
 		
+		// check to see if we have positive energy growth
+		powerThisRound = rc.getTeamPower();
+		threeTurnsAgoPositive = twoTurnsAgoPositive;
+		twoTurnsAgoPositive = oneTurnAgoPositive;
+		oneTurnAgoPositive = powerThisRound > powerLastRound;
+		powerPositive =  (threeTurnsAgoPositive && twoTurnsAgoPositive) || 
+						 (twoTurnsAgoPositive && oneTurnAgoPositive) || 
+						 (threeTurnsAgoPositive && oneTurnAgoPositive);
+		
 		if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
 		}
@@ -83,6 +98,7 @@ public class HQ extends TeamRobot {
 			
 			if (rc.canMove(dir)) {
 				rc.spawn(dir);	
+				System.out.println("Spawning: " + type);
 				com.communicate(Communicator.CHANNEL_NEW_SOLDIER_MODE, type);
 				break;
 			}
@@ -123,17 +139,17 @@ public class HQ extends TeamRobot {
 		}
 
 		encampmentSorter.getEncampments();
-//		if (encampmentSorter.isDarkHorse(5)) {
-//			rush = false;
-//			darkHorse = true;
-//		} else {
+		if (encampmentSorter.isDarkHorse(5) && info.enemyHqDistance > 1000) {
+			rush = false;
+			darkHorse = true;
+		} else {
 
 			if (rc.isActive()) {
 				spawn(SoldierSelector.SOLDIER_MINER);
 			}
 			
 			encampmentSorter.calculate();
-//		}
+		}
 	}
 
 	/**

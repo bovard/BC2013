@@ -1,5 +1,6 @@
 package team122.behavior.soldier;
 
+import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotType;
@@ -72,6 +73,40 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 			
 			//Move or capture.
 			if (move.destination.equals(robot.rc.getLocation())) {
+				Direction dir = robot.currentLoc.directionTo(robot.info.enemyHq);
+				
+				// add mines
+				if (robot.rc.senseMine(robot.currentLoc.add(dir)) == null &&
+						robot.rc.canMove(dir)) {
+					MapLocation old_dest = move.destination;
+					move.destination = robot.currentLoc.add(dir);
+					move.move();
+					robot.rc.yield();
+					robot.rc.layMine();
+					robot.rc.yield();
+					move.destination = old_dest;
+					move.move();
+				} else if (robot.rc.senseMine(robot.currentLoc.add(dir.rotateLeft())) == null && 
+						robot.rc.canMove(dir.rotateLeft())) {
+					MapLocation old_dest = move.destination;
+					move.destination = robot.currentLoc.add(dir.rotateLeft());
+					move.move();
+					robot.rc.yield();
+					robot.rc.layMine();
+					robot.rc.yield();
+					move.destination = old_dest;
+					move.move();
+				} else if (robot.rc.senseMine(robot.currentLoc.add(dir.rotateRight())) == null && 
+						robot.rc.canMove(dir.rotateRight())) {
+					MapLocation old_dest = move.destination;
+					move.destination = robot.currentLoc.add(dir.rotateRight());
+					move.move();
+					robot.rc.yield();
+					robot.rc.layMine();
+					robot.rc.yield();
+					move.destination = old_dest;
+					move.move();
+				}
 				robot.rc.captureEncampment(encampmentType);
 			} else {
 				move.move();
