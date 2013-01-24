@@ -24,6 +24,7 @@ public class EncampmentSorter {
 	public int artMaxEnemyHQ;
 	public MapLocation[] darkHorseArt;
 	public int darkHorseIdx;
+	public int enemyDistance;
 
 	/**
 	 * State information about generators and artilleries being searched.
@@ -47,7 +48,7 @@ public class EncampmentSorter {
 	private boolean specialCaseY;
 	private double xLower, xHigher, yLower, yHigher;
 	private double intersectX, intersectY;
-	private double b1, b2, m, inverseM, mMinusInverseM;
+	private double b1, b1Squared, b2, m, inverseM, inverseSquaredM, mMinusInverseM, mMinusInverseMSquared;
 	
 	
 	public EncampmentSorter(RobotController rc) {
@@ -71,6 +72,7 @@ public class EncampmentSorter {
 		enemy = rc.senseEnemyHQLocation();
 		artMaxEnemyHQ = RobotType.ARTILLERY.attackRadiusMaxSquared + hq.distanceSquaredTo(enemy);
 		artRange = 35;
+		enemyDistance = hq.distanceSquaredTo(enemy);
 
 		
 		if (enemy.x == hq.x) {
@@ -87,10 +89,13 @@ public class EncampmentSorter {
 			System.out.println(enemy + " : " + hq);
 			m = (enemy.y - hq.y) / (1.0 * (enemy.x - hq.x));
 			inverseM = -1 / m;
+			inverseSquaredM = -1 / (m * m);
 			b1 = hq.y - m * hq.x;
+			b1Squared = b1 * b1;
 			
 			System.out.println(b1 + " : " + m + " inverseM: " + inverseM);
 			mMinusInverseM = m - inverseM;
+			mMinusInverseMSquared = mMinusInverseM * mMinusInverseM;
 		}
 	}
 	
@@ -193,7 +198,8 @@ public class EncampmentSorter {
 		int encampmentDistance;
 		int largestEncampDistance;
 		double answer, xSquared, ySquared;
-
+		int x1 = enemy.x - hq.x, y1 = enemy.y - hq.y;
+		
 		// 110 bytecodes
 		for (i = _currentRound; Clock.getRoundNum() - startingClock < 1 && Clock.getBytecodeNum() < 9400 && i < totalEncampments; i++) {
 			enc = encampments[i];
@@ -201,23 +207,27 @@ public class EncampmentSorter {
 			enemyDistances[i] = enemy.distanceSquaredTo(enc);
 			
 			if (specialCaseX) {
-				answer = hq.x - enc.x;
-				answer *= answer;
+				answer = (hq.x - enc.x) * (hq.x - enc.x);
 			} else if (specialCaseY) {
-				answer = hq.y - enc.y;
-				answer *= answer;
+				answer = (hq.y - enc.y) * (hq.y - enc.y);
 			} else {
 				//Now we update the b2
-				b2 = enc.y - inverseM * enc.x;
-				intersectX = (b2 - b1) / mMinusInverseM;
-				intersectY = inverseM * intersectX + b2;
-				xSquared = (enc.x - intersectX);
-				xSquared *= xSquared;
-	
-				ySquared = (enc.y - intersectY);
-				ySquared *= ySquared;
-				
-				answer = xSquared + ySquared;
+//				System.out.println("Long Way: " + Clock.getRoundNum() + " : " + Clock.getBytecodeNum());
+//				b2 = y - inverseM * x;
+//				intersectX = (b2 - b1) / mMinusInverseM;
+//				intersectY = inverseM * intersectX + b2;
+//				xSquared = (x - intersectX);
+//				xSquared *= xSquared;
+//	
+//				ySquared = (y - intersectY);
+//				ySquared *= ySquared;
+//				
+//				answer = xSquared + ySquared;
+//				System.out.println("Long Way: " + Clock.getRoundNum() + " : " + Clock.getBytecodeNum());
+//				System.out.println("Answer: " + answer);
+
+				int a1 = (enemyDistances[i] - encampmentDistances[i] + enemyDistance) / 2;
+				answer = enemyDistances[i] - a1;
 			}
 			
 			if (answer < artRange && enemyDistances[i] < artMaxEnemyHQ) {
