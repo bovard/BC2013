@@ -19,7 +19,7 @@ public class HQSpawnSelector extends Decision {
 		this.children.add(new HQSpawnVsNukeBot(robot));
 		this.children.add(new HQSpawnVsNukeBotMiner(robot));
 		this.children.add(new HQSpawnVsNukeBotMinerPickax(robot));
-		this.children.add(new HQSpawnMpRush(robot));
+		this.children.add(new HQSpawnMP(robot));
 		this.children.get(HQ_SPAWN_RUSH).parent = this;
 		this.children.get(HQ_SPAWN_DARK_HORSE).parent = this;
 		this.children.get(HQ_SPAWN_FORCE_RESEARCH_NUKE).parent = this;
@@ -51,7 +51,7 @@ public class HQSpawnSelector extends Decision {
 		//defaults to rush.
 		robot.rush = true;
 		robot.darkHorse = false;
-		return this.children.get(HQ_SPAWN_MP_RUSH);
+		return this.children.get(HQ_SPAWN_RUSH);
 	}
 	
 	@Override

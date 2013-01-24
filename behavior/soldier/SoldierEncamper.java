@@ -106,8 +106,9 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 					robot.rc.yield();
 					move.destination = old_dest;
 					move.move();
+				} else {
+					robot.rc.captureEncampment(encampmentType);
 				}
-				robot.rc.captureEncampment(encampmentType);
 			} else {
 				move.move();
 			}

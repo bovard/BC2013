@@ -24,79 +24,46 @@ public class EncampmentSorter {
 	public int artMaxEnemyHQ;
 	public MapLocation[] darkHorseArt;
 	public int darkHorseIdx;
-	public int enemyDistance;
+	public double uX;
+	public double uY;
 
 	/**
 	 * State information about generators and artilleries being searched.
 	 */
 	private int _currentRound;
-	private MapLocation[] sortGens;
-	private MapLocation[] sortArts;
-	private int[] sortGensDistance;
-	private int[] sortArtsDistance;
-	private int sortArtsLength = 5;
-	private int sortGensLength = 15;
+	private MapLocation[] generatorEncampments;
+	private MapLocation[] artilleryEncampments;
+	private int[] generatorDistances;
+	private int[] artilleryDistances;
+	private int[] generatorScores;
+	private int[] artilleryScores;
 	private int artsLength = 0;
 	private int gensLength = 0;
-	private boolean genSorted = false;
-	private boolean artillerySorted = false;
 	private int gensIndex = 0;
 	private int artsIndex = 0;
 	
 	//Sorting
 	private boolean specialCaseX;
 	private boolean specialCaseY;
-	private double xLower, xHigher, yLower, yHigher;
-	private double intersectX, intersectY;
-	private double b1, b1Squared, b2, m, inverseM, inverseSquaredM, mMinusInverseM, mMinusInverseMSquared;
-	
 	
 	public EncampmentSorter(RobotController rc) {
 		this.rc = rc;
 		_currentRound = 0;
 		finishBaseCalculation = false;
 
-		sortArts = new MapLocation[sortArtsLength];
-		sortGens = new MapLocation[sortGensLength];
-		sortArtsDistance = new int[sortArtsLength];
-		sortGensDistance = new int[sortGensLength];
-
-		for (int i = 0; i < sortArtsLength; i++) {
-			sortArtsDistance[i] = 100000;
-		}
-		for (int i = 0; i < sortGensLength; i++) {
-			sortGensDistance[i] = 100000;
-		}
-
 		hq = rc.senseHQLocation();
 		enemy = rc.senseEnemyHQLocation();
 		artMaxEnemyHQ = RobotType.ARTILLERY.attackRadiusMaxSquared + hq.distanceSquaredTo(enemy);
 		artRange = 35;
-		enemyDistance = hq.distanceSquaredTo(enemy);
+		double x = hq.x - enemy.x;
+		double y = hq.y - enemy.y;
 
-		
-		if (enemy.x == hq.x) {
-			specialCaseX = true;
-			xLower = enemy.x - artRange;
-			xHigher = enemy.x + artRange;
-			
-		} else if (enemy.y == hq.y) {
-			specialCaseY = true;
-			yLower = enemy.y - artRange;
-			yHigher = enemy.y + artRange;
-		} else {
-			
-			System.out.println(enemy + " : " + hq);
-			m = (enemy.y - hq.y) / (1.0 * (enemy.x - hq.x));
-			inverseM = -1 / m;
-			inverseSquaredM = -1 / (m * m);
-			b1 = hq.y - m * hq.x;
-			b1Squared = b1 * b1;
-			
-			System.out.println(b1 + " : " + m + " inverseM: " + inverseM);
-			mMinusInverseM = m - inverseM;
-			mMinusInverseMSquared = mMinusInverseM * mMinusInverseM;
-		}
+		uX = x / Math.sqrt(x * x + y * y); //can we remove sqrt later?
+		uY = y / Math.sqrt(x * x + y * y);
+
+		specialCaseX = enemy.x == hq.x;
+		specialCaseY = enemy.y == hq.y;
+		System.out.println("Unit: (" + uX + ", " + uY + ")");
 	}
 	
 	/**
@@ -130,6 +97,14 @@ public class EncampmentSorter {
 		totalEncampments = encampments.length;
 		encampmentDistances = new int[totalEncampments];
 		enemyDistances = new int[totalEncampments];
+
+
+		artilleryEncampments = new MapLocation[totalEncampments];
+		generatorEncampments = new MapLocation[totalEncampments];
+		artilleryDistances = new int[totalEncampments];
+		generatorDistances = new int[totalEncampments];
+		artilleryScores = new int[totalEncampments];
+		generatorScores = new int[totalEncampments];
 	}
 
 	
@@ -151,14 +126,10 @@ public class EncampmentSorter {
 	 * @return
 	 */
 	public MapLocation popGenerator() {
-		
-		if (!genSorted) {
-			MapUtils.sort(sortGens, sortGensDistance, true);
-			genSorted = true;
-		}
-		
-		if (gensIndex < gensLength) {
-			return sortGens[gensIndex++];
+		if (finishBaseCalculation) {
+			if (gensIndex < gensLength) {
+				return generatorEncampments[gensIndex++];
+			}
 		}
 		return null;
 	}
@@ -168,14 +139,11 @@ public class EncampmentSorter {
 	 * @return
 	 */
 	public MapLocation popArtillery() {
-		
-		if (!artillerySorted) {
-			MapUtils.sort(sortArts, sortArtsDistance, true);
-			artillerySorted = true;
-		}
 
-		if (artsIndex < artsLength) {
-			return sortArts[artsIndex++];
+		if (finishBaseCalculation) {
+			if (artsIndex < artsLength) {
+				return artilleryEncampments[artsIndex++];
+			}
 		}
 		return null;
 	}
@@ -192,13 +160,9 @@ public class EncampmentSorter {
 		}
 		
 		MapLocation enc;
-		int i, j, k;
+		int i;
 		int startingClock = Clock.getRoundNum();
-		int newEncampIdx;
-		int encampmentDistance;
-		int largestEncampDistance;
-		double answer, xSquared, ySquared;
-		int x1 = enemy.x - hq.x, y1 = enemy.y - hq.y;
+		double answer = 0;
 		
 		// 110 bytecodes
 		for (i = _currentRound; Clock.getRoundNum() - startingClock < 1 && Clock.getBytecodeNum() < 9400 && i < totalEncampments; i++) {
@@ -211,73 +175,29 @@ public class EncampmentSorter {
 			} else if (specialCaseY) {
 				answer = (hq.y - enc.y) * (hq.y - enc.y);
 			} else {
-				//Now we update the b2
-//				System.out.println("Long Way: " + Clock.getRoundNum() + " : " + Clock.getBytecodeNum());
-//				b2 = y - inverseM * x;
-//				intersectX = (b2 - b1) / mMinusInverseM;
-//				intersectY = inverseM * intersectX + b2;
-//				xSquared = (x - intersectX);
-//				xSquared *= xSquared;
-//	
-//				ySquared = (y - intersectY);
-//				ySquared *= ySquared;
-//				
-//				answer = xSquared + ySquared;
-//				System.out.println("Long Way: " + Clock.getRoundNum() + " : " + Clock.getBytecodeNum());
-//				System.out.println("Answer: " + answer);
-
-				int a1 = (enemyDistances[i] - encampmentDistances[i] + enemyDistance) / 2;
-				answer = enemyDistances[i] - a1;
+				double x = hq.x - enc.x;
+				double y = hq.y - enc.y;
+				double dot = (x * uX + y * uY);
+				double newX = dot * uX;
+				double newY = dot * uY;
+				answer = encampmentDistances[i] - (newX * newX + newY * newY);
+				
+				System.out.println("Map Loc: " + enc + " : " + hq + " : Vector: (" + x + ", " + y + ") Dot: " + dot + " : NewVector: (" + newX + ", " + newY + ") EncampmentDistance: " + encampmentDistances[i] + " :: Answer: " + answer);
 			}
 			
+			//TODO: Scores?  Do we need them?  Is this a good idea.  How about distances?
 			if (answer < artRange && enemyDistances[i] < artMaxEnemyHQ) {
+				artsLength++;
+				artilleryEncampments[artsIndex] = enc;
+				artilleryDistances[artsIndex] = encampmentDistances[i];
+				artilleryScores[artsIndex++] = encampmentDistances[i];
 				
-				newEncampIdx = -1;
-				largestEncampDistance = 0;
-				encampmentDistance = encampmentDistances[i];
-				
-				for (k = 0; k < sortArtsLength; k++) {
-					if (artsLength < sortArtsLength) {
-						if (sortArtsDistance[k] == 100000) {
-							sortArtsDistance[k]= encampmentDistances[i];
-							sortArts[k]= encampments[i]; 
-							artsLength++;
-							break;
-						}
-					} else if (encampmentDistance < sortArtsDistance[k] && (newEncampIdx == -1 || sortArtsDistance[k] > largestEncampDistance)) {
-						newEncampIdx = k;
-						largestEncampDistance = sortArtsDistance[k];
-					}
-				}
-
-				
-				if (newEncampIdx != -1) {
-					sortArtsDistance[newEncampIdx] = encampmentDistances[i];
-					sortArts[newEncampIdx] = encampments[i];
-				}
 			} else {
-				newEncampIdx = -1;
-				encampmentDistance = encampmentDistances[i] - enemyDistances[i];
-				largestEncampDistance = 0;
+				gensLength++;
+				generatorEncampments[gensIndex] = enc;
+				generatorDistances[gensIndex] = encampmentDistances[i];
+				generatorScores[gensIndex++] = encampmentDistances[i] - enemyDistances[i];
 				
-				for (k = 0; k < sortGensLength; k++) {
-					if (gensLength < sortGensLength) {
-						if (sortGensDistance[k] == 100000) {
-							sortGensDistance[k]= encampmentDistances[i];
-							sortGens[k]= encampments[i]; 
-							gensLength++;
-							break;
-						}
-					} else if (encampmentDistance < sortGensDistance[k] && (newEncampIdx == -1 || sortGensDistance[k] > largestEncampDistance)) {
-						newEncampIdx = k;
-						largestEncampDistance = sortGensDistance[k];
-					}
-				}
-				
-				if (newEncampIdx != -1) {
-					sortGensDistance[newEncampIdx] = encampmentDistances[i];
-					sortGens[newEncampIdx] = encampments[i];
-				}
 			}
 		}
 
@@ -286,8 +206,10 @@ public class EncampmentSorter {
 		finishBaseCalculation = !(_currentRound < totalEncampments);
 		
 		if (finishBaseCalculation) {
-			System.out.println(Arrays.toString(sortGens));
-			System.out.println(Arrays.toString(sortArts));
+			artsIndex = 0;
+			gensIndex = 0;
+			System.out.println("GENS: " + Arrays.toString(generatorEncampments));
+			System.out.println("ARTS: " + Arrays.toString(artilleryEncampments));
 		}
 		return finishBaseCalculation;
 	}
