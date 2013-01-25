@@ -61,7 +61,7 @@ public class MoveCalculator {
 		robot.rc.setIndicatorString(0, dir.toString());
 		robot.rc.setIndicatorString(0, "Soldier " +soldierNearby);
 		
-		// if there are no enemies in site and we aren't moving 
+		// if there are no enemy soldiers nearby, move!
 		if (robot.rc.isActive() && !soldierNearby) {
 			Robot r = robot.enemiesInSight[0];
 			RobotInfo info = robot.rc.senseRobotInfo(r);
@@ -75,14 +75,7 @@ public class MoveCalculator {
 				robot.rc.move(dir);
 			}
 		} 
-		
-		// if there are no enemies in site and we aren't moving 
-		if (robot.rc.isActive() && !hq && !soldierNearby) {
-			Robot r = robot.enemiesInSight[0];
-			RobotInfo info = robot.rc.senseRobotInfo(r);
-			combatMove.destination = info.location;
-			combatMove.move();
-		}
+
 		
 		// otherwise try and defuse
 		if (robot.rc.isActive() && !hq) {

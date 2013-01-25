@@ -7,7 +7,7 @@ import battlecode.common.MapLocation;
 import team122.behavior.Behavior;
 import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
-import team122.utils.MapQuadrentUtils;
+import team122.utils.MapQuadrantUtils;
 
 public class SoldierBackDoor extends Behavior {
 
@@ -19,55 +19,56 @@ public class SoldierBackDoor extends Behavior {
 	public SoldierBackDoor(Soldier robot) {
 		this.robot = robot;
 		this.move = new SoldierMove(robot);
-		MapQuadrentUtils.width = robot.info.width;
-		MapQuadrentUtils.height = robot.info.height;
-		MapQuadrentUtils.hq = robot.info.hq;
-		MapQuadrentUtils.enemyHq = robot.info.enemyHq;
+		MapQuadrantUtils.width = robot.info.width;
+		MapQuadrantUtils.height = robot.info.height;
+		MapQuadrantUtils.hq = robot.info.hq;
+		MapQuadrantUtils.enemyHq = robot.info.enemyHq;
 	}
 	
 	
 	private void _createWayPoints() {
+		// TODO: Replace with the MapQuadrant Utils one... :/
 		//   0,0     0,width
 		//	    2 | 1
 		//      - . -
 		//      3 | 4
 		// height,0   height,width
 		//  ( I know this is odd, don't want to turn it around in teh head)
-		int quadHQ = MapQuadrentUtils.getMapQuadrent(robot.info.hq.x, robot.info.hq.y);
+		int quadHQ = MapQuadrantUtils.getMapQuadrant(robot.info.hq.x, robot.info.hq.y);
 		System.out.println("Our hq is in quadrent " + quadHQ);
-		int quadEnemyHQ = MapQuadrentUtils.getMapQuadrent(robot.info.enemyHq.x, robot.info.enemyHq.y);
+		int quadEnemyHQ = MapQuadrantUtils.getMapQuadrant(robot.info.enemyHq.x, robot.info.enemyHq.y);
 		System.out.println("Enemy hq is in quadrent " + quadEnemyHQ);
 		
 		if (quadHQ == 1) {
 			if (quadEnemyHQ == 1) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(1));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(1));
 			} else if (quadEnemyHQ == 2) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(4));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(3));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(4));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(3));
 				wayPoints.add(new MapLocation(0, robot.info.enemyHq.y));
 			} else if (quadEnemyHQ == 3) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(1));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(2));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(1));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(2));
 				wayPoints.add(new MapLocation(0, robot.info.enemyHq.y));
 			} else {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(2));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(3));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(2));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(3));
 				wayPoints.add(new MapLocation(robot.info.enemyHq.x, robot.info.height - 1));
 			}
 		} else if (quadHQ == 2) {
 			if (quadEnemyHQ == 1) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(3));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(4));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(3));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(4));
 				wayPoints.add(new MapLocation(robot.info.width -1 , robot.info.enemyHq.y));
 			} else if (quadEnemyHQ == 2) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(2));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(2));
 			} else if (quadEnemyHQ == 3) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(1));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(4));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(1));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(4));
 				wayPoints.add(new MapLocation(robot.info.enemyHq.x, robot.info.height - 1));
 			} else {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(2));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(1));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(2));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(1));
 				wayPoints.add(new MapLocation(robot.info.width - 1 , robot.info.enemyHq.y));
 			}
 		//		2 | 1
@@ -76,35 +77,35 @@ public class SoldierBackDoor extends Behavior {
 			
 		} else if (quadHQ == 3) {
 			if (quadEnemyHQ == 1) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(3));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(2));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(3));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(2));
 				wayPoints.add(new MapLocation(robot.info.enemyHq.x, 0));
 			} else if (quadEnemyHQ == 2) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(4));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(1));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(4));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(1));
 				wayPoints.add(new MapLocation(robot.info.enemyHq.x, 0));
 			} else if (quadEnemyHQ == 3) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(3));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(3));
 			} else {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(2));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(1));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(2));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(1));
 				wayPoints.add(new MapLocation(robot.info.width - 1, robot.info.enemyHq.y));
 			}
 		} else {
 			if (quadEnemyHQ == 1) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(3));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(2));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(3));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(2));
 				wayPoints.add(new MapLocation(robot.info.enemyHq.x, 0));
 			} else if (quadEnemyHQ == 2) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(4));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(3));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(4));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(3));
 				wayPoints.add(new MapLocation(0, robot.info.enemyHq.y));
 			} else if (quadEnemyHQ == 3) {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(1));
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(2));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(1));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(2));
 				wayPoints.add(new MapLocation(0, robot.info.enemyHq.y));
 			} else {
-				wayPoints.add(MapQuadrentUtils.getMapCornerForQuadrent(4));
+				wayPoints.add(MapQuadrantUtils.getMapCornerForQuadrant(4));
 			}
 		}
 		
@@ -132,7 +133,7 @@ public class SoldierBackDoor extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
-		robot.rc.setIndicatorString(0, "SECRET AGENT MAN");
+		robot.rc.setIndicatorString(0, "Secret Agent Man!");
 		
 		if (!robot.rc.isActive()) {
 			return;
