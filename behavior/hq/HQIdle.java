@@ -18,7 +18,6 @@ public class HQIdle extends Behavior {
 		
 		if (!robot.encampmentSorter.finishBaseCalculation) {
 			robot.encampmentSorter.calculate();
-		} else {
 		}
 	}
 

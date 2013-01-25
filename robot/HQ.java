@@ -144,9 +144,10 @@ public class HQ extends TeamRobot {
 			darkHorse = true;
 		} else {
 
-			if (rc.isActive()) {
-				spawn(SoldierSelector.SOLDIER_MINER);
-			}
+			//TODO: DO NOT FORGET THIS
+//			if (rc.isActive()) {
+//				spawn(SoldierSelector.SOLDIER_MINER);
+//			}
 			
 			encampmentSorter.calculate();
 		}
