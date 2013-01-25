@@ -21,36 +21,39 @@ public class SoldierSelector extends Decision {
 		children.add(new SoldierCombat(this.robot));
 		children.add(new SoldierDefender(this.robot));
 		children.add(new SoldierNukeDefender(this.robot));
+		children.add(new SoldierBackDoor(this.robot));
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SWARMER).parent = this;
 		children.get(SOLDIER_ENCAMPER).parent = this;
 		children.get(SOLDIER_COMBAT).parent = this;
 		children.get(SOLDIER_DEFENDER).parent = this;
 		children.get(SOLDIER_NUKE).parent = this;
+		children.get(SOLDIER_BACK_DOOR).parent = this;
 	}
 	
 	@Override
 	public Node select() throws GameActionException {
+		return children.get(SOLDIER_BACK_DOOR);
 		// TODO: when we have more than one child the decision code should be in here
-		if(robot.enemyInMelee) {
-			return children.get(SOLDIER_COMBAT);
-		}
-		
-		if (robot.isNew) {
-			int data = robot.com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
-			
-			robot.initialMode = data % 10;
-			robot.initialData = data - robot.initialMode;
-			robot.isNew = false;
-			
-			System.out.println("Getting new robot behavior with : " + robot.initialMode + " : " + robot.initialData);
-			Behavior behavior = (Behavior)children.get(robot.initialMode);
-			behavior.setInitialData(robot.initialData);
-			
-			return behavior;
-		}		
-
-		return children.get(robot.initialMode);
+//		if(robot.enemyInMelee) {
+//			return children.get(SOLDIER_COMBAT);
+//		}
+//		
+//		if (robot.isNew) {
+//			int data = robot.com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
+//			
+//			robot.initialMode = data % 10;
+//			robot.initialData = data - robot.initialMode;
+//			robot.isNew = false;
+//			
+//			System.out.println("Getting new robot behavior with : " + robot.initialMode + " : " + robot.initialData);
+//			Behavior behavior = (Behavior)children.get(robot.initialMode);
+//			behavior.setInitialData(robot.initialData);
+//			
+//			return behavior;
+//		}		
+//
+//		return children.get(robot.initialMode);
 	}
 	
 	@Override
@@ -64,4 +67,5 @@ public class SoldierSelector extends Decision {
 	public static final int SOLDIER_COMBAT = 3;
 	public static final int SOLDIER_DEFENDER = 4;
 	public static final int SOLDIER_NUKE = 5;
+	public static final int SOLDIER_BACK_DOOR = 6;
 }

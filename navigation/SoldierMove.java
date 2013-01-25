@@ -17,6 +17,20 @@ public class SoldierMove {
 		this.robot = robot;
 	}
 	
+	public void setDestination(MapLocation destination) {
+		if (destination.x >= robot.info.width) {
+			destination = new MapLocation(robot.info.width - 1, destination.y);
+		} else if (destination.x < 0) {
+			destination = new MapLocation(0, destination.y);
+		}
+		if (destination.y >= robot.info.height) {
+			destination = new MapLocation(destination.x, robot.info.height- 1);
+		} else if (destination.y < 0) {
+			destination = new MapLocation(destination.x, 0);
+		}
+		this.destination = destination;
+	}
+	
 	public boolean atDestination() {
 		if (robot.currentLoc.equals(destination)) {
 			return true;
@@ -31,6 +45,7 @@ public class SoldierMove {
 	public void dumbMove() throws GameActionException {
 		if (!robot.rc.isActive())
 			return;
+		
 		Direction toMove = robot.currentLoc.directionTo(destination);
 		
 		if (toMove == Direction.NONE || toMove == Direction.OMNI)
@@ -86,7 +101,7 @@ public class SoldierMove {
 						done = true;
 					}
 				}
-				toMove.rotateLeft();
+				toMove = toMove.rotateLeft();
 			}
 		}
 		
