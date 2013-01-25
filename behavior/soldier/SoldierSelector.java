@@ -33,27 +33,26 @@ public class SoldierSelector extends Decision {
 	
 	@Override
 	public Node select() throws GameActionException {
-		return children.get(SOLDIER_BACK_DOOR);
 		// TODO: when we have more than one child the decision code should be in here
-//		if(robot.enemyInMelee) {
-//			return children.get(SOLDIER_COMBAT);
-//		}
-//		
-//		if (robot.isNew) {
-//			int data = robot.com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
-//			
-//			robot.initialMode = data % 10;
-//			robot.initialData = data - robot.initialMode;
-//			robot.isNew = false;
-//			
-//			System.out.println("Getting new robot behavior with : " + robot.initialMode + " : " + robot.initialData);
-//			Behavior behavior = (Behavior)children.get(robot.initialMode);
-//			behavior.setInitialData(robot.initialData);
-//			
-//			return behavior;
-//		}		
-//
-//		return children.get(robot.initialMode);
+		if(robot.enemyInMelee) {
+			return children.get(SOLDIER_COMBAT);
+		}
+		
+		if (robot.isNew) {
+			int data = robot.com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
+			
+			robot.initialMode = data % 10;
+			robot.initialData = data - robot.initialMode;
+			robot.isNew = false;
+			
+			System.out.println("Getting new robot behavior with : " + robot.initialMode + " : " + robot.initialData);
+			Behavior behavior = (Behavior)children.get(robot.initialMode);
+			behavior.setInitialData(robot.initialData);
+			
+			return behavior;
+		}		
+
+		return children.get(robot.initialMode);
 	}
 	
 	@Override
