@@ -7,7 +7,6 @@ import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
-import team122.EncampmentSorter;
 import team122.MapInformation;
 import team122.RobotInformation;
 import team122.behavior.hq.HQUtils;
@@ -16,6 +15,7 @@ import team122.behavior.soldier.SoldierSelector;
 import team122.communication.CommunicationDecoder;
 import team122.communication.Communicator;
 import team122.trees.HQTree;
+import team122.utils.EncampmentSorter;
 
 public class HQ extends TeamRobot {
 	public HQUtils hqUtils;

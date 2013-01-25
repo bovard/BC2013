@@ -37,6 +37,8 @@ public class HQSpawnMP extends Behavior {
 		} else {
 			robot.spawnGenerator();
 		}
+		HQUtils.calculate(robot);
+		
 //		if (genSpawn <= artSpawn) {
 //			if (rand.nextInt() % 4 == 0) {
 //				robot.spawnSupplier();

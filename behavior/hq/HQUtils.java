@@ -1,5 +1,7 @@
 package team122.behavior.hq;
 
+import java.util.Arrays;
+
 import battlecode.common.GameActionException;
 import battlecode.common.GameConstants;
 import battlecode.common.MapLocation;
@@ -8,6 +10,8 @@ import battlecode.common.Upgrade;
 import team122.MapInformation;
 import team122.RobotInformation;
 import team122.communication.Communicator;
+import team122.robot.HQ;
+import team122.utils.QuicksortTree;
 
 public class HQUtils {
 	
@@ -128,5 +132,22 @@ public class HQUtils {
 		powerConsumptionFromSoldiers = GameConstants.UNIT_POWER_UPKEEP * (totalSoldierCount + totalEncampmentCount);
 	}
 
+	public static final void calculate(HQ robot) {
+		
+		if (!robot.encampmentSorter.finishBaseCalculation) {
+			robot.encampmentSorter.calculate();
+		} else if (!robot.encampmentSorter.generatorTree.done || !robot.encampmentSorter.artilleryTree.done) {
+			
+			if (!robot.encampmentSorter.generatorTree.done) {
+				robot.encampmentSorter.generatorTree.sort();
+			}
+			
+			if (!robot.encampmentSorter.artilleryTree.done) {
+				robot.encampmentSorter.artilleryTree.sort();
+			}
+		} else {
+			
+		}
+	}
 	
 }
