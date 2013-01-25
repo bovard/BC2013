@@ -42,7 +42,6 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 				encampmentType = RobotType.ARTILLERY;
 			}
 			
-			System.out.println("Spawning a soldier with : " + encampmentType + " Specified for " + encampment);
 			move.destination = encampment;
 			robot.com.clear(Communicator.CHANNEL_ENCAMPER_LOCATION);
 		} catch (Exception e) {

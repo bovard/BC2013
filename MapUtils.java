@@ -20,7 +20,6 @@ public class MapUtils {
 		}
 		
 		sort(locs, dists, ascending);
-		System.out.println("Arts: " + Arrays.toString(dists));
 	}
 	
 	/**

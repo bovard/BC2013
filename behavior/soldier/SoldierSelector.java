@@ -43,7 +43,6 @@ public class SoldierSelector extends Decision {
 			robot.initialData = data - robot.initialMode;
 			robot.isNew = false;
 			
-			System.out.println("Getting new robot behavior with : " + robot.initialMode + " : " + robot.initialData);
 			Behavior behavior = (Behavior)children.get(robot.initialMode);
 			behavior.setInitialData(robot.initialData);
 			
