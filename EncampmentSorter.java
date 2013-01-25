@@ -40,14 +40,19 @@ public class EncampmentSorter {
 	private int[] artilleryDistances;
 	private int[] generatorScores;
 	private int[] artilleryScores;
-	private int artsLength = 0;
-	private int gensLength = 0;
-	private int gensIndex = 0;
-	private int artsIndex = 0;
+	private int artilleryLength = 0;
+	private int generatorLength = 0;
+	private int generatorIndex = 0;
+	private int artilleryIndex = 0;
 	private MapLocation[] alliedEncampments;
-	private int artBuilds = 0;
-	private int genBuilds = 0;
+	private int artilleryBuilds = 0;
+	private int generatorBuilds = 0;
 	private int totalEncampmentDivisor;
+	
+	//These should only be used in one spot and never set again.
+	private int __buildingGeneratorIndex = 0;
+	private int __buildingArtilleryIndex = 0;
+	private int __maxArtilleryLength = 0;
 
 	// Sorting
 	private boolean specialCaseX;
@@ -64,42 +69,16 @@ public class EncampmentSorter {
 		enemy = rc.senseEnemyHQLocation();
 		artMaxEnemyHQ = RobotType.ARTILLERY.attackRadiusMaxSquared
 				+ hq.distanceSquaredTo(enemy);
-		artRange = 35;
+		artRange = 25;
 		double x = hq.x - enemy.x;
 		double y = hq.y - enemy.y;
 
 		uX = x / Math.sqrt(x * x + y * y); // can we remove sqrt later?
 		uY = y / Math.sqrt(x * x + y * y);
-		genBuilds = 0;
+		generatorBuilds = 0;
 
 		specialCaseX = enemy.x == hq.x;
 		specialCaseY = enemy.y == hq.y;
-		System.out.println("Unit: (" + uX + ", " + uY + ")");
-	}
-
-	/**
-	 * Determines if darkhourse
-	 * 
-	 * @return
-	 */
-	public boolean isDarkHorse(int required) throws GameActionException {
-
-		// TODO: Do a sense and just do a local check. It will make it fast and
-		// easy to tell when dark horse (300ish byte codes).
-		// Only when finished.
-		Direction toEnemy = hq.directionTo(enemy);
-		MapLocation[] locs = rc.senseEncampmentSquares(
-				hq.add(toEnemy).add(toEnemy), artRange, Team.NEUTRAL);
-
-		if (locs.length >= required) {
-			darkHorseArt = locs;
-			darkHorseIdx = 0;
-
-			MapUtils.sort(hq, locs, false);
-
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -120,10 +99,20 @@ public class EncampmentSorter {
 
 		alliedEncampments = new MapLocation[0];
 		
-		if (totalEncampments > 7) {
-			totalEncampmentDivisor = 3;
+		//Somewhere above 10.
+		if (totalEncampments > 10) {
+			__maxArtilleryLength = totalEncampments / 4;
+			totalEncampmentDivisor = totalEncampments / 3;
+		
+		//Somewhere between 1 and 10.
+		} else if (totalEncampments > 1) {
+			__maxArtilleryLength = totalEncampments / 2;
+			totalEncampmentDivisor = totalEncampments / 2;
+			
+		//If there is only one, it should be an artillery.
 		} else {
-			totalEncampmentDivisor = 2;
+			__maxArtilleryLength = 1;
+			totalEncampmentDivisor = 1;
 		}
 	}
 
@@ -149,16 +138,17 @@ public class EncampmentSorter {
 		MapLocation generator = null;
 
 		if (totalEncampments > 0) {
-			if (genBuilds > totalEncampments / totalEncampmentDivisor || gensIndex > gensLength) {
+			if (generatorBuilds > totalEncampments / totalEncampmentDivisor || generatorIndex > generatorLength) {
 				_RefreshAlliedEncampments();
-				genBuilds = 0;
-				gensIndex = 0;
-				
-				System.out.println("Fresh new stuff!: ");
+				generatorBuilds = 0;
+				generatorIndex = 0;
 			}
 
 outer: 		do {
-				generator = generatorEncampments[gensIndex];
+				generator = generatorEncampments[generatorIndex];
+				if (generator == null) {
+					break;
+				}
 
 				for (int i = 0; i < alliedEncampments.length; i++) {
 					
@@ -168,11 +158,11 @@ outer: 		do {
 					}
 				}
 
-				gensIndex++;
-			} while (generator == null && gensIndex < gensLength);
+				generatorIndex++;
+			} while (generator == null && generatorIndex < generatorLength);
 		}
 
-		genBuilds++;
+		generatorBuilds++;
 		return generator;
 	}
 
@@ -185,14 +175,17 @@ outer: 		do {
 		MapLocation artillery = null;
 
 		if (totalEncampments > 0) {
-			if (artBuilds > totalEncampments / totalEncampmentDivisor || artsIndex > artsLength) {
+			if (artilleryBuilds > totalEncampments / totalEncampmentDivisor || artilleryIndex > artilleryLength) {
 				_RefreshAlliedEncampments();
-				artBuilds = 0;
-				artsIndex = 0;
+				artilleryBuilds = 0;
+				artilleryIndex = 0;
 			}
 
 outer:		do {
-				artillery = artilleryEncampments[artsIndex];
+				artillery = artilleryEncampments[artilleryIndex];
+				if (artillery == null) {
+					break;
+				}
 
 				// TODO: When do we use a hashmap? If ever?
 				for (int i = 0; i < alliedEncampments.length; i++) {
@@ -202,11 +195,11 @@ outer:		do {
 					}
 				}
 
-				artsIndex++;
-			} while (artillery == null && artsIndex < artsLength);
+				artilleryIndex++;
+			} while (artillery == null && artilleryIndex < artilleryLength);
 		}
 
-		artBuilds++;
+		artilleryBuilds++;
 		return artillery;
 	}
 
@@ -239,7 +232,7 @@ outer:		do {
 			} else if (specialCaseY) {
 				answer = (hq.y - enc.y) * (hq.y - enc.y);
 			} else {
-				double dot = (hqX - enc.x * uX + hqY - enc.y * uY);
+				double dot = ((hqX - enc.x) * uX + (hqY - enc.y) * uY);
 				double newX = dot * uX;
 				double newY = dot * uY;
 				answer = encampmentDistances[i] - (newX * newX + newY * newY);
@@ -247,17 +240,17 @@ outer:		do {
 
 			// TODO: Scores? Do we need them? Is this a good idea. How about
 			// distances?
-			if (answer < artRange && enemyDistances[i] < artMaxEnemyHQ) {
-				artsLength++;
-				artilleryEncampments[artsIndex] = enc;
-				artilleryDistances[artsIndex] = encampmentDistances[i];
-				artilleryScores[artsIndex++] = encampmentDistances[i];
+			if (answer < artRange && enemyDistances[i] < artMaxEnemyHQ && artilleryLength < __maxArtilleryLength) {
+				artilleryLength++;
+				artilleryEncampments[__buildingArtilleryIndex] = enc;
+				artilleryDistances[__buildingArtilleryIndex] = encampmentDistances[i];
+				artilleryScores[__buildingArtilleryIndex++] = encampmentDistances[i];
 
 			} else {
-				gensLength++;
-				generatorEncampments[gensIndex] = enc;
-				generatorDistances[gensIndex] = encampmentDistances[i];
-				generatorScores[gensIndex++] = encampmentDistances[i]
+				generatorLength++;
+				generatorEncampments[__buildingGeneratorIndex] = enc;
+				generatorDistances[__buildingGeneratorIndex] = encampmentDistances[i];
+				generatorScores[__buildingGeneratorIndex++] = encampmentDistances[i]
 						- enemyDistances[i];
 
 			}
@@ -266,10 +259,9 @@ outer:		do {
 		_currentRound = i;
 
 		finishBaseCalculation = !(_currentRound < totalEncampments);
-
 		if (finishBaseCalculation) {
-			artsIndex = 0;
-			gensIndex = 0;
+			System.out.println(Arrays.toString(artilleryEncampments));
+			System.out.println(Arrays.toString(generatorEncampments));
 		}
 		return finishBaseCalculation;
 	}
