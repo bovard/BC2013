@@ -23,6 +23,31 @@ public class SoldierMove {
 		}
 		return false;
 	}
+	
+	/**
+	 * Dumb Move will walk over mines, and probably die. For use in extreme circumstances only!
+	 * @throws GameActionException
+	 */
+	public void dumbMove() throws GameActionException {
+		if (!robot.rc.isActive())
+			return;
+		Direction toMove = robot.currentLoc.directionTo(destination);
+		
+		if (toMove == Direction.NONE || toMove == Direction.OMNI)
+			return;
+		
+		if (robot.rc.canMove(toMove)) {
+			robot.rc.move(toMove);
+		} else if (robot.rc.canMove(toMove.rotateLeft())) {
+			robot.rc.move(toMove.rotateLeft());
+		} else if (robot.rc.canMove(toMove.rotateRight())) {
+			robot.rc.move(toMove.rotateRight());
+		} else if (robot.rc.canMove(toMove.rotateLeft().rotateLeft())) {
+			robot.rc.move(toMove.rotateLeft().rotateLeft());
+		} else if (robot.rc.canMove(toMove.rotateRight().rotateRight())) {
+			robot.rc.move(toMove.rotateRight().rotateRight());
+		} 
+	}
 
 	public void move() throws GameActionException {
 		if (!robot.rc.isActive())
