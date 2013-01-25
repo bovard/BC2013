@@ -191,6 +191,7 @@ public class HQ extends TeamRobot {
 	 */
 	public boolean spawnSupplier() throws GameActionException {
 		MapLocation loc = encampmentSorter.popGenerator();
+
 		if (loc != null) {
 			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.SUPPLIER_ENCAMPER);
 			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		

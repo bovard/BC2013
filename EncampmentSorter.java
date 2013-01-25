@@ -101,13 +101,13 @@ public class EncampmentSorter {
 		
 		//Somewhere above 10.
 		if (totalEncampments > 10) {
-			__maxArtilleryLength = totalEncampments / 4;
-			totalEncampmentDivisor = totalEncampments / 3;
+			__maxArtilleryLength = totalEncampments;
+			totalEncampmentDivisor = 2;
 		
 		//Somewhere between 1 and 10.
 		} else if (totalEncampments > 1) {
 			__maxArtilleryLength = totalEncampments / 2;
-			totalEncampmentDivisor = totalEncampments / 2;
+			totalEncampmentDivisor = 2;
 			
 		//If there is only one, it should be an artillery.
 		} else {
@@ -154,7 +154,7 @@ outer: 		do {
 					
 					if (alliedEncampments[i].x == generator.x && alliedEncampments[i].y == generator.y) {
 						generator = null;
-						break outer;
+						break;
 					}
 				}
 
@@ -163,6 +163,7 @@ outer: 		do {
 		}
 
 		generatorBuilds++;
+		
 		return generator;
 	}
 
@@ -191,7 +192,7 @@ outer:		do {
 				for (int i = 0; i < alliedEncampments.length; i++) {
 					if (alliedEncampments[i].x == artillery.x && alliedEncampments[i].y == artillery.y) {
 						artillery = null;
-						break outer;
+						break;
 					}
 				}
 
