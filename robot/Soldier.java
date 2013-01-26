@@ -46,7 +46,10 @@ public class Soldier extends TeamRobot {
 			Communicator.CHANNEL_SOLDIER_COUNT,
 			Communicator.CHANNEL_DEFENDER_COUNT,
 			Communicator.CHANNEL_NUKE_COUNT,
-			Communicator.CHANNEL_ENCAMPER_LOCATION
+			Communicator.CHANNEL_ENCAMPER_LOCATION,
+			Communicator.CHANNEL_SUPPLIER_COUNT,
+			Communicator.CHANNEL_ARTILLERY_COUNT,
+			Communicator.CHANNEL_GENERATOR_COUNT
 		});
 		
 		this.tree = new SoldierTree(this);

@@ -46,6 +46,7 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 			robot.com.clear(Communicator.CHANNEL_ENCAMPER_LOCATION);
 		} catch (Exception e) {
 			
+			//TODO: WHAT TO DO WITH THIS?!
 			robot.initialMode = SoldierSelector.SOLDIER_NUKE;
 			canCapture = false;
 		}
@@ -63,7 +64,13 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	 */
 	@Override
 	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_ENCAMPER_COUNT);
+		if (encampmentType == RobotType.GENERATOR) {
+			robot.com.increment(Communicator.CHANNEL_GENERATOR_COUNT);
+		} else if (encampmentType == RobotType.SUPPLIER) {
+			robot.com.increment(Communicator.CHANNEL_SUPPLIER_COUNT);
+		} else if (encampmentType == RobotType.ARTILLERY) {
+			robot.com.increment(Communicator.CHANNEL_ARTILLERY_COUNT);
+		}
 	}
 
 	@Override
@@ -75,39 +82,39 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 				Direction dir = robot.currentLoc.directionTo(robot.info.enemyHq);
 				
 				// add mines
-				if (robot.rc.senseMine(robot.currentLoc.add(dir)) == null &&
-						robot.rc.canMove(dir)) {
-					MapLocation old_dest = move.destination;
-					move.destination = robot.currentLoc.add(dir);
-					move.move();
-					robot.rc.yield();
-					robot.rc.layMine();
-					robot.rc.yield();
-					move.destination = old_dest;
-					move.move();
-				} else if (robot.rc.senseMine(robot.currentLoc.add(dir.rotateLeft())) == null && 
-						robot.rc.canMove(dir.rotateLeft())) {
-					MapLocation old_dest = move.destination;
-					move.destination = robot.currentLoc.add(dir.rotateLeft());
-					move.move();
-					robot.rc.yield();
-					robot.rc.layMine();
-					robot.rc.yield();
-					move.destination = old_dest;
-					move.move();
-				} else if (robot.rc.senseMine(robot.currentLoc.add(dir.rotateRight())) == null && 
-						robot.rc.canMove(dir.rotateRight())) {
-					MapLocation old_dest = move.destination;
-					move.destination = robot.currentLoc.add(dir.rotateRight());
-					move.move();
-					robot.rc.yield();
-					robot.rc.layMine();
-					robot.rc.yield();
-					move.destination = old_dest;
-					move.move();
-				} else {
+//				if (robot.rc.senseMine(robot.currentLoc.add(dir)) == null &&
+//						robot.rc.canMove(dir)) {
+//					MapLocation old_dest = move.destination;
+//					move.destination = robot.currentLoc.add(dir);
+//					move.move();
+//					robot.rc.yield();
+//					robot.rc.layMine();
+//					robot.rc.yield();
+//					move.destination = old_dest;
+//					move.move();
+//				} else if (robot.rc.senseMine(robot.currentLoc.add(dir.rotateLeft())) == null && 
+//						robot.rc.canMove(dir.rotateLeft())) {
+//					MapLocation old_dest = move.destination;
+//					move.destination = robot.currentLoc.add(dir.rotateLeft());
+//					move.move();
+//					robot.rc.yield();
+//					robot.rc.layMine();
+//					robot.rc.yield();
+//					move.destination = old_dest;
+//					move.move();
+//				} else if (robot.rc.senseMine(robot.currentLoc.add(dir.rotateRight())) == null && 
+//						robot.rc.canMove(dir.rotateRight())) {
+//					MapLocation old_dest = move.destination;
+//					move.destination = robot.currentLoc.add(dir.rotateRight());
+//					move.move();
+//					robot.rc.yield();
+//					robot.rc.layMine();
+//					robot.rc.yield();
+//					move.destination = old_dest;
+//					move.move();
+//				} else {
 					robot.rc.captureEncampment(encampmentType);
-				}
+//				}
 			} else {
 				move.move();
 			}

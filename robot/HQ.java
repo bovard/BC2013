@@ -139,17 +139,16 @@ public class HQ extends TeamRobot {
 		}
 
 		encampmentSorter.getEncampments();
-		if (encampmentSorter.isDarkHorse(5) && info.enemyHqDistance > 1000) {
-			rush = false;
-			darkHorse = true;
-		} else {
+		encampmentSorter.calculate();
 
-			//TODO: DO NOT FORGET THIS
-//			if (rc.isActive()) {
-//				spawn(SoldierSelector.SOLDIER_MINER);
-//			}
+		if (rc.isActive()) {
 			
-			encampmentSorter.calculate();
+			//Attempts to spawn an atrillery or supplier.
+			if (spawnSupplier()) { 
+				System.out.println("SPAWNING SUPP");
+			} else if (spawnArtillery()) { 
+				System.out.println("SPAWNING ARTILLERY!");
+			}
 		}
 	}
 
@@ -192,6 +191,7 @@ public class HQ extends TeamRobot {
 	 */
 	public boolean spawnSupplier() throws GameActionException {
 		MapLocation loc = encampmentSorter.popGenerator();
+
 		if (loc != null) {
 			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.SUPPLIER_ENCAMPER);
 			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		

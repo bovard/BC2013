@@ -1,13 +1,10 @@
 package team122.behavior.soldier;
 
-import battlecode.common.Clock;
 import battlecode.common.GameActionException;
-import battlecode.common.MapLocation;
 import team122.behavior.Behavior;
 import team122.behavior.Decision;
 import team122.behavior.Node;
 import team122.communication.Communicator;
-import team122.robot.HQ;
 import team122.robot.Soldier;
 
 public class SoldierSelector extends Decision {
