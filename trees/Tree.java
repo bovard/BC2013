@@ -1,9 +1,11 @@
 package team122.trees;
 
+import battlecode.common.Clock;
 import team122.behavior.Behavior;
 import team122.behavior.Decision;
 import team122.behavior.Node;
 
+import team122.robot.HQ;
 import team122.robot.TeamRobot;
 
 

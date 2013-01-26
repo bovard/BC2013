@@ -32,28 +32,30 @@ public class HQSpawnMP extends Behavior {
 		
 		int round = Clock.getRoundNum();
 
-		if (!robot.rc.hasUpgrade(Upgrade.VISION)) {
-			robot.rc.researchUpgrade(Upgrade.VISION);
-		} else {
-			if (genSpawn % 5 == 0) {
+		//Entertain us for rounds until sorted.
+		if (!robot.encampmentSorter.sorted) {
+			if (genSpawn < 1) {
+				robot.spawnSupplier();
+			} else if (genSpawn < 2) {
+				robot.spawnArtillery();
+			} else {
+				robot.spawnSwarmer();
+			}
+			genSpawn++;
+			artSpawn++;
+		} else if (genSpawn <= artSpawn) {
+			if (rand.nextInt() % 4 == 0) {
 				robot.spawnSupplier();
 			} else {
 				robot.spawnGenerator();
 			}
 			genSpawn++;
+		} else {
+			robot.spawnArtillery();
+			artSpawn++;
 		}
-//		if (genSpawn <= artSpawn) {
-//			if (rand.nextInt() % 4 == 0) {
-//				robot.spawnSupplier();
-//			} else {
-//				robot.spawnGenerator();
-//			}
-//			genSpawn++;
-//		} else {
-//			robot.spawnArtillery();
-//			artSpawn++;
-//		}
 		
+		HQUtils.calculate(robot);
 		
 		//Nothign to do.  DO not over commit.
 		return;

@@ -34,6 +34,7 @@ public class Soldier extends TeamRobot {
 	public MapLocation[] enemy_mines;
 	public SoldierMove move;
 	public SoldierDecoder dec;
+	public int incChannel = -1;
 	
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);
@@ -79,14 +80,8 @@ public class Soldier extends TeamRobot {
 			}
 		}
 		//Continue 
-		if (Clock.getRoundNum() % HQ.HQ_COUNT_ROUND - 1 == 0) {
-			Node curr = tree.current;
-			if (curr instanceof IComBehavior) {
-				((IComBehavior)curr).comBehavior();
-			}
+		if ((Clock.getRoundNum() + 1) % HQ.HQ_COUNT_ROUND == 0 && incChannel > -1) {
+			com.increment(incChannel, Clock.getRoundNum() + 1);
 		}
-		
-		
-		
 	}
 }

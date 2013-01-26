@@ -3,7 +3,6 @@ package team122.behavior.soldier;
 import team122.MapUtils;
 import team122.RobotInformation;
 import team122.behavior.Behavior;
-import team122.behavior.IComBehavior;
 import team122.communication.Communicator;
 import team122.robot.Soldier;
 import battlecode.common.Clock;
@@ -12,8 +11,7 @@ import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 
 public class SoldierDefender 
-		extends Behavior
-		implements IComBehavior {
+		extends Behavior{
 	
 	public Soldier robot;
 	public boolean wing;
@@ -32,17 +30,13 @@ public class SoldierDefender
 		wing = Clock.getRoundNum() % 2 == 0;
 		order = robot.com.receive(Communicator.CHANNEL_DEFENDER_COUNT, 0);
 		orderSquared = order * order;
+		robot.incChannel = Communicator.CHANNEL_DEFENDER_COUNT;
 	}
 
 	@Override
 	public void stop() {
 		// nothing needs to be done here
 		
-	}
-	
-	@Override
-	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_DEFENDER_COUNT, Clock.getRoundNum());
 	}
 
 	/**

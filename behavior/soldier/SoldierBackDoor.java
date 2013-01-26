@@ -117,7 +117,7 @@ public class SoldierBackDoor extends Behavior {
 	}
 	
 	@Override
-	public void start() {
+	public void start() throws GameActionException {
 		if (!calced) {
 			calced = true;
 			// He's a super secret guy in a hat.

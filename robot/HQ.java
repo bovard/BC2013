@@ -17,6 +17,7 @@ import team122.communication.Communicator;
 import team122.communication.SoldierDecoder;
 import team122.trees.HQTree;
 import team122.utils.EncampmentSorter;
+import team122.utils.GreedyEncampment;
 
 public class HQ extends TeamRobot {
 	public HQUtils hqUtils;
@@ -68,15 +69,10 @@ public class HQ extends TeamRobot {
 						 (twoTurnsAgoPositive && oneTurnAgoPositive) || 
 						 (threeTurnsAgoPositive && oneTurnAgoPositive);
 		
+		//is the next round an inc round.
 		if ((Clock.getRoundNum() + 1) % HQ_COUNT_ROUND == 0) {
 
-			com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, Clock.getRoundNum() + 1, 0);
-			com.communicate(Communicator.CHANNEL_ARTILLERY_COUNT, Clock.getRoundNum() + 1, 0);
-			com.communicate(Communicator.CHANNEL_SUPPLIER_COUNT, Clock.getRoundNum() + 1, 0);
-			com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, Clock.getRoundNum() + 1, 0);
-			com.communicate(Communicator.CHANNEL_MINER_COUNT, Clock.getRoundNum() + 1, 0);
-			com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, Clock.getRoundNum() + 1, 0);
-			com.communicate(Communicator.CHANNEL_NUKE_COUNT, Clock.getRoundNum() + 1, 0);
+			com.clear(Clock.getRoundNum() + 1);
 		} else if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
 		}
@@ -95,7 +91,6 @@ public class HQ extends TeamRobot {
 		}
 
 		encampmentSorter.getEncampments();
-		encampmentSorter.calculate();
 	}
 
 	/**
@@ -120,11 +115,23 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public boolean spawnGenerator() throws GameActionException {
-		MapLocation loc = encampmentSorter.popGenerator();
-		
-		if (loc != null) {
-			_spawn(new SoldierDecoder(SoldierEncamper.GENERATOR_ENCAMPER, loc));		
-			return true;
+		if (encampmentSorter.generatorSorted) {
+			MapLocation loc = encampmentSorter.popGenerator();
+			
+			if (loc != null) {
+				_spawn(new SoldierDecoder(SoldierEncamper.GENERATOR_ENCAMPER, loc));		
+				return true;
+			}
+		} else {
+			
+			//Only Works once, the next one will be the same spot.
+			//TODO: Create an offset?
+			MapLocation loc = GreedyEncampment.GetGreedyGenerator(rc, info.hq, info.enemyHq);
+			
+			if (loc != null) {
+				_spawn(new SoldierDecoder(SoldierEncamper.GENERATOR_ENCAMPER, loc));		
+				return true;
+			}
 		}
 		return false;
 	}
@@ -135,11 +142,24 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public boolean spawnSupplier() throws GameActionException {
-		MapLocation loc = encampmentSorter.popGenerator();
 
-		if (loc != null) {
-			_spawn(new SoldierDecoder(SoldierEncamper.SUPPLIER_ENCAMPER, loc));		
-			return true;
+		if (encampmentSorter.generatorSorted) {
+			MapLocation loc = encampmentSorter.popGenerator();
+			
+			if (loc != null) {
+				_spawn(new SoldierDecoder(SoldierEncamper.SUPPLIER_ENCAMPER, loc));		
+				return true;
+			}
+		} else {
+			
+			//Only Works once, the next one will be the same spot.
+			//TODO: Create an offset?
+			MapLocation loc = GreedyEncampment.GetGreedyGenerator(rc, info.hq, info.enemyHq);
+			
+			if (loc != null) {
+				_spawn(new SoldierDecoder(SoldierEncamper.SUPPLIER_ENCAMPER, loc));		
+				return true;
+			}
 		}
 		return false;
 	}
@@ -150,10 +170,24 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public boolean spawnArtillery() throws GameActionException {
-		MapLocation loc = encampmentSorter.popArtillery();
-		if (loc!= null) {
-			_spawn(new SoldierDecoder(SoldierEncamper.ARTILLERY_ENCAMPER, loc));		
-			return true;
+
+		if (encampmentSorter.artillerySorted) {
+			MapLocation loc = encampmentSorter.popArtillery();
+			
+			if (loc!= null) {
+				_spawn(new SoldierDecoder(SoldierEncamper.ARTILLERY_ENCAMPER, loc));		
+				return true;
+			}
+		} else {
+			
+			//Only Works once, the next one will be the same spot.
+			//TODO: Create an offset?
+			MapLocation loc = GreedyEncampment.GetGreedyArtillery(rc, info.hq, info.enemyHq);
+			
+			if (loc != null) {
+				_spawn(new SoldierDecoder(SoldierEncamper.ARTILLERY_ENCAMPER, loc));		
+				return true;
+			}
 		}
 		return false;
 	}

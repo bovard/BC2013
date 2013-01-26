@@ -60,7 +60,7 @@ public class Communicator {
 	 * @throws GameActionException 
 	 */
 	public void increment(int mode, int round) throws GameActionException {
-		System.out.println("Incrementing: " + mode + " : " + round);
+		
 		increment(mode, round, 1);
 	}
 	
@@ -73,7 +73,7 @@ public class Communicator {
 		int[] channels = _channels(mode, round);
 		int value = _getData(channels, -1);
 		
-		if (value < 0) {
+		if (value <= 0) {
 			communicate(channels, 1);
 		} else {
 			communicate(channels, ++value);
@@ -127,6 +127,17 @@ public class Communicator {
 	public int receive(int mode, int round, int defaultData) throws GameActionException {	
 		
 		return _getData(_channels(mode, round), defaultData);
+	}
+	
+	/**
+	 * Clears out the channel to 0.
+	 * @param round
+	 * @throws GameActionException 
+	 */
+	public void clear(int round) throws GameActionException {
+		for (int i = 1; i < CHANNEL_COUNT; i++) {
+			communicate(i, round, 0);
+		}
 	}
 	
 	/**
@@ -187,4 +198,5 @@ public class Communicator {
 	public static final int CHANNEL_DEFENDER_COUNT = 8;
 	public static final int CHANNEL_NUKE_COUNT = 9;
 	public static final int CHANNEL_ENCAMPER_LOCATION = 10;
+	public static final int CHANNEL_COUNT = 10;
 }

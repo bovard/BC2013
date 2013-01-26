@@ -51,53 +51,6 @@ public class HQUtils {
 		nukeDefenderCount = 0;
 		this.mapInfo = mapInfo;
 	}
-	
-	/**
-	 * The cost of capturing this generator.
-	 * @param hq
-	 * @param encampment
-	 * @return
-	 * @throws GameActionException 
-	 */
-	public int generatorCost(MapLocation hq, MapLocation encampment, MapLocation enemy) throws GameActionException {
-		
-		double mineDensity = mapInfo.updateMineDensity();
-		int hqDist = hq.distanceSquaredTo(encampment);
-		double decayRate = rc.hasUpgrade(Upgrade.FUSION) ? GameConstants.POWER_DECAY_RATE_FUSION : GameConstants.POWER_DECAY_RATE;
-		int defuseRate = rc.hasUpgrade(Upgrade.DEFUSION) ? GameConstants.MINE_DEFUSE_DEFUSION_DELAY : GameConstants.MINE_DEFUSE_DELAY;
-		double roundsUntilPayback = powerToCaptureEncampment / (GameConstants.GENERATOR_POWER_PRODUCTION * decayRate);
-		int enemyCost = hqDist - enemy.distanceSquaredTo(encampment);
-		double movementCost = hqDist * (1 + (mineDensity * defuseRate));
-		boolean inMiddleGrounds = mapInfo.inRangeOfCenterPath(encampment, 81);
-		
-		//TODO: Power production is to high so we need to have another cost.
-		
-		return (int)(roundsUntilPayback + enemyCost + movementCost + (inMiddleGrounds ? 20 : -10));
-	}
-	
-	public int supplierCost(MapLocation hq, MapLocation encampment, MapLocation enemy) throws GameActionException {
-
-		//TODO:  THIS IS BAD CALCULATIONS ONLY CONSIDERED MOVEMENT.
-		
-		double mineDensity = mapInfo.updateMineDensity();
-		int hqDist = hq.distanceSquaredTo(encampment);
-		double decayRate = rc.hasUpgrade(Upgrade.FUSION) ? GameConstants.POWER_DECAY_RATE_FUSION : GameConstants.POWER_DECAY_RATE;
-		int defuseRate = rc.hasUpgrade(Upgrade.DEFUSION) ? GameConstants.MINE_DEFUSE_DEFUSION_DELAY : GameConstants.MINE_DEFUSE_DELAY;
-		double movementCost = hqDist * (1 + (mineDensity * defuseRate));
-		return (int)(0 - artilleryCount + movementCost);
-	}
-	
-	public int artilleryCost(MapLocation hq, MapLocation encampment, MapLocation enemy)  throws GameActionException {
-
-		//TODO:  THIS IS BAD CALCULATIONS ONLY CONSIDERED MOVEMENT.
-		
-		double mineDensity = mapInfo.updateMineDensity();
-		int hqDist = hq.distanceSquaredTo(encampment);
-		double decayRate = rc.hasUpgrade(Upgrade.FUSION) ? GameConstants.POWER_DECAY_RATE_FUSION : GameConstants.POWER_DECAY_RATE;
-		int defuseRate = rc.hasUpgrade(Upgrade.DEFUSION) ? GameConstants.MINE_DEFUSE_DEFUSION_DELAY : GameConstants.MINE_DEFUSE_DELAY;
-		double movementCost = hqDist * (1 + (mineDensity * defuseRate));
-		return (int)(1 - supplierCount);
-	}
 
 	/**
 	 * Gets the different counts available then zeroing them out.
@@ -118,11 +71,14 @@ public class HQUtils {
 		totalSoldierCount = soldierCount + encamperCount + minerCount + defenderCount + nukeDefenderCount;
 		totalEncampmentCount = generatorCount + supplierCount + artilleryCount;
 		
-		printState();
 		//Power production is correct but powerToCapture is incorrect.  Its overestimated.
 		powerProduction = generatorCount * GameConstants.GENERATOR_POWER_PRODUCTION + GameConstants.HQ_POWER_PRODUCTION;
 		powerToCaptureEncampment = GameConstants.CAPTURE_POWER_COST * (1 + totalEncampmentCount);
 		powerConsumptionFromSoldiers = GameConstants.UNIT_POWER_UPKEEP * (totalSoldierCount + totalEncampmentCount);
+		
+		if (Clock.getRoundNum() > 2400) {
+			printState();
+		}
 	}
 	
 	public void printState() {
@@ -131,20 +87,11 @@ public class HQUtils {
 
 	public static final void calculate(HQ robot) {
 		
-		if (!robot.encampmentSorter.finishBaseCalculation) {
+		if (!robot.encampmentSorter.calculated) {
 			robot.encampmentSorter.calculate();
-		} else if (!robot.encampmentSorter.generatorTree.done || !robot.encampmentSorter.artilleryTree.done) {
-			
-			if (!robot.encampmentSorter.generatorTree.done) {
-				robot.encampmentSorter.generatorTree.sort();
-			}
-			
-			if (!robot.encampmentSorter.artilleryTree.done) {
-				robot.encampmentSorter.artilleryTree.sort();
-			}
-		} else {
-			
-		}
+		} else if (!robot.encampmentSorter.sorted) {
+			robot.encampmentSorter.sort();
+		} else {}
 	}
 	
 }

@@ -3,7 +3,6 @@ package team122.behavior.soldier;
 import java.util.HashMap;
 
 import team122.behavior.Behavior;
-import team122.behavior.IComBehavior;
 import team122.communication.Communicator;
 import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
@@ -15,8 +14,7 @@ import battlecode.common.Team;
 import battlecode.common.Upgrade;
 
 public class SoldierDefenseMiner 
-		extends Behavior
-		implements IComBehavior {
+		extends Behavior{
 	
 	public Soldier robot;
 	public HashMap<MapLocation, Boolean> mineSpots;
@@ -37,6 +35,7 @@ public class SoldierDefenseMiner
 
 	@Override
 	public void start() {
+		robot.incChannel = Communicator.CHANNEL_MINER_COUNT;
 		if (!init) {
 			init = true;
 			_setMiningLocations();
@@ -47,11 +46,6 @@ public class SoldierDefenseMiner
 	public void stop() {
 		// nothing needs to be done here
 		
-	}
-	
-	@Override
-	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_MINER_COUNT, Clock.getRoundNum());
 	}
 
 	/**
