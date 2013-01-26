@@ -3,6 +3,7 @@ package team122.combat;
 
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
+import battlecode.common.GameConstants;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotInfo;
 import battlecode.common.RobotType;
@@ -31,6 +32,10 @@ public class ArtilleryShotCalculator {
 	}
 	
 	public void shoot() throws GameActionException{
+		
+		
+		
+		
 		// set up the map
 		_setUp();
 		
@@ -41,12 +46,20 @@ public class ArtilleryShotCalculator {
 		
 		// check on the squares
 		for (int ix = -1; ix <= 1; ix++) {
+			if (Clock.getBytecodesLeft() < 500) {
+				break;
+			}
 			for (int iy = -1; iy <=1; iy++){
 				int i = 0;
 				do {
 					xi = xToCheck[i] + ix;
 					yi = yToCheck[i] + iy;
-					value = 2*map[xi][yi] + map[xi-1][yi-1] + map[xi-1][yi] + map[xi-1][yi+1] + map[xi][yi-1] + map[xi][yi+1] + map[xi+1][yi-1] + map[xi+1][yi] + map[xi+1][yi+1];
+					value =  map[xi-1][yi-1] + map[xi-1][yi] + map[xi-1][yi+1] + map[xi][yi-1] + map[xi][yi+1] + map[xi+1][yi-1] + map[xi+1][yi] + map[xi+1][yi+1];
+					if (map[xi][yi] == 100) {
+						value += RobotType.ARTILLERY.attackPower * GameConstants.ARTILLERY_SPLASH_RATIO;
+					} else {
+						value += 2*map[xi][yi];
+					}
 					robot.rc.setIndicatorString(0, "Value: " + value);
 					if (value > bestValue) {
 						value = bestValue;
@@ -88,17 +101,22 @@ public class ArtilleryShotCalculator {
 				xToCheck[toCheck] = x;
 				yToCheck[toCheck] = y;
 				toCheck++;
-				map[x][y] = 20;
+				if (info.energon <= RobotType.ARTILLERY.attackPower * GameConstants.ARTILLERY_SPLASH_RATIO){
+					map[x][y] = 100;
+				} else {
+					map[x][y] = 15;
+				}
+				
 			} 
 			
 			// if it's our robot try not to hit it
 			else if (info.team == robot.info.myTeam) {
 				if (info.type == RobotType.SOLDIER) {
-					map[x][y] = -20;
+					map[x][y] = -15;
 				} else if (info.type == RobotType.HQ) {
-					map[x][y] = -500;
+					map[x][y] = -100;
 				} else {
-					map[x][y] = -50;
+					map[x][y] = -15;
 				}
 			}
 		}

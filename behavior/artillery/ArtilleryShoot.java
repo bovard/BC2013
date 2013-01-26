@@ -20,6 +20,12 @@ public class ArtilleryShoot extends Behavior{
 
 	@Override
 	public void run() throws GameActionException {
+		
+		if (robot.rc.getLocation().distanceSquaredTo(robot.info.enemyHq) < RobotType.ARTILLERY.attackRadiusMaxSquared) {
+			robot.rc.attackSquare(robot.info.enemyHq);
+			return;
+		}
+		
 		shotCalc.shoot();
 	}
 
