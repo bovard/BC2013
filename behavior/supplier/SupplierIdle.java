@@ -19,9 +19,6 @@ public class SupplierIdle extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		//Sets the count 1 round before the HQ checks.
-		if ((Clock.getRoundNum() + 1) % HQ.HQ_COUNT_ROUND == 0) {
-			robot.com.increment(Communicator.CHANNEL_SUPPLIER_COUNT, Clock.getRoundNum() + 1);
-		}
 	}
 
 	@Override

@@ -26,7 +26,7 @@ public class HQSelector extends Decision {
 		
 		//Initializes the basic data (strategy and such).
 		
-		if (!robot.encampmentSorter.finishBaseCalculation) {
+		if (!robot.encampmentSorter.sorted) {
 			return children.get(CALCULATE_HQ);
 		} else if (robot.rc.isActive()) {
 			return children.get(SPAWNING_SELECTOR_HQ);

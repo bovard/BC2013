@@ -60,6 +60,7 @@ public class Communicator {
 	 * @throws GameActionException 
 	 */
 	public void increment(int mode, int round) throws GameActionException {
+		
 		increment(mode, round, 1);
 	}
 	
@@ -72,7 +73,7 @@ public class Communicator {
 		int[] channels = _channels(mode, round);
 		int value = _getData(channels, -1);
 		
-		if (value < 0) {
+		if (value <= 0) {
 			communicate(channels, 1);
 		} else {
 			communicate(channels, ++value);
@@ -129,6 +130,17 @@ public class Communicator {
 	}
 	
 	/**
+	 * Clears out the channel to 0.
+	 * @param round
+	 * @throws GameActionException 
+	 */
+	public void clear(int round) throws GameActionException {
+		for (int i = 1; i < CHANNEL_COUNT; i++) {
+			communicate(i, round, 0);
+		}
+	}
+	
+	/**
 	 * Gets data from the stream.
 	 * @param channels
 	 * @param defaultValue
@@ -174,8 +186,8 @@ public class Communicator {
 	 * The additional difference between communication channel.
 	 */
 	public static final int MAX_CHANNELS = GameConstants.BROADCAST_MAX_CHANNELS;
-	public static final int ALPHA = 38747;
-	public static final int BETA = 39929;
+	public static final int ALPHA = 39989;
+	public static final int BETA = 30029;
 	public static final int CHANNEL_NEW_SOLDIER_MODE = 1;
 	public static final int CHANNEL_GENERATOR_COUNT = 2;
 	public static final int CHANNEL_SUPPLIER_COUNT = 3;
@@ -186,4 +198,5 @@ public class Communicator {
 	public static final int CHANNEL_DEFENDER_COUNT = 8;
 	public static final int CHANNEL_NUKE_COUNT = 9;
 	public static final int CHANNEL_ENCAMPER_LOCATION = 10;
+	public static final int CHANNEL_COUNT = 10;
 }

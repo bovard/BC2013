@@ -34,14 +34,16 @@ public class HQCalculate extends Behavior {
 		
 		//While it calculates, it needs to make sure that it continues to spawn.
 		if (robot.rc.isActive()) {
-			robot.spawnSwarmer();
+			//TODO:  Perform some sweet calculations!
+			
+//			robot.spawnSwarmer();
 		}
-		robot.encampmentSorter.calculate();
+		HQUtils.calculate(robot);
 	}
 
 	@Override
 	public boolean pre() {
-		return !robot.encampmentSorter.finishBaseCalculation;
+		return !robot.encampmentSorter.sorted;
 	}
 
 }

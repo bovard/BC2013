@@ -11,8 +11,7 @@ import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
 
 public class SoldierSwarm  
-		extends Behavior
-		implements IComBehavior {
+		extends Behavior {
 	
 	public Soldier robot;
 	
@@ -21,7 +20,9 @@ public class SoldierSwarm
 	}
 	
 	@Override
-	public void start() { }
+	public void start() { 
+		robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
+	}
 
 	@Override
 	public void run() throws GameActionException {
@@ -39,11 +40,6 @@ public class SoldierSwarm
 			robot.move.destination = robot.info.enemyHq;
 		}
 		robot.move.move();
-	}
-
-	@Override
-	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_SOLDIER_COUNT, Clock.getRoundNum());
 	}
 	
 	@Override
