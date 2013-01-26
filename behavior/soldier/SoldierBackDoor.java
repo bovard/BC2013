@@ -166,7 +166,7 @@ public class SoldierBackDoor extends Behavior {
 
 	@Override
 	public boolean pre() throws GameActionException {
-		return true;
+		return  !robot.isNukeArmed;
 	}
 
 }

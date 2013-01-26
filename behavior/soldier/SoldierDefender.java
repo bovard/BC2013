@@ -61,7 +61,8 @@ public class SoldierDefender
 
 	@Override
 	public boolean pre() throws GameActionException {
-		return robot.rc.senseMineRoundsLeft() > 0 || robot.rc.isActive() && !robot.enemyAtTheGates && !robot.enemyInMelee && !robot.enemyInSight;
+		return  !robot.isNukeArmed && 
+				(robot.rc.senseMineRoundsLeft() > 0 || robot.rc.isActive() && !robot.enemyAtTheGates && !robot.enemyInMelee && !robot.enemyInSight);
 	}
 	
 

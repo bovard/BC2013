@@ -18,7 +18,7 @@ public class Generator extends TeamRobot {
 	@Override
 	public void environmentCheck() throws GameActionException {
 
-		if ((Clock.getRoundNum() + 1) % HQ.HQ_COUNT_ROUND == 0) {
+		if ((Clock.getRoundNum() + 1) % HQ.HQ_COMMUNICATION_ROUND == 0) {
 			com.increment(Communicator.CHANNEL_GENERATOR_COUNT, Clock.getRoundNum() + 1);
 		}
 	}

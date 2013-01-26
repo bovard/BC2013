@@ -110,7 +110,7 @@ public class SoldierEncamper extends Behavior {
 	 */
 	@Override
 	public boolean pre() {
-		return canCapture;
+		return canCapture && !robot.isNukeArmed;
 	}
 
 	/**

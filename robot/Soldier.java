@@ -29,6 +29,7 @@ public class Soldier extends TeamRobot {
 	public boolean isNew = true;
 	public MoveCalculator mCalc;
 	public boolean loadDone = false;
+	public boolean isNukeArmed = false;
 	public MapLocation[] neutral_mines;
 	public MapLocation[] allied_mines;
 	public MapLocation[] enemy_mines;
@@ -80,8 +81,16 @@ public class Soldier extends TeamRobot {
 			}
 		}
 		//Continue 
-		if ((Clock.getRoundNum() + 1) % HQ.HQ_COUNT_ROUND == 0 && incChannel > -1) {
+		if ((Clock.getRoundNum() + 1) % HQ.HQ_COMMUNICATION_ROUND == 0 && incChannel > -1) {
 			com.increment(incChannel, Clock.getRoundNum() + 1);
+		} else if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0) {
+			
+			//Check for nuke
+			isNukeArmed = com.isNukeArmed();
+			
+			if (isNukeArmed) {
+				System.out.println("NUKE IS ARMED: " + tree.current.getClass().getName());
+			}
 		}
 	}
 }

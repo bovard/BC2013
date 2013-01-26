@@ -3,19 +3,16 @@ package team122.behavior.soldier;
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
-import battlecode.common.MapLocation;
 import team122.behavior.Behavior;
-import team122.behavior.IComBehavior;
 import team122.communication.Communicator;
-import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
 
-public class SoldierSwarm  
+public class SoldierNukeIsArmed  
 		extends Behavior {
 	
 	public Soldier robot;
 	
-	public SoldierSwarm(Soldier robot) {
+	public SoldierNukeIsArmed(Soldier robot) {
 		this.robot = robot;
 	}
 	
@@ -33,10 +30,9 @@ public class SoldierSwarm
 			robot.move.destination = robot.info.hq
 					.add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir);
 		}
-		
-		int modifier = Clock.getRoundNum() / 400 + 1;
-		if (Clock.getRoundNum() % (modifier * 150) == 0 || 
-				(modifier > 400 && Clock.getRoundNum() % 400 == 0)) {
+
+		if (Clock.getRoundNum() % 75 == 0) {
+			
 			robot.move.destination = robot.info.enemyHq;
 		}
 		robot.move.move();
@@ -44,7 +40,7 @@ public class SoldierSwarm
 	
 	@Override
 	public boolean pre() {
-		return !robot.enemyInMelee && !robot.isNukeArmed;
+		return !robot.enemyInMelee && robot.isNukeArmed;
 	}
 
 }

@@ -182,6 +182,7 @@ public class EncampmentSorter {
 			} while (generator == null && generatorIndex < generatorLength && Clock.getBytecodesLeft() > 500);
 		}
 
+		System.out.println("Poping gen: " + generator + " : " + generatorIndex + " : " + generatorLength);
 		generatorBuilds++;
 		
 		return generator;
@@ -308,6 +309,13 @@ public class EncampmentSorter {
 			artilleryTree.setData(artilleryEncampments, artilleryScores, artilleryLength - 1);
 		}
 		return calculated;
+	}
+	
+	public void printState() {
+//		System.out.println("Gens: " + Arrays.toString(generatorScores));
+//		System.out.println("Artilleries: " + Arrays.toString(artilleryScores));
+//		System.out.println("Gen: " + generatorIndex + " : " + generatorLength + " :: Arts: " + artilleryIndex + " : " + artilleryLength);
+//		System.out.println((calculated ? "Is Calculated" : "NOT CALCULATED") + (sorted ? "Is Sorted" : "NOT SORTED"));
 	}
 
 	/**

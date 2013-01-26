@@ -15,41 +15,44 @@ public class HQSpawnSelector extends Decision {
 
 		this.children.add(new HQSpawnRush(robot));
 		this.children.add(new HQSpawnForceResearchNuke(robot));
-		this.children.add(new HQSpawnVsNukeBot(robot));
-		this.children.add(new HQSpawnVsNukeBotMiner(robot));
-		this.children.add(new HQSpawnVsNukeBotMinerPickax(robot));
+		this.children.add(new HQSpawnNukeIsArmed(robot));
 		this.children.add(new HQSpawnMP(robot));
 		this.children.get(HQ_SPAWN_RUSH).parent = this;
 		this.children.get(HQ_SPAWN_FORCE_RESEARCH_NUKE).parent = this;
-		this.children.get(HQ_SPAWN_VS_NUKE_BOT).parent = this;
-		this.children.get(HQ_SPAWN_VS_NUKE_BOT_AND_MINER).parent = this;
-		this.children.get(HQ_SPAWN_VS_NUKE_BOT_MINER_PICKAX).parent = this;
+		this.children.get(HQ_SPAWN_NUKE_IS_ARMED).parent = this;
 		this.children.get(HQ_SPAWN_MP_RUSH).parent = this;
 	}
 
 	@Override
 	public Node select() throws GameActionException {
-//		if (robot.forceNukeRush) {
-//			return this.children.get(HQ_SPAWN_FORCE_RESEARCH_NUKE);
-//		}
-//		
-//		
-//		if (robot.rush) {
+		
+		//------------------------------------------------------------------------
+		// 		NUKE STRATEGIES
+		//------------------------------------------------------------------------
+		if (robot.forceNukeRush) {
+			
+			return this.children.get(HQ_SPAWN_FORCE_RESEARCH_NUKE);
+		} else if (robot.enemyResearchedNuke) {
+			
+			return this.children.get(HQ_SPAWN_NUKE_IS_ARMED);
+			
+
+		//------------------------------------------------------------------------
+		// 		GENERAL STRATEGIES
+		//------------------------------------------------------------------------
+//		} else if (robot.rush) {
 //			return this.children.get(HQ_SPAWN_RUSH);
-//		} else if (robot.darkHorse) {
-//			return this.children.get(HQ_SPAWN_DARK_HORSE);
-//		} else if (robot.vsNukeBot) {
-//			return this.children.get(HQ_SPAWN_VS_NUKE_BOT);
-//		} else if (robot.vsNukeBotAndMiner) {
-//			return this.children.get(HQ_SPAWN_VS_NUKE_BOT_AND_MINER);
-//		} else if (robot.vsNukeBotAndMinerPickax) {
-//			return this.children.get(HQ_SPAWN_VS_NUKE_BOT_MINER_PICKAX);
-//		}
-//
-//		//defaults to rush.
-		robot.rush = true;
-		robot.darkHorse = false;
-		return this.children.get(HQ_SPAWN_MP_RUSH);
+
+
+		//------------------------------------------------------------------------
+		// 		DEFAULT STRATEGIES
+		//------------------------------------------------------------------------
+		} else {
+			//defaults to rush.
+			robot.rush = true;
+			return this.children.get(HQ_SPAWN_MP_RUSH);
+		}
+
 	}
 	
 	@Override
@@ -59,8 +62,6 @@ public class HQSpawnSelector extends Decision {
 
 	public static final int HQ_SPAWN_RUSH = 0;
 	public static final int HQ_SPAWN_FORCE_RESEARCH_NUKE = 1;
-	public static final int HQ_SPAWN_VS_NUKE_BOT = 2;
-	public static final int HQ_SPAWN_VS_NUKE_BOT_AND_MINER = 3;
-	public static final int HQ_SPAWN_VS_NUKE_BOT_MINER_PICKAX = 4;
-	public static final int HQ_SPAWN_MP_RUSH = 5;
+	public static final int HQ_SPAWN_NUKE_IS_ARMED = 2;
+	public static final int HQ_SPAWN_MP_RUSH = 3;
 }

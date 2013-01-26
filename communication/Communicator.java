@@ -1,5 +1,6 @@
 package team122.communication;
 
+import team122.robot.HQ;
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
 import battlecode.common.GameConstants;
@@ -141,6 +142,34 @@ public class Communicator {
 	}
 	
 	/**
+	 * If the nuke is armed then alert like crazy.
+	 * @param round
+	 * @throws GameActionException 
+	 */
+	public void nukeIsArmed() throws GameActionException {
+		
+		communicate(CHANNEL_NUKE_IS_ARMED, Clock.getRoundNum(), HQ.NUKE_IS_ARMED);
+		communicate(CHANNEL_NUKE_IS_ARMED_BACKUP, Clock.getRoundNum(), HQ.NUKE_IS_ARMED);
+	}
+	
+	/**
+	 * If the nuke is armed then alert like crazy.
+	 * @param round
+	 * @throws GameActionException 
+	 */
+	public boolean isNukeArmed() throws GameActionException {
+		
+		int nukeArmedCode = receive(CHANNEL_NUKE_IS_ARMED, Clock.getRoundNum(), 0);
+		if (nukeArmedCode == receive(CHANNEL_NUKE_IS_ARMED_BACKUP, Clock.getRoundNum(), 0) && 
+				nukeArmedCode == HQ.NUKE_IS_ARMED) {
+			
+			//Nuke is armed
+			return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Gets data from the stream.
 	 * @param channels
 	 * @param defaultValue
@@ -198,5 +227,10 @@ public class Communicator {
 	public static final int CHANNEL_NUKE_COUNT = 9;
 	public static final int CHANNEL_ENCAMPER_HUNTER_COUNT = 10;
 	public static final int CHANNEL_BACKDOOR_COUNT = 11;
-	public static final int CHANNEL_COUNT = 10;
+	public static final int CHANNEL_NUKE_IS_ARMED = 12;
+	public static final int CHANNEL_NUKE_IS_ARMED_BACKUP = 13;
+	public static final int CHANNEL_GROUP_0 = 14;
+	public static final int CHANNEL_GROUP_1 = 15;
+	public static final int CHANNEL_GROUP_2 = 16;
+	public static final int CHANNEL_COUNT = 16;
 }

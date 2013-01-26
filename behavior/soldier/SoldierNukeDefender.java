@@ -126,7 +126,7 @@ public class SoldierNukeDefender extends Behavior {
 
 	@Override
 	public boolean pre() throws GameActionException {
-		return !robot.enemyInMelee;
+		return !robot.enemyInMelee && !robot.isNukeArmed;
 	}
 
 }
