@@ -2,6 +2,7 @@ package team122.behavior.hq;
 
 import java.util.Arrays;
 
+import battlecode.common.Clock;
 import battlecode.common.GameActionException;
 import battlecode.common.GameConstants;
 import battlecode.common.MapLocation;
@@ -112,15 +113,17 @@ public class HQUtils {
 		minerCount = com.receive(Communicator.CHANNEL_MINER_COUNT, 0);
 		defenderCount = com.receive(Communicator.CHANNEL_DEFENDER_COUNT, 0);
 		nukeDefenderCount = com.receive(Communicator.CHANNEL_NUKE_COUNT, 0);
+		
+		int round = Clock.getRoundNum();
 
 		//Erases so counts will be accurate.
-		com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_ARTILLERY_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_SUPPLIER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_MINER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_NUKE_COUNT, 0);
+		com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_ARTILLERY_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_SUPPLIER_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_MINER_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_NUKE_COUNT, round, 0);
 		
 		// Basic calculations that are needed by the HQ.
 		totalSoldierCount = soldierCount + encamperCount + minerCount + defenderCount + nukeDefenderCount;

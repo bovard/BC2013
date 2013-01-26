@@ -1,10 +1,12 @@
 package team122.behavior.soldier;
 
+
+import battlecode.common.Clock;
 import battlecode.common.GameActionException;
 import team122.behavior.Behavior;
 import team122.behavior.Decision;
 import team122.behavior.Node;
-import team122.communication.Communicator;
+import team122.communication.SoldierDecoder;
 import team122.robot.Soldier;
 
 public class SoldierSelector extends Decision {
@@ -33,24 +35,19 @@ public class SoldierSelector extends Decision {
 	@Override
 	public Node select() throws GameActionException {
 		// TODO: when we have more than one child the decision code should be in here
-		if(robot.enemyInMelee) {
+		if (robot.enemyInMelee) {
 			return children.get(SOLDIER_COMBAT);
 		}
 		
 		if (robot.isNew) {
-			int data = robot.com.receive(Communicator.CHANNEL_NEW_SOLDIER_MODE, SOLDIER_SWARMER);
-			
-			robot.initialMode = data % 10;
-			robot.initialData = data - robot.initialMode;
+			robot.dec = robot.com.receiveNewSoldier();
 			robot.isNew = false;
-			
-			Behavior behavior = (Behavior)children.get(robot.initialMode);
-			behavior.setInitialData(robot.initialData);
+			Behavior behavior = (Behavior)children.get(robot.dec.soldierType);
 			
 			return behavior;
 		}		
 
-		return children.get(robot.initialMode);
+		return children.get(robot.dec.soldierType);
 	}
 	
 	@Override

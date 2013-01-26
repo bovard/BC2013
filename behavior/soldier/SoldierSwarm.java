@@ -21,9 +21,7 @@ public class SoldierSwarm
 	}
 	
 	@Override
-	public void start() {
-		
-	}
+	public void start() { }
 
 	@Override
 	public void run() throws GameActionException {
@@ -45,7 +43,7 @@ public class SoldierSwarm
 
 	@Override
 	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_SOLDIER_COUNT);
+		robot.com.increment(Communicator.CHANNEL_SOLDIER_COUNT, Clock.getRoundNum());
 	}
 	
 	@Override

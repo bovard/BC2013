@@ -14,6 +14,7 @@ import team122.behavior.soldier.SoldierEncamper;
 import team122.behavior.soldier.SoldierSelector;
 import team122.communication.CommunicationDecoder;
 import team122.communication.Communicator;
+import team122.communication.SoldierDecoder;
 import team122.trees.HQTree;
 import team122.utils.EncampmentSorter;
 
@@ -41,18 +42,6 @@ public class HQ extends TeamRobot {
 		super(rc, info);
 		hqUtils = new HQUtils(rc, com, mapInfo);
 		tree = new HQTree(this);
-		com.seedChannels(5, new int[] {
-			Communicator.CHANNEL_NEW_SOLDIER_MODE, 
-			Communicator.CHANNEL_GENERATOR_COUNT, 
-			Communicator.CHANNEL_SUPPLIER_COUNT, 
-			Communicator.CHANNEL_ARTILLERY_COUNT, 
-			Communicator.CHANNEL_SOLDIER_COUNT, 
-			Communicator.CHANNEL_MINER_COUNT, 
-			Communicator.CHANNEL_ENCAMPER_COUNT,
-			Communicator.CHANNEL_DEFENDER_COUNT,
-			Communicator.CHANNEL_NUKE_COUNT,
-			Communicator.CHANNEL_ENCAMPER_LOCATION,
-		});
 		nukeCount = 0;
 		rush = false;
 		darkHorse = false;
@@ -83,48 +72,6 @@ public class HQ extends TeamRobot {
 			hqUtils.counts();
 		}
 	}
-
-
-	/**
-	 * Spawns a user in any random direction.
-	 * @param type
-	 * @throws GameActionException
-	 */
-	public void spawn(int type) throws GameActionException {
-
-		int tries = 0;
-		while (tries < 8) {
-			Direction dir = Direction.values()[(int)(Math.random() * 8)];
-			
-			if (rc.canMove(dir)) {
-				rc.spawn(dir);	
-				System.out.println("Spawning: " + type);
-				com.communicate(Communicator.CHANNEL_NEW_SOLDIER_MODE, type);
-				break;
-			}
-		}
-	}
-	
-	/**
-	 * 
-	 * @param type
-	 * @param dec
-	 */
-	public void spawn(int type, CommunicationDecoder dec, int decChannel) throws GameActionException {
-
-		if (rc.isActive()) {
-			int tries = 0;
-			while (tries < 8) {
-				Direction dir = Direction.values()[(int)(Math.random() * 8)];
-				if (rc.canMove(dir)) {
-					com.communicate(Communicator.CHANNEL_NEW_SOLDIER_MODE, type);
-					com.communicateWithPosition(dec, decChannel);
-					rc.spawn(dir);
-					break;
-				}
-			}
-		}
-	}
 	
 	/**
 	 * calculates the economics of the board.  This is 
@@ -140,16 +87,6 @@ public class HQ extends TeamRobot {
 
 		encampmentSorter.getEncampments();
 		encampmentSorter.calculate();
-
-		if (rc.isActive()) {
-			
-			//Attempts to spawn an atrillery or supplier.
-			if (spawnSupplier()) { 
-				System.out.println("SPAWNING SUPP");
-			} else if (spawnArtillery()) { 
-				System.out.println("SPAWNING ARTILLERY!");
-			}
-		}
 	}
 
 	/**
@@ -157,7 +94,7 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public void spawnSwarmer() throws GameActionException {
-		spawn(SoldierSelector.SOLDIER_SWARMER);
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_SWARMER, 1));
 	}
 
 	/**
@@ -165,7 +102,7 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public void spawnMiner() throws GameActionException {
-		spawn(SoldierSelector.SOLDIER_MINER);
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_MINER, 1));
 	}
 	
 	/**
@@ -177,8 +114,7 @@ public class HQ extends TeamRobot {
 		MapLocation loc = encampmentSorter.popGenerator();
 		
 		if (loc != null) {
-			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.GENERATOR_ENCAMPER);
-			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		
+			_spawn(new SoldierDecoder(SoldierEncamper.GENERATOR_ENCAMPER, loc));		
 			return true;
 		}
 		return false;
@@ -193,8 +129,7 @@ public class HQ extends TeamRobot {
 		MapLocation loc = encampmentSorter.popGenerator();
 
 		if (loc != null) {
-			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.SUPPLIER_ENCAMPER);
-			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		
+			_spawn(new SoldierDecoder(SoldierEncamper.SUPPLIER_ENCAMPER, loc));		
 			return true;
 		}
 		return false;
@@ -208,8 +143,7 @@ public class HQ extends TeamRobot {
 	public boolean spawnArtillery() throws GameActionException {
 		MapLocation loc = encampmentSorter.popArtillery();
 		if (loc!= null) {
-			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.ARTILLERY_ENCAMPER);
-			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		
+			_spawn(new SoldierDecoder(SoldierEncamper.ARTILLERY_ENCAMPER, loc));		
 			return true;
 		}
 		return false;
@@ -217,20 +151,23 @@ public class HQ extends TeamRobot {
 
 
 	/**
-	 * Spawns a artillery soldier if there are artillery spots left, else it returns false if no 
-	 * encamper has been spawned.
-	 * @return
+	 * Spawns a user in any random direction.
+	 * @param type
+	 * @throws GameActionException
 	 */
-	public boolean spawnDarkHorse() throws GameActionException {
-		MapLocation loc = encampmentSorter.popDarkHorse();
-		if (loc!= null) {
-			CommunicationDecoder decoder = new CommunicationDecoder(loc, SoldierEncamper.ARTILLERY_ENCAMPER);
-			spawn(SoldierSelector.SOLDIER_ENCAMPER, decoder, Communicator.CHANNEL_ENCAMPER_LOCATION);		
-			return true;
+	private void _spawn(SoldierDecoder dec) throws GameActionException {
+
+		int tries = 0;
+		while (tries < 8) {
+			Direction dir = Direction.values()[(int)(Math.random() * 8)];
+			
+			if (rc.canMove(dir)) {
+				rc.spawn(dir);
+				com.communicate(dec, Communicator.CHANNEL_NEW_SOLDIER_MODE, Clock.getRoundNum());
+				break;
+			}
 		}
-		return false;
 	}
-	
 
 	
 	/**

@@ -24,8 +24,7 @@ public class HQSpawnMP extends Behavior {
 		upgrades[4] = Upgrade.NUKE;
 	}
 	
-	private int genSpawn = 0;
-	private int artSpawn = 0;
+	private int spawn = 0;
 	
 	@Override
 	public void run() throws GameActionException {
@@ -35,7 +34,18 @@ public class HQSpawnMP extends Behavior {
 		if (robot.rc.hasUpgrade(Upgrade.FUSION)) {
 			robot.rc.researchUpgrade(Upgrade.FUSION);
 		} else {
-			robot.spawnGenerator();
+			if (spawn % 10 == 0) {
+				robot.spawnArtillery();
+			} else if (spawn % 10 == 1) {
+				robot.spawnGenerator();
+			} else if (spawn % 10 == 2) {
+//				robot.spawnMiner();
+			} else if (spawn % 10 == 3) {
+				robot.spawnSupplier();
+			} else if (spawn % 10 == 4) {
+//				robot.spawnSwarmer();
+			}
+			spawn++;
 		}
 		HQUtils.calculate(robot);
 		
