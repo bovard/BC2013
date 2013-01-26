@@ -6,7 +6,6 @@ import team122.behavior.Behavior;
 import team122.communication.Communicator;
 import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
-import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
