@@ -1,24 +1,20 @@
 package team122.communication;
 
-import java.util.HashMap;
+import battlecode.common.Clock;
 import battlecode.common.GameActionException;
-import battlecode.common.MapLocation;
+import battlecode.common.GameConstants;
 import battlecode.common.RobotController;
 
 public class Communicator {
 
 	public RobotController rc;
-	private HashMap<Integer, Integer[]> modeToChannels;
-	private boolean init = false;
+	
 	
 	//TODO: If the channels idea with hashmap costs to many byte codes then we need to use
 	//if / else statements.
 	
 	public Communicator(RobotController rc) {
 		this.rc = rc;
-
-		modeToChannels = new HashMap<Integer, Integer[]>();
-		init = true;
 	}
 	
 	/**
@@ -26,37 +22,36 @@ public class Communicator {
 	 * @param data
 	 * @throws GameActionException 
 	 */
-	public void communicate(int mode, int data) throws GameActionException {
-		Integer[] channels = modeToChannels.get(mode);
+	public void communicate(int mode, int round, int data) throws GameActionException {
+		int[] channels = _channels(mode, round);
 		
 		rc.broadcast(channels[0], data);
 		rc.broadcast(channels[1], data);
 		rc.broadcast(channels[2], data);
 	}
+
 	
 	/**
-	 * Shortcut for the communicate channel.
-	 * @param channels
+	 * Communicates the soldier mode to HQ.  This way HQ
 	 * @param data
-	 * @throws GameActionException
+	 * @throws GameActionException 
 	 */
-	public void communicate(Integer[] channels, int data) throws GameActionException {
+	public void communicate(int[] channels, int data) throws GameActionException {
 		rc.broadcast(channels[0], data);
 		rc.broadcast(channels[1], data);
 		rc.broadcast(channels[2], data);
 	}
 	
 	/**
-	 * Clears the channel of any data.
+	 * communicates with a decoder.
+	 * @param com
 	 * @param mode
-	 * @throws GameActionException
+	 * @param round
+	 * @throws GameActionException 
 	 */
-	public void clear(int mode) throws GameActionException {
-		Integer[] channels = modeToChannels.get(mode);
-		
-		rc.broadcast(channels[0], -1);
-		rc.broadcast(channels[1], -1);
-		rc.broadcast(channels[2], -1);
+	public void communicate(CommunicationDecoder com, int mode, int round) throws GameActionException {
+		int[] channels = _channels(mode, round);
+		communicate(channels, com.getData());
 	}
 	
 	/**
@@ -64,8 +59,17 @@ public class Communicator {
 	 * @param mode
 	 * @throws GameActionException 
 	 */
-	public void increment(int mode) throws GameActionException {
-		Integer[] channels = modeToChannels.get(mode);
+	public void increment(int mode, int round) throws GameActionException {
+		increment(mode, round, 1);
+	}
+	
+	/**
+	 * incrementing a channel by a variable amount.
+	 * @param mode
+	 * @param amount
+	 */
+	public void increment(int mode, int round, int amount) throws GameActionException {
+		int[] channels = _channels(mode, round);
 		int value = _getData(channels, -1);
 		
 		if (value < 0) {
@@ -88,9 +92,9 @@ public class Communicator {
 	 * @param data
 	 * @throws GameActionException
 	 */
-	public void communicateWithPosition(CommunicationDecoder dec, int channel) throws GameActionException {
-		Integer[] channels = modeToChannels.get(channel);
-		int data = dec.toData();
+	public void communicateWithPosition(CommunicationDecoder dec, int channel, int round) throws GameActionException {
+		int data = dec.getData();
+		int[] channels = _channels(channel, round);
 		
 		rc.broadcast(channels[0], data);
 		rc.broadcast(channels[1], data);
@@ -101,28 +105,28 @@ public class Communicator {
 	 * Receives data with map location.
 	 * @throws GameActionException 
 	 */
-	public CommunicationDecoder receiveWithLocation(int mode) throws GameActionException {
-		return new CommunicationDecoder(_getData(modeToChannels.get(mode), 0));
+	public SoldierDecoder receiveNewSoldier() throws GameActionException {
+		return new SoldierDecoder(_getData(_channels(Communicator.CHANNEL_NEW_SOLDIER_MODE, Clock.getRoundNum()), 0));
 	}
 	
 	/**
 	 * The soldier will call this to determine what type of soldier to become.
 	 * @throws GameActionException 
 	 */
-	public int receive(int mode) throws GameActionException {	
-		return _getData(modeToChannels.get(mode), -1);
+	public int receive(int mode, int round) throws GameActionException {	
+		
+		return _getData(_channels(mode, round), -1);
 	}
+
 	
 	/**
-	 * Gets the data but allows for a default.
-	 * @param channels
-	 * @param defaultData
-	 * @return
-	 * @throws GameActionException
+	 * The soldier will call this to determine what type of soldier to become.
+	 * @throws GameActionException 
 	 */
-	public int receive(int mode, int defaultData) throws GameActionException {
-		return _getData(modeToChannels.get(mode), defaultData);
-	}	
+	public int receive(int mode, int round, int defaultData) throws GameActionException {	
+		
+		return _getData(_channels(mode, round), defaultData);
+	}
 	
 	/**
 	 * Gets data from the stream.
@@ -131,7 +135,7 @@ public class Communicator {
 	 * @return
 	 * @throws GameActionException 
 	 */
-	private int _getData(Integer[] channels, int defaultValue) throws GameActionException {
+	private int _getData(int[] channels, int defaultValue) throws GameActionException {
 
 		int modeA = 0, modeB = 0;
 		modeA = rc.readBroadcast(channels[0]);
@@ -153,91 +157,25 @@ public class Communicator {
 	}
 	
 	/**
-	 * Initializes the channels with the seed provided.
-	 * @param seed
+	 * Creates the channels from the mode.
+	 * @param mode
+	 * @param round
+	 * @return
 	 */
-	public void seedChannels(int seed, int[] channels) {
+	private int[] _channels(int mode, int round) {
+		int c1 = (mode * round * ALPHA) % MAX_CHANNELS;
 		
-		//Reseeds the channels.
-		modeToChannels.clear();
-		int seedMul = seed * SEED_MULTIPLIER;
-		int seedMulDiff = seedMul * CHANNEL_DIFFERENCE;
-		int seedMulDiff2x = seedMulDiff * 2;
-
-		for (int i = 0, len = channels.length; i < len; i++) {
-
-			Integer[] c = new Integer[3];
-			
-			if (channels[i] == CHANNEL_NEW_SOLDIER_MODE) {
-
-				//New Soldier	
-				c[0] = CHANNEL_NEW_SOLDIER_RANGE[0] + seedMul % CHANNEL_NEW_SOLDIER_RANGE[1];
-				c[1] = CHANNEL_NEW_SOLDIER_RANGE[0] + seedMulDiff % CHANNEL_NEW_SOLDIER_RANGE[1];
-				c[2] = CHANNEL_NEW_SOLDIER_RANGE[0] + seedMulDiff2x % CHANNEL_NEW_SOLDIER_RANGE[1];
-			} else if (channels[i] == CHANNEL_GENERATOR_COUNT) {
-				
-				//Generator Count
-				c[0] = CHANNEL_GENERATOR_COUNT_RANGE[0] + seedMul % CHANNEL_GENERATOR_COUNT_RANGE[1];
-				c[1] = CHANNEL_GENERATOR_COUNT_RANGE[0] + seedMulDiff % CHANNEL_GENERATOR_COUNT_RANGE[1];
-				c[2] = CHANNEL_GENERATOR_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_GENERATOR_COUNT_RANGE[1];
-			} else if (channels[i] == CHANNEL_ARTILLERY_COUNT) {
-				
-				//Artillery Count
-				c[0] = CHANNEL_ARTILLERY_COUNT_RANGE[0] + seedMul % CHANNEL_ARTILLERY_COUNT_RANGE[1];
-				c[1] = CHANNEL_ARTILLERY_COUNT_RANGE[0] + seedMulDiff % CHANNEL_ARTILLERY_COUNT_RANGE[1];
-				c[2] = CHANNEL_ARTILLERY_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_ARTILLERY_COUNT_RANGE[1];
-			} else if (channels[i] == CHANNEL_SUPPLIER_COUNT) {
-				
-				//Supplier Count
-				c[0] = CHANNEL_SUPPLIER_COUNT_RANGE[0] + seedMul % CHANNEL_SUPPLIER_COUNT_RANGE[1];
-				c[1] = CHANNEL_SUPPLIER_COUNT_RANGE[0] + seedMulDiff % CHANNEL_SUPPLIER_COUNT_RANGE[1];
-				c[2] = CHANNEL_SUPPLIER_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_SUPPLIER_COUNT_RANGE[1];
-			} else if (channels[i] == CHANNEL_SOLDIER_COUNT) {
-				
-				//Soldier Count
-				c[0] = CHANNEL_SOLDIER_COUNT_RANGE[0] + seedMul % CHANNEL_SOLDIER_COUNT_RANGE[1];
-				c[1] = CHANNEL_SOLDIER_COUNT_RANGE[0] + seedMulDiff % CHANNEL_SOLDIER_COUNT_RANGE[1];
-				c[2] = CHANNEL_SOLDIER_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_SOLDIER_COUNT_RANGE[1];
-			} else if (channels[i] == CHANNEL_MINER_COUNT) {
-				
-				//Miner Count
-				c[0] = CHANNEL_MINER_COUNT_RANGE[0] + seedMul % CHANNEL_MINER_COUNT_RANGE[1];
-				c[1] = CHANNEL_MINER_COUNT_RANGE[0] + seedMulDiff % CHANNEL_MINER_COUNT_RANGE[1];
-				c[2] = CHANNEL_MINER_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_MINER_COUNT_RANGE[1];
-			} else if (channels[i] == CHANNEL_ENCAMPER_COUNT) {
-				
-				//Encamper Count
-				c[0] = CHANNEL_ENCAMPER_COUNT_RANGE[0] + seedMul % CHANNEL_ENCAMPER_COUNT_RANGE[1];
-				c[1] = CHANNEL_ENCAMPER_COUNT_RANGE[0] + seedMulDiff % CHANNEL_ENCAMPER_COUNT_RANGE[1];
-				c[2] = CHANNEL_ENCAMPER_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_ENCAMPER_COUNT_RANGE[1];
-			} else if (channels[i] == CHANNEL_DEFENDER_COUNT) {
-				
-				//Defender Count
-				c[0] = CHANNEL_DEFENDER_COUNT_RANGE[0] + seedMul % CHANNEL_DEFENDER_COUNT_RANGE[1];
-				c[1] = CHANNEL_DEFENDER_COUNT_RANGE[0] + seedMulDiff % CHANNEL_DEFENDER_COUNT_RANGE[1];
-				c[2] = CHANNEL_DEFENDER_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_DEFENDER_COUNT_RANGE[1];
-			} else if (channels[i] == CHANNEL_ENCAMPER_LOCATION) {
-
-				//Encamper Location
-				c[0] = CHANNEL_ENCAMPER_LOCATION_RANGE[0] + seedMul % CHANNEL_ENCAMPER_LOCATION_RANGE[1];
-				c[1] = CHANNEL_ENCAMPER_LOCATION_RANGE[0] + seedMulDiff % CHANNEL_ENCAMPER_LOCATION_RANGE[1];
-				c[2] = CHANNEL_ENCAMPER_LOCATION_RANGE[0] + seedMulDiff2x % CHANNEL_ENCAMPER_LOCATION_RANGE[1];
-			} else if (channels[i] == CHANNEL_NUKE_COUNT) {
-
-				//Encamper Location
-				c[0] = CHANNEL_NUKE_COUNT_RANGE[0] + seedMul % CHANNEL_NUKE_COUNT_RANGE[1];
-				c[1] = CHANNEL_NUKE_COUNT_RANGE[0] + seedMulDiff % CHANNEL_NUKE_COUNT_RANGE[1];
-				c[2] = CHANNEL_NUKE_COUNT_RANGE[0] + seedMulDiff2x % CHANNEL_NUKE_COUNT_RANGE[1];
-			}
-
-			modeToChannels.put(channels[i], c);
-		} // end for 
+		return new int[] {
+			c1, (c1 + BETA) % MAX_CHANNELS, (c1 + BETA + BETA) % MAX_CHANNELS
+		};
 	}
 	
 	/**
 	 * The additional difference between communication channel.
 	 */
-	public static final int CHANNEL_DIFFERENCE = 1021;
+	public static final int MAX_CHANNELS = GameConstants.BROADCAST_MAX_CHANNELS;
+	public static final int ALPHA = 38747;
+	public static final int BETA = 39929;
 	public static final int CHANNEL_NEW_SOLDIER_MODE = 1;
 	public static final int CHANNEL_GENERATOR_COUNT = 2;
 	public static final int CHANNEL_SUPPLIER_COUNT = 3;
@@ -247,18 +185,5 @@ public class Communicator {
 	public static final int CHANNEL_MINER_COUNT = 7;
 	public static final int CHANNEL_DEFENDER_COUNT = 8;
 	public static final int CHANNEL_NUKE_COUNT = 9;
-	public static final int CHANNEL_ENCAMPER_LOCATION = 15;
-	public static final int SEED_MULTIPLIER = 17;
-	
-	//Ranges:   {StartPt, Range}
-	public static final Integer[] CHANNEL_NEW_SOLDIER_RANGE = new Integer[] {3000, 4000};
-	public static final Integer[] CHANNEL_GENERATOR_COUNT_RANGE = new Integer[] {7000, 4000};
-	public static final Integer[] CHANNEL_SUPPLIER_COUNT_RANGE = new Integer[] {11000, 4000};
-	public static final Integer[] CHANNEL_ARTILLERY_COUNT_RANGE = new Integer[] {15000, 4000};
-	public static final Integer[] CHANNEL_MINER_COUNT_RANGE = new Integer[] {19000, 4000};
-	public static final Integer[] CHANNEL_SOLDIER_COUNT_RANGE = new Integer[] {23000, 4000};
-	public static final Integer[] CHANNEL_ENCAMPER_COUNT_RANGE = new Integer[] {27000, 4000};
-	public static final Integer[] CHANNEL_DEFENDER_COUNT_RANGE = new Integer[] {31000, 4000};
-	public static final Integer[] CHANNEL_ENCAMPER_LOCATION_RANGE = new Integer[] {35000, 4000};
-	public static final Integer[] CHANNEL_NUKE_COUNT_RANGE = new Integer[] {39000, 4000};
+	public static final int CHANNEL_ENCAMPER_LOCATION = 10;
 }

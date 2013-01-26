@@ -7,6 +7,7 @@ import team122.behavior.IComBehavior;
 import team122.communication.Communicator;
 import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
+import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -50,7 +51,7 @@ public class SoldierDefenseMiner
 	
 	@Override
 	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_MINER_COUNT);
+		robot.com.increment(Communicator.CHANNEL_MINER_COUNT, Clock.getRoundNum());
 	}
 
 	/**

@@ -17,9 +17,6 @@ public class Generator extends TeamRobot {
 	public Generator(RobotController rc, RobotInformation info) {
 		super(rc, info);
 		tree = new GeneratorTree(this);
-		com.seedChannels(5, new int[] { 
-			Communicator.CHANNEL_GENERATOR_COUNT
-		});
 	}
 
 	@Override
@@ -34,8 +31,8 @@ public class Generator extends TeamRobot {
 			}
 		}
 
-		if (Clock.getRoundNum() % HQ.HQ_COUNT_ROUND - 1 == 0) {
-			com.increment(Communicator.CHANNEL_GENERATOR_COUNT);
+		if ((Clock.getRoundNum() + 1) % HQ.HQ_COUNT_ROUND == 0) {
+			com.increment(Communicator.CHANNEL_GENERATOR_COUNT, Clock.getRoundNum() + 1);
 		}
 	}
 }

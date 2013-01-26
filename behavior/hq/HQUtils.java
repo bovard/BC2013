@@ -1,5 +1,8 @@
 package team122.behavior.hq;
 
+import java.util.Arrays;
+
+import battlecode.common.Clock;
 import battlecode.common.GameActionException;
 import battlecode.common.GameConstants;
 import battlecode.common.MapLocation;
@@ -8,6 +11,8 @@ import battlecode.common.Upgrade;
 import team122.MapInformation;
 import team122.RobotInformation;
 import team122.communication.Communicator;
+import team122.robot.HQ;
+import team122.utils.QuicksortTree;
 
 public class HQUtils {
 	
@@ -108,15 +113,17 @@ public class HQUtils {
 		minerCount = com.receive(Communicator.CHANNEL_MINER_COUNT, 0);
 		defenderCount = com.receive(Communicator.CHANNEL_DEFENDER_COUNT, 0);
 		nukeDefenderCount = com.receive(Communicator.CHANNEL_NUKE_COUNT, 0);
+		
+		int round = Clock.getRoundNum();
 
 		//Erases so counts will be accurate.
-		com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_ARTILLERY_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_SUPPLIER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_MINER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
-		com.communicate(Communicator.CHANNEL_NUKE_COUNT, 0);
+		com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_ARTILLERY_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_SUPPLIER_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_MINER_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, round, 0);
+		com.communicate(Communicator.CHANNEL_NUKE_COUNT, round, 0);
 		
 		// Basic calculations that are needed by the HQ.
 		totalSoldierCount = soldierCount + encamperCount + minerCount + defenderCount + nukeDefenderCount;
@@ -128,5 +135,22 @@ public class HQUtils {
 		powerConsumptionFromSoldiers = GameConstants.UNIT_POWER_UPKEEP * (totalSoldierCount + totalEncampmentCount);
 	}
 
+	public static final void calculate(HQ robot) {
+		
+		if (!robot.encampmentSorter.finishBaseCalculation) {
+			robot.encampmentSorter.calculate();
+		} else if (!robot.encampmentSorter.generatorTree.done || !robot.encampmentSorter.artilleryTree.done) {
+			
+			if (!robot.encampmentSorter.generatorTree.done) {
+				robot.encampmentSorter.generatorTree.sort();
+			}
+			
+			if (!robot.encampmentSorter.artilleryTree.done) {
+				robot.encampmentSorter.artilleryTree.sort();
+			}
+		} else {
+			
+		}
+	}
 	
 }

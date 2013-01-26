@@ -12,6 +12,7 @@ import team122.behavior.IComBehavior;
 import team122.behavior.Node;
 import team122.combat.MoveCalculator;
 import team122.communication.Communicator;
+import team122.communication.SoldierDecoder;
 import team122.navigation.SoldierMove;
 import team122.trees.SoldierTree;
 
@@ -26,31 +27,17 @@ public class Soldier extends TeamRobot {
 	public MapLocation currentLoc;
 	public MapLocation previousLoc;
 	public boolean isNew = true;
-	public int initialData;
-	public int initialMode;
 	public MoveCalculator mCalc;
 	public boolean loadDone = false;
 	public MapLocation[] neutral_mines;
 	public MapLocation[] allied_mines;
 	public MapLocation[] enemy_mines;
 	public SoldierMove move;
+	public SoldierDecoder dec;
 	
 	public Soldier(RobotController rc, RobotInformation info) {
 		super(rc, info);
 		this.move = new SoldierMove(this);
-
-		com.seedChannels(5, new int[] {
-			Communicator.CHANNEL_NEW_SOLDIER_MODE,
-			Communicator.CHANNEL_MINER_COUNT,
-			Communicator.CHANNEL_ENCAMPER_COUNT,
-			Communicator.CHANNEL_SOLDIER_COUNT,
-			Communicator.CHANNEL_DEFENDER_COUNT,
-			Communicator.CHANNEL_NUKE_COUNT,
-			Communicator.CHANNEL_ENCAMPER_LOCATION,
-			Communicator.CHANNEL_SUPPLIER_COUNT,
-			Communicator.CHANNEL_ARTILLERY_COUNT,
-			Communicator.CHANNEL_GENERATOR_COUNT
-		});
 		
 		this.tree = new SoldierTree(this);
 		mCalc = new MoveCalculator(this);
@@ -66,7 +53,6 @@ public class Soldier extends TeamRobot {
 		enemyInMelee = false;
 		previousLoc = currentLoc;
 		currentLoc = rc.getLocation();
-		//System.out.println("im at "+currentLoc.toString());
 		neutral_mines = rc.senseMineLocations(currentLoc, 3, Team.NEUTRAL);
 		allied_mines = rc.senseMineLocations(currentLoc, 3, info.myTeam);
 		

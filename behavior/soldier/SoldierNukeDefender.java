@@ -25,7 +25,7 @@ public class SoldierNukeDefender extends Behavior implements IComBehavior {
 	 */
 	@Override
 	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_NUKE_COUNT);
+		robot.com.increment(Communicator.CHANNEL_NUKE_COUNT, Clock.getRoundNum());
 	}
 
 	@Override

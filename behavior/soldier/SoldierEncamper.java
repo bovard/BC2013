@@ -1,5 +1,6 @@
 package team122.behavior.soldier;
 
+import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -21,42 +22,32 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	public MapLocation encampment;
 	public boolean canCapture = true;
 	private SoldierMove move;
+	public boolean init = false;
 
 	public SoldierEncamper(Soldier robot) {
 		this.robot = robot;
 		info = robot.info;
 		move = new SoldierMove(robot);
-		
-		//Grabs the communcation for the encamp location.
-		try {
-			
-			//Gets the decoder, now will update
-			CommunicationDecoder decoder = robot.com.receiveWithLocation(Communicator.CHANNEL_ENCAMPER_LOCATION);
-			encampment = decoder.location;
-			
-			if (decoder.command == GENERATOR_ENCAMPER) {
-				encampmentType = RobotType.GENERATOR;
-			} else if (decoder.command == SUPPLIER_ENCAMPER) {
-				encampmentType = RobotType.SUPPLIER;
-			} else if (decoder.command == ARTILLERY_ENCAMPER) {
-				encampmentType = RobotType.ARTILLERY;
-			}
-			
-			move.destination = encampment;
-			robot.com.clear(Communicator.CHANNEL_ENCAMPER_LOCATION);
-		} catch (Exception e) {
-			
-			//TODO: WHAT TO DO WITH THIS?!
-			robot.initialMode = SoldierSelector.SOLDIER_NUKE;
-			canCapture = false;
-		}
 	}
 
 	/**
 	 * When we start we determine if there is any allied encampments
 	 */
 	public void start() throws GameActionException {
-		//Anything to do?
+
+		if (!init) {
+			move.destination = robot.dec.loc;
+			
+			if (robot.dec.groupOrEncampmentType == GENERATOR_ENCAMPER) {
+				encampmentType = RobotType.GENERATOR;
+			} else if (robot.dec.groupOrEncampmentType == SUPPLIER_ENCAMPER) {
+				encampmentType = RobotType.SUPPLIER;
+			} else if (robot.dec.groupOrEncampmentType == ARTILLERY_ENCAMPER) {
+				encampmentType = RobotType.ARTILLERY;
+			}
+			
+			init = true;
+		}
 	}
 
 	/**
@@ -65,11 +56,11 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	@Override
 	public void comBehavior() throws GameActionException {
 		if (encampmentType == RobotType.GENERATOR) {
-			robot.com.increment(Communicator.CHANNEL_GENERATOR_COUNT);
+			robot.com.increment(Communicator.CHANNEL_GENERATOR_COUNT, Clock.getRoundNum());
 		} else if (encampmentType == RobotType.SUPPLIER) {
-			robot.com.increment(Communicator.CHANNEL_SUPPLIER_COUNT);
+			robot.com.increment(Communicator.CHANNEL_SUPPLIER_COUNT, Clock.getRoundNum());
 		} else if (encampmentType == RobotType.ARTILLERY) {
-			robot.com.increment(Communicator.CHANNEL_ARTILLERY_COUNT);
+			robot.com.increment(Communicator.CHANNEL_ARTILLERY_COUNT, Clock.getRoundNum());
 		}
 	}
 
