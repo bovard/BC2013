@@ -25,7 +25,7 @@ public class SoldierCombat
 	 */
 	@Override
 	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_SOLDIER_COUNT, Clock.getRoundNum());
+		robot.com.increment(Communicator.CHANNEL_SOLDIER_COUNT, Clock.getRoundNum() + 1);
 	}
 	
 

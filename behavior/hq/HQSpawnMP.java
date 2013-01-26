@@ -35,7 +35,12 @@ public class HQSpawnMP extends Behavior {
 		if (!robot.rc.hasUpgrade(Upgrade.VISION)) {
 			robot.rc.researchUpgrade(Upgrade.VISION);
 		} else {
-			robot.spawnArtillery();
+			if (genSpawn % 5 == 0) {
+				robot.spawnSupplier();
+			} else {
+				robot.spawnGenerator();
+			}
+			genSpawn++;
 		}
 //		if (genSpawn <= artSpawn) {
 //			if (rand.nextInt() % 4 == 0) {

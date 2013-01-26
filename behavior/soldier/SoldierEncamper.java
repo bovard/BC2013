@@ -8,7 +8,6 @@ import battlecode.common.RobotType;
 import team122.RobotInformation;
 import team122.behavior.Behavior;
 import team122.behavior.IComBehavior;
-import team122.communication.CommunicationDecoder;
 import team122.communication.Communicator;
 import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
@@ -56,11 +55,11 @@ public class SoldierEncamper extends Behavior implements IComBehavior {
 	@Override
 	public void comBehavior() throws GameActionException {
 		if (encampmentType == RobotType.GENERATOR) {
-			robot.com.increment(Communicator.CHANNEL_GENERATOR_COUNT, Clock.getRoundNum());
+			robot.com.increment(Communicator.CHANNEL_GENERATOR_COUNT, Clock.getRoundNum() + 1);
 		} else if (encampmentType == RobotType.SUPPLIER) {
-			robot.com.increment(Communicator.CHANNEL_SUPPLIER_COUNT, Clock.getRoundNum());
+			robot.com.increment(Communicator.CHANNEL_SUPPLIER_COUNT, Clock.getRoundNum() + 1);
 		} else if (encampmentType == RobotType.ARTILLERY) {
-			robot.com.increment(Communicator.CHANNEL_ARTILLERY_COUNT, Clock.getRoundNum());
+			robot.com.increment(Communicator.CHANNEL_ARTILLERY_COUNT, Clock.getRoundNum() + 1);
 		}
 	}
 

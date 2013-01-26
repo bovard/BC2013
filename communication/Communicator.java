@@ -60,6 +60,7 @@ public class Communicator {
 	 * @throws GameActionException 
 	 */
 	public void increment(int mode, int round) throws GameActionException {
+		System.out.println("Incrementing: " + mode + " : " + round);
 		increment(mode, round, 1);
 	}
 	
@@ -174,8 +175,8 @@ public class Communicator {
 	 * The additional difference between communication channel.
 	 */
 	public static final int MAX_CHANNELS = GameConstants.BROADCAST_MAX_CHANNELS;
-	public static final int ALPHA = 38747;
-	public static final int BETA = 39929;
+	public static final int ALPHA = 39989;
+	public static final int BETA = 30029;
 	public static final int CHANNEL_NEW_SOLDIER_MODE = 1;
 	public static final int CHANNEL_GENERATOR_COUNT = 2;
 	public static final int CHANNEL_SUPPLIER_COUNT = 3;

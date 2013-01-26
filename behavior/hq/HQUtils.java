@@ -105,34 +105,28 @@ public class HQUtils {
 	 */
 	public void counts() throws GameActionException {
 		//Stores this rounds counts
-		generatorCount = com.receive(Communicator.CHANNEL_GENERATOR_COUNT, 0);
-		artilleryCount = com.receive(Communicator.CHANNEL_ARTILLERY_COUNT, 0);
-		supplierCount = com.receive(Communicator.CHANNEL_SUPPLIER_COUNT, 0);
-		soldierCount = com.receive(Communicator.CHANNEL_SOLDIER_COUNT, 0);
-		encamperCount = com.receive(Communicator.CHANNEL_ENCAMPER_COUNT, 0);
-		minerCount = com.receive(Communicator.CHANNEL_MINER_COUNT, 0);
-		defenderCount = com.receive(Communicator.CHANNEL_DEFENDER_COUNT, 0);
-		nukeDefenderCount = com.receive(Communicator.CHANNEL_NUKE_COUNT, 0);
-		
-		int round = Clock.getRoundNum();
-
-		//Erases so counts will be accurate.
-		com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, round, 0);
-		com.communicate(Communicator.CHANNEL_ARTILLERY_COUNT, round, 0);
-		com.communicate(Communicator.CHANNEL_SUPPLIER_COUNT, round, 0);
-		com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, round, 0);
-		com.communicate(Communicator.CHANNEL_MINER_COUNT, round, 0);
-		com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, round, 0);
-		com.communicate(Communicator.CHANNEL_NUKE_COUNT, round, 0);
+		generatorCount = com.receive(Communicator.CHANNEL_GENERATOR_COUNT, Clock.getRoundNum(), 0);
+		artilleryCount = com.receive(Communicator.CHANNEL_ARTILLERY_COUNT,  Clock.getRoundNum(), 0);
+		supplierCount = com.receive(Communicator.CHANNEL_SUPPLIER_COUNT,  Clock.getRoundNum(), 0);
+		soldierCount = com.receive(Communicator.CHANNEL_SOLDIER_COUNT,  Clock.getRoundNum(), 0);
+		encamperCount = com.receive(Communicator.CHANNEL_ENCAMPER_COUNT,  Clock.getRoundNum(), 0);
+		minerCount = com.receive(Communicator.CHANNEL_MINER_COUNT,  Clock.getRoundNum(), 0);
+		defenderCount = com.receive(Communicator.CHANNEL_DEFENDER_COUNT,  Clock.getRoundNum(), 0);
+		nukeDefenderCount = com.receive(Communicator.CHANNEL_NUKE_COUNT,  Clock.getRoundNum(), 0);
 		
 		// Basic calculations that are needed by the HQ.
 		totalSoldierCount = soldierCount + encamperCount + minerCount + defenderCount + nukeDefenderCount;
 		totalEncampmentCount = generatorCount + supplierCount + artilleryCount;
 		
+		printState();
 		//Power production is correct but powerToCapture is incorrect.  Its overestimated.
 		powerProduction = generatorCount * GameConstants.GENERATOR_POWER_PRODUCTION + GameConstants.HQ_POWER_PRODUCTION;
 		powerToCaptureEncampment = GameConstants.CAPTURE_POWER_COST * (1 + totalEncampmentCount);
 		powerConsumptionFromSoldiers = GameConstants.UNIT_POWER_UPKEEP * (totalSoldierCount + totalEncampmentCount);
+	}
+	
+	public void printState() {
+		System.out.println("Gen: " + generatorCount + " : " + supplierCount + " : " + artilleryCount);
 	}
 
 	public static final void calculate(HQ robot) {

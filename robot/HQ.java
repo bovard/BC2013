@@ -68,7 +68,16 @@ public class HQ extends TeamRobot {
 						 (twoTurnsAgoPositive && oneTurnAgoPositive) || 
 						 (threeTurnsAgoPositive && oneTurnAgoPositive);
 		
-		if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
+		if ((Clock.getRoundNum() + 1) % HQ_COUNT_ROUND == 0) {
+
+			com.communicate(Communicator.CHANNEL_GENERATOR_COUNT, Clock.getRoundNum() + 1, 0);
+			com.communicate(Communicator.CHANNEL_ARTILLERY_COUNT, Clock.getRoundNum() + 1, 0);
+			com.communicate(Communicator.CHANNEL_SUPPLIER_COUNT, Clock.getRoundNum() + 1, 0);
+			com.communicate(Communicator.CHANNEL_SOLDIER_COUNT, Clock.getRoundNum() + 1, 0);
+			com.communicate(Communicator.CHANNEL_MINER_COUNT, Clock.getRoundNum() + 1, 0);
+			com.communicate(Communicator.CHANNEL_ENCAMPER_COUNT, Clock.getRoundNum() + 1, 0);
+			com.communicate(Communicator.CHANNEL_NUKE_COUNT, Clock.getRoundNum() + 1, 0);
+		} else if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
 			hqUtils.counts();
 		}
 	}

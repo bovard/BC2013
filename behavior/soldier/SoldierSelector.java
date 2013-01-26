@@ -42,9 +42,6 @@ public class SoldierSelector extends Decision {
 		if (robot.isNew) {
 			robot.dec = robot.com.receiveNewSoldier();
 			robot.isNew = false;
-			Behavior behavior = (Behavior)children.get(robot.dec.soldierType);
-			
-			return behavior;
 		}		
 
 		return children.get(robot.dec.soldierType);
