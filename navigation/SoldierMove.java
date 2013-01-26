@@ -1,5 +1,6 @@
 package team122.navigation;
 
+import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -12,6 +13,9 @@ public class SoldierMove {
 
 	protected Soldier robot;
 	public MapLocation destination;
+	private Direction bug;
+	private Direction lastBug;
+	private Direction bugGoal;
 	
 	public SoldierMove(Soldier robot) {
 		this.robot = robot;
@@ -73,6 +77,33 @@ public class SoldierMove {
 		if (toMove == Direction.NONE || toMove == Direction.OMNI)
 			return;
 		
+		if (bug != null) {
+			
+			if (robot.rc.canMove(bugGoal)) {
+				Team mine = robot.rc.senseMine(robot.currentLoc.add(bugGoal)); 
+				if (mine == Team.NEUTRAL || mine == robot.info.enemyTeam) {
+					robot.rc.defuseMine(robot.currentLoc.add(bugGoal));
+				} else {
+					robot.rc.move(bugGoal);
+					lastBug = bug;
+					bug = null;
+					bugGoal = null;
+				}
+				
+			} else {
+				robot.rc.setIndicatorString(0, "In bug moving " + bug.toString());
+				moveWithDiffuse(bug);
+			}
+		}
+		
+		if (bug == null && robot.rc.isActive()) {
+			moveWithDiffuse(toMove);
+		}
+		
+
+	}
+	
+	private void moveWithDiffuse(Direction toMove) throws GameActionException {
 		MapLocation ahead, left, right;
 		ahead = robot.currentLoc.add(toMove);
 		left = robot.currentLoc.add(toMove.rotateLeft());
@@ -153,19 +184,29 @@ public class SoldierMove {
 			robot.rc.defuseMine(left);
 		}
 		
-		// still can't move?  Lets just add intentional error move to get somewhere at least
+		// still can't move?  Activate/change bug direction
 
-		int tries = 0;
-		while (tries < 10 && robot.rc.isActive()) {
-			Direction dir = Direction.values()[(int) (Math.random() * 8)];
-			Team mine = robot.rc.senseMine(robot.currentLoc.add(dir)); 
-			if (mine == Team.NEUTRAL || mine == robot.info.enemyTeam) {
-				robot.rc.defuseMine(robot.currentLoc.add(dir));
-			} else if (robot.rc.canMove(dir)) {
-				robot.rc.move(dir);
+		
+		if (robot.rc.isActive()) {
+			// we aren't in bug and can't move, activate bug
+			if (bug == null) {
+				bugGoal = toMove;
+				if (Math.random() < 0.5) {
+					bug = toMove.rotateLeft().rotateLeft();
+				} else {
+					bug = toMove.rotateRight().rotateRight();
+				}
+				if (bug == lastBug) {
+					bug = bug.opposite();
+				}
+			} 
+			// we are in bug and can't move our target direction
+			// change our tracking direction!
+			else {
+				bug = bug.opposite();
 			}
-			tries++;
 		}
+		
 	}
 	
 	public static MapLocation BoundToBoard(TeamRobot robot, MapLocation loc) {

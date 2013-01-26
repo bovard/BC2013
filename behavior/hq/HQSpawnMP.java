@@ -33,22 +33,17 @@ public class HQSpawnMP extends Behavior {
 		
 		int round = Clock.getRoundNum();
 
-		if (count < 5 && Math.random() < .5) {
-			count++;
-			robot.spawnSwarmer();	
+		if (!robot.rc.hasUpgrade(Upgrade.FUSION)) {
+			robot.rc.researchUpgrade(Upgrade.FUSION);
 		}
 		
-//		if (genSpawn <= artSpawn) {
-//			if (rand.nextInt() % 4 == 0) {
-//				robot.spawnSupplier();
-//			} else {
-//				robot.spawnGenerator();
-//			}
-//			genSpawn++;
-//		} else {
-//			robot.spawnArtillery();
-//			artSpawn++;
-//		}
+		if (genSpawn <= 2*artSpawn) {
+			robot.spawnGenerator();
+			genSpawn++;
+		} else {
+			robot.spawnArtillery();
+			artSpawn++;
+		}
 		
 		
 		//Nothign to do.  DO not over commit.
