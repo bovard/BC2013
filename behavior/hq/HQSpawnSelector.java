@@ -14,14 +14,12 @@ public class HQSpawnSelector extends Decision {
 		this.robot = robot;
 
 		this.children.add(new HQSpawnRush(robot));
-		this.children.add(new HQSpawnDarkHorse(robot));
 		this.children.add(new HQSpawnForceResearchNuke(robot));
 		this.children.add(new HQSpawnVsNukeBot(robot));
 		this.children.add(new HQSpawnVsNukeBotMiner(robot));
 		this.children.add(new HQSpawnVsNukeBotMinerPickax(robot));
 		this.children.add(new HQSpawnMP(robot));
 		this.children.get(HQ_SPAWN_RUSH).parent = this;
-		this.children.get(HQ_SPAWN_DARK_HORSE).parent = this;
 		this.children.get(HQ_SPAWN_FORCE_RESEARCH_NUKE).parent = this;
 		this.children.get(HQ_SPAWN_VS_NUKE_BOT).parent = this;
 		this.children.get(HQ_SPAWN_VS_NUKE_BOT_AND_MINER).parent = this;
@@ -60,10 +58,9 @@ public class HQSpawnSelector extends Decision {
 	}
 
 	public static final int HQ_SPAWN_RUSH = 0;
-	public static final int HQ_SPAWN_DARK_HORSE = 1;
-	public static final int HQ_SPAWN_FORCE_RESEARCH_NUKE = 2;
-	public static final int HQ_SPAWN_VS_NUKE_BOT = 3;
-	public static final int HQ_SPAWN_VS_NUKE_BOT_AND_MINER = 4;
-	public static final int HQ_SPAWN_VS_NUKE_BOT_MINER_PICKAX = 5;
-	public static final int HQ_SPAWN_MP_RUSH = 6;
+	public static final int HQ_SPAWN_FORCE_RESEARCH_NUKE = 1;
+	public static final int HQ_SPAWN_VS_NUKE_BOT = 2;
+	public static final int HQ_SPAWN_VS_NUKE_BOT_AND_MINER = 3;
+	public static final int HQ_SPAWN_VS_NUKE_BOT_MINER_PICKAX = 4;
+	public static final int HQ_SPAWN_MP_RUSH = 5;
 }

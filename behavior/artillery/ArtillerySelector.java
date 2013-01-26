@@ -22,7 +22,6 @@ public class ArtillerySelector extends Decision {
 	@Override
 	public Node select() {
 		if (robot.canShoot && robot.enemyNearby) {
-			System.out.println("Shooting");
 			return children.get(SHOOT);
 		}
 		else {

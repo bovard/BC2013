@@ -23,9 +23,6 @@ public class Artillery extends TeamRobot{
 		
 		//The seed is for a possible end time strategy of changing the seed to
 		//switch all channels.
-		com.seedChannels(5, new int[] {
-			Communicator.CHANNEL_ARTILLERY_COUNT
-		});
 		artilleryRange = RobotType.ARTILLERY.attackRadiusMaxSquared;
 	}
 
@@ -48,8 +45,8 @@ public class Artillery extends TeamRobot{
 			rc.setIndicatorString(0, "Can't shoot");
 		}
 
-		if (Clock.getRoundNum() % HQ.HQ_COUNT_ROUND - 1 == 0) {
-			com.increment(Communicator.CHANNEL_ARTILLERY_COUNT);
+		if ((Clock.getRoundNum() + 1) % HQ.HQ_COUNT_ROUND == 0) {
+			com.increment(Communicator.CHANNEL_ARTILLERY_COUNT, Clock.getRoundNum() + 1);
 		}
 	}
 

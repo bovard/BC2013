@@ -15,9 +15,6 @@ public class Supplier extends TeamRobot {
 	public Supplier(RobotController rc, RobotInformation info) {
 		super(rc, info);
 		tree = new SupplierTree(this);
-		com.seedChannels(5, new int[] { 
-			Communicator.CHANNEL_SUPPLIER_COUNT
-		});
 	}
 
 	@Override

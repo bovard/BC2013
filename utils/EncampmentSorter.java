@@ -1,4 +1,4 @@
-package team122;
+package team122.utils;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -29,25 +29,27 @@ public class EncampmentSorter {
 	public double uY;
 	public int hqX;
 	public int hqY;
+	public QuicksortTree generatorTree;
+	public QuicksortTree artilleryTree;
 
 	/**
 	 * State information about generators and artilleries being searched.
 	 */
 	private int _currentRound;
-	private MapLocation[] generatorEncampments;
-	private MapLocation[] artilleryEncampments;
-	private int[] generatorDistances;
-	private int[] artilleryDistances;
-	private int[] generatorScores;
-	private int[] artilleryScores;
-	private int artilleryLength = 0;
-	private int generatorLength = 0;
 	private int generatorIndex = 0;
 	private int artilleryIndex = 0;
 	private MapLocation[] alliedEncampments;
 	private int artilleryBuilds = 0;
 	private int generatorBuilds = 0;
 	private int totalEncampmentDivisor;
+	private MapLocation[] generatorEncampments;
+	private MapLocation[] artilleryEncampments;
+	private int[] generatorDistances;
+	private int[] artilleryDistances;
+	public int[] generatorScores;
+	public int[] artilleryScores;
+	private int artilleryLength = 0;
+	private int generatorLength = 0;
 	
 	//These should only be used in one spot and never set again.
 	private int __buildingGeneratorIndex = 0;
@@ -79,6 +81,9 @@ public class EncampmentSorter {
 
 		specialCaseX = enemy.x == hq.x;
 		specialCaseY = enemy.y == hq.y;
+
+		generatorTree = new QuicksortTree();
+		artilleryTree = new QuicksortTree();
 	}
 
 	/**
@@ -144,7 +149,7 @@ public class EncampmentSorter {
 				generatorIndex = 0;
 			}
 
-outer: 		do {
+			do {
 				generator = generatorEncampments[generatorIndex];
 				if (generator == null) {
 					break;
@@ -182,7 +187,7 @@ outer: 		do {
 				artilleryIndex = 0;
 			}
 
-outer:		do {
+			do {
 				artillery = artilleryEncampments[artilleryIndex];
 				if (artillery == null) {
 					break;
@@ -251,8 +256,7 @@ outer:		do {
 				generatorLength++;
 				generatorEncampments[__buildingGeneratorIndex] = enc;
 				generatorDistances[__buildingGeneratorIndex] = encampmentDistances[i];
-				generatorScores[__buildingGeneratorIndex++] = encampmentDistances[i]
-						- enemyDistances[i];
+				generatorScores[__buildingGeneratorIndex++] = encampmentDistances[i] - enemyDistances[i];
 
 			}
 		}
@@ -261,8 +265,8 @@ outer:		do {
 
 		finishBaseCalculation = !(_currentRound < totalEncampments);
 		if (finishBaseCalculation) {
-			System.out.println(Arrays.toString(artilleryEncampments));
-			System.out.println(Arrays.toString(generatorEncampments));
+			generatorTree.setData(generatorEncampments, generatorScores, generatorLength - 1);
+			artilleryTree.setData(artilleryEncampments, artilleryScores, artilleryLength - 1);
 		}
 		return finishBaseCalculation;
 	}

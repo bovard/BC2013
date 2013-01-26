@@ -42,7 +42,7 @@ public class SoldierDefender
 	
 	@Override
 	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_DEFENDER_COUNT);
+		robot.com.increment(Communicator.CHANNEL_DEFENDER_COUNT, Clock.getRoundNum());
 	}
 
 	/**
