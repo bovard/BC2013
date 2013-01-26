@@ -58,7 +58,7 @@ public class ArtilleryShotCalculator {
 					if (map[xi][yi] == 100) {
 						value += RobotType.ARTILLERY.attackPower * GameConstants.ARTILLERY_SPLASH_RATIO;
 					} else {
-						value += 2*map[xi][yi];
+						value += (1/GameConstants.ARTILLERY_SPLASH_RATIO) * map[xi][yi];
 					}
 					robot.rc.setIndicatorString(0, "Value: " + value);
 					if (value > bestValue) {
