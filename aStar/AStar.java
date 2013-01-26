@@ -120,9 +120,9 @@ public class AStar {
             openSet.remove(current);
             closedSet.add(current);
 
-            int shortest = 0,
-                distEnd,
-                dX,
+            double shortest = 0.0,
+                   distEnd;
+            int dX,
                 dY;
             for (int i = 0; i < 8; i++) {
             	if (i == 0) {
@@ -141,13 +141,13 @@ public class AStar {
                         	dY = end.y - adjacent.y;
 
                         	if (map[adjacent.y][adjacent.x] == 1) {
-                        		//distEnd = dX*dX + dY*dY + mineHeuristic * mineHeuristic * mineHeuristic;
-                        		distEnd = Math.abs(dX) + Math.abs(dY) + mineHeuristic / 2 + 1;
+                        		distEnd = dX*dX + dY*dY + 25 * mineHeuristic * 0.5 - 34;
+                        		//distEnd = Math.abs(dX) + Math.abs(dY) + mineHeuristic;
                         	} else {
-                        		//distEnd = dX*dX + dY*dY;
-                        		distEnd = Math.abs(dX) + Math.abs(dY);
+                        		distEnd = dX*dX + dY*dY;
+                        		//distEnd = Math.abs(dX) + Math.abs(dY);
                         	}
-                        	if (shortest == 0) {
+                        	if (shortest == 0.0) {
                         		shortest = distEnd;
                         	}
                         	if (distEnd <= shortest) {

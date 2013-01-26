@@ -25,7 +25,7 @@ public class TestDriver {
 	private static MapLocation[] mines = new MapLocation[] {
 		new MapLocation(204, 105),
 		new MapLocation(204, 106),
-		//new MapLocation(205, 106),
+		new MapLocation(205, 106),
 		new MapLocation(206, 105),
 		new MapLocation(206, 106),
 		new MapLocation(207, 105),
@@ -33,7 +33,7 @@ public class TestDriver {
 		new MapLocation(208, 105),
 		new MapLocation(208, 106),
 		new MapLocation(205, 107),
-		//new MapLocation(206, 107),
+		new MapLocation(206, 107),
 		new MapLocation(207, 107)
 	};
 	
