@@ -22,14 +22,16 @@ public class SoldierSelector extends Decision {
 		children.add(new SoldierNukeDefender(this.robot));
 		children.add(new SoldierBackDoor(this.robot));
 		children.add(new SoldierEncampHunter(this.robot));
+		children.add(new SoldierNukeIsArmed(this.robot));
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SWARMER).parent = this;
 		children.get(SOLDIER_ENCAMPER).parent = this;
 		children.get(SOLDIER_COMBAT).parent = this;
 		children.get(SOLDIER_DEFENDER).parent = this;
-		children.get(SOLDIER_NUKE).parent = this;
+		children.get(SOLDIER_NUKE_DEFENDER).parent = this;
 		children.get(SOLDIER_BACK_DOOR).parent = this;
 		children.get(SOLDIER_ENCAMP_HUNTER).parent = this;
+		children.get(SOLDIER_NUKE_IS_ARMED).parent = this;
 	}
 	
 	@Override
@@ -42,7 +44,11 @@ public class SoldierSelector extends Decision {
 		if (robot.isNew) {
 			robot.dec = robot.com.receiveNewSoldier();
 			robot.isNew = false;
-		}		
+		}
+		
+		if (robot.isNukeArmed) {
+			return children.get(SOLDIER_NUKE_IS_ARMED);
+		}
 
 		return children.get(robot.dec.soldierType);
 	}
@@ -57,7 +63,8 @@ public class SoldierSelector extends Decision {
 	public static final int SOLDIER_ENCAMPER = 2;
 	public static final int SOLDIER_COMBAT = 3;
 	public static final int SOLDIER_DEFENDER = 4;
-	public static final int SOLDIER_NUKE = 5;
+	public static final int SOLDIER_NUKE_DEFENDER = 5;
 	public static final int SOLDIER_BACK_DOOR = 6;
 	public static final int SOLDIER_ENCAMP_HUNTER = 7;
+	public static final int SOLDIER_NUKE_IS_ARMED = 8;
 }

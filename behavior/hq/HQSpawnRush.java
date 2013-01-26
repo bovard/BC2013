@@ -78,7 +78,7 @@ public class HQSpawnRush extends Behavior {
 
 	@Override
 	public boolean pre() {
-		return robot.rc.isActive() && robot.rush;
+		return robot.rc.isActive() && robot.rush && !robot.enemyResearchedNuke;
 	}
 	
 	public static final int MINER_COUNT = 1;

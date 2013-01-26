@@ -45,7 +45,7 @@ public class Artillery extends TeamRobot{
 			rc.setIndicatorString(0, "Can't shoot");
 		}
 
-		if ((Clock.getRoundNum() + 1) % HQ.HQ_COUNT_ROUND == 0) {
+		if ((Clock.getRoundNum() + 1) % HQ.HQ_COMMUNICATION_ROUND == 0) {
 			com.increment(Communicator.CHANNEL_ARTILLERY_COUNT, Clock.getRoundNum() + 1);
 		}
 	}

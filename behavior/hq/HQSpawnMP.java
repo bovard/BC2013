@@ -25,26 +25,28 @@ public class HQSpawnMP extends Behavior {
 		upgrades[4] = Upgrade.NUKE;
 	}
 	
-	private int genSpawn = 0;
-	private int artSpawn = 0;
+	private int spawned = 0;
 	
 	@Override
 	public void run() throws GameActionException {
 		
-		int round = Clock.getRoundNum();
-
-		if (!robot.rc.hasUpgrade(Upgrade.FUSION)) {
-			robot.rc.researchUpgrade(Upgrade.FUSION);
-		}
-		
-		if (genSpawn <= 2*artSpawn) {
+		if (spawned % 6 == 0) {
+			robot.spawnMiner();
+		} else if (spawned % 6 == 1) {
 			robot.spawnGenerator();
-			genSpawn++;
-		} else {
+		} else if (spawned % 6 == 2) {
+			robot.spawnSupplier();
+		} else if (spawned % 6 == 3) {
 			robot.spawnArtillery();
-			artSpawn++;
+		} else if (spawned % 6 == 4) {
+			robot.spawnMiner();
+		} else if (spawned % 6 == 5) {
+			robot.spawnEncampmentHunter();
 		}
 		
+		spawned++;
+		
+		HQUtils.calculate(robot);
 		
 		//Nothign to do.  DO not over commit.
 		return;
@@ -52,6 +54,6 @@ public class HQSpawnMP extends Behavior {
 
 	@Override
 	public boolean pre() {
-		return robot.rc.isActive();
+		return robot.rc.isActive() && !robot.enemyResearchedNuke;
 	}
 }

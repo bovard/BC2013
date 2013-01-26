@@ -82,11 +82,21 @@ public class HQUtils {
 
 	public static final void calculate(HQ robot) {
 		
+		//We want to calculate first
 		if (!robot.encampmentSorter.calculated) {
 			robot.encampmentSorter.calculate();
 		} else if (!robot.encampmentSorter.sorted) {
 			robot.encampmentSorter.sort();
-		} else {}
+		} else {
+			//TODO: I DO NT KNOW!
+			
+		}
+		
+		//sort second.
+//		if (robot.encampmentSorter.calculated && !robot.encampmentSorter.sorted) {
+//			robot.encampmentSorter.sort();
+//		}
+		
 	}
 	
 }

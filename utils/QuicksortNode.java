@@ -1,5 +1,7 @@
 package team122.utils;
 
+import java.util.Arrays;
+
 import battlecode.common.Clock;
 import battlecode.common.MapLocation;
 

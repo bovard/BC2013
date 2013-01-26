@@ -22,10 +22,6 @@ import team122.utils.GreedyEncampment;
 public class HQ extends TeamRobot {
 	public HQUtils hqUtils;
 	public boolean rush;
-	public boolean darkHorse;
-	public boolean vsNukeBot;
-	public boolean vsNukeBotAndMiner;
-	public boolean vsNukeBotAndMinerPickax;
 	public boolean forceNukeRush;
 	public EncampmentSorter encampmentSorter;
 	public MapInformation mapInfo;
@@ -45,10 +41,6 @@ public class HQ extends TeamRobot {
 		tree = new HQTree(this);
 		nukeCount = 0;
 		rush = false;
-		darkHorse = false;
-		vsNukeBot = false;
-		vsNukeBotAndMiner = false;
-		vsNukeBotAndMinerPickax = false;
 		enemyResearchedNuke = false;
 		forceNukeRush = false;
 		mapInfo = new MapInformation(rc);
@@ -70,11 +62,16 @@ public class HQ extends TeamRobot {
 						 (threeTurnsAgoPositive && oneTurnAgoPositive);
 		
 		//is the next round an inc round.
-		if ((Clock.getRoundNum() + 1) % HQ_COUNT_ROUND == 0) {
+		if ((Clock.getRoundNum() + 1) % HQ_COMMUNICATION_ROUND == 0) {
 
 			com.clear(Clock.getRoundNum() + 1);
-		} else if (Clock.getRoundNum() % HQ_COUNT_ROUND == 0) {
+		} else if (Clock.getRoundNum() % HQ_COMMUNICATION_ROUND == 0) {
 			hqUtils.counts();
+			
+			//COmmunicates nuke is armed upon each com round.
+			if (enemyResearchedNuke) {
+				com.nukeIsArmed();
+			}
 		}
 	}
 	
@@ -107,6 +104,22 @@ public class HQ extends TeamRobot {
 	 */
 	public void spawnMiner() throws GameActionException {
 		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_MINER, 1));
+	}
+
+	/**
+	 * Spawns a swarmer.
+	 * @return
+	 */
+	public void spawnBackdoor() throws GameActionException {
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_BACK_DOOR, 1));
+	}
+
+	/**
+	 * Spawns a swarmer.
+	 * @return
+	 */
+	public void spawnEncampmentHunter() throws GameActionException {
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_ENCAMP_HUNTER, 1));
 	}
 	
 	/**
@@ -192,7 +205,6 @@ public class HQ extends TeamRobot {
 		return false;
 	}
 
-
 	/**
 	 * Spawns a user in any random direction.
 	 * @param type
@@ -226,46 +238,19 @@ public class HQ extends TeamRobot {
 
 				//The minimum amount of nuke space we need between our enemy.
 				//If we beat them, then beat them
+				
+				//TODO:  NUKE FIX
 				if (nukeCount > 202) {
 					forceNukeRush = true;
 					return;
-				}
-				
-				//If the round is 200 - 205 then the user is a pure nuke bot.  Send enemies one at a time.
-				int round = Clock.getRoundNum();
-				
-				if (round < 205) {
-					vsNukeBot = true;
-					rush = false;
-					vsNukeBotAndMiner = false;
-					vsNukeBotAndMinerPickax = false;
-					darkHorse = false;
-					
-				//Either he has 1 miner and a nuke or he has a single artillery and a nuke
-				//Do not send 1 at a time.
-				} else if (round < 215) {
-
-					vsNukeBotAndMiner = true;
-					vsNukeBot = false;
-					rush = false;
-					vsNukeBotAndMinerPickax = false;
-					darkHorse = false;
-					
-				//More than likely 4 miners, 1 miner + pickax, 
-				} else if (round < 240) {
-
-					vsNukeBotAndMinerPickax = true;
-					vsNukeBotAndMiner = false;
-					vsNukeBot = false;
-					rush = false;
-					darkHorse = false;
 				}
 			}
 		}
 	} // end check for nuke
 	
-	public static final int HQ_COUNT_ROUND = 3;
+	public static final int HQ_COMMUNICATION_ROUND = 3;
 	public static final int RUSH_ENEMY_MAP = 1000;
 	public static final int RUSH_ENEMY_MAP_LONG = 1600;
 	public static final double RUSH_ENEMY_MAP_LONG_DENSITY = 0.25;
+	public static final int NUKE_IS_ARMED = 1943650283;
 }

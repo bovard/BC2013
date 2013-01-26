@@ -43,7 +43,7 @@ public class HQCalculate extends Behavior {
 
 	@Override
 	public boolean pre() {
-		return !robot.encampmentSorter.sorted;
+		return !robot.encampmentSorter.sorted && !robot.enemyResearchedNuke;
 	}
 
 }
