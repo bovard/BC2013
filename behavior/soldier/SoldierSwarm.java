@@ -34,9 +34,10 @@ public class SoldierSwarm
 					.add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir);
 		}
 		
-		int modifier = Clock.getRoundNum() / 400 + 1;
-		if (Clock.getRoundNum() % (modifier * 150) == 0 || 
-				(modifier > 400 && Clock.getRoundNum() % 400 == 0)) {
+//		int modifier = Clock.getRoundNum() / 400 + 1;
+//		if (Clock.getRoundNum() % (modifier * 150) == 0 || 
+//				(modifier > 400 && Clock.getRoundNum() % 400 == 0)) {
+		if (Clock.getRoundNum() % 200 == 0) {
 			robot.move.destination = robot.info.enemyHq;
 		}
 		robot.move.move();
@@ -44,7 +45,12 @@ public class SoldierSwarm
 	
 	@Override
 	public boolean pre() {
-		return !robot.enemyInMelee && !robot.isNukeArmed;
+		boolean goHome = false;
+		if (robot.enemyAtTheGates) {
+			goHome = robot.currentLoc.distanceSquaredTo(robot.info.hq) - robot.currentLoc.distanceSquaredTo(robot.info.enemyHq) < 0;
+		}
+		
+		return !robot.enemyInMelee && !robot.isNukeArmed && !goHome;
 	}
 
 }
