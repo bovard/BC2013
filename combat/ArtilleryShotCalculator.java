@@ -34,7 +34,7 @@ public class ArtilleryShotCalculator {
 	public void shoot() throws GameActionException{
 		
 		
-		
+		System.out.println(GameConstants.ARTILLERY_SPLASH_RATIO);
 		
 		// set up the map
 		_setUp();
@@ -44,13 +44,35 @@ public class ArtilleryShotCalculator {
 		int x = 0, y = 0;
 		int xi, yi;
 		
+		int i = 0;
+		do {
+			xi = xToCheck[i];
+			yi = yToCheck[i];
+			value =  map[xi-1][yi-1] + map[xi-1][yi] + map[xi-1][yi+1] + map[xi][yi-1] + map[xi][yi+1] + map[xi+1][yi-1] + map[xi+1][yi] + map[xi+1][yi+1];
+			if (map[xi][yi] == 100) {
+				value += RobotType.ARTILLERY.attackPower * GameConstants.ARTILLERY_SPLASH_RATIO;
+			} else {
+				value += (1/GameConstants.ARTILLERY_SPLASH_RATIO) * map[xi][yi];
+			}
+			robot.rc.setIndicatorString(0, "Value: " + value);
+			if (value > bestValue) {
+				bestValue = value;
+				x = xToCheck[i];
+				y = yToCheck[i];
+			}
+			i++;
+		} while(i < toCheck  && Clock.getBytecodesLeft() > 500);
+		
 		// check on the squares
 		for (int ix = -1; ix <= 1; ix++) {
 			if (Clock.getBytecodesLeft() < 500) {
 				break;
 			}
 			for (int iy = -1; iy <=1; iy++){
-				int i = 0;
+				if (iy == 0 && ix == 0){
+					break;
+				}
+				i = 0;
 				do {
 					xi = xToCheck[i] + ix;
 					yi = yToCheck[i] + iy;
@@ -62,7 +84,7 @@ public class ArtilleryShotCalculator {
 					}
 					robot.rc.setIndicatorString(0, "Value: " + value);
 					if (value > bestValue) {
-						value = bestValue;
+						bestValue = value;
 						x = xToCheck[i];
 						y = yToCheck[i];
 					}
@@ -74,7 +96,6 @@ public class ArtilleryShotCalculator {
 		
 		if (x != middle || y != middle) {
 			MapLocation loc = new MapLocation(me.x + x - middle, me.y + y - middle);
-			robot.rc.setIndicatorString(0, "Shooting at "+loc.toString());
 			robot.rc.attackSquare(loc);
 		}
 	}
@@ -104,7 +125,7 @@ public class ArtilleryShotCalculator {
 				if (info.energon <= RobotType.ARTILLERY.attackPower * GameConstants.ARTILLERY_SPLASH_RATIO){
 					map[x][y] = 100;
 				} else {
-					map[x][y] = 15;
+					map[x][y] = (int) (RobotType.ARTILLERY.attackPower * GameConstants.ARTILLERY_SPLASH_RATIO);
 				}
 				
 			} 
@@ -112,11 +133,11 @@ public class ArtilleryShotCalculator {
 			// if it's our robot try not to hit it
 			else if (info.team == robot.info.myTeam) {
 				if (info.type == RobotType.SOLDIER) {
-					map[x][y] = -15;
+					map[x][y] = (int) (-1 * RobotType.ARTILLERY.attackPower * GameConstants.ARTILLERY_SPLASH_RATIO);
 				} else if (info.type == RobotType.HQ) {
 					map[x][y] = -100;
 				} else {
-					map[x][y] = -15;
+					map[x][y] = (int) (-2 * RobotType.ARTILLERY.attackPower * GameConstants.ARTILLERY_SPLASH_RATIO);
 				}
 			}
 		}

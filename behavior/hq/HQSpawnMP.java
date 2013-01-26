@@ -32,10 +32,10 @@ public class HQSpawnMP extends Behavior {
 		
 		int round = Clock.getRoundNum();
 
-		if (robot.rc.hasUpgrade(Upgrade.FUSION)) {
-			robot.rc.researchUpgrade(Upgrade.FUSION);
+		if (!robot.rc.hasUpgrade(Upgrade.VISION)) {
+			robot.rc.researchUpgrade(Upgrade.VISION);
 		} else {
-			robot.spawnGenerator();
+			robot.spawnArtillery();
 		}
 //		if (genSpawn <= artSpawn) {
 //			if (rand.nextInt() % 4 == 0) {

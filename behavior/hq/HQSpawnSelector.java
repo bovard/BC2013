@@ -49,8 +49,8 @@ public class HQSpawnSelector extends Decision {
 //		}
 //
 //		//defaults to rush.
-//		robot.rush = true;
-//		robot.darkHorse = false;
+		robot.rush = true;
+		robot.darkHorse = false;
 		return this.children.get(HQ_SPAWN_MP_RUSH);
 	}
 	

@@ -41,9 +41,7 @@ public class HQSpawnRush extends Behavior {
 		if (robot.rc.isActive() && robot.powerThisRound > 75) {
 			if (round < 50 && robot.info.enemyHqDistance > 1000) {
 				
-				if (genSpawn < 2 && robot.spawnGenerator()) {
-					genSpawn++;
-				} else if (supSpawn < 2 && robot.spawnSupplier()) {
+				if (supSpawn < 2 && robot.spawnSupplier()) {
 					supSpawn++;
 				}
 			} else if (robot.powerThisRound > 200 && robot.spawnSupplier()) {
