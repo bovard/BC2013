@@ -11,6 +11,7 @@ public class HQSpawnMP extends Behavior {
 	protected HQ robot;
 	protected HQUtils utils;
 	protected Upgrade[] upgrades;
+	protected int count = 0;
 
 	public HQSpawnMP(HQ robot) {
 		super();
@@ -32,11 +33,11 @@ public class HQSpawnMP extends Behavior {
 		
 		int round = Clock.getRoundNum();
 
-		if (!robot.rc.hasUpgrade(Upgrade.VISION)) {
-			robot.rc.researchUpgrade(Upgrade.VISION);
-		} else {
-			robot.spawnArtillery();
+		if (count < 5 && Math.random() < .5) {
+			count++;
+			robot.spawnSwarmer();	
 		}
+		
 //		if (genSpawn <= artSpawn) {
 //			if (rand.nextInt() % 4 == 0) {
 //				robot.spawnSupplier();
