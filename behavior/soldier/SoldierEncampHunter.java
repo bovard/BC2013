@@ -27,6 +27,9 @@ public class SoldierEncampHunter extends Behavior {
 	private SoldierMove hunt;
 	private SoldierMove travel;
 	private boolean mine = false;
+	private ArrayList[] quads = new ArrayList[2];
+	private int[] quadIndexes = new int[2];
+	
 	
 
 	public SoldierEncampHunter(Soldier robot) {
