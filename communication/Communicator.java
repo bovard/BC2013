@@ -193,10 +193,10 @@ public class Communicator {
 	public static final int CHANNEL_SUPPLIER_COUNT = 3;
 	public static final int CHANNEL_ARTILLERY_COUNT = 4;
 	public static final int CHANNEL_SOLDIER_COUNT = 5;
-	public static final int CHANNEL_ENCAMPER_COUNT = 6;
 	public static final int CHANNEL_MINER_COUNT = 7;
 	public static final int CHANNEL_DEFENDER_COUNT = 8;
 	public static final int CHANNEL_NUKE_COUNT = 9;
-	public static final int CHANNEL_ENCAMPER_LOCATION = 10;
+	public static final int CHANNEL_ENCAMPER_HUNTER_COUNT = 10;
+	public static final int CHANNEL_BACKDOOR_COUNT = 11;
 	public static final int CHANNEL_COUNT = 10;
 }

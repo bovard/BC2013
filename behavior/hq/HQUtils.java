@@ -24,8 +24,9 @@ public class HQUtils {
 	public int soldierCount;
 	public int defenderCount;
 	public int nukeDefenderCount;
-	public int encamperCount;
 	public int minerCount;
+	public int backdoorCount;
+	public int encampmentHunterCount;
 	public int totalSoldierCount;
 	public int totalEncampmentCount;
 	public double powerProduction;
@@ -36,12 +37,13 @@ public class HQUtils {
 	public HQUtils(RobotController rc, Communicator com, MapInformation mapInfo) {
 		this.rc = rc;
 		this.com = com;
+		backdoorCount = 0;
+		encampmentHunterCount = 0;
 		generatorCount = 0;
 		artilleryCount = 0;
 		supplierCount = 0;
 		soldierCount = 0;
 		defenderCount = 0;
-		encamperCount = 0;
 		minerCount = 0;
 		totalSoldierCount = 0;
 		totalEncampmentCount = 0;
@@ -62,27 +64,20 @@ public class HQUtils {
 		artilleryCount = com.receive(Communicator.CHANNEL_ARTILLERY_COUNT,  Clock.getRoundNum(), 0);
 		supplierCount = com.receive(Communicator.CHANNEL_SUPPLIER_COUNT,  Clock.getRoundNum(), 0);
 		soldierCount = com.receive(Communicator.CHANNEL_SOLDIER_COUNT,  Clock.getRoundNum(), 0);
-		encamperCount = com.receive(Communicator.CHANNEL_ENCAMPER_COUNT,  Clock.getRoundNum(), 0);
 		minerCount = com.receive(Communicator.CHANNEL_MINER_COUNT,  Clock.getRoundNum(), 0);
 		defenderCount = com.receive(Communicator.CHANNEL_DEFENDER_COUNT,  Clock.getRoundNum(), 0);
 		nukeDefenderCount = com.receive(Communicator.CHANNEL_NUKE_COUNT,  Clock.getRoundNum(), 0);
+		backdoorCount = com.receive(Communicator.CHANNEL_BACKDOOR_COUNT,  Clock.getRoundNum(), 0);
+		encampmentHunterCount = com.receive(Communicator.CHANNEL_ENCAMPER_HUNTER_COUNT,  Clock.getRoundNum(), 0);
 		
 		// Basic calculations that are needed by the HQ.
-		totalSoldierCount = soldierCount + encamperCount + minerCount + defenderCount + nukeDefenderCount;
+		totalSoldierCount = soldierCount + minerCount + defenderCount + nukeDefenderCount + backdoorCount + encampmentHunterCount;
 		totalEncampmentCount = generatorCount + supplierCount + artilleryCount;
 		
 		//Power production is correct but powerToCapture is incorrect.  Its overestimated.
 		powerProduction = generatorCount * GameConstants.GENERATOR_POWER_PRODUCTION + GameConstants.HQ_POWER_PRODUCTION;
 		powerToCaptureEncampment = GameConstants.CAPTURE_POWER_COST * (1 + totalEncampmentCount);
 		powerConsumptionFromSoldiers = GameConstants.UNIT_POWER_UPKEEP * (totalSoldierCount + totalEncampmentCount);
-		
-		if (Clock.getRoundNum() > 2400) {
-			printState();
-		}
-	}
-	
-	public void printState() {
-		System.out.println("Gen: " + generatorCount + " : " + supplierCount + " : " + artilleryCount);
 	}
 
 	public static final void calculate(HQ robot) {

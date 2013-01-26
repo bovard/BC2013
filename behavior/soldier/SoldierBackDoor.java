@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import team122.behavior.Behavior;
+import team122.communication.Communicator;
 import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
 import team122.utils.MapQuadrantUtils;
@@ -128,7 +129,7 @@ public class SoldierBackDoor extends Behavior {
 			move.setDestination(wayPoints.remove(0));
 			
 		}
-		
+		robot.incChannel = Communicator.CHANNEL_BACKDOOR_COUNT;
 	}
 	
 	@Override

@@ -7,6 +7,7 @@ import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.Robot;
 import team122.behavior.Behavior;
+import team122.communication.Communicator;
 import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
 import team122.utils.MapQuadrantUtils;
@@ -43,6 +44,7 @@ public class SoldierEncampHunter extends Behavior {
 	
 	@Override
 	public void start() {
+		robot.incChannel = Communicator.CHANNEL_ENCAMPER_HUNTER_COUNT;
 		if (!init) {
 			init = true;
 			int distCenter = Math.min(200, robot.info.height/4*robot.info.width/4);
