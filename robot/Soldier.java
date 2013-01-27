@@ -87,10 +87,6 @@ public class Soldier extends TeamRobot {
 			
 			//Check for nuke
 			isNukeArmed = com.isNukeArmed();
-			
-			if (isNukeArmed) {
-				System.out.println("NUKE IS ARMED: " + tree.current.getClass().getName());
-			}
 		}
 	}
 }

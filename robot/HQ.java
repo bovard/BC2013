@@ -33,6 +33,7 @@ public class HQ extends TeamRobot {
 	private double powerLastRound = 0;
 	public double powerThisRound = 0;
 	public boolean powerPositive = true;
+	public boolean retaliate;
 	
 	
 	public HQ(RobotController rc, RobotInformation info) {
@@ -41,6 +42,7 @@ public class HQ extends TeamRobot {
 		tree = new HQTree(this);
 		nukeCount = 0;
 		rush = false;
+		retaliate = false;
 		enemyResearchedNuke = false;
 		forceNukeRush = false;
 		mapInfo = new MapInformation(rc);
@@ -72,6 +74,8 @@ public class HQ extends TeamRobot {
 			if (enemyResearchedNuke) {
 				com.nukeIsArmed();
 			}
+			
+			//TODO: Get retaliation detection.
 		}
 	}
 	
@@ -253,4 +257,5 @@ public class HQ extends TeamRobot {
 	public static final int RUSH_ENEMY_MAP_LONG = 1600;
 	public static final double RUSH_ENEMY_MAP_LONG_DENSITY = 0.25;
 	public static final int NUKE_IS_ARMED = 1943650283;
+	public static final int RETALIATE =     1385619238;
 }

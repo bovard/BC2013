@@ -153,6 +153,13 @@ public class Communicator {
 	}
 	
 	/**
+	 * Attempts to retaliate against the enemy.
+	 */
+	public void retaliate() throws GameActionException {
+		communicate(CHANNEL_RETALIATE, Clock.getRoundNum(), HQ.RETALIATE);
+	}
+	
+	/**
 	 * If the nuke is armed then alert like crazy.
 	 * @param round
 	 * @throws GameActionException 
@@ -216,7 +223,7 @@ public class Communicator {
 	 */
 	public static final int MAX_CHANNELS = GameConstants.BROADCAST_MAX_CHANNELS;
 	public static final int ALPHA = 39989;
-	public static final int BETA = 30029;
+	public static final int BETA = 30029; // 30181 for other
 	public static final int CHANNEL_NEW_SOLDIER_MODE = 1;
 	public static final int CHANNEL_GENERATOR_COUNT = 2;
 	public static final int CHANNEL_SUPPLIER_COUNT = 3;
@@ -232,5 +239,6 @@ public class Communicator {
 	public static final int CHANNEL_GROUP_0 = 14;
 	public static final int CHANNEL_GROUP_1 = 15;
 	public static final int CHANNEL_GROUP_2 = 16;
-	public static final int CHANNEL_COUNT = 16;
+	public static final int CHANNEL_RETALIATE = 17;
+	public static final int CHANNEL_COUNT = 17;
 }
