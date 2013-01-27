@@ -151,6 +151,17 @@ public class Communicator {
 		communicate(CHANNEL_NUKE_IS_ARMED, Clock.getRoundNum(), HQ.NUKE_IS_ARMED);
 		communicate(CHANNEL_NUKE_IS_ARMED_BACKUP, Clock.getRoundNum(), HQ.NUKE_IS_ARMED);
 	}
+
+	
+	/**
+	 * If the nuke is armed then alert like crazy.
+	 * @param round
+	 * @throws GameActionException 
+	 */
+	public void attack() throws GameActionException {
+		
+		communicate(CHANNEL_SWARMER_ATTACK, Clock.getRoundNum(), HQ.ATTACK_CODE);
+	}
 	
 	/**
 	 * Attempts to retaliate against the enemy.
@@ -174,6 +185,15 @@ public class Communicator {
 			return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * Should attack the enemy hq
+	 * @return
+	 * @throws GameActionException
+	 */
+	public boolean shouldAttack() throws GameActionException {
+		return receive(CHANNEL_SWARMER_ATTACK, Clock.getRoundNum()) == HQ.ATTACK_CODE;
 	}
 	
 	/**
@@ -240,5 +260,6 @@ public class Communicator {
 	public static final int CHANNEL_GROUP_1 = 15;
 	public static final int CHANNEL_GROUP_2 = 16;
 	public static final int CHANNEL_RETALIATE = 17;
+	public static final int CHANNEL_SWARMER_ATTACK = 18;
 	public static final int CHANNEL_COUNT = 17;
 }

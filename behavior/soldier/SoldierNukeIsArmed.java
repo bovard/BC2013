@@ -19,22 +19,16 @@ public class SoldierNukeIsArmed
 	@Override
 	public void start() { 
 		robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
+		robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
 	}
 
 	@Override
 	public void run() throws GameActionException {
-		
-		//TODO: We need to turn this into an actual smart soldier.
-		if (robot.move.destination == null) {
-			Direction dir = robot.info.enemyDir;
-			robot.move.destination = robot.info.hq
-					.add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir);
-		}
 
 		if (Clock.getRoundNum() % 75 == 0) {
-			
 			robot.move.destination = robot.info.enemyHq;
 		}
+		
 		robot.move.move();
 	}
 	

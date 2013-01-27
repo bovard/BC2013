@@ -3,6 +3,8 @@ package team122.behavior.soldier;
 
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
+import battlecode.common.MapLocation;
+import team122.RobotInformation;
 import team122.behavior.Behavior;
 import team122.behavior.Decision;
 import team122.behavior.Node;
@@ -63,6 +65,21 @@ public class SoldierSelector extends Decision {
 		return true;
 	}
 
+	/**
+	 * Gets the rally point for a swarmers initial point.
+	 * @return
+	 */
+	public static MapLocation GetInitialRallyPoint(RobotInformation info) {
+		int distanceOut = (int)Math.ceil(Math.sqrt(info.enemyHqDistance) / 4);
+		MapLocation loc = info.hq;
+		
+		for (int i = 0; i < distanceOut; i++) {
+			loc = loc.add(info.enemyDir);
+		}
+
+		return loc;
+	}
+	
 	public static final int SOLDIER_MINER = 0;
 	public static final int SOLDIER_SWARMER = 1;
 	public static final int SOLDIER_ENCAMPER = 2;

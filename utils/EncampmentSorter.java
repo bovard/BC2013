@@ -18,6 +18,7 @@ public class EncampmentSorter {
 	public RobotController rc;
 	public boolean calculated;
 	public boolean sorted;
+	public boolean determined;
 	public boolean generatorSorted;
 	public boolean artillerySorted;
 	public MapLocation hq;
@@ -61,6 +62,7 @@ public class EncampmentSorter {
 		_currentRound = 0;
 		calculated = false;
 		sorted = false;
+		determined = false;
 		generatorSorted = false;
 		artillerySorted = false;
 
@@ -166,6 +168,13 @@ public class EncampmentSorter {
 			} // end for
 		} // end totalEncamps
 		return artillery;
+	}
+	
+	/**
+	 * Determines what encampments are not allowed to be captured.
+	 */
+	public void determine() {
+		
 	}
 	
 	/**

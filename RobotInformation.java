@@ -21,6 +21,8 @@ public class RobotInformation {
 	public int enemyHqDistance;
 	public RobotController rc;
 	public Direction enemyDir;
+	public double mineDensity;
+	public MapLocation[] neutralMines;
 
 	/**
 	 * Will construct a robot information. These are common operations that
@@ -40,5 +42,12 @@ public class RobotInformation {
 		center = new MapLocation(width / 2, height / 2);
 		enemyDir = hq.directionTo(enemyHq);
 		this.rc = rc;
+	}
+	
+	public double updateMineDensity() throws GameActionException {
+		neutralMines = rc.senseMineLocations(center, width * 1000, Team.NEUTRAL);
+		mineDensity = neutralMines.length / (width * height);
+		
+		return mineDensity;
 	}
 }
