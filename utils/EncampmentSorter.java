@@ -7,6 +7,7 @@ import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
+import battlecode.common.Robot;
 import battlecode.common.RobotController;
 import battlecode.common.RobotType;
 import battlecode.common.Team;
@@ -39,19 +40,14 @@ public class EncampmentSorter {
 	 * State information about generators and artilleries being searched.
 	 */
 	private int _currentRound;
-	private int generatorIndex = 0;
-	private int artilleryIndex = 0;
-	private MapLocation[] alliedEncampments;
-	private HashMap<MapLocation, String> alliedMap;
-	private int artilleryBuilds = 0;
-	private int generatorBuilds = 0;
-	private int totalEncampmentDivisor;
 	private MapLocation[] generatorEncampments;
 	private MapLocation[] artilleryEncampments;
-	private int[] generatorDistances;
-	private int[] artilleryDistances;
 	public int[] generatorScores;
 	public int[] artilleryScores;
+	public boolean[] generatorUsed;
+	public boolean[] artilleryUsed;
+	public int[] generatorRound;
+	public int[] artilleryRound;
 	private int artilleryLength = 0;
 	private int generatorLength = 0;
 	
@@ -59,6 +55,7 @@ public class EncampmentSorter {
 	private int __buildingGeneratorIndex = 0;
 	private int __buildingArtilleryIndex = 0;
 	private int __maxArtilleryLength = 0;
+	private int __roundsToWait = 0;
 
 	// Sorting
 	private boolean specialCaseX;
@@ -84,13 +81,18 @@ public class EncampmentSorter {
 
 		uX = x / Math.sqrt(x * x + y * y); // can we remove sqrt later?
 		uY = y / Math.sqrt(x * x + y * y);
-		generatorBuilds = 0;
 
 		specialCaseX = enemy.x == hq.x;
 		specialCaseY = enemy.y == hq.y;
 
 		generatorTree = new QuicksortTree();
 		artilleryTree = new QuicksortTree();
+
+		int width = rc.getMapWidth();
+		int height = rc.getMapHeight();
+		double mineDensity = rc.senseMineLocations(enemy, 100000, Team.NEUTRAL).length * 1.0 / (width * height);
+		
+		__roundsToWait = (int)((width + height) * (1 + mineDensity * 2));
 	}
 
 	/**
@@ -103,28 +105,26 @@ public class EncampmentSorter {
 		enemyDistances = new int[totalEncampments];
 
 		artilleryEncampments = new MapLocation[totalEncampments];
-		generatorEncampments = new MapLocation[totalEncampments];
-		artilleryDistances = new int[totalEncampments];
-		generatorDistances = new int[totalEncampments];
 		artilleryScores = new int[totalEncampments];
+		artilleryRound = new int[totalEncampments];
+		artilleryUsed = new boolean[totalEncampments];
+		
+		generatorEncampments = new MapLocation[totalEncampments];
 		generatorScores = new int[totalEncampments];
-
-		alliedEncampments = new MapLocation[0];
+		generatorRound = new int[totalEncampments];
+		generatorUsed = new boolean[totalEncampments];
 		
 		//Somewhere above 10.
 		if (totalEncampments > 10) {
 			__maxArtilleryLength = totalEncampments;
-			totalEncampmentDivisor = 2;
 		
-		//Somewhere between 1 and 10.
+		//Somewhere between 2 and 10.
 		} else if (totalEncampments > 1) {
 			__maxArtilleryLength = totalEncampments / 2;
-			totalEncampmentDivisor = 2;
 			
 		//If there is only one, it should be an artillery.
 		} else {
 			__maxArtilleryLength = 1;
-			totalEncampmentDivisor = 1;
 		}
 	}
 
@@ -150,40 +150,16 @@ public class EncampmentSorter {
 		MapLocation generator = null;
 
 		if (totalEncampments > 0) {
-			if ((generatorBuilds > totalEncampments / totalEncampmentDivisor && alliedEncampments.length < MAX_ALLY_LENGTH_NO_RESORT) || 
-					generatorIndex > generatorLength) {
-				
-				_RefreshAlliedEncampments();
-				generatorBuilds = 0;
-				generatorIndex = 0;
-			}
-
-			do {
-				generator = generatorEncampments[generatorIndex];
-				if (generator == null) {
+			for (int i = 0; i < generatorLength; i++) {
+				if (!generatorUsed[i]) {
+					generatorUsed[i] = true;
+					generatorRound[i] = Clock.getRoundNum();
+					
+					generator = generatorEncampments[i];
 					break;
 				}
-				
-				if (alliedEncampments.length > MAX_ARRAY_LENGTH_FOR_ALLIES) {
-					if (alliedMap.containsKey(generator)) {
-						generator = null;
-					}
-				} else {
-					for (int i = 0; i < alliedEncampments.length; i++) {
-						
-						if (alliedEncampments[i].x == generator.x && alliedEncampments[i].y == generator.y) {
-							generator = null;
-							break;
-						}
-					}
-				}
-
-				generatorIndex++;
-			} while (generator == null && generatorIndex < generatorLength && Clock.getBytecodesLeft() > 500);
-		}
-
-		System.out.println("Poping gen: " + generator + " : " + generatorIndex + " : " + generatorLength);
-		generatorBuilds++;
+			} // end for
+		} // end totalEncamps
 		
 		return generator;
 	}
@@ -197,39 +173,55 @@ public class EncampmentSorter {
 		MapLocation artillery = null;
 
 		if (totalEncampments > 0) {
-			if ((artilleryBuilds > totalEncampments / totalEncampmentDivisor && alliedEncampments.length < MAX_ALLY_LENGTH_NO_RESORT) || 
-					artilleryIndex > artilleryLength) {
-				
-				_RefreshAlliedEncampments();
-				artilleryBuilds = 0;
-				artilleryIndex = 0;
-			}
-
-			do {
-				artillery = artilleryEncampments[artilleryIndex];
-				if (artillery == null) {
+			for (int i = 0; i < artilleryLength; i++) {
+				if (!artilleryUsed[i]) {
+					artilleryUsed[i] = true;
+					artilleryRound[i] = Clock.getRoundNum();
+					
+					artillery = artilleryEncampments[i];
 					break;
 				}
-
-				if (alliedEncampments.length > MAX_ARRAY_LENGTH_FOR_ALLIES) {
-					if (alliedMap.containsKey(artillery)) {
-						artillery = null;
-					}
-				} else {
-					for (int i = 0; i < alliedEncampments.length; i++) {
-						if (alliedEncampments[i].x == artillery.x && alliedEncampments[i].y == artillery.y) {
-							artillery = null;
+			} // end for
+		} // end totalEncamps
+		return artillery;
+	}
+	
+	/**
+	 * Cycles through the encampments and continually updates them.
+	 */
+	public void updateEncampments() {
+		Team team = rc.getTeam();
+		do {
+			if (__buildingGeneratorIndex < generatorLength) {
+				for (;__buildingGeneratorIndex < generatorLength && Clock.getBytecodesLeft() > 500; __buildingGeneratorIndex++) {
+					
+					//We claim to have an encampment here and if we do not then we set it to false
+					//and break from the loop so artillery can have some processing as well.
+					if (generatorUsed[__buildingGeneratorIndex] && Clock.getRoundNum() - generatorRound[__buildingGeneratorIndex] > __roundsToWait) {
+						Robot[] r = rc.senseNearbyGameObjects(Robot.class, generatorEncampments[__buildingGeneratorIndex], 1, team);
+						if (r.length == 0) {
+							generatorUsed[__buildingGeneratorIndex] = false;
 							break;
 						}
 					}
 				}
+			} 
 
-				artilleryIndex++;
-			} while (artillery == null && artilleryIndex < artilleryLength && Clock.getBytecodesLeft() > 500);
-		}
-
-		artilleryBuilds++;
-		return artillery;
+			if (__buildingArtilleryIndex < artilleryLength) {
+				for (;__buildingArtilleryIndex < artilleryLength && Clock.getBytecodesLeft() > 500; __buildingArtilleryIndex++) {
+					
+					//We claim to have an encampment here and if we do not then we set it to false
+					//and break from the loop so artillery can have some processing as well.
+					if (artilleryUsed[__buildingArtilleryIndex] && Clock.getRoundNum() - artilleryRound[__buildingArtilleryIndex] > __roundsToWait) {
+						Robot[] r = rc.senseNearbyGameObjects(Robot.class, artilleryEncampments[__buildingArtilleryIndex], 1, team);
+						if (r.length == 0) {
+							artilleryUsed[__buildingArtilleryIndex] = false;
+							break;
+						}
+					}
+				}
+			}
+		} while (Clock.getBytecodesLeft() > 500);
 	}
 	
 	public boolean sort() {
@@ -289,13 +281,11 @@ public class EncampmentSorter {
 			if (answer < artRange && enemyDistances[i] < artMaxEnemyHQ && artilleryLength < __maxArtilleryLength) {
 				artilleryLength++;
 				artilleryEncampments[__buildingArtilleryIndex] = enc;
-				artilleryDistances[__buildingArtilleryIndex] = encampmentDistances[i];
 				artilleryScores[__buildingArtilleryIndex++] = encampmentDistances[i];
 
 			} else {
 				generatorLength++;
 				generatorEncampments[__buildingGeneratorIndex] = enc;
-				generatorDistances[__buildingGeneratorIndex] = encampmentDistances[i];
 				generatorScores[__buildingGeneratorIndex++] = encampmentDistances[i] - enemyDistances[i];
 
 			}
@@ -307,29 +297,10 @@ public class EncampmentSorter {
 		if (calculated) {
 			generatorTree.setData(generatorEncampments, generatorScores, generatorLength - 1);
 			artilleryTree.setData(artilleryEncampments, artilleryScores, artilleryLength - 1);
+			__buildingGeneratorIndex = 0;
+			__buildingArtilleryIndex = 0;
 		}
 		return calculated;
-	}
-	
-	public void printState() {
-//		System.out.println("Gens: " + Arrays.toString(generatorScores));
-//		System.out.println("Artilleries: " + Arrays.toString(artilleryScores));
-//		System.out.println("Gen: " + generatorIndex + " : " + generatorLength + " :: Arts: " + artilleryIndex + " : " + artilleryLength);
-//		System.out.println((calculated ? "Is Calculated" : "NOT CALCULATED") + (sorted ? "Is Sorted" : "NOT SORTED"));
-	}
-
-	/**
-	 * Refreshes the hashmap of allied encampment if its needed.
-	 */
-	private void _RefreshAlliedEncampments() {
-		alliedEncampments = rc.senseAlliedEncampmentSquares();
-		
-		if (alliedEncampments.length > MAX_ARRAY_LENGTH_FOR_ALLIES) {
-			alliedMap = new HashMap<MapLocation, String>(5000); // Reduces the cost by double. NEVER CLEAR
-			for (int i = 0; i < alliedEncampments.length; i++) {
-				alliedMap.put(alliedEncampments[i], "");
-			}
-		}
 	}
 
 	public static final int MAX_ARRAY_LENGTH_FOR_ALLIES = 9;

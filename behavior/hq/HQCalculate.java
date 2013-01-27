@@ -32,13 +32,11 @@ public class HQCalculate extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
-		//While it calculates, it needs to make sure that it continues to spawn.
 		if (robot.rc.isActive()) {
 			//TODO:  Perform some sweet calculations!
 			
-//			robot.spawnSwarmer();
+			robot.spawnSwarmer();
 		}
-		HQUtils.calculate(robot);
 	}
 
 	@Override

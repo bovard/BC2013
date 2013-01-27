@@ -45,6 +45,7 @@ public class SoldierSelector extends Decision {
 		
 		if (robot.isNew) {
 			robot.dec = robot.com.receiveNewSoldier();
+			System.out.println(robot.dec.toString());
 			robot.isNew = false;
 		}
 		

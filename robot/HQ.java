@@ -80,6 +80,14 @@ public class HQ extends TeamRobot {
 	}
 	
 	/**
+	 * Loads the rest of the tree with bytecodes.
+	 */
+	@Override
+	public void load() {
+		HQUtils.calculate(this);
+	}
+	
+	/**
 	 * calculates the economics of the board.  This is 
 	 * what type of board we will attempt to get.
 	 * 
@@ -99,7 +107,7 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public void spawnSwarmer() throws GameActionException {
-		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_SWARMER, 1));
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_SWARMER, 0));
 	}
 
 	/**
@@ -107,7 +115,7 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public void spawnMiner() throws GameActionException {
-		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_MINER, 1));
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_MINER, 0));
 	}
 
 	/**
@@ -115,15 +123,15 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public void spawnBackdoor() throws GameActionException {
-		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_BACK_DOOR, 1));
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_BACK_DOOR, 0));
 	}
 
 	/**
 	 * Spawns a swarmer.
 	 * @return
 	 */
-	public void spawnEncampmentHunter() throws GameActionException {
-		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_ENCAMP_HUNTER, 1));
+	public void spawnEncampmentHunter(int group) throws GameActionException {
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_ENCAMP_HUNTER, group));
 	}
 	
 	/**

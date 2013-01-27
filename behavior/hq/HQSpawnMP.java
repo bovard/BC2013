@@ -4,6 +4,7 @@ import team122.behavior.Behavior;
 import team122.robot.HQ;
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
+import battlecode.common.Team;
 import battlecode.common.Upgrade;
 
 public class HQSpawnMP extends Behavior {
@@ -30,24 +31,19 @@ public class HQSpawnMP extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
-//		if (spawned % 6 == 0) {
-//			robot.spawnMiner();
-//		} else if (spawned % 6 == 1) {
-//			robot.spawnGenerator();
-//		} else if (spawned % 6 == 2) {
-//			robot.spawnSupplier();
-//		} else if (spawned % 6 == 3) {
-//			robot.spawnArtillery();
-//		} else if (spawned % 6 == 4) {
-//			robot.spawnMiner();
-//		} else if (spawned % 6 == 5) {
-//			robot.spawnEncampmentHunter();
-//		}
-		robot.spawnSwarmer();
-		
-		spawned++;
-		
-		HQUtils.calculate(robot);
+		System.out.println(robot.info.myTeam);
+		if (robot.info.myTeam == Team.A) {
+
+			if (spawned % 50 == 0) {
+				robot.spawnGenerator();
+			}
+		} else {
+			if (spawned % 50 == 0) {
+				robot.spawnEncampmentHunter(0);
+			}
+		}
+
+		spawned++;		
 		
 		//Nothign to do.  DO not over commit.
 		return;

@@ -21,7 +21,7 @@ public class HQIdle extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
-		HQUtils.calculate(robot);
+		//Do nothing (calculate is called at the end of the round).
 	}
 
 	@Override
