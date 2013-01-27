@@ -31,6 +31,8 @@ public class HQSpawnMP extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
+		robot.spawnSwarmer();
+		
 		if (robot.info.myTeam == Team.A) {
 
 			if (spawned % 10 == 0) {
