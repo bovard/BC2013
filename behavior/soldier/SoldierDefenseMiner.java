@@ -2,13 +2,8 @@ package team122.behavior.soldier;
 
 import java.util.ArrayList;
 
-import team122.MapUtils;
-import team122.RobotInformation;
 import team122.behavior.Behavior;
-import team122.navigation.SoldierMove;
-import team122.communication.Communicator;
 import team122.robot.Soldier;
-import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -24,7 +19,7 @@ public class SoldierDefenseMiner
 	public boolean init;
 	public boolean reset_mines = true;
 	public int start_ring_num = 1,
-	           end_ring_num = 2;
+	           end_ring_num = 1;
 
 	public SoldierDefenseMiner(Soldier robot2) {
 		super();
@@ -36,12 +31,13 @@ public class SoldierDefenseMiner
 	public void start() throws GameActionException{
 		if (!init) {
 			init = true;
-			_setMiningLocations(start_ring_num, end_ring_num);
+			_setMiningLocations();
 		}
 		//we just encoutered an enemy go back to the two first rings
 		else {
 			start_ring_num = 1;
-			end_ring_num = 2;
+			end_ring_num = 1;
+			_setMiningLocations();
 		}
 		
 		
@@ -53,11 +49,9 @@ public class SoldierDefenseMiner
 		
 		if (robot.rc.isActive()) {
 			if (mineSpots.size() == 0) {
-				
-				start_ring_num++;
-				end_ring_num++;
-				System.out.println("resetting! with start =" + start_ring_num + " and end= " + end_ring_num);
-				_setMiningLocations(start_ring_num, end_ring_num);
+				start_ring_num += 1;
+				end_ring_num += 1;
+				_setMiningLocations();
 			}
 			if (robot.move.atDestination()) {
 				MapLocation[] all_dir = new MapLocation[5];
@@ -93,21 +87,15 @@ public class SoldierDefenseMiner
 							robot.rc.setIndicatorString(0, "ally there " + robot.move.destination);
 							_setDestination();
 						} 
-						
 						else {
 							robot.rc.setIndicatorString(0, "square is open!");
 						}
-						
 					}
-					
-					
 				} else {
 					_setDestination();
 				}
 			}
 		}
-		
-		
 		
 		if (robot.rc.isActive()) {
 			robot.move.move();
@@ -123,7 +111,6 @@ public class SoldierDefenseMiner
 			robot.move.setDestination(mineSpots.get(0));
 			mineSpots.remove(0);
 		}
-		
 	}
 
 	@Override
@@ -141,14 +128,19 @@ public class SoldierDefenseMiner
 		}
 	}
 	
-	private void _assignRing(int start_ring, int end_ring, int right_nodes, int top_nodes, int left_nodes, int bottom_nodes) {
+	private void _assignRing(int right_nodes, int top_nodes, int left_nodes, int bottom_nodes) {
 		int hq_x = robot.info.hq.x;
 		int hq_y = robot.info.hq.y;
 		
 		int x = hq_x,
 			y = hq_y;
 		
-		for (int i = start_ring; i <= end_ring; i++) {
+		if (start_ring_num != 1) {
+			x += (start_ring_num - 2) * 2;
+			y += (start_ring_num - 1) * 2;
+		}
+		
+		for (int i = start_ring_num; i <= end_ring_num; i++) {
 			// insert right nodes
 			for (int j = 1; j <= right_nodes; j++) {
 				if (i == 1 && j == 1) {
@@ -162,7 +154,9 @@ public class SoldierDefenseMiner
 					x -= 2;
 					y -= 2;
 				}
-				insertMine(x, y);
+				if (i >= start_ring_num) {
+					insertMine(x, y);
+				}
 			}
 			// insert top nodes
 			for (int k = 1; k <= top_nodes; k++) {
@@ -175,7 +169,9 @@ public class SoldierDefenseMiner
 				} else {
 					x -= 3;
 				}
-				insertMine(x, y);
+				if (i >= start_ring_num) {
+					insertMine(x, y);
+				}
 			}
 			// insert left nodes
 			for (int l = 1; l <= left_nodes; l++) {
@@ -186,7 +182,9 @@ public class SoldierDefenseMiner
 					x += 2;
 					y +=2;
 				}
-				insertMine(x, y);
+				if (i >= start_ring_num) {
+					insertMine(x, y);
+				}
 			}
 			// insert bottom nodes
 			for (int m = 1; m <= bottom_nodes; m++) {
@@ -196,7 +194,9 @@ public class SoldierDefenseMiner
 				} else {
 					x += 3;
 				}
-				insertMine(x, y);
+				if (i >= start_ring_num) {
+					insertMine(x, y);
+				}
 			}
 			right_nodes += 2;
 			top_nodes += 1;
@@ -205,7 +205,7 @@ public class SoldierDefenseMiner
 		}
 	}
 	
-	private void _setMiningLocations(int start_ring, int end_ring) {
+	private void _setMiningLocations() {
 		if (robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
 			mineSpots.clear();
 			
@@ -214,14 +214,15 @@ public class SoldierDefenseMiner
 			    left_nodes = 1,
 			    bottom_nodes = 1;
 			
-			for (int i = 1; i < start_ring; i++) {
+			for (int i = 1; i < start_ring_num; i++) {
 				right_nodes += 2;
 				top_nodes += 1;
 				left_nodes += 2;
 				bottom_nodes += 1;
 			}
-			_assignRing(start_ring, end_ring, right_nodes, top_nodes, left_nodes, bottom_nodes);
+			_assignRing(right_nodes, top_nodes, left_nodes, bottom_nodes);
 		} else {
+			/*
 			int hq_x = robot.info.hq.x;
 			int hq_y = robot.info.hq.y;
 			// lay mines one at a time
@@ -269,7 +270,7 @@ public class SoldierDefenseMiner
 				top_nodes += 2;
 				left_nodes += 2;
 				bottom_nodes += 2;
-			}
+			}*/
 		}
 	}
 }
