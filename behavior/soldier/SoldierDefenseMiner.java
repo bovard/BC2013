@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import team122.behavior.Behavior;
 import team122.robot.Soldier;
+import team122.utils.MinePlacement;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -39,9 +40,6 @@ public class SoldierDefenseMiner
 			end_ring_num = 1;
 			_setMiningLocations();
 		}
-		
-		
-		
 	}
 	
 	@Override
@@ -85,6 +83,7 @@ public class SoldierDefenseMiner
 						// if there is any ally there skip it
 						else if (robot.rc.senseNearbyGameObjects(Robot.class, robot.move.destination, 1, robot.info.myTeam).length > 0) {
 							robot.rc.setIndicatorString(0, "ally there " + robot.move.destination);
+							mineSpots.add(2, robot.currentLoc);
 							_setDestination();
 						} 
 						else {
@@ -118,159 +117,12 @@ public class SoldierDefenseMiner
 		return !robot.enemyInMelee;
 	}
 	
-	private void insertMine(int x, int y) {
-		int map_width = robot.info.width,
-	        map_height = robot.info.height;
-		MapLocation created;
-		if (x >= 0 && x < map_width && y >= 0 && y < map_height) {
-			created = new MapLocation(x, y);
-			mineSpots.add(created);
-		}
-	}
-	
-	private void _assignRing(int right_nodes, int top_nodes, int left_nodes, int bottom_nodes) {
-		int hq_x = robot.info.hq.x;
-		int hq_y = robot.info.hq.y;
-		
-		int x = hq_x,
-			y = hq_y;
-		
-		if (start_ring_num != 1) {
-			x += (start_ring_num - 2) * 2;
-			y += (start_ring_num - 1) * 2;
-		}
-		
-		for (int i = start_ring_num; i <= end_ring_num; i++) {
-			// insert right nodes
-			for (int j = 1; j <= right_nodes; j++) {
-				if (i == 1 && j == 1) {
-					x += 1;
-				} else if (j == 1) {
-					x += 3;
-				} else if (j <= (right_nodes + 3) / 2) {
-					x += 1;
-					y -= 2;
-				} else {
-					x -= 2;
-					y -= 2;
-				}
-				if (i >= start_ring_num) {
-					insertMine(x, y);
-				}
-			}
-			// insert top nodes
-			for (int k = 1; k <= top_nodes; k++) {
-				if (i == 1 && k == 1) {
-					x += 1;
-					y -= 2;
-				} else if (k == 1) {
-					x -= 2;
-					y -= 2;
-				} else {
-					x -= 3;
-				}
-				if (i >= start_ring_num) {
-					insertMine(x, y);
-				}
-			}
-			// insert left nodes
-			for (int l = 1; l <= left_nodes; l++) {
-				if (l <= (left_nodes + 1) / 2) {
-					x -= 1;
-					y += 2;
-				} else {
-					x += 2;
-					y +=2;
-				}
-				if (i >= start_ring_num) {
-					insertMine(x, y);
-				}
-			}
-			// insert bottom nodes
-			for (int m = 1; m <= bottom_nodes; m++) {
-				if (m == 1) {
-					x += 2;
-					y += 2;
-				} else {
-					x += 3;
-				}
-				if (i >= start_ring_num) {
-					insertMine(x, y);
-				}
-			}
-			right_nodes += 2;
-			top_nodes += 1;
-			left_nodes += 2;
-			bottom_nodes += 1;
-		}
-	}
-	
 	private void _setMiningLocations() {
-		if (robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
-			mineSpots.clear();
-			
-			int right_nodes = 1,
-			    top_nodes = 2,
-			    left_nodes = 1,
-			    bottom_nodes = 1;
-			
-			for (int i = 1; i < start_ring_num; i++) {
-				right_nodes += 2;
-				top_nodes += 1;
-				left_nodes += 2;
-				bottom_nodes += 1;
-			}
-			_assignRing(right_nodes, top_nodes, left_nodes, bottom_nodes);
-		} else {
-			/*
-			int hq_x = robot.info.hq.x;
-			int hq_y = robot.info.hq.y;
-			// lay mines one at a time
-			int right_nodes = 1,
-				top_nodes = 3,
-				left_nodes = 1,
-				bottom_nodes = 3,
-				x = hq_x,
-				y = hq_y;
-			
-			for (int i = 0; i <= 12; i++) {
-				// insert right nodes
-				for (int j = 0; j < right_nodes; j++) {
-					if (j == 0) {
-						x += 1;
-					} else {
-						y -= 1;
-					}
-					insertMine(x, y);
-				}
-				// insert top nodes
-				for (int k = 0; k < top_nodes; k++) {
-					if (k == 0) {
-						y -= 1;
-					} else {
-						x -= 1;
-					}
-					insertMine(x, y);
-				}
-				// insert left nodes
-				for (int l = 0; l < left_nodes; l++) {
-					y += 1;
-					insertMine(x, y);
-				}
-				// insert bottom nodes
-				for (int m = 0; m < bottom_nodes; m++) {
-					if (m == 0) {
-						y += 1;
-					} else {
-						x += 1;
-					}
-					insertMine(x, y);
-				}
-				right_nodes += 2;
-				top_nodes += 2;
-				left_nodes += 2;
-				bottom_nodes += 2;
-			}*/
-		}
+		int startX = robot.info.hq.x,
+			startY = robot.info.hq.y,
+			mapWidth = robot.info.width,
+			mapHeight = robot.info.height;
+		mineSpots = MinePlacement.getMiningLocations(mapWidth, mapHeight, startX, startY, 
+				start_ring_num, end_ring_num, robot.rc.hasUpgrade(Upgrade.PICKAXE));
 	}
 }

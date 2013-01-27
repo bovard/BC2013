@@ -9,27 +9,30 @@ import battlecode.common.MapLocation;
 
 public class MinePlacement {
 	
-	public static MapLocation hq;
 	public static int width;
 	public static int height;
+	public static ArrayList<MapLocation> mineSpots;
 	
 	
-	private void insertMine(int x, int y, ArrayList<MapLocation> mineSpots) {
-		int map_width = width,
-	        map_height = height;
+	private static void insertMine(int x, int y) {
 		MapLocation created;
-		if (x >= 0 && x < map_width && y >= 0 && y < map_height) {
+		if (x >= 0 && x < width && y >= 0 && y < height) {
 			created = new MapLocation(x, y);
 			mineSpots.add(created);
 		}
 	}
 	
-	private void _assignRing(int start_ring, int end_ring, int right_nodes, int top_nodes, int left_nodes, int bottom_nodes, ArrayList<MapLocation> mineSpots) {
-		int hq_x = hq.x; 
-		int hq_y = hq.y;
+	private static void _assignRing(int startX, int startY, 
+									int start_ring, int end_ring, 
+									int right_nodes, int top_nodes, 
+									int left_nodes, int bottom_nodes) {
+		int x = startX,
+			y = startY;
 		
-		int x = hq_x,
-			y = hq_y;
+		if (start_ring != 1) {
+			x += (start_ring - 2) * 2;
+			y += (start_ring - 1) * 2;
+		}
 		
 		for (int i = start_ring; i <= end_ring; i++) {
 			// insert right nodes
@@ -45,7 +48,7 @@ public class MinePlacement {
 					x -= 2;
 					y -= 2;
 				}
-				insertMine(x, y, mineSpots);
+				insertMine(x, y);
 			}
 			// insert top nodes
 			for (int k = 1; k <= top_nodes; k++) {
@@ -58,7 +61,7 @@ public class MinePlacement {
 				} else {
 					x -= 3;
 				}
-				insertMine(x, y, mineSpots);
+				insertMine(x, y);
 			}
 			// insert left nodes
 			for (int l = 1; l <= left_nodes; l++) {
@@ -69,7 +72,7 @@ public class MinePlacement {
 					x += 2;
 					y +=2;
 				}
-				insertMine(x, y, mineSpots);
+				insertMine(x, y);
 			}
 			// insert bottom nodes
 			for (int m = 1; m <= bottom_nodes; m++) {
@@ -79,7 +82,7 @@ public class MinePlacement {
 				} else {
 					x += 3;
 				}
-				insertMine(x, y, mineSpots);
+				insertMine(x, y);
 			}
 			right_nodes += 2;
 			top_nodes += 1;
@@ -88,12 +91,13 @@ public class MinePlacement {
 		}
 	}
 	
-	public ArrayList<MapLocation> getMiningLocations(int start_ring, int end_ring, boolean hasPickAxe) {
-		ArrayList<MapLocation> mineSpots = new ArrayList<MapLocation>();
+	public static ArrayList<MapLocation> getMiningLocations(int mapWidth, int mapHeight, int startX, int startY, 
+			int start_ring, int end_ring, boolean hasPickAxe) {
+		mineSpots = new ArrayList<MapLocation>();
+		width = mapWidth;
+		height = mapHeight;
 		
 		if (hasPickAxe) {
-			mineSpots.clear();
-			
 			int right_nodes = 1,
 			    top_nodes = 2,
 			    left_nodes = 1,
@@ -105,17 +109,15 @@ public class MinePlacement {
 				left_nodes += 2;
 				bottom_nodes += 1;
 			}
-			_assignRing(start_ring, end_ring, right_nodes, top_nodes, left_nodes, bottom_nodes, mineSpots);
+			_assignRing(startX, startY, start_ring, end_ring, right_nodes, top_nodes, left_nodes, bottom_nodes);
 		} else {
-			int hq_x = hq.x;
-			int hq_y = hq.y;
 			// lay mines one at a time
 			int right_nodes = 1,
 				top_nodes = 3,
 				left_nodes = 1,
 				bottom_nodes = 3,
-				x = hq_x,
-				y = hq_y;
+				x = startX,
+				y = startY;
 			
 			for (int i = 0; i <= 12; i++) {
 				// insert right nodes
@@ -125,7 +127,7 @@ public class MinePlacement {
 					} else {
 						y -= 1;
 					}
-					insertMine(x, y, mineSpots);
+					insertMine(x, y);
 				}
 				// insert top nodes
 				for (int k = 0; k < top_nodes; k++) {
@@ -134,12 +136,12 @@ public class MinePlacement {
 					} else {
 						x -= 1;
 					}
-					insertMine(x, y, mineSpots);
+					insertMine(x, y);
 				}
 				// insert left nodes
 				for (int l = 0; l < left_nodes; l++) {
 					y += 1;
-					insertMine(x, y, mineSpots);
+					insertMine(x, y);
 				}
 				// insert bottom nodes
 				for (int m = 0; m < bottom_nodes; m++) {
@@ -148,7 +150,7 @@ public class MinePlacement {
 					} else {
 						x += 1;
 					}
-					insertMine(x, y, mineSpots);
+					insertMine(x, y);
 				}
 				right_nodes += 2;
 				top_nodes += 2;
