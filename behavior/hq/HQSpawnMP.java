@@ -31,23 +31,34 @@ public class HQSpawnMP extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
-		if (robot.info.myTeam == Team.A) {
-
-			if (spawned % 10 == 0) {
-				robot.spawnGenerator();
-			}
-		} else {
-			
-			if (spawned % 500 == 0) {
-				robot.spawnBackdoor();
-			} else if (spawned % 100 == 0) {
-				robot.spawnEncampmentHunter(0);
-			} else if (spawned % 25 == 0) {
-				robot.spawnGenerator();
-			}
+		if(!robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
+			robot.rc.researchUpgrade(Upgrade.PICKAXE);
 		}
-
-		spawned++;		
+		
+		if (spawned < 5) {
+			robot.spawnMiner();
+			spawned++;
+		}
+		
+		
+		
+//		if (robot.info.myTeam == Team.A) {
+//
+//			if (spawned % 10 == 0) {
+//				robot.spawnGenerator();
+//			}
+//		} else {
+//			
+//			if (spawned % 500 == 0) {
+//				robot.spawnBackdoor();
+//			} else if (spawned % 100 == 0) {
+//				robot.spawnEncampmentHunter(0);
+//			} else if (spawned % 25 == 0) {
+//				robot.spawnGenerator();
+//			}
+//		}
+//
+//		spawned++;		
 		
 		//Nothign to do.  DO not over commit.
 		return;

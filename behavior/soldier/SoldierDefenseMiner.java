@@ -12,6 +12,7 @@ import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
+import battlecode.common.Robot;
 import battlecode.common.Team;
 import battlecode.common.Upgrade;
 
@@ -22,9 +23,8 @@ public class SoldierDefenseMiner
 	public ArrayList<MapLocation> mineSpots = new ArrayList<MapLocation>();
 	public boolean init;
 	public boolean reset_mines = true;
-	public boolean hasDest = false;
 	public int start_ring_num = 1,
-	           end_ring_num = 20;
+	           end_ring_num = 2;
 
 	public SoldierDefenseMiner(Soldier robot2) {
 		super();
@@ -38,22 +38,28 @@ public class SoldierDefenseMiner
 			init = true;
 			_setMiningLocations(start_ring_num, end_ring_num);
 		}
-	}
-
-	@Override
-	public void stop() {
-		// nothing needs to be done here
+		//we just encoutered an enemy go back to the two first rings
+		else {
+			start_ring_num = 1;
+			end_ring_num = 2;
+		}
+		
+		
 		
 	}
 	
 	@Override
 	public void run() throws GameActionException {
+		
 		if (robot.rc.isActive()) {
-			if (mineSpots.size() == 0 || (robot.rc.hasUpgrade(Upgrade.PICKAXE) && reset_mines)) {
+			if (mineSpots.size() == 0) {
+				
+				start_ring_num++;
+				end_ring_num++;
+				System.out.println("resetting! with start =" + start_ring_num + " and end= " + end_ring_num);
 				_setMiningLocations(start_ring_num, end_ring_num);
 			}
 			if (robot.move.atDestination()) {
-				hasDest = false;
 				MapLocation[] all_dir = new MapLocation[5];
 				all_dir[0] = robot.rc.getLocation();
 				all_dir[1] = all_dir[0].add(Direction.NORTH);
@@ -69,30 +75,43 @@ public class SoldierDefenseMiner
 				}
 				if (robot.rc.senseMine(all_dir[0]) == null) {
 					robot.rc.layMine();
+					robot.move.destination = null;
 				}
 				_setDestination();
 			} else {
-				if (hasDest) {
+				if (robot.move.destination != null) {
 					// check to see if we can sense the square
 					if (robot.rc.canSenseSquare(robot.move.destination)) {
+						robot.rc.setIndicatorString(0, "canSense " + robot.move.destination + " " + mineSpots.toString());
 						// if there is already a mine there, skip it
 						if (robot.rc.senseMine(robot.move.destination) == robot.info.myTeam) {
+							robot.rc.setIndicatorString(0, "already Mines " + robot.move.destination);
 							_setDestination();
 						} 
 						// if there is any ally there skip it
-						else if (robot.rc.senseObjectAtLocation(robot.move.destination).getTeam() == robot.info.myTeam) {
+						else if (robot.rc.senseNearbyGameObjects(Robot.class, robot.move.destination, 1, robot.info.myTeam).length > 0) {
+							robot.rc.setIndicatorString(0, "ally there " + robot.move.destination);
 							_setDestination();
 						} 
 						
-					} 
+						else {
+							robot.rc.setIndicatorString(0, "square is open!");
+						}
+						
+					}
 					
-					robot.move.move();
 					
 				} else {
 					_setDestination();
 				}
 			}
 		}
+		
+		
+		
+		if (robot.rc.isActive()) {
+			robot.move.move();
+		} 
 	}
 	
 	/**
@@ -100,9 +119,11 @@ public class SoldierDefenseMiner
 	 * mines.
 	 */
 	private void _setDestination() {
-		robot.move.setDestination(mineSpots.get(0));
-		mineSpots.remove(0);
-		hasDest = true;
+		if (mineSpots.size() > 0) {
+			robot.move.setDestination(mineSpots.get(0));
+			mineSpots.remove(0);
+		}
+		
 	}
 
 	@Override
@@ -186,23 +207,20 @@ public class SoldierDefenseMiner
 	
 	private void _setMiningLocations(int start_ring, int end_ring) {
 		if (robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
-			if (reset_mines) {
-				reset_mines = false;
-				mineSpots.clear();
-				
-				int right_nodes = 1,
-				    top_nodes = 2,
-				    left_nodes = 1,
-				    bottom_nodes = 1;
-				
-				for (int i = 1; i < start_ring; i++) {
-					right_nodes += 2;
-					top_nodes += 1;
-					left_nodes += 2;
-					bottom_nodes += 1;
-				}
-				_assignRing(start_ring, end_ring, right_nodes, top_nodes, left_nodes, bottom_nodes);
+			mineSpots.clear();
+			
+			int right_nodes = 1,
+			    top_nodes = 2,
+			    left_nodes = 1,
+			    bottom_nodes = 1;
+			
+			for (int i = 1; i < start_ring; i++) {
+				right_nodes += 2;
+				top_nodes += 1;
+				left_nodes += 2;
+				bottom_nodes += 1;
 			}
+			_assignRing(start_ring, end_ring, right_nodes, top_nodes, left_nodes, bottom_nodes);
 		} else {
 			int hq_x = robot.info.hq.x;
 			int hq_y = robot.info.hq.y;
