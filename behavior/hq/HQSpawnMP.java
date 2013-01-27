@@ -26,7 +26,7 @@ public class HQSpawnMP extends Behavior {
 		upgrades[4] = Upgrade.NUKE;
 	}
 	
-	private int spawned = 0;
+	private int spawned = 1;
 	
 	@Override
 	public void run() throws GameActionException {
@@ -38,8 +38,12 @@ public class HQSpawnMP extends Behavior {
 			}
 		} else {
 			
-			if (spawned % 10 == 0) {
+			if (spawned % 500 == 0) {
+				robot.spawnBackdoor();
+			} else if (spawned % 100 == 0) {
 				robot.spawnEncampmentHunter(0);
+			} else if (spawned % 25 == 0) {
+				robot.spawnGenerator();
 			}
 		}
 

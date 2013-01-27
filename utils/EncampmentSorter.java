@@ -305,6 +305,43 @@ public class EncampmentSorter {
 		} 
 		__generatorIndex = 0;
 	}
+	
+	/**
+	 * Scores the artillery based on encampment distance.
+	 * @param distanceFromHQ
+	 * @return
+	 */
+	public static final int ScoreArtillery(int distanceFromHQ) {
+		return distanceFromHQ;
+	}
+	
+	/**
+	 * Scoring for the generator encampments.
+	 * @param distanceToHQ
+	 * @param distanceToEnemy
+	 * @return
+	 */
+	public static final int ScoreGenerator(int distanceToHQ, int distanceToEnemy) {
+		return distanceToHQ - distanceToEnemy;
+	}
+	
+	public static final boolean IsEncampmentArtillery(MapLocation hq, MapLocation enemy, MapLocation encampment) {
+
+		double x = hq.x - enemy.x;
+		double y = hq.y - enemy.y;
+
+		double uX = x / Math.sqrt(x * x + y * y); // can we remove sqrt later?
+		double uY = y / Math.sqrt(x * x + y * y);
+		
+		double dot = ((hq.x - encampment.x) * uX + (hq.y - encampment.y) * uY);
+		double newX = dot * uX;
+		double newY = dot * uY;
+		
+		if (hq.distanceSquaredTo(encampment) - (newX * newX + newY * newY) < ARTILLERY_PERP_DISTANCE) {
+			return true;
+		}
+		return false;
+	}
 
 	public static final int MAX_ARRAY_LENGTH_FOR_ALLIES = 9;
 	public static final int MAX_ALLY_LENGTH_NO_RESORT = 50;
