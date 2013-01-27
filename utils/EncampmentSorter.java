@@ -1,11 +1,8 @@
 package team122.utils;
 
-import java.util.Arrays;
-import java.util.HashMap;
 
+import team122.robot.HQ;
 import battlecode.common.Clock;
-import battlecode.common.Direction;
-import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.Robot;
 import battlecode.common.RobotController;
@@ -27,8 +24,6 @@ public class EncampmentSorter {
 	public MapLocation enemy;
 	public int artRange;
 	public int artMaxEnemyHQ;
-	public MapLocation[] darkHorseArt;
-	public int darkHorseIdx;
 	public double uX;
 	public double uY;
 	public int hqX;
@@ -42,18 +37,18 @@ public class EncampmentSorter {
 	private int _currentRound;
 	private MapLocation[] generatorEncampments;
 	private MapLocation[] artilleryEncampments;
-	public int[] generatorScores;
-	public int[] artilleryScores;
-	public boolean[] generatorUsed;
-	public boolean[] artilleryUsed;
-	public int[] generatorRound;
-	public int[] artilleryRound;
+	private int[] generatorScores;
+	private int[] artilleryScores;
+	private boolean[] generatorUsed;
+	private boolean[] artilleryUsed;
+	private int[] generatorRound;
+	private int[] artilleryRound; 
 	private int artilleryLength = 0;
 	private int generatorLength = 0;
 	
 	//These should only be used in one spot and never set again.
-	private int __buildingGeneratorIndex = 0;
-	private int __buildingArtilleryIndex = 0;
+	private int __generatorIndex = 0;
+	private int __artilleryIndex = 0;
 	private int __maxArtilleryLength = 0;
 	private int __roundsToWait = 0;
 
@@ -133,19 +128,6 @@ public class EncampmentSorter {
 	 * 
 	 * @return
 	 */
-	public MapLocation popDarkHorse() {
-
-		if (darkHorseIdx < darkHorseArt.length) {
-			return darkHorseArt[darkHorseIdx++];
-		}
-		return null;
-	}
-
-	/**
-	 * Will do a generator search.
-	 * 
-	 * @return
-	 */
 	public MapLocation popGenerator() {
 		MapLocation generator = null;
 
@@ -189,39 +171,13 @@ public class EncampmentSorter {
 	/**
 	 * Cycles through the encampments and continually updates them.
 	 */
-	public void updateEncampments() {
-		Team team = rc.getTeam();
+	public void refresh() {
+		
+		//Processes a generator and an artillery back and forth.
 		do {
-			if (__buildingGeneratorIndex < generatorLength) {
-				for (;__buildingGeneratorIndex < generatorLength && Clock.getBytecodesLeft() > 500; __buildingGeneratorIndex++) {
-					
-					//We claim to have an encampment here and if we do not then we set it to false
-					//and break from the loop so artillery can have some processing as well.
-					if (generatorUsed[__buildingGeneratorIndex] && Clock.getRoundNum() - generatorRound[__buildingGeneratorIndex] > __roundsToWait) {
-						Robot[] r = rc.senseNearbyGameObjects(Robot.class, generatorEncampments[__buildingGeneratorIndex], 1, team);
-						if (r.length == 0) {
-							generatorUsed[__buildingGeneratorIndex] = false;
-							break;
-						}
-					}
-				}
-			} 
-
-			if (__buildingArtilleryIndex < artilleryLength) {
-				for (;__buildingArtilleryIndex < artilleryLength && Clock.getBytecodesLeft() > 500; __buildingArtilleryIndex++) {
-					
-					//We claim to have an encampment here and if we do not then we set it to false
-					//and break from the loop so artillery can have some processing as well.
-					if (artilleryUsed[__buildingArtilleryIndex] && Clock.getRoundNum() - artilleryRound[__buildingArtilleryIndex] > __roundsToWait) {
-						Robot[] r = rc.senseNearbyGameObjects(Robot.class, artilleryEncampments[__buildingArtilleryIndex], 1, team);
-						if (r.length == 0) {
-							artilleryUsed[__buildingArtilleryIndex] = false;
-							break;
-						}
-					}
-				}
-			}
-		} while (Clock.getBytecodesLeft() > 500);
+			_processGenerator();
+			_processArtillery();
+		} while (Clock.getBytecodesLeft() > HQ.MINIMUM_BYTECODES_LEFT);
 	}
 	
 	public boolean sort() {
@@ -260,7 +216,7 @@ public class EncampmentSorter {
 
 		// 110 bytecodes
 		for (i = _currentRound; Clock.getRoundNum() - startingClock < 1
-				&& Clock.getBytecodeNum() < 9400 && i < totalEncampments; i++) {
+				&& Clock.getBytecodesLeft() > HQ.MINIMUM_BYTECODES_LEFT && i < totalEncampments; i++) {
 			enc = encampments[i];
 			encampmentDistances[i] = hq.distanceSquaredTo(enc);
 			enemyDistances[i] = enemy.distanceSquaredTo(enc);
@@ -280,13 +236,13 @@ public class EncampmentSorter {
 			// distances?
 			if (answer < artRange && enemyDistances[i] < artMaxEnemyHQ && artilleryLength < __maxArtilleryLength) {
 				artilleryLength++;
-				artilleryEncampments[__buildingArtilleryIndex] = enc;
-				artilleryScores[__buildingArtilleryIndex++] = encampmentDistances[i];
+				artilleryEncampments[__artilleryIndex] = enc;
+				artilleryScores[__artilleryIndex++] = encampmentDistances[i];
 
 			} else {
 				generatorLength++;
-				generatorEncampments[__buildingGeneratorIndex] = enc;
-				generatorScores[__buildingGeneratorIndex++] = encampmentDistances[i] - enemyDistances[i];
+				generatorEncampments[__generatorIndex] = enc;
+				generatorScores[__generatorIndex++] = encampmentDistances[i] - enemyDistances[i];
 
 			}
 		}
@@ -297,13 +253,62 @@ public class EncampmentSorter {
 		if (calculated) {
 			generatorTree.setData(generatorEncampments, generatorScores, generatorLength - 1);
 			artilleryTree.setData(artilleryEncampments, artilleryScores, artilleryLength - 1);
-			__buildingGeneratorIndex = 0;
-			__buildingArtilleryIndex = 0;
+			__generatorIndex = 0;
+			__artilleryIndex = 0;
 		}
 		return calculated;
+	}
+
+	
+	/**
+	 * Processes a single artillery then returns back to the 
+	 */
+	private void _processArtillery() {
+		
+		Team team = rc.getTeam();
+		if (__artilleryIndex < artilleryLength) {
+			for (;__artilleryIndex < artilleryLength && Clock.getBytecodesLeft() > HQ.MINIMUM_BYTECODES_LEFT; __artilleryIndex++) {
+				
+				//We claim to have an encampment here and if we do not then we set it to false
+				//and break from the loop so artillery can have some processing as well.
+				if (artilleryUsed[__artilleryIndex] && Clock.getRoundNum() - artilleryRound[__artilleryIndex] > __roundsToWait) {
+					
+					Robot[] r = rc.senseNearbyGameObjects(Robot.class, artilleryEncampments[__artilleryIndex], 1, team);
+					if (r.length == 0) {
+						artilleryUsed[__artilleryIndex] = false;
+						break;
+					}
+				}
+			}
+		} // end artillery
+		
+		__artilleryIndex = 0;
+	}
+	
+	private void _processGenerator() {
+
+		Team team = rc.getTeam();
+		if (__generatorIndex < generatorLength) {
+			for (;__generatorIndex < generatorLength && Clock.getBytecodesLeft() > HQ.MINIMUM_BYTECODES_LEFT; __generatorIndex++) {
+				
+				//We claim to have an encampment here and if we do not then we set it to false
+				//and break from the loop so artillery can have some processing as well.
+				if (generatorUsed[__generatorIndex] && Clock.getRoundNum() - generatorRound[__generatorIndex] > __roundsToWait) {
+					
+					Robot[] r = rc.senseNearbyGameObjects(Robot.class, generatorEncampments[__generatorIndex], 1, team);
+					if (r.length == 0) {
+						generatorUsed[__generatorIndex] = false;
+						break;
+					}
+				}
+			}
+		} 
+		__generatorIndex = 0;
 	}
 
 	public static final int MAX_ARRAY_LENGTH_FOR_ALLIES = 9;
 	public static final int MAX_ALLY_LENGTH_NO_RESORT = 50;
 	public static final int ARTILLERY_PERP_DISTANCE = 35;
+	public static final int MAX_GENERATOR_SIZE = 5;
+	public static final int MAX_ARTILLERY_SIZE = 5;
 }

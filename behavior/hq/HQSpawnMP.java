@@ -31,14 +31,14 @@ public class HQSpawnMP extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
-		System.out.println(robot.info.myTeam);
 		if (robot.info.myTeam == Team.A) {
 
-			if (spawned % 50 == 0) {
+			if (spawned % 10 == 0) {
 				robot.spawnGenerator();
 			}
 		} else {
-			if (spawned % 50 == 0) {
+			
+			if (spawned % 10 == 0) {
 				robot.spawnEncampmentHunter(0);
 			}
 		}

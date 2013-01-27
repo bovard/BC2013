@@ -35,7 +35,7 @@ public class HQCalculate extends Behavior {
 		if (robot.rc.isActive()) {
 			//TODO:  Perform some sweet calculations!
 			
-			robot.spawnSwarmer();
+//			robot.spawnSwarmer();
 		}
 	}
 
