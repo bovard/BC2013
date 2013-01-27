@@ -2,10 +2,13 @@ package team122.behavior.soldier;
 
 import java.util.ArrayList;
 
+import team122.MapUtils;
+import team122.RobotInformation;
 import team122.behavior.Behavior;
-import team122.behavior.IComBehavior;
+import team122.navigation.SoldierMove;
 import team122.communication.Communicator;
 import team122.robot.Soldier;
+import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -13,13 +16,13 @@ import battlecode.common.Team;
 import battlecode.common.Upgrade;
 
 public class SoldierDefenseMiner 
-		extends Behavior
-		implements IComBehavior {
+		extends Behavior{
 	
 	public Soldier robot;
 	public ArrayList<MapLocation> mineSpots = new ArrayList<MapLocation>();
 	public boolean init;
 	public boolean reset_mines = true;
+	public boolean hasDest = false;
 	public int start_ring_num = 1,
 	           end_ring_num = 20;
 
@@ -30,7 +33,7 @@ public class SoldierDefenseMiner
 	}
 
 	@Override
-	public void start() {
+	public void start() throws GameActionException{
 		if (!init) {
 			init = true;
 			_setMiningLocations(start_ring_num, end_ring_num);
@@ -44,21 +47,13 @@ public class SoldierDefenseMiner
 	}
 	
 	@Override
-	public void comBehavior() throws GameActionException {
-		robot.com.increment(Communicator.CHANNEL_MINER_COUNT);
-	}
-
-	/**
-	 * 
-	 */
-	@Override
 	public void run() throws GameActionException {
 		if (robot.rc.isActive()) {
 			if (mineSpots.size() == 0 || (robot.rc.hasUpgrade(Upgrade.PICKAXE) && reset_mines)) {
 				_setMiningLocations(start_ring_num, end_ring_num);
 			}
-			
-			if (robot.navSystem.navMode.atDestination) {
+			if (robot.move.atDestination()) {
+				hasDest = false;
 				MapLocation[] all_dir = new MapLocation[5];
 				all_dir[0] = robot.rc.getLocation();
 				all_dir[1] = all_dir[0].add(Direction.NORTH);
@@ -77,8 +72,8 @@ public class SoldierDefenseMiner
 				}
 				_setDestination();
 			} else {
-				if (robot.navSystem.navMode.hasDestination) {
-					robot.navSystem.navMode.move();
+				if (hasDest) {
+					robot.move.move();
 				} else {
 					_setDestination();
 				}
@@ -91,8 +86,9 @@ public class SoldierDefenseMiner
 	 * mines.
 	 */
 	private void _setDestination() {
-		robot.navSystem.navMode.setDestination(mineSpots.get(0));
+		robot.move.setDestination(mineSpots.get(0));
 		mineSpots.remove(0);
+		hasDest = true;
 	}
 
 	@Override
