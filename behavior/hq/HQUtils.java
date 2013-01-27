@@ -84,12 +84,14 @@ public class HQUtils {
 		
 		//We want to calculate first
 		if (!robot.encampmentSorter.calculated) {
+			
 			robot.encampmentSorter.calculate();
 		} else if (!robot.encampmentSorter.sorted) {
+			
 			robot.encampmentSorter.sort();
 		} else {
-			//TODO: I DO NT KNOW!
 			
+			robot.encampmentSorter.refresh();
 		}
 		
 		//sort second.

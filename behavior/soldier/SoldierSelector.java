@@ -38,19 +38,20 @@ public class SoldierSelector extends Decision {
 	
 	@Override
 	public Node select() throws GameActionException {
-		// TODO: when we have more than one child the decision code should be in here
-		if (robot.enemyInMelee) {
-			return children.get(SOLDIER_COMBAT);
-		}
-		
 		if (robot.isNew) {
 			robot.dec = robot.com.receiveNewSoldier();
 			robot.isNew = false;
 		}
 		
-		if (robot.isNukeArmed) {
+		
+		if (robot.enemyInMelee) {
+			
+			return children.get(SOLDIER_COMBAT);
+		} else if (robot.isNukeArmed) {
+			
 			return children.get(SOLDIER_NUKE_IS_ARMED);
 		} else if (robot.enemyAtTheGates) {
+			
 			return children.get(SOLDIER_HQ_DEFENDER);
 		}
 
