@@ -30,15 +30,7 @@ public class SoldierSwarm
 		//sets the starting spawn point.
 		if (!init) {
 			robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
-	
-			System.out.println(Math.sqrt(robot.info.enemyHqDistance) / 4);
-			int distanceOut = (int)Math.ceil(Math.sqrt(robot.info.enemyHqDistance) / 4);
-			MapLocation loc = robot.info.hq;
-			
-			for (int i = 0; i < distanceOut; i++) {
-				loc = loc.add(robot.info.enemyDir);
-			}
-			robot.move.destination = loc;
+			robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
 			init = true;
 		}
 	}
