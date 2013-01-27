@@ -1,18 +1,15 @@
 package team122.robot;
 
-import java.util.Arrays;
 
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
-import team122.MapInformation;
 import team122.RobotInformation;
 import team122.behavior.hq.HQUtils;
 import team122.behavior.soldier.SoldierEncamper;
 import team122.behavior.soldier.SoldierSelector;
-import team122.communication.CommunicationDecoder;
 import team122.communication.Communicator;
 import team122.communication.SoldierDecoder;
 import team122.trees.HQTree;
@@ -24,7 +21,6 @@ public class HQ extends TeamRobot {
 	public boolean rush;
 	public boolean forceNukeRush;
 	public EncampmentSorter encampmentSorter;
-	public MapInformation mapInfo;
 	public boolean enemyResearchedNuke;
 	public int nukeCount;
 	private boolean threeTurnsAgoPositive = true;
@@ -38,14 +34,13 @@ public class HQ extends TeamRobot {
 	
 	public HQ(RobotController rc, RobotInformation info) {
 		super(rc, info);
-		hqUtils = new HQUtils(rc, com, mapInfo);
+		hqUtils = new HQUtils(rc, com);
 		tree = new HQTree(this);
 		nukeCount = 0;
 		rush = false;
 		retaliate = false;
 		enemyResearchedNuke = false;
 		forceNukeRush = false;
-		mapInfo = new MapInformation(rc);
 		encampmentSorter = new EncampmentSorter(rc);
 	}
 	
@@ -75,9 +70,14 @@ public class HQ extends TeamRobot {
 			if (enemyResearchedNuke) {
 				com.nukeIsArmed();
 			}
-			
+
 			//TODO: Get retaliation detection.
+			//TODO: Determine when to attack?
+//			if (Clock.getRoundNum() % 562 == 0) {
+//				com.attack();
+//			}
 		}
+
 	}
 	
 	/**
@@ -266,6 +266,7 @@ public class HQ extends TeamRobot {
 	public static final int RUSH_ENEMY_MAP_LONG = 1600;
 	public static final double RUSH_ENEMY_MAP_LONG_DENSITY = 0.25;
 	public static final int NUKE_IS_ARMED = 1943650283;
-	public static final int RETALIATE =     1385619238;
+	public static final int RETALIATE     = 1385619238;
+	public static final int ATTACK_CODE   = 1726135932;
 	public static final int MINIMUM_BYTECODES_LEFT = 750;
 }

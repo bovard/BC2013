@@ -8,7 +8,6 @@ import battlecode.common.GameConstants;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.Upgrade;
-import team122.MapInformation;
 import team122.RobotInformation;
 import team122.communication.Communicator;
 import team122.robot.HQ;
@@ -32,9 +31,8 @@ public class HQUtils {
 	public double powerProduction;
 	public double powerToCaptureEncampment;
 	public double powerConsumptionFromSoldiers;
-	public MapInformation mapInfo;
 	
-	public HQUtils(RobotController rc, Communicator com, MapInformation mapInfo) {
+	public HQUtils(RobotController rc, Communicator com) {
 		this.rc = rc;
 		this.com = com;
 		backdoorCount = 0;
@@ -51,7 +49,6 @@ public class HQUtils {
 		powerToCaptureEncampment = 0;
 		powerConsumptionFromSoldiers = 0;
 		nukeDefenderCount = 0;
-		this.mapInfo = mapInfo;
 	}
 
 	/**

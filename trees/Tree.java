@@ -24,7 +24,10 @@ public abstract class Tree {
 	public void run() {
 		boolean newB = true;
 		while (true) {
+			int round = Clock.getRoundNum();
+			
 			try {
+				
 				// at the start of the round, update with an environment check
 				robot.environmentCheck();
 				
@@ -68,8 +71,12 @@ public abstract class Tree {
 
 			
 			robot.load();
-			robot.rc.yield();
-			robot.rc.setIndicatorString(0, "-");
-		}
+			
+			if (round == Clock.getRoundNum()) {
+				robot.rc.yield();
+				robot.rc.setIndicatorString(0, "-");
+			}
+			
+		} // end while
 	}
 }
