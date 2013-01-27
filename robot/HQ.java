@@ -68,6 +68,7 @@ public class HQ extends TeamRobot {
 
 			com.clear(Clock.getRoundNum() + 1);
 		} else if (Clock.getRoundNum() % HQ_COMMUNICATION_ROUND == 0) {
+			
 			hqUtils.counts();
 			
 			//COmmunicates nuke is armed upon each com round.
@@ -77,6 +78,14 @@ public class HQ extends TeamRobot {
 			
 			//TODO: Get retaliation detection.
 		}
+	}
+	
+	/**
+	 * Loads the rest of the tree with bytecodes.
+	 */
+	@Override
+	public void load() {
+		HQUtils.calculate(this);
 	}
 	
 	/**
@@ -99,7 +108,7 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public void spawnSwarmer() throws GameActionException {
-		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_SWARMER, 1));
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_SWARMER, 0));
 	}
 
 	/**
@@ -107,7 +116,7 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public void spawnMiner() throws GameActionException {
-		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_MINER, 1));
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_MINER, 0));
 	}
 
 	/**
@@ -115,15 +124,15 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public void spawnBackdoor() throws GameActionException {
-		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_BACK_DOOR, 1));
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_BACK_DOOR, 0));
 	}
 
 	/**
 	 * Spawns a swarmer.
 	 * @return
 	 */
-	public void spawnEncampmentHunter() throws GameActionException {
-		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_ENCAMP_HUNTER, 1));
+	public void spawnEncampmentHunter(int group) throws GameActionException {
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_ENCAMP_HUNTER, group));
 	}
 	
 	/**
@@ -258,4 +267,5 @@ public class HQ extends TeamRobot {
 	public static final double RUSH_ENEMY_MAP_LONG_DENSITY = 0.25;
 	public static final int NUKE_IS_ARMED = 1943650283;
 	public static final int RETALIATE =     1385619238;
+	public static final int MINIMUM_BYTECODES_LEFT = 750;
 }
