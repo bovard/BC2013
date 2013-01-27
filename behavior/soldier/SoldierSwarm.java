@@ -16,6 +16,7 @@ public class SoldierSwarm
 	
 	public Soldier robot;
 	public boolean init = false;
+	public boolean advancing = false;
 	
 	public SoldierSwarm(Soldier robot) {
 		this.robot = robot;
@@ -32,14 +33,27 @@ public class SoldierSwarm
 			robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
 			robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
 			init = true;
+		} else {
+			advancing = false;
+			robot.move.destination = robot.info.enemyHq;
 		}
+		
 	}
 
 	@Override
 	public void run() throws GameActionException {
-		if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.com.shouldAttack()) {
-			robot.move.destination = robot.info.enemyHq;
+		if (!advancing) {
+			if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.com.shouldAttack()) {
+				_advanceRallyPoint();
+				advancing = true;
+			}
+			
+		} else {
+			if (Clock.getRoundNum() % 20 == 0) {
+				_advanceRallyPoint();
+			}
 		}
+		
 		
 		robot.move.move();
 	}
@@ -52,6 +66,18 @@ public class SoldierSwarm
 		}
 		
 		return !robot.enemyInMelee && !robot.isNukeArmed && !goHome;
+	}
+	
+	private void _advanceRallyPoint() {
+		if (robot.move.destination.distanceSquaredTo(robot.info.enemyHq) < 175) {
+			robot.move.destination = robot.info.enemyHq;
+		} else {
+			MapLocation dest = robot.move.destination; 
+			for (int i = 0; i < 5; i++) {
+				 dest = dest.add(dest.directionTo(robot.info.enemyHq));
+			}
+			robot.move.destination = dest;
+		}
 	}
 
 }

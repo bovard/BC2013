@@ -19,6 +19,7 @@ public class MoveCalculator {
 	private char[][] map;
 	private Soldier robot;
 	private boolean soldierNearby;
+	private boolean positionSoldierNearby;
 	private SoldierMove combatMove;
 	private boolean hq;
 	private final int MIDDLE = 3;
@@ -33,6 +34,10 @@ public class MoveCalculator {
 	public void move (Robot[] nearby, MapLocation loc) throws GameActionException{
 		//int time = -Clock.getBytecodeNum();
 		
+		if (robot.currentLoc.isAdjacentTo(robot.info.enemyHq)) {
+			return;
+		}
+		
 		if (nearby.length == 1) {
 			_moveOneOnOne(nearby, loc);
 			return;
@@ -46,6 +51,12 @@ public class MoveCalculator {
 		int[] xyDir = new int[2];
 		int score = -1000;
 		int temp;
+		
+		_evalMove(MIDDLE, MIDDLE);
+		if (positionSoldierNearby) {
+			robot.rc.setIndicatorString(0, "Can't move enemy nearby");
+			return;
+		}
 		
 		for(int x=-1;x<=1;x++) {
 			for (int y=1;y>=-1;y--) {
@@ -221,6 +232,7 @@ public class MoveCalculator {
 	}
 	
 	private int _scoreHash(String hash) {
+		positionSoldierNearby = false;
 		int robotPos = 4;
 		
 		// if we are on a mine, bad position!
@@ -234,6 +246,7 @@ public class MoveCalculator {
 		for (int i = 0; i < hash.length(); i++) {
 			char c = hash.charAt(i);
 			if (c == 'e') {
+				positionSoldierNearby = true;
 				eCount++;
 			} else if (c == 'a') {
 				aCount++;
@@ -267,9 +280,7 @@ public class MoveCalculator {
 	
 	
 	private int _evalMove(int x, int y) {
-		Timer.StartTimer();
 		int score = _scoreHash("" + map[x-1][y-1] + map[x][y-1] + map[x+1][y-1] + map[x-1][y] + map[x][y] + map[x+1][y] + map[x-1][y+1] + map[x][y+1] + map[x+1][y+1]); 
-		Timer.EndTimer();
 		return score;
 	}
 	

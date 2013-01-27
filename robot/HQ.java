@@ -73,9 +73,9 @@ public class HQ extends TeamRobot {
 
 			//TODO: Get retaliation detection.
 			//TODO: Determine when to attack?
-//			if (Clock.getRoundNum() % 562 == 0) {
-//				com.attack();
-//			}
+			if (Clock.getRoundNum() % 201 == 0) {
+				com.attack();
+			}
 		}
 
 	}

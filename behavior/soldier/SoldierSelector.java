@@ -71,7 +71,12 @@ public class SoldierSelector extends Decision {
 	 */
 	public static MapLocation GetInitialRallyPoint(RobotInformation info) {
 		int distanceOut = (int)Math.ceil(Math.sqrt(info.enemyHqDistance) / 4);
+		System.out.println(distanceOut);
 		MapLocation loc = info.hq;
+		
+		if (info.enemyDir.isDiagonal()) {
+			distanceOut = (int) (distanceOut / 1.4);
+		}
 		
 		for (int i = 0; i < distanceOut; i++) {
 			loc = loc.add(info.enemyDir);
