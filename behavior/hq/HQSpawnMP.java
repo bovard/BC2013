@@ -31,6 +31,7 @@ public class HQSpawnMP extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
+<<<<<<< HEAD
 		if(!robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
 			robot.rc.researchUpgrade(Upgrade.PICKAXE);
 		}
@@ -42,6 +43,8 @@ public class HQSpawnMP extends Behavior {
 		
 		
 		
+=======
+>>>>>>> master
 //		if (robot.info.myTeam == Team.A) {
 //
 //			if (spawned % 10 == 0) {

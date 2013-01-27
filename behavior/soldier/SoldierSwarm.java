@@ -8,38 +8,39 @@ import team122.behavior.Behavior;
 import team122.behavior.IComBehavior;
 import team122.communication.Communicator;
 import team122.navigation.SoldierMove;
+import team122.robot.HQ;
 import team122.robot.Soldier;
 
 public class SoldierSwarm  
 		extends Behavior {
 	
 	public Soldier robot;
+	public boolean init = false;
 	
 	public SoldierSwarm(Soldier robot) {
 		this.robot = robot;
 	}
 	
+	/**
+	 * Sets the spawning point.
+	 */
 	@Override
 	public void start() { 
-		robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
+		
+		//sets the starting spawn point.
+		if (!init) {
+			robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
+			robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
+			init = true;
+		}
 	}
 
 	@Override
 	public void run() throws GameActionException {
-		
-		//TODO: We need to turn this into an actual smart soldier.
-		if (robot.move.destination == null) {
-			Direction dir = robot.info.enemyDir;
-			robot.move.destination = robot.info.hq
-					.add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir).add(dir);
-		}
-		
-//		int modifier = Clock.getRoundNum() / 400 + 1;
-//		if (Clock.getRoundNum() % (modifier * 150) == 0 || 
-//				(modifier > 400 && Clock.getRoundNum() % 400 == 0)) {
-		if (Clock.getRoundNum() % 200 == 0) {
+		if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.com.shouldAttack()) {
 			robot.move.destination = robot.info.enemyHq;
 		}
+		
 		robot.move.move();
 	}
 	
