@@ -55,16 +55,21 @@ public class SoldierMove {
 		if (toMove == Direction.NONE || toMove == Direction.OMNI)
 			return;
 		
-		if (robot.rc.canMove(toMove)) {
+		// if there is a move toward our goal without mines, take it
+		if (robot.rc.canMove(toMove) && robot.rc.senseMine(robot.currentLoc.add(toMove)) == null) {
+			robot.rc.move(toMove);
+		} else if (robot.rc.canMove(toMove.rotateLeft()) && robot.rc.senseMine(robot.currentLoc.add(toMove.rotateLeft())) == null) {
+			robot.rc.move(toMove.rotateLeft());
+		} else if (robot.rc.canMove(toMove.rotateRight()) && robot.rc.senseMine(robot.currentLoc.add(toMove.rotateRight())) == null) {
+			robot.rc.move(toMove.rotateRight());
+		}
+		// otherwise move though the minefield!
+		else if (robot.rc.canMove(toMove)) {
 			robot.rc.move(toMove);
 		} else if (robot.rc.canMove(toMove.rotateLeft())) {
 			robot.rc.move(toMove.rotateLeft());
 		} else if (robot.rc.canMove(toMove.rotateRight())) {
 			robot.rc.move(toMove.rotateRight());
-		} else if (robot.rc.canMove(toMove.rotateLeft().rotateLeft())) {
-			robot.rc.move(toMove.rotateLeft().rotateLeft());
-		} else if (robot.rc.canMove(toMove.rotateRight().rotateRight())) {
-			robot.rc.move(toMove.rotateRight().rotateRight());
 		} 
 	}
 

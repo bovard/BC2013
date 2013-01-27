@@ -73,7 +73,21 @@ public class SoldierDefenseMiner
 				_setDestination();
 			} else {
 				if (hasDest) {
+					// check to see if we can sense the square
+					if (robot.rc.canSenseSquare(robot.move.destination)) {
+						// if there is already a mine there, skip it
+						if (robot.rc.senseMine(robot.move.destination) == robot.info.myTeam) {
+							_setDestination();
+						} 
+						// if there is any ally there skip it
+						else if (robot.rc.senseObjectAtLocation(robot.move.destination).getTeam() == robot.info.myTeam) {
+							_setDestination();
+						} 
+						
+					} 
+					
 					robot.move.move();
+					
 				} else {
 					_setDestination();
 				}
