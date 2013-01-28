@@ -33,6 +33,7 @@ public class HQ extends TeamRobot {
 	public boolean retaliate;
 	public boolean winning;
 	public int enemyHPChangedRound;
+	public boolean enemyAtBase;
 	
 	
 	public HQ(RobotController rc, RobotInformation info) {
@@ -66,6 +67,10 @@ public class HQ extends TeamRobot {
 					enemyHPChangedRound = Clock.getRoundNum();
 				}
 			}
+		}
+		enemyAtBase = false;
+		if (rc.senseNearbyGameObjects(Robot.class, 400, info.enemyTeam).length > 0) {
+			enemyAtBase = true;
 		}
 
 		//is the next round an inc round.

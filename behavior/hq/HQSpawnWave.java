@@ -45,9 +45,7 @@ public class HQSpawnWave extends Behavior {
 		}
 	}
 	
-	int supplier = Clock.getRoundNum();
-	int artillery = 0;
-	int mining = 0;
+	int lastEnconBuild = Clock.getRoundNum();
 	
 	@Override
 	public void run() throws GameActionException {
@@ -61,23 +59,40 @@ public class HQSpawnWave extends Behavior {
 		if (attackReady && Clock.getRoundNum() % 3 == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD) {
 			robot.attack();
 			attackReady = false;
-
 		}
 		
 		
 		
 		if (robot.rc.isActive() && robot.hqUtils.powerTotalFromLastRound > 25) {
-			if (Clock.getRoundNum() > GameStrategy.WAVE_FUSION_TURN && !robot.rc.hasUpgrade(Upgrade.FUSION)){
+			// if the enemy is with 400 units squared, just make guys
+			if (robot.enemyAtBase) {
+				robot.spawnScout();
+			}
+			// research fusion
+			else if (Clock.getRoundNum() > GameStrategy.WAVE_FUSION_TURN && !robot.rc.hasUpgrade(Upgrade.FUSION)){
 				robot.rc.researchUpgrade(Upgrade.FUSION);
 			}
-			
-			
-			else if (Clock.getRoundNum() - supplier > 100 && robot.spawnEconBuilding()) {
-				supplier = Clock.getRoundNum();
-			} else if (mining < 1) {
+			// research pick axe
+			else if (Clock.getRoundNum() > GameStrategy.WAVE_PICKAXE_TURN && !robot.rc.hasUpgrade(Upgrade.PICKAXE)){
+				robot.rc.researchUpgrade(Upgrade.PICKAXE);
+			}
+			// research vision
+			else if (Clock.getRoundNum() > GameStrategy.WAVE_VISION_TURN && !robot.rc.hasUpgrade(Upgrade.VISION)){
+				robot.rc.researchUpgrade(Upgrade.VISION);
+			}
+			// spawn an econ building every 100 rounds
+			else if (Clock.getRoundNum() - lastEnconBuild > 100 && robot.spawnEconBuilding()) {
+				lastEnconBuild = Clock.getRoundNum();
+			} 
+			// keep amassing miners
+			else if (robot.hqUtils.minerCount < Clock.getRoundNum()/300 + 1) {
 				robot.spawnMiner();
-				mining++;
-			} else {
+			} 
+			// keep amassing artillery
+			else if (robot.hqUtils.artilleryCount < Clock.getRoundNum()/300 + 1) {
+				robot.spawnArtillery();
+			}
+			else {
 				robot.spawnScout();
 			}
 			

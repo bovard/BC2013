@@ -15,4 +15,6 @@ public class GameStrategy {
 	//-------------------------------------------------------
 	public static final int WAVE_POWER_THRESHHOLD = 50;
 	public static final int WAVE_FUSION_TURN = 500;	
+	public static final int WAVE_PICKAXE_TURN = 750;
+	public static final int WAVE_VISION_TURN = 1000;
 }
