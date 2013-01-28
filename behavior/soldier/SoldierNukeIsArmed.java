@@ -23,6 +23,8 @@ public class SoldierNukeIsArmed
 			init = true;
 			robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
 			robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
+		} else {
+			robot.move.destination = robot.info.enemyHq;
 		}
 		
 	}
