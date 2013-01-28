@@ -37,7 +37,7 @@ public class EncampmentSorter {
 	private int _currentRound;
 	private MapLocation[] generatorEncampments;
 	private MapLocation[] artilleryEncampments;
-	private MapLocation[] doNotCapture;
+	private MapLocation[] doNotCapture = new MapLocation[0];
 	private int[] generatorScores;
 	private int[] artilleryScores;
 	private boolean[] generatorUsed;
