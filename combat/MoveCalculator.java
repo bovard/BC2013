@@ -4,6 +4,7 @@ package team122.combat;
 import team122.RobotInformation;
 import team122.navigation.SoldierMove;
 import team122.robot.Soldier;
+import team122.utils.Timer;
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
@@ -18,8 +19,11 @@ public class MoveCalculator {
 	private char[][] map;
 	private Soldier robot;
 	private boolean soldierNearby;
+	private boolean positionSoldierNearby;
 	private SoldierMove combatMove;
 	private boolean hq;
+	private final int MIDDLE = 3;
+	private final int SIZE = 7;
 	
 	
 	public MoveCalculator(Soldier robot) {
@@ -30,6 +34,16 @@ public class MoveCalculator {
 	public void move (Robot[] nearby, MapLocation loc) throws GameActionException{
 		//int time = -Clock.getBytecodeNum();
 		
+		if (robot.currentLoc.isAdjacentTo(robot.info.enemyHq)) {
+			return;
+		}
+		
+		if (nearby.length == 1) {
+			_moveOneOnOne(nearby, loc);
+			return;
+		}
+		
+		
 		_makeMap(nearby, loc);
 		
 		hq = false;
@@ -38,10 +52,16 @@ public class MoveCalculator {
 		int score = -1000;
 		int temp;
 		
+		_evalMove(MIDDLE, MIDDLE);
+		if (positionSoldierNearby) {
+			robot.rc.setIndicatorString(0, "Can't move enemy nearby");
+			return;
+		}
+		
 		for(int x=-1;x<=1;x++) {
 			for (int y=1;y>=-1;y--) {
-				if (map[3+x][3+y] == 'o' || map[3+x][3+y] == 'c') {
-					temp = _evalMove(3+x,3+y);
+				if (map[MIDDLE + x][MIDDLE + y] == 'o' || map[MIDDLE + x][MIDDLE + y] == 'c') {
+					temp = _evalMove(MIDDLE + x,MIDDLE + y);
 					if (temp > score) {
 						score = temp;
 						xyDir[0] = x;
@@ -89,6 +109,50 @@ public class MoveCalculator {
 		
 	}
 	
+	/*
+	 * This is called if there is only one other robot nearby!
+	 */
+	private void _moveOneOnOne(Robot[] nearby, MapLocation loc) throws GameActionException {
+		RobotInfo info = robot.rc.senseRobotInfo(nearby[0]);
+		
+		
+		if (info.team == robot.info.enemyTeam) {
+			
+			// an active enemy soldier
+			if (info.type == RobotType.SOLDIER && info.roundsUntilMovementIdle < 3) {
+				int distance = robot.currentLoc.distanceSquaredTo(info.location);
+				// if they have lower health
+				if (info.energon <= robot.rc.getEnergon()) {
+					// we are close, go for the kill!
+					if (distance < 8 && !robot.currentLoc.isAdjacentTo(info.location)) {
+						combatMove.destination = info.location;
+						combatMove.move();
+					}
+					// we are already there or too far away, hang out
+					
+				}
+				// if they have higher health
+				else {
+					
+					if (distance > 3) {
+						combatMove.destination = robot.currentLoc.add(robot.currentLoc.directionTo(info.location).opposite());
+						combatMove.move();
+					}
+				}
+			}
+			
+			// an inactive enemy soldier or building
+			else {
+				combatMove.destination = info.location;
+				combatMove.move();
+			}
+			
+			
+			
+		}
+		
+	}
+	
 	private Direction _xyToDir(int x, int y) {
 		if (x > 0) {
 			if (y > 0) 
@@ -116,7 +180,7 @@ public class MoveCalculator {
 
 	private void _makeMap(Robot[] nearby, MapLocation loc) throws GameActionException{
 		//int time = - Clock.getBytecodeNum();
-		map = new char[7][7];
+		map = new char[SIZE][SIZE];
 		for (int i=0;i<7;i++) {
 			for (int j=0;j<7;j++) {
 				map[i][j] = 'o';
@@ -126,19 +190,19 @@ public class MoveCalculator {
 		for (MapLocation l : robot.allied_mines) {
 			int x = l.x - loc.x;
 			int y = l.y - loc.y;
-			map[3+x][3+y] = 'c';
+			map[MIDDLE + x][MIDDLE + y] = 'c';
 		}
 		
 		for (MapLocation l : robot.enemy_mines) {
 			int x = l.x - loc.x;
 			int y = l.y - loc.y;
-			map[3+x][3+y] = 'g';
+			map[MIDDLE + x][MIDDLE + y] = 'g';
 		}
 		
 		for (MapLocation l : robot.neutral_mines) {
 			int x = l.x - loc.x;
 			int y = l.y - loc.y;
-			map[3+x][3+y] = 'g';
+			map[MIDDLE + x][MIDDLE + y] = 'g';
 		}
 		
 		soldierNearby = false;
@@ -148,14 +212,14 @@ public class MoveCalculator {
 			int y = info.location.y - loc.y;
 			if (Math.abs(x) < 3 && Math.abs(y) < 3) {
 				if (info.team == robot.info.enemyTeam) {
-					if (info.type == RobotType.SOLDIER){
+					if (info.type == RobotType.SOLDIER && info.roundsUntilMovementIdle < 3){
 						soldierNearby = true;
-						map[3+x][3+y] = 'e';
+						map[MIDDLE + x][MIDDLE + y] = 'e';
 					} else {
-						map[3+x][3+y] = 'f';
+						map[MIDDLE + x][MIDDLE + y] = 'f';
 					}
 				} else { 
-					map[3+x][3+y] = 'a';
+					map[MIDDLE + x][MIDDLE + y] = 'a';
 				}
 			}
 		}
@@ -163,11 +227,12 @@ public class MoveCalculator {
 		int enemyX = robot.info.enemyHq.x - loc.x;
 		int enemyY = robot.info.enemyHq.y - loc.y;
 		if (Math.abs(enemyX) < 3 && Math.abs(enemyY) < 3) {
-			map[3+enemyX][3+enemyY] = 'v';
+			map[MIDDLE + enemyX][MIDDLE + enemyY] = 'v';
 		}
 	}
 	
 	private int _scoreHash(String hash) {
+		positionSoldierNearby = false;
 		int robotPos = 4;
 		
 		// if we are on a mine, bad position!
@@ -181,6 +246,7 @@ public class MoveCalculator {
 		for (int i = 0; i < hash.length(); i++) {
 			char c = hash.charAt(i);
 			if (c == 'e') {
+				positionSoldierNearby = true;
 				eCount++;
 			} else if (c == 'a') {
 				aCount++;
@@ -214,8 +280,39 @@ public class MoveCalculator {
 	
 	
 	private int _evalMove(int x, int y) {
-		return _scoreHash("" + map[x-1][y-1] + map[x][y-1] + map[x+1][y-1] + map[x-1][y] + map[x][y] + map[x+1][y] + map[x-1][y+1] + map[x][y+1] + map[x+1][y+1]);
+		int score = _scoreHash("" + map[x-1][y-1] + map[x][y-1] + map[x+1][y-1] + map[x-1][y] + map[x][y] + map[x+1][y] + map[x-1][y+1] + map[x][y+1] + map[x+1][y+1]); 
+		return score;
 	}
 	
-
+	/**
+	 * gets
+	 * @param dir
+	 * @return
+	 */
+	public static int directionToXIndex(Direction dir) {
+		int x = 0;
+		if (dir == Direction.EAST || dir == Direction.NORTH_EAST || dir == Direction.SOUTH_EAST) {
+			x += 1;
+		} else if (dir == Direction.WEST || dir == Direction.NORTH_WEST || dir == Direction.SOUTH_WEST) {
+			x -= 1;
+		}
+		
+		return x;
+	}
+	
+	/**
+	 * gets
+	 * @param dir
+	 * @return
+	 */
+	public static int directionToYIndex(Direction dir) {
+		int y = 0;
+		if (dir == Direction.NORTH || dir == Direction.NORTH_EAST || dir == Direction.NORTH_EAST) {
+			y -= 1;
+		} else if (dir == Direction.SOUTH || dir == Direction.SOUTH_WEST || dir == Direction.SOUTH_EAST) {
+			y += 1;
+		}
+		
+		return y;
+	}
 }

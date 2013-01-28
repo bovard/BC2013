@@ -11,13 +11,13 @@ import team122.navigation.SoldierMove;
 import team122.robot.HQ;
 import team122.robot.Soldier;
 
-public class SoldierSwarm  
+public class SoldierScout  
 		extends Behavior {
 	
 	public Soldier robot;
 	public boolean init = false;
 	
-	public SoldierSwarm(Soldier robot) {
+	public SoldierScout(Soldier robot) {
 		this.robot = robot;
 	}
 	
@@ -32,11 +32,12 @@ public class SoldierSwarm
 			robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
 			robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
 			init = true;
-		}
+		} 
 	}
 
 	@Override
 	public void run() throws GameActionException {
+
 		if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.com.shouldAttack()) {
 			robot.move.destination = robot.info.enemyHq;
 		}
@@ -53,5 +54,6 @@ public class SoldierSwarm
 		
 		return !robot.enemyInMelee && !robot.isNukeArmed && !goHome;
 	}
+	
 
 }

@@ -3,16 +3,18 @@ package team122.behavior.hq;
 import team122.behavior.Behavior;
 import team122.behavior.soldier.SoldierSelector;
 import team122.robot.HQ;
+import team122.utils.GameStrategy;
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;
+import battlecode.common.Upgrade;
 
-public class HQOpeningStrategy extends Behavior {
+public class HQSpawnWave extends Behavior {
 	
 	protected HQ robot;
 	protected HQSelector parent;
 	protected boolean init;
 
-	public HQOpeningStrategy(HQ robot) {
+	public HQSpawnWave(HQ robot) {
 		super();
 		this.robot = robot;
 		init = false;
@@ -30,29 +32,19 @@ public class HQOpeningStrategy extends Behavior {
 	}
 	
 	int supplier = 0;
+	int artillery = 0;
+	int mining = 0;
 	
 	@Override
 	public void run() throws GameActionException {
 		
 		if (robot.rc.isActive()) {
-			
-			//We always spawn a supplier first.
-			if (supplier == 0) {
-				robot.spawnSupplier();
-				supplier++;
-			
-			//Now we spawn soldiers to a certain point.
-			} else {
-
-				//We spawn swarmers until calculated or round 100
-				robot.spawnSwarmer();
-			}
-		}
+			robot.spawnScout();
+		} // end is active
 	}
 
 	@Override
 	public boolean pre() {
-		return (!robot.encampmentSorter.sorted || Clock.getRoundNum() < HQSelector.OPENING_STRATEGY_MINIMUM_ROUND_COUNT) && !robot.enemyResearchedNuke;
+		return robot.state.inSpawnWave && !robot.enemyResearchedNuke;
 	}
-
 }

@@ -24,6 +24,7 @@ public class Soldier extends TeamRobot {
 	public boolean enemyInSight;
 	public Robot[] meleeObjects;
 	public boolean enemyInMelee;
+	public boolean combatMode;
 	public MapLocation currentLoc;
 	public MapLocation previousLoc;
 	public boolean isNew = true;
@@ -53,6 +54,7 @@ public class Soldier extends TeamRobot {
 	@Override
 	public void environmentCheck() throws GameActionException {
 		enemyInMelee = false;
+		combatMode = false;
 		previousLoc = currentLoc;
 		currentLoc = rc.getLocation();
 		neutral_mines = rc.senseMineLocations(currentLoc, 3, Team.NEUTRAL);
@@ -64,25 +66,23 @@ public class Soldier extends TeamRobot {
 		enemyAtTheGates = enemiesAtTheGates.length > 0;
 
 		// check to see if we can see any enemies
-		// TODO: worry about if these are soldiers or not?
 		enemiesInSight = rc.senseNearbyGameObjects(Robot.class, 32, info.enemyTeam);
 		enemyInSight = enemiesInSight.length > 0;
 		
 		if (enemyInSight) {
+			enemyInMelee = true;
 			enemy_mines = rc.senseMineLocations(currentLoc, 3, info.enemyTeam);
 			// check to see if there is anyone in range that can shoot us
-			// TODO: change this to detect only soldiers
 			meleeObjects = rc.senseNearbyGameObjects(Robot.class, 15);
-			for (Robot object:meleeObjects) {
-				if (object.getTeam() == info.enemyTeam) {
-					enemyInMelee = true;
-					break;
-				}
+			Robot[] enemies = rc.senseNearbyGameObjects(Robot.class, 15, info.enemyTeam);
+			if (enemies.length > 0) {
+				combatMode = true;
 			}
 		}
 		//Continue 
 		if ((Clock.getRoundNum() + 1) % HQ.HQ_COMMUNICATION_ROUND == 0 && incChannel > -1) {
 			com.increment(incChannel, Clock.getRoundNum() + 1);
+			
 		} else if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0) {
 			
 			//Check for nuke

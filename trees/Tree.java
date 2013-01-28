@@ -1,6 +1,7 @@
 package team122.trees;
 
 import battlecode.common.Clock;
+import battlecode.common.GameActionException;
 import team122.behavior.Behavior;
 import team122.behavior.Decision;
 import team122.behavior.Node;
@@ -66,11 +67,17 @@ public abstract class Tree {
 				
 				
 			} catch (Exception e) {
-//				e.printStackTrace();	
+				e.printStackTrace();	
 			}
 
 			
-			robot.load();
+			try {
+				robot.load();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				System.out.println("Load error: " );
+				e.printStackTrace();
+			}
 			
 			if (round == Clock.getRoundNum()) {
 				robot.rc.yield();

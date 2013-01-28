@@ -32,12 +32,12 @@ public abstract class TeamRobot {
 	 * check to see if enemies are near. 
 	 * 
 	 */
-	public abstract void environmentCheck() throws GameActionException ;
+	public abstract void environmentCheck() throws GameActionException;
 	
 	/**
 	 * Called at the end of a robots turn, can load things...
 	 */
-	public void load() {};
+	public void load() throws GameActionException {};
 	
 	/**
 	 * We should never return from this 

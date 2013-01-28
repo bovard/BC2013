@@ -242,6 +242,8 @@ public class Communicator {
 	 * The additional difference between communication channel.
 	 */
 	public static final int MAX_CHANNELS = GameConstants.BROADCAST_MAX_CHANNELS;
+	
+	//28 CHANNELS MAX WITH 39989 - 30029 / 30181
 	public static final int ALPHA = 39989;
 	public static final int BETA = 30029; // 30181 for other
 	public static final int CHANNEL_NEW_SOLDIER_MODE = 1;
@@ -261,5 +263,5 @@ public class Communicator {
 	public static final int CHANNEL_GROUP_2 = 16;
 	public static final int CHANNEL_RETALIATE = 17;
 	public static final int CHANNEL_SWARMER_ATTACK = 18;
-	public static final int CHANNEL_COUNT = 17;
+	public static final int CHANNEL_COUNT = 18;
 }
