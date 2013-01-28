@@ -81,6 +81,12 @@ public class HQUtils {
 	}
 
 	public static final void calculate(HQ robot) throws GameActionException {
+		if (robot.encampmentSorter.generatorEncampments[0] == null) {
+			System.out.println("Generator's have gone null!");
+		} else {
+			System.out.println("Generator's have gone wild");
+		}
+		
 		//Sets up the do not capture
 		if (!robot.doNotCapture.setup) {
 			robot.doNotCapture.setupEncampments();

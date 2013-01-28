@@ -25,10 +25,10 @@ public class HQSelector extends Decision {
 		//Initializes the basic data (strategy and such).
 		
 		if (robot.state.inStart) {
+			
 			return children.get(SPAWN_START_HQ);
 		} else {
 			
-			System.out.println("Are we here!!!!");
 			return children.get(SPAWNING_SELECTOR_HQ);
 		}
 	}

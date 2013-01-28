@@ -49,20 +49,23 @@ public class HQSpawnWave extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
-		
+
+		System.out.println("!Attack: " + robot.encampmentSorter.generatorEncampments[0]);
 		if (!attackReady) {
 			if (robot.hqUtils.powerTotalFromLastRound > GameStrategy.WAVE_POWER_THRESHHOLD + 5) {
 				attackReady = true;
 			}
 		}
-		
+
+		System.out.println("Attack: " + robot.encampmentSorter.generatorEncampments[0]);
 		if (attackReady && Clock.getRoundNum() % 3 == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD) {
 			robot.attack();
 			attackReady = false;
 		}
 		
 		
-		
+
+		System.out.println("robot.rc.isActive: " + robot.encampmentSorter.generatorEncampments[0]);
 		if (robot.rc.isActive() && robot.hqUtils.powerTotalFromLastRound > 25) {
 			// if the enemy is with 400 units squared, just make guys
 			if (robot.enemyAtBase) {

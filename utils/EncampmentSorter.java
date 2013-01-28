@@ -1,6 +1,8 @@
 package team122.utils;
 
 
+import java.util.Arrays;
+
 import team122.robot.HQ;
 import battlecode.common.Clock;
 import battlecode.common.MapLocation;
@@ -35,7 +37,7 @@ public class EncampmentSorter {
 	 * State information about generators and artilleries being searched.
 	 */
 	private int _currentRound;
-	private MapLocation[] generatorEncampments;
+	public MapLocation[] generatorEncampments;
 	private MapLocation[] artilleryEncampments;
 	private MapLocation[] doNotCapture = new MapLocation[0];
 	private int[] generatorScores;
@@ -304,6 +306,11 @@ public class EncampmentSorter {
 				//and break from the loop so artillery can have some processing as well.
 				if (generatorUsed[__generatorIndex] && Clock.getRoundNum() - generatorRound[__generatorIndex] > __roundsToWait) {
 					
+					System.out.println("generatorEncampments: " + generatorEncampments[__generatorIndex] + " : " + __generatorIndex + " : " + generatorLength);
+					if (generatorEncampments[__generatorIndex] == null) {
+						System.out.println(Arrays.toString(generatorEncampments));
+					}
+					
 					Robot[] r = rc.senseNearbyGameObjects(Robot.class, generatorEncampments[__generatorIndex], 1, team);
 					if (r.length == 0) {
 						generatorUsed[__generatorIndex] = false;
@@ -322,6 +329,7 @@ public class EncampmentSorter {
 	 */
 	private boolean _doNotCapture(MapLocation loc) {
 		
+		System.out.println("Do Not Capture: " + doNotCapture);
 		for (int i = 0; i < doNotCapture.length; i++) {
 			if (doNotCapture[i].equals(loc)) {
 				return true;
