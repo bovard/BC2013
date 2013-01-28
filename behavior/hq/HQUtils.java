@@ -31,6 +31,7 @@ public class HQUtils {
 	public double powerProduction;
 	public double powerToCaptureEncampment;
 	public double powerConsumptionFromSoldiers;
+	public double powerTotalFromLastRound;
 	
 	public HQUtils(RobotController rc, Communicator com) {
 		this.rc = rc;
@@ -48,6 +49,7 @@ public class HQUtils {
 		powerProduction = 0;
 		powerToCaptureEncampment = 0;
 		powerConsumptionFromSoldiers = 0;
+		powerTotalFromLastRound = 0;
 		nukeDefenderCount = 0;
 	}
 
@@ -66,6 +68,9 @@ public class HQUtils {
 		nukeDefenderCount = com.receive(Communicator.CHANNEL_NUKE_COUNT,  Clock.getRoundNum(), 0);
 		backdoorCount = com.receive(Communicator.CHANNEL_BACKDOOR_COUNT,  Clock.getRoundNum(), 0);
 		encampmentHunterCount = com.receive(Communicator.CHANNEL_ENCAMPER_HUNTER_COUNT,  Clock.getRoundNum(), 0);
+		powerTotalFromLastRound = com.receive(Communicator.CHANNEL_TOTAL_POWER,  Clock.getRoundNum(), 0);
+		
+		System.out.println("Total Power: " + powerTotalFromLastRound);
 		
 		// Basic calculations that are needed by the HQ.
 		totalSoldierCount = soldierCount + minerCount + defenderCount + nukeDefenderCount + backdoorCount + encampmentHunterCount;
