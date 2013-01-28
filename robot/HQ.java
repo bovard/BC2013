@@ -117,7 +117,7 @@ public class HQ extends TeamRobot {
 	}
 
 	/**
-	 * Spawns a swarmer.
+	 * Spawns a scout.
 	 * @return
 	 */
 	public void spawnScout() throws GameActionException {
@@ -125,7 +125,7 @@ public class HQ extends TeamRobot {
 	}
 
 	/**
-	 * Spawns a swarmer.
+	 * Spawns a defensive miner.
 	 * @return
 	 */
 	public void spawnMiner() throws GameActionException {
@@ -133,7 +133,7 @@ public class HQ extends TeamRobot {
 	}
 
 	/**
-	 * Spawns a swarmer.
+	 * Spawns a backdoor soldier.
 	 * @return
 	 */
 	public void spawnBackdoor() throws GameActionException {
@@ -141,11 +141,25 @@ public class HQ extends TeamRobot {
 	}
 
 	/**
-	 * Spawns a swarmer.
+	 * Spawns a encampment hunter.
 	 * @return
 	 */
 	public void spawnEncampmentHunter(int group) throws GameActionException {
 		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_ENCAMP_HUNTER, group));
+	}
+	
+	/**
+	 * Spawns a econ building if possible (generator or supplier)
+	 * Will spawn a generator if the number of generators + 3 is less than the supplier count
+	 * @return
+	 * @throws GameActionException
+	 */
+	public boolean spawnEconBuilding() throws GameActionException {
+		if (hqUtils.generatorCount + 3 < hqUtils.supplierCount) {
+			return spawnGenerator();
+		} else {
+			return spawnSupplier();
+		}
 	}
 	
 	/**

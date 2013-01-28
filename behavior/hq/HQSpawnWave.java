@@ -53,6 +53,7 @@ public class HQSpawnWave extends Behavior {
 		
 		if (attackReady && Clock.getRoundNum() % 3 == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD) {
 			robot.attack();
+			robot.spawnBackdoor();
 		}
 		
 		
