@@ -4,6 +4,7 @@ import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
+import battlecode.common.Robot;
 import battlecode.common.RobotType;
 import team122.RobotInformation;
 import team122.behavior.Behavior;
@@ -62,6 +63,13 @@ public class SoldierEncamper extends Behavior {
 		if (robot.rc.isActive()) {
 			
 			//Move or capture.
+			// if we see there is already an ally on our spot return
+			if (robot.rc.canSenseSquare(move.destination) && robot.rc.senseNearbyGameObjects(Robot.class, move.destination, 1, robot.info.myTeam).length > 0) {
+				robot.dec.soldierType = SoldierSelector.SOLDIER_BACK_DOOR;
+				canCapture = false;
+			}
+			
+			// otherwise we move and capture
 			if (move.destination.equals(robot.rc.getLocation())) {
 				Direction dir = robot.currentLoc.directionTo(robot.info.enemyHq);
 				

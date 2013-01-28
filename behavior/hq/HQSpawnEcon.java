@@ -45,6 +45,8 @@ public class HQSpawnEcon extends Behavior {
 	}
 	
 	int lastEnconBuild = Clock.getRoundNum();
+	int lastCornerMiner = Clock.getRoundNum();
+	int lastEncampHunter = Clock.getRoundNum();
 	
 	@Override
 	public void run() throws GameActionException {
@@ -55,7 +57,8 @@ public class HQSpawnEcon extends Behavior {
 				attackReady = true;
 			}
 		}
-
+		
+		// TODO: Michael Add attack based on number of soldiers
 		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD) {
 			robot.attack();
 			attackReady = false;
@@ -64,7 +67,7 @@ public class HQSpawnEcon extends Behavior {
 		if (robot.rc.isActive() && robot.hqUtils.powerTotalFromLastRound > 25) {
 			// if the enemy is with 400 units squared, just make guys
 			if (robot.enemyAtBase) {
-				robot.spawnScout();
+				robot.spawnTheJackal();
 			}
 			// research fusion
 			else if (Clock.getRoundNum() > GameStrategy.ECON_FUSION_TURN && !robot.rc.hasUpgrade(Upgrade.FUSION)){
@@ -90,7 +93,18 @@ public class HQSpawnEcon extends Behavior {
 			else if (robot.hqUtils.artilleryCount < Clock.getRoundNum()/GameStrategy.ECON_ARTILLERY_COOLDOWN + 1) {
 				robot.spawnArtillery();
 			}
-			// otherwise get a lot of scouts out there!
+			// build some corner miners
+			else if (Clock.getRoundNum() - lastCornerMiner > GameStrategy.ECON_CORNER_MINER_COOLDOWN) {
+				//TODO: Michael hook up the group
+				robot.spawnCornerMiner(0);
+				lastCornerMiner = Clock.getRoundNum();
+			}
+			// build some encampment hunters
+			else if (robot.hqUtils.encampmentHunterCount < 2*(Clock.getRoundNum() / GameStrategy.ECON_ENCAMP_HUNTER_COOLDOWN) + 1) {
+				//TODO: Michael hook up the group
+				robot.spawnEncampmentHunter(0);
+			}
+			// otherwise get a lot of jackals out there!
 			else {
 				robot.spawnTheJackal();
 			}

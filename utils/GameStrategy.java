@@ -34,7 +34,9 @@ public class GameStrategy {
 	public static final int ECON_VISION_TURN = 1500;
 	public static final int ECON_MINER_COOLDOWN = 500;
 	public static final int ECON_ARTILLERY_COOLDOWN = 200;
-	public static final int ECON_ECON_BUILD_COOLDOWN = 50;
+	public static final int ECON_ECON_BUILD_COOLDOWN = 30;
+	public static final int ECON_CORNER_MINER_COOLDOWN = 500;
+	public static final int ECON_ENCAMP_HUNTER_COOLDOWN = 500;
 		
 	
 	

@@ -146,6 +146,14 @@ public class HQ extends TeamRobot {
 	}
 
 	/**
+	 * Spawns a corner miner.
+	 * @return
+	 */
+	public void spawnCornerMiner(int group) throws GameActionException {
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_CORNER_MINER, group));
+	}
+	
+	/**
 	 * Spawns a encampment hunter.
 	 * @return
 	 */

@@ -56,10 +56,12 @@ public class HQSpawnWave extends Behavior {
 			}
 		}
 
+		// TODO: Michael Add attack based on number of soldiers
 		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD) {
 			robot.attack();
 			attackReady = false;
 		}
+		
 		
 		if (robot.rc.isActive() && robot.hqUtils.powerTotalFromLastRound > 25) {
 			// if the enemy is with 400 units squared, just make guys
@@ -78,6 +80,9 @@ public class HQSpawnWave extends Behavior {
 			else if (Clock.getRoundNum() > GameStrategy.WAVE_VISION_TURN && !robot.rc.hasUpgrade(Upgrade.VISION)){
 				robot.rc.researchUpgrade(Upgrade.VISION);
 			}
+			// TODO: Michael
+			// make this change based on distance between hq, the greater the distance
+			// the more frequent we spawn
 			// spawn an econ building every WAVE_ECON_BUILD_COOLDOWN rounds
 			else if (Clock.getRoundNum() - lastEnconBuild > GameStrategy.WAVE_ECON_BUILD_COOLDOWN && robot.spawnEconBuilding()) {
 				lastEnconBuild = Clock.getRoundNum();
@@ -90,6 +95,12 @@ public class HQSpawnWave extends Behavior {
 			else if (robot.hqUtils.artilleryCount < Clock.getRoundNum()/GameStrategy.WAVE_ARTILLERY_COOLDOWN + 1) {
 				robot.spawnArtillery();
 			}
+			// TODO: Michael
+			// get some backdoor soldiers spawning
+			// get some encampment hunters spawning
+			// if we have PICKAXE get some corner miners
+			
+			
 			// otherwise get a lot of scouts out there!
 			else {
 				robot.spawnScout();

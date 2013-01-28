@@ -27,6 +27,7 @@ public class SoldierSelector extends Decision {
 		children.add(new SoldierNukeIsArmed(this.robot));
 		children.add(new SoldierHQDefender(this.robot));
 		children.add(new TheJackal(this.robot));
+		children.add(new SoldierCornerMiner(this.robot));
 		children.get(SOLDIER_MINER).parent = this;
 		children.get(SOLDIER_SCOUT).parent = this;
 		children.get(SOLDIER_ENCAMPER).parent = this;
@@ -38,6 +39,7 @@ public class SoldierSelector extends Decision {
 		children.get(SOLDIER_NUKE_IS_ARMED).parent = this;
 		children.get(SOLDIER_HQ_DEFENDER).parent = this;
 		children.get(SOLDIER_THE_JACKAL).parent = this;
+		children.get(SOLDIER_CORNER_MINER).parent = this;
 	}
 	
 	@Override
@@ -62,6 +64,10 @@ public class SoldierSelector extends Decision {
 		}
 
 		System.out.println("Original Type: " + robot.dec.soldierType);
+		if (robot.dec.soldierType > NUM_SOLDIERS) {
+			// warning! we have a bad soldier type!
+			return children.get(SOLDIER_MINER);
+		}
 		return children.get(robot.dec.soldierType);
 	}
 	
@@ -100,4 +106,7 @@ public class SoldierSelector extends Decision {
 	public static final int SOLDIER_NUKE_IS_ARMED = 8;
 	public static final int SOLDIER_HQ_DEFENDER = 9;
 	public static final int SOLDIER_THE_JACKAL = 10;
+	public static final int SOLDIER_CORNER_MINER = 11;
+	
+	public static final int NUM_SOLDIERS = 11;
 }

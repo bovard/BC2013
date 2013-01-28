@@ -44,8 +44,9 @@ public class SoldierEncampHunter extends Behavior {
 	
 	@Override
 	public void start() {
-		robot.incChannel = Communicator.CHANNEL_ENCAMPER_HUNTER_COUNT;
+		
 		if (!init) {
+			robot.incChannel = Communicator.CHANNEL_ENCAMPER_HUNTER_COUNT;
 			init = true;
 			int distCenter = Math.min(200, robot.info.height/4*robot.info.width/4);
 			int distEnemy = Math.min(180, robot.info.height/4*robot.info.width/4);
