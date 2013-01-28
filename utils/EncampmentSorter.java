@@ -306,7 +306,6 @@ public class EncampmentSorter {
 				//and break from the loop so artillery can have some processing as well.
 				if (generatorUsed[__generatorIndex] && Clock.getRoundNum() - generatorRound[__generatorIndex] > __roundsToWait) {
 					
-					System.out.println("generatorEncampments: " + generatorEncampments[__generatorIndex] + " : " + __generatorIndex + " : " + generatorLength);
 					if (generatorEncampments[__generatorIndex] == null) {
 						System.out.println(Arrays.toString(generatorEncampments));
 					}
