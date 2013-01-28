@@ -1,6 +1,7 @@
 package team122.behavior.soldier;
 
 import team122.behavior.Behavior;
+import team122.communication.Communicator;
 import team122.robot.Soldier;
 import team122.utils.MinePlacement;
 import battlecode.common.Direction;
@@ -17,9 +18,9 @@ public class SoldierDefenseMiner
 	public MapLocation mineSpot;
 	public boolean init;
 
-	public SoldierDefenseMiner(Soldier robot2) {
+	public SoldierDefenseMiner(Soldier robot) {
 		super();
-		this.robot = robot2;
+		this.robot = robot;
 		init = false;
 		MinePlacement.mapWidth = robot.info.width;
 		MinePlacement.mapHeight = robot.info.height;
@@ -31,6 +32,7 @@ public class SoldierDefenseMiner
 	@Override
 	public void start() throws GameActionException{
 		if (!init) {
+			robot.incChannel = Communicator.CHANNEL_MINER_COUNT;
 			init = true;
 		}
 		//we just encoutered an enemy go back to the first ring
