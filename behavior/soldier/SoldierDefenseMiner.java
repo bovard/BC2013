@@ -35,7 +35,7 @@ public class SoldierDefenseMiner
 		}
 		//we just encoutered an enemy go back to the first ring
 		else {
-			MinePlacement.startRing = 1;
+			MinePlacement.reset();
 		}
 	}
 	

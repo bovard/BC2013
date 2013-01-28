@@ -24,6 +24,11 @@ public class MinePlacement {
 		return mineSpots.get(0);
 	}
 	
+	public static void reset() {
+		startRing = 1;
+		mineSpots.clear();
+	}
+	
 	private static void _insertMine(int x, int y) {
 		MapLocation created;
 		if (x >= 0 && x < mapWidth && y >= 0 && y < mapHeight) {
