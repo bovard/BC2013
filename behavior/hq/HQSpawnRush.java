@@ -52,7 +52,7 @@ public class HQSpawnRush extends Behavior {
 				artSpawn++;
 			}
 			if (robot.rc.isActive()){
-				robot.spawnSwarmer();
+				robot.spawnScout();
 			}
 		} 
 		if (robot.rc.isActive() && robot.powerThisRound < 70 && robot.spawnGenerator()) {

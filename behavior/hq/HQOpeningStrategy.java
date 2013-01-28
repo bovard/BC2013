@@ -44,7 +44,7 @@ public class HQOpeningStrategy extends Behavior {
 			} else {
 
 				//We spawn swarmers until calculated or round 100
-				robot.spawnSwarmer();
+				robot.spawnScout();
 			}
 		}
 	}

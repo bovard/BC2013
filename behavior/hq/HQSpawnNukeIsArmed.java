@@ -24,7 +24,7 @@ public class HQSpawnNukeIsArmed extends Behavior {
 			robot.rc.researchUpgrade(Upgrade.DEFUSION);
 		} else {
 			
-			robot.spawnSwarmer();
+			robot.spawnScout();
 		}
 		
 		
