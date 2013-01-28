@@ -12,6 +12,7 @@ public class MinePlacement {
 	public static boolean hasPickAxe = false;
 	public static int startRing = 1;
 	public static MapLocation MiningStartLoc;
+	public static boolean resetStartRings = true;
 	
 	public static MapLocation getMineSpot() {
 		if(mineSpots.size() == 0) {
@@ -22,7 +23,10 @@ public class MinePlacement {
 	}
 	
 	public static void reset() {
-		startRing = 1;
+		startRing = startRing - 2;
+		if (startRing < 1) {
+			startRing = 1;
+		}
 		mineSpots.clear();
 	}
 	
@@ -35,6 +39,10 @@ public class MinePlacement {
 	}
 	
 	private static void _buildFastRingLocations(int right_nodes, int top_nodes, int left_nodes, int bottom_nodes) {
+		if (resetStartRings) {
+			resetStartRings = false;
+			startRing = 1;
+		}
 		int x = startX,
 			y = startY;
 		
