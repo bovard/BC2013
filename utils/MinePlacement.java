@@ -14,13 +14,10 @@ public class MinePlacement {
 	public static MapLocation MiningStartLoc;
 	
 	public static MapLocation getMineSpot() {
-		System.out.println("wat?");
 		if(mineSpots.size() == 0) {
-			System.out.println("was empty");
 			_getMiningLocations();
 			startRing++;
 		}
-		System.out.println(mineSpots.get(0));
 		return mineSpots.get(0);
 	}
 	
