@@ -1,7 +1,5 @@
 package team122.behavior.soldier;
 
-import java.util.ArrayList;
-
 import team122.behavior.Behavior;
 import team122.robot.Soldier;
 import team122.utils.MinePlacement;
@@ -16,41 +14,34 @@ public class SoldierDefenseMiner
 		extends Behavior{
 	
 	public Soldier robot;
-	public ArrayList<MapLocation> mineSpots = new ArrayList<MapLocation>();
+	public MapLocation mineSpot;
 	public boolean init;
-	public boolean reset_mines = true;
-	public int start_ring_num = 1,
-	           end_ring_num = 1;
 
 	public SoldierDefenseMiner(Soldier robot2) {
 		super();
 		this.robot = robot2;
 		init = false;
+		MinePlacement.mapWidth = robot.info.width;
+		MinePlacement.mapHeight = robot.info.height;
+		MinePlacement.startX = robot.info.hq.x;
+		MinePlacement.startY = robot.info.hq.y;
+		
 	}
 
 	@Override
 	public void start() throws GameActionException{
 		if (!init) {
 			init = true;
-			_setMiningLocations();
 		}
-		//we just encoutered an enemy go back to the two first rings
+		//we just encoutered an enemy go back to the first ring
 		else {
-			start_ring_num = 1;
-			end_ring_num = 1;
-			_setMiningLocations();
+			MinePlacement.startRing = 1;
 		}
 	}
 	
 	@Override
 	public void run() throws GameActionException {
-		
 		if (robot.rc.isActive()) {
-			if (mineSpots.size() == 0) {
-				start_ring_num += 1;
-				end_ring_num += 1;
-				_setMiningLocations();
-			}
 			if (robot.move.atDestination()) {
 				MapLocation[] all_dir = new MapLocation[5];
 				all_dir[0] = robot.rc.getLocation();
@@ -74,7 +65,7 @@ public class SoldierDefenseMiner
 				if (robot.move.destination != null) {
 					// check to see if we can sense the square
 					if (robot.rc.canSenseSquare(robot.move.destination)) {
-						robot.rc.setIndicatorString(0, "canSense " + robot.move.destination + " " + mineSpots.toString());
+						robot.rc.setIndicatorString(0, "canSense " + robot.move.destination + " " + mineSpot.toString());
 						// if there is already a mine there, skip it
 						if (robot.rc.senseMine(robot.move.destination) == robot.info.myTeam) {
 							robot.rc.setIndicatorString(0, "already Mines " + robot.move.destination);
@@ -83,7 +74,7 @@ public class SoldierDefenseMiner
 						// if there is any ally there skip it
 						else if (robot.rc.senseNearbyGameObjects(Robot.class, robot.move.destination, 1, robot.info.myTeam).length > 0) {
 							robot.rc.setIndicatorString(0, "ally there " + robot.move.destination);
-							mineSpots.add(2, robot.currentLoc);
+							MinePlacement.mineSpots.add(2, robot.currentLoc);
 							_setDestination();
 						} 
 						else {
@@ -101,28 +92,18 @@ public class SoldierDefenseMiner
 		} 
 	}
 	
-	/**
-	 * Sets the destination of the robot and removes one of the
-	 * mines.
-	 */
 	private void _setDestination() {
-		if (mineSpots.size() > 0) {
-			robot.move.setDestination(mineSpots.get(0));
-			mineSpots.remove(0);
+		if (robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
+			MinePlacement.hasPickAxe = true;
 		}
+		System.out.println("_setDestination");
+		mineSpot = MinePlacement.getMineSpot();
+		MinePlacement.mineSpots.remove(0);
+		robot.move.setDestination(mineSpot);
 	}
 
 	@Override
 	public boolean pre() {
 		return !robot.enemyInMelee;
-	}
-	
-	private void _setMiningLocations() {
-		int startX = robot.info.hq.x,
-			startY = robot.info.hq.y,
-			mapWidth = robot.info.width,
-			mapHeight = robot.info.height;
-		mineSpots = MinePlacement.getMiningLocations(mapWidth, mapHeight, startX, startY, 
-				start_ring_num, end_ring_num, robot.rc.hasUpgrade(Upgrade.PICKAXE));
 	}
 }
