@@ -102,7 +102,6 @@ public class SoldierDefenseMiner
 		if (robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
 			MinePlacement.hasPickAxe = true;
 		}
-		System.out.println("_setDestination");
 		mineSpot = MinePlacement.getMineSpot();
 		MinePlacement.mineSpots.remove(0);
 		robot.move.setDestination(mineSpot);
