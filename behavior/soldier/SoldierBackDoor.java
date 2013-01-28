@@ -141,6 +141,8 @@ public class SoldierBackDoor extends Behavior {
 		}
 		
 		int distanceToHq = robot.currentLoc.distanceSquaredTo(robot.info.enemyHq);
+		
+		//TODO: NULL POINTER:  move.destination has yet to be set.
 		int distanceToDestination = robot.currentLoc.distanceSquaredTo(move.destination);
 		
 		// if we are damaging the enemy HQ, let forth a mighty TROLOLOL

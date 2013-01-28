@@ -5,6 +5,7 @@ import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.Robot;
+import battlecode.common.RobotInfo;
 import battlecode.common.RobotType;
 import team122.RobotInformation;
 import team122.behavior.Behavior;
@@ -64,9 +65,18 @@ public class SoldierEncamper extends Behavior {
 			
 			//Move or capture.
 			// if we see there is already an ally on our spot return
-			if (robot.rc.canSenseSquare(move.destination) && robot.rc.senseNearbyGameObjects(Robot.class, move.destination, 1, robot.info.myTeam).length > 0) {
-				robot.dec.soldierType = SoldierSelector.SOLDIER_BACK_DOOR;
-				canCapture = false;
+			if (robot.rc.canSenseSquare(move.destination)) {
+				Robot[] r = robot.rc.senseNearbyGameObjects(Robot.class, move.destination, 1, robot.info.myTeam);
+				
+				if (r.length != 0) {
+					
+					RobotInfo rInfo = robot.rc.senseRobotInfo(r[0]);
+					
+					if (rInfo.type != RobotType.SOLDIER) {
+						robot.dec.soldierType = SoldierSelector.SOLDIER_SCOUT;
+						canCapture = false;	
+					}
+				}
 			}
 			
 			// otherwise we move and capture

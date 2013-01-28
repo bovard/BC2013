@@ -28,6 +28,7 @@ public class HQUtils {
 	public int encampmentHunterCount;
 	public int totalSoldierCount;
 	public int totalEncampmentCount;
+	public int totalRobotCount;
 	public double powerProduction;
 	public double powerToCaptureEncampment;
 	public double powerConsumptionFromSoldiers;
@@ -72,6 +73,7 @@ public class HQUtils {
 		// Basic calculations that are needed by the HQ.
 		totalSoldierCount = soldierCount + minerCount + defenderCount + nukeDefenderCount + backdoorCount + encampmentHunterCount;
 		totalEncampmentCount = generatorCount + supplierCount + artilleryCount;
+		totalRobotCount = totalSoldierCount + totalEncampmentCount;
 		
 		//Power production is correct but powerToCapture is incorrect.  Its overestimated.
 		powerProduction = generatorCount * GameConstants.GENERATOR_POWER_PRODUCTION + GameConstants.HQ_POWER_PRODUCTION;

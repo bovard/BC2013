@@ -11,6 +11,7 @@ import battlecode.common.Upgrade;
 public class HQSpawnEcon extends Behavior {
 	
 	protected HQ robot;
+	protected HQUtils utils;
 	protected HQSelector parent;
 	protected boolean init;
 	protected boolean attackReady = true;
@@ -27,6 +28,7 @@ public class HQSpawnEcon extends Behavior {
 		research[2] = Upgrade.VISION;
 		research[3] = Upgrade.DEFUSION;
 		research[4] = Upgrade.NUKE;
+		utils = robot.hqUtils;
 	}
 	
 	
@@ -37,7 +39,7 @@ public class HQSpawnEcon extends Behavior {
 	public void start() throws GameActionException { 
 		if (!init) {
 			init = true;
-			if (robot.hqUtils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD + robot.hqUtils.soldierCount/2) {
+			if (robot.hqUtils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD + utils.totalRobotCount) {
 				attackReady = false;
 			}
 			startRound = Clock.getRoundNum();
@@ -53,13 +55,13 @@ public class HQSpawnEcon extends Behavior {
 		robot.rc.setIndicatorString(0, "ECON");
 
 		if (!attackReady) {
-			if (robot.hqUtils.powerTotalFromLastRound > GameStrategy.ECON_POWER_THRESHHOLD + 5) {
+			if (utils.powerTotalFromLastRound > GameStrategy.ECON_POWER_THRESHHOLD + 5 + utils.totalRobotCount) {
 				attackReady = true;
 			}
 		}
 		
 		// TODO: Michael Add attack based on number of soldiers
-		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD) {
+		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && utils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD + utils.totalRobotCount) {
 			robot.attack();
 			attackReady = false;
 		}

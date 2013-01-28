@@ -9,8 +9,10 @@ import battlecode.common.Team;
 import battlecode.common.Upgrade;
 import team122.behavior.Behavior;
 import team122.communication.Communicator;
+import team122.navigation.SoldierMove;
 import team122.robot.HQ;
 import team122.robot.Soldier;
+import team122.utils.GameStrategy;
 import team122.utils.MinePlacement;
 
 public class TheJackal extends Behavior {
@@ -19,6 +21,7 @@ public class TheJackal extends Behavior {
 	public MapLocation mineSpot;
 	private boolean init;
 	private boolean attack = false;
+	private int attackRound = 0;
 	
 	public TheJackal(Soldier robot) {
 		super();
@@ -46,15 +49,26 @@ public class TheJackal extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
-		if (attack) {
-			robot.move.destination = robot.info.enemyHq;
-			robot.move.move();
+		if (robot.rc.isActive()) {
+			if (attack) {
+				
+				if (Clock.getRoundNum() - attackRound >= GameStrategy.JACKAL_ATTACK_ROUNDS_TO_WAIT) {
+					robot.move.destination = robot.info.enemyHq;
+				}
+				
+				robot.move.move();
+				
+				return;
+			}
 		}
 		
 		// if we receive the attack order, attack!
-		if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.com.shouldAttack()) {
-			robot.move.destination = robot.info.enemyHq;
+		if (!attack && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.com.shouldAttack()) {
+			robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
 			attack = true;
+			attackRound = Clock.getRoundNum();
+			robot.move.move();
+			return;
 		}
 		
 		
@@ -62,7 +76,10 @@ public class TheJackal extends Behavior {
 		Robot [] enemies = robot.rc.senseNearbyGameObjects(Robot.class, robot.currentLoc, 200, robot.info.enemyTeam);
 		if (enemies.length > 0) {
 			robot.move.destination = robot.rc.senseRobotInfo(enemies[0]).location;
-			robot.move.move();
+			
+			if (robot.rc.isActive()) {
+				robot.move.move();
+			}
 		}
 		
 		
@@ -119,15 +136,13 @@ public class TheJackal extends Behavior {
 			}
 		}
 		
+		if (robot.currentLoc.isAdjacentTo(robot.info.hq)) {
+			robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
+		}
+		
 		if (robot.rc.isActive()) {
 			robot.move.move();
 		}
-		
-
-		
-		
-
-		
 	}
 	
 	private void _setDestination() {

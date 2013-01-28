@@ -44,7 +44,7 @@ public class HQSpawnWave extends Behavior {
 		}
 	}
 	
-	int lastEnconBuild = Clock.getRoundNum();
+	int lastEconBuild = Clock.getRoundNum();
 	
 	@Override
 	public void run() throws GameActionException {
@@ -86,8 +86,8 @@ public class HQSpawnWave extends Behavior {
 			// make this change based on distance between hq, the greater the distance
 			// the more frequent we spawn
 			// spawn an econ building every WAVE_ECON_BUILD_COOLDOWN rounds
-			else if (Clock.getRoundNum() - lastEnconBuild > GameStrategy.WAVE_ECON_BUILD_COOLDOWN && robot.spawnEconBuilding()) {
-				lastEnconBuild = Clock.getRoundNum();
+			else if (Clock.getRoundNum() - lastEconBuild > GameStrategy.WAVE_ECON_BUILD_COOLDOWN && robot.spawnEconBuilding()) {
+				lastEconBuild = Clock.getRoundNum();
 			} 
 			// keep amassing miners
 			else if (robot.hqUtils.minerCount < Clock.getRoundNum()/GameStrategy.WAVE_MINER_COOLDOWN + 1) {
