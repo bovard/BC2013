@@ -284,5 +284,35 @@ public class MoveCalculator {
 		return score;
 	}
 	
-
+	/**
+	 * gets
+	 * @param dir
+	 * @return
+	 */
+	public static int directionToXIndex(Direction dir) {
+		int x = 0;
+		if (dir == Direction.EAST || dir == Direction.NORTH_EAST || dir == Direction.SOUTH_EAST) {
+			x += 1;
+		} else if (dir == Direction.WEST || dir == Direction.NORTH_WEST || dir == Direction.SOUTH_WEST) {
+			x -= 1;
+		}
+		
+		return x;
+	}
+	
+	/**
+	 * gets
+	 * @param dir
+	 * @return
+	 */
+	public static int directionToYIndex(Direction dir) {
+		int y = 0;
+		if (dir == Direction.NORTH || dir == Direction.NORTH_EAST || dir == Direction.NORTH_EAST) {
+			y -= 1;
+		} else if (dir == Direction.SOUTH || dir == Direction.SOUTH_WEST || dir == Direction.SOUTH_EAST) {
+			y += 1;
+		}
+		
+		return y;
+	}
 }

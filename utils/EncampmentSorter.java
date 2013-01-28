@@ -18,7 +18,6 @@ public class EncampmentSorter {
 	public RobotController rc;
 	public boolean calculated;
 	public boolean sorted;
-	public boolean determined;
 	public boolean generatorSorted;
 	public boolean artillerySorted;
 	public MapLocation hq;
@@ -38,6 +37,7 @@ public class EncampmentSorter {
 	private int _currentRound;
 	private MapLocation[] generatorEncampments;
 	private MapLocation[] artilleryEncampments;
+	private MapLocation[] doNotCapture;
 	private int[] generatorScores;
 	private int[] artilleryScores;
 	private boolean[] generatorUsed;
@@ -62,7 +62,6 @@ public class EncampmentSorter {
 		_currentRound = 0;
 		calculated = false;
 		sorted = false;
-		determined = false;
 		generatorSorted = false;
 		artillerySorted = false;
 
@@ -92,6 +91,14 @@ public class EncampmentSorter {
 		__roundsToWait = (int)((width + height) * (1 + mineDensity * 2));
 	}
 
+	/**
+	 * Sets the do not capture list.
+	 * @param locs
+	 */
+	public void setDoNotCapture(MapLocation[] locs) {
+		doNotCapture = locs;
+	}
+	
 	/**
 	 * Gets the encampments
 	 */
@@ -135,7 +142,7 @@ public class EncampmentSorter {
 
 		if (totalEncampments > 0) {
 			for (int i = 0; i < generatorLength; i++) {
-				if (!generatorUsed[i]) {
+				if (!generatorUsed[i] && !_doNotCapture(generatorEncampments[i])) {
 					generatorUsed[i] = true;
 					generatorRound[i] = Clock.getRoundNum();
 					
@@ -158,7 +165,7 @@ public class EncampmentSorter {
 
 		if (totalEncampments > 0) {
 			for (int i = 0; i < artilleryLength; i++) {
-				if (!artilleryUsed[i]) {
+				if (!artilleryUsed[i] && !_doNotCapture(generatorEncampments[i])) {
 					artilleryUsed[i] = true;
 					artilleryRound[i] = Clock.getRoundNum();
 					
@@ -168,13 +175,6 @@ public class EncampmentSorter {
 			} // end for
 		} // end totalEncamps
 		return artillery;
-	}
-	
-	/**
-	 * Determines what encampments are not allowed to be captured.
-	 */
-	public void determine() {
-		
 	}
 	
 	/**
@@ -316,6 +316,21 @@ public class EncampmentSorter {
 	}
 	
 	/**
+	 * returns if you should not capture
+	 * @param loc
+	 * @return
+	 */
+	private boolean _doNotCapture(MapLocation loc) {
+		
+		for (int i = 0; i < doNotCapture.length; i++) {
+			if (doNotCapture[i].equals(loc)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
 	 * Scores the artillery based on encampment distance.
 	 * @param distanceFromHQ
 	 * @return
@@ -355,6 +370,4 @@ public class EncampmentSorter {
 	public static final int MAX_ARRAY_LENGTH_FOR_ALLIES = 9;
 	public static final int MAX_ALLY_LENGTH_NO_RESORT = 50;
 	public static final int ARTILLERY_PERP_DISTANCE = 35;
-	public static final int MAX_GENERATOR_SIZE = 5;
-	public static final int MAX_ARTILLERY_SIZE = 5;
 }

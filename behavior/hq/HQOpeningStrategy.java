@@ -37,8 +37,7 @@ public class HQOpeningStrategy extends Behavior {
 		if (robot.rc.isActive()) {
 			
 			//We always spawn a supplier first.
-			if (supplier == 0) {
-				robot.spawnSupplier();
+			if (supplier == 0 && robot.greedySupplier()) {
 				supplier++;
 			
 			//Now we spawn soldiers to a certain point.
