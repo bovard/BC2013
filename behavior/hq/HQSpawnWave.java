@@ -39,9 +39,8 @@ public class HQSpawnWave extends Behavior {
 	public void run() throws GameActionException {
 		
 		if (robot.rc.isActive()) {
-			
+			robot.spawnScout();
 		} // end is active
-		System.out.println("Spawning!");
 	}
 
 	@Override
