@@ -80,8 +80,6 @@ public class SoldierDefenseMiner
 							if (MinePlacement.mineSpots.size() >= 2) {
 								MinePlacement.mineSpots.add(2, robot.currentLoc);
 								
-							} else {
-								MinePlacement.mineSpots.add(0, robot.currentLoc);
 							}
 							_setDestination();
 						} 
