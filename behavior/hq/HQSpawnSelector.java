@@ -35,7 +35,7 @@ public class HQSpawnSelector extends Decision {
 			
 			return this.children.get(HQ_SPAWN_FORCE_RESEARCH_NUKE);
 		} else if (robot.enemyResearchedNuke) {
-			robot.rc.setIndicatorString(0, "RETURNING NUKE!");
+			robot.rc.setIndicatorString(0, "RETURNING NUKE! " + robot.enemyResearchedNuke);
 			return this.children.get(HQ_SPAWN_NUKE_IS_ARMED);
 			
 
