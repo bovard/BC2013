@@ -43,20 +43,23 @@ public class SoldierDefenseMiner
 	public void run() throws GameActionException {
 		if (robot.rc.isActive()) {
 			if (robot.move.atDestination()) {
-				MapLocation[] all_dir = new MapLocation[5];
-				all_dir[0] = robot.rc.getLocation();
-				all_dir[1] = all_dir[0].add(Direction.NORTH);
-				all_dir[2] = all_dir[0].add(Direction.EAST);
-				all_dir[3] = all_dir[0].add(Direction.SOUTH);
-				all_dir[4] = all_dir[0].add(Direction.WEST);
-				for (int i = 1; i < all_dir.length; i++) {
-					Team t = robot.rc.senseMine(all_dir[i]);
-					if (t != null && t != robot.info.myTeam) {
-						robot.rc.defuseMine(all_dir[i]);
-						return;
+				if (robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
+					MapLocation[] all_dir = new MapLocation[5];
+					all_dir[0] = robot.currentLoc;
+					all_dir[1] = all_dir[0].add(Direction.NORTH);
+					all_dir[2] = all_dir[0].add(Direction.EAST);
+					all_dir[3] = all_dir[0].add(Direction.SOUTH);
+					all_dir[4] = all_dir[0].add(Direction.WEST);
+					for (int i = 1; i < all_dir.length; i++) {
+						Team t = robot.rc.senseMine(all_dir[i]);
+						if (t != null && t != robot.info.myTeam) {
+							robot.rc.defuseMine(all_dir[i]);
+							return;
+						}
 					}
 				}
-				if (robot.rc.senseMine(all_dir[0]) == null) {
+				
+				if (robot.rc.senseMine(robot.currentLoc) == null) {
 					robot.rc.layMine();
 					robot.move.destination = null;
 				}

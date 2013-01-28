@@ -7,7 +7,7 @@ public class GameStrategy {
 	//-------------------------------------------------------
 	public static final boolean START_STRATEGY_DEFUSION = false;
 	public static final int START_STRATEGY_ATTACK_ROUND = 141;
-	public static final boolean START_STRATEGY_MINER = false;
+	public static final boolean START_STRATEGY_MINER = true;
 	
 
 	//-------------------------------------------------------
