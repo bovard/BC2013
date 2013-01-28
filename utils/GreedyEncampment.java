@@ -16,7 +16,7 @@ public class GreedyEncampment {
 	 * @return
 	 * @throws GameActionException
 	 */
-	public static final MapLocation GetGreedyGenerator(RobotController rc, MapLocation hq, MapLocation enemy) throws GameActionException {
+	public static final MapLocation GetGreedyGenerator(RobotController rc, MapLocation hq, MapLocation enemy, MapLocation[] noCaptures) throws GameActionException {
 		Direction dir = hq.directionTo(enemy).rotateLeft();
 		MapLocation[] encampments = rc.senseEncampmentSquares(hq.add(dir).add(dir).add(dir), GREEDY_RADIUS_GENERATOR, Team.NEUTRAL);
 		int enemyDistance = hq.distanceSquaredTo(enemy);
@@ -30,7 +30,7 @@ public class GreedyEncampment {
 		int index = 0;
 		for (int i = 0; i < encampments.length; i++) {
 			int score = encampments[i].distanceSquaredTo(hq) - (encampments[i].distanceSquaredTo(enemy) - enemyDistance / 2);
-			if (score < lowestScore) {
+			if (score < lowestScore && !_NoCapture(encampments[i], noCaptures)) {
 				lowestScore = score;
 				index = i;
 			}
@@ -48,7 +48,7 @@ public class GreedyEncampment {
 	 * @return
 	 * @throws GameActionException
 	 */
-	public static final MapLocation GetGreedyArtillery(RobotController rc, MapLocation hq, MapLocation enemy) throws GameActionException {
+	public static final MapLocation GetGreedyArtillery(RobotController rc, MapLocation hq, MapLocation enemy, MapLocation[] noCaptures) throws GameActionException {
 		Direction dirToEnemy = hq.directionTo(enemy);
 		
 		//Moves out 5 squares.
@@ -64,7 +64,7 @@ public class GreedyEncampment {
 		int index = 0;
 		for (int i = 0; i < encampments.length; i++) {
 			int score = encampments[i].distanceSquaredTo(hq);
-			if (score < lowestScore) {
+			if (score < lowestScore && !_NoCapture(encampments[i], noCaptures)) {
 				lowestScore = score;
 				index = i;
 			}
@@ -74,6 +74,15 @@ public class GreedyEncampment {
 		return encampments[index];
 	}
 
-	public static final int GREEDY_RADIUS_GENERATOR = 250;
+	private static final boolean _NoCapture(MapLocation loc, MapLocation[] locs) {
+
+		for (int i = 0; i < locs.length; i++) {
+			if (locs[i].equals(loc)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public static final int GREEDY_RADIUS_GENERATOR = 168;
 	public static final int GREEDY_RADIUS_ARTILLERY = 75;
 }

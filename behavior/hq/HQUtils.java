@@ -77,7 +77,20 @@ public class HQUtils {
 		powerConsumptionFromSoldiers = GameConstants.UNIT_POWER_UPKEEP * (totalSoldierCount + totalEncampmentCount);
 	}
 
-	public static final void calculate(HQ robot) {
+	public static final void calculate(HQ robot) throws GameActionException {
+		//Sets up the do not capture
+		if (!robot.doNotCapture.setup) {
+			robot.doNotCapture.setupEncampments();
+		}
+		if (!robot.doNotCapture.determined) {
+
+			robot.doNotCapture.determine();
+			
+			//It has become determined set the ignore locs.
+			if (robot.doNotCapture.determined) {
+				robot.encampmentSorter.setDoNotCapture(robot.doNotCapture.determinedMapLocations);
+			}
+		}
 		
 		//We want to calculate first
 		if (!robot.encampmentSorter.calculated) {
@@ -90,11 +103,6 @@ public class HQUtils {
 			
 			robot.encampmentSorter.refresh();
 		}
-		
-		//sort second.
-//		if (robot.encampmentSorter.calculated && !robot.encampmentSorter.sorted) {
-//			robot.encampmentSorter.sort();
-//		}
 		
 	}
 	

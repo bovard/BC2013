@@ -13,6 +13,7 @@ import team122.behavior.soldier.SoldierSelector;
 import team122.communication.Communicator;
 import team122.communication.SoldierDecoder;
 import team122.trees.HQTree;
+import team122.utils.DoNotCapture;
 import team122.utils.EncampmentSorter;
 import team122.utils.GreedyEncampment;
 
@@ -21,6 +22,7 @@ public class HQ extends TeamRobot {
 	public boolean rush;
 	public boolean forceNukeRush;
 	public EncampmentSorter encampmentSorter;
+	public DoNotCapture doNotCapture;
 	public boolean enemyResearchedNuke;
 	public int nukeCount;
 	private boolean threeTurnsAgoPositive = true;
@@ -42,6 +44,7 @@ public class HQ extends TeamRobot {
 		enemyResearchedNuke = false;
 		forceNukeRush = false;
 		encampmentSorter = new EncampmentSorter(rc);
+		doNotCapture = new DoNotCapture(rc, info);
 	}
 	
 	@Override
@@ -82,9 +85,10 @@ public class HQ extends TeamRobot {
 	
 	/**
 	 * Loads the rest of the tree with bytecodes.
+	 * @throws GameActionException 
 	 */
 	@Override
-	public void load() {
+	public void load() throws GameActionException {
 		HQUtils.calculate(this);
 	}
 	
@@ -141,6 +145,9 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public boolean spawnGenerator() throws GameActionException {
+		if (!doNotCapture.determined) {
+			return false;
+		}
 		if (encampmentSorter.generatorSorted) {
 			MapLocation loc = encampmentSorter.popGenerator();
 			
@@ -152,7 +159,7 @@ public class HQ extends TeamRobot {
 			
 			//Only Works once, the next one will be the same spot.
 			//TODO: Create an offset?
-			MapLocation loc = GreedyEncampment.GetGreedyGenerator(rc, info.hq, info.enemyHq);
+			MapLocation loc = GreedyEncampment.GetGreedyGenerator(rc, info.hq, info.enemyHq, doNotCapture.determinedMapLocations);
 			
 			if (loc != null) {
 				_spawn(new SoldierDecoder(SoldierEncamper.GENERATOR_ENCAMPER, loc));		
@@ -163,12 +170,36 @@ public class HQ extends TeamRobot {
 	}
 	
 	/**
+	 * Performs a greedy supplier request.
+	 * @return
+	 * @throws GameActionException
+	 */
+	public boolean greedySupplier() throws GameActionException {
+		if (!doNotCapture.determined) {
+			return false;
+		}
+		
+		//Only Works once, the next one will be the same spot.
+		//TODO: Create an offset?
+		MapLocation loc = GreedyEncampment.GetGreedyGenerator(rc, info.hq, info.enemyHq, doNotCapture.determinedMapLocations);
+		
+		if (loc != null) {
+			_spawn(new SoldierDecoder(SoldierEncamper.SUPPLIER_ENCAMPER, loc));		
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/**
 	 * Spawns a supplier soldier if there are supplier spots left, else it returns false if no 
 	 * encamper has been spawned.
 	 * @return
 	 */
 	public boolean spawnSupplier() throws GameActionException {
-
+		if (!doNotCapture.determined) {
+			return false;
+		}
 		if (encampmentSorter.generatorSorted) {
 			MapLocation loc = encampmentSorter.popGenerator();
 			
@@ -177,10 +208,11 @@ public class HQ extends TeamRobot {
 				return true;
 			}
 		} else {
+			System.out.println("Greedy");
 			
 			//Only Works once, the next one will be the same spot.
 			//TODO: Create an offset?
-			MapLocation loc = GreedyEncampment.GetGreedyGenerator(rc, info.hq, info.enemyHq);
+			MapLocation loc = GreedyEncampment.GetGreedyGenerator(rc, info.hq, info.enemyHq, doNotCapture.determinedMapLocations);
 			
 			if (loc != null) {
 				_spawn(new SoldierDecoder(SoldierEncamper.SUPPLIER_ENCAMPER, loc));		
@@ -196,7 +228,9 @@ public class HQ extends TeamRobot {
 	 * @return
 	 */
 	public boolean spawnArtillery() throws GameActionException {
-
+		if (!doNotCapture.determined) {
+			return false;
+		}
 		if (encampmentSorter.artillerySorted) {
 			MapLocation loc = encampmentSorter.popArtillery();
 			
@@ -208,7 +242,7 @@ public class HQ extends TeamRobot {
 			
 			//Only Works once, the next one will be the same spot.
 			//TODO: Create an offset?
-			MapLocation loc = GreedyEncampment.GetGreedyArtillery(rc, info.hq, info.enemyHq);
+			MapLocation loc = GreedyEncampment.GetGreedyArtillery(rc, info.hq, info.enemyHq, doNotCapture.determinedMapLocations);
 			
 			if (loc != null) {
 				_spawn(new SoldierDecoder(SoldierEncamper.ARTILLERY_ENCAMPER, loc));		
