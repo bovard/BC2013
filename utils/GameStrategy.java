@@ -30,8 +30,8 @@ public class GameStrategy {
 	//-------------------------------------------------------
 	public static final int ECON_POWER_THRESHHOLD = 50;
 	public static final int ECON_FUSION_TURN = 500;	
-	public static final int ECON_PICKAXE_TURN = 500;
-	public static final int ECON_VISION_TURN = 1000;
+	public static final int ECON_PICKAXE_TURN = 750;
+	public static final int ECON_VISION_TURN = 1500;
 	public static final int ECON_MINER_COOLDOWN = 500;
 	public static final int ECON_ARTILLERY_COOLDOWN = 200;
 	public static final int ECON_ECON_BUILD_COOLDOWN = 50;
