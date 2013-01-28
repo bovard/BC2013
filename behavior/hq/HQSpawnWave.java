@@ -80,6 +80,8 @@ public class HQSpawnWave extends Behavior {
 			else if (Clock.getRoundNum() > GameStrategy.WAVE_VISION_TURN && !robot.rc.hasUpgrade(Upgrade.VISION)){
 				robot.rc.researchUpgrade(Upgrade.VISION);
 			}
+			// TODO: michael
+			// research defusion if we ever sense more than X enemy mines on the map
 			// TODO: Michael
 			// make this change based on distance between hq, the greater the distance
 			// the more frequent we spawn

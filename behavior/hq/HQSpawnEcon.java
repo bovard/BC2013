@@ -81,6 +81,8 @@ public class HQSpawnEcon extends Behavior {
 			else if (Clock.getRoundNum() > GameStrategy.ECON_VISION_TURN && !robot.rc.hasUpgrade(Upgrade.VISION)){
 				robot.rc.researchUpgrade(Upgrade.VISION);
 			}
+			// TODO: michael
+			// research defusion if we ever sense more than X enemy mines on the map
 			// spawn an econ building every ECON_ECON_BUILD_COOLDOWN rounds
 			else if (Clock.getRoundNum() - lastEnconBuild > GameStrategy.ECON_ECON_BUILD_COOLDOWN && robot.spawnEconBuilding()) {
 				lastEnconBuild = Clock.getRoundNum();
