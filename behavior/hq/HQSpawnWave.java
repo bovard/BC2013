@@ -58,10 +58,12 @@ public class HQSpawnWave extends Behavior {
 			}
 		}
 
-		// TODO: Michael Add attack based on number of soldiers
 		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 
 				&& (utils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD + utils.totalRobotCount
 					|| utils.soldierCount > GameStrategy.WAVE_ATTACK_SIZE_MAX)) {
+			robot.attack();
+			attackReady = false;
+		}
 		
 		
 		if (robot.rc.isActive() && robot.hqUtils.powerTotalFromLastRound > 25) {
