@@ -15,11 +15,18 @@ public class HQSpawnWave extends Behavior {
 	protected boolean init;
 	protected boolean attackReady = true;
 	protected int startRound;
+	protected Upgrade[] research;
 
 	public HQSpawnWave(HQ robot) {
 		super();
 		this.robot = robot;
 		init = false;
+		research = new Upgrade[5];
+		research[0] = Upgrade.FUSION;
+		research[1] = Upgrade.PICKAXE;
+		research[2] = Upgrade.VISION;
+		research[3] = Upgrade.DEFUSION;
+		research[4] = Upgrade.NUKE;
 	}
 	
 	
@@ -38,7 +45,7 @@ public class HQSpawnWave extends Behavior {
 		}
 	}
 	
-	int supplier = 0;
+	int supplier = Clock.getRoundNum();
 	int artillery = 0;
 	int mining = 0;
 	
@@ -53,19 +60,20 @@ public class HQSpawnWave extends Behavior {
 		
 		if (attackReady && Clock.getRoundNum() % 3 == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD) {
 			robot.attack();
-			robot.spawnBackdoor();
+			attackReady = false;
+
 		}
 		
 		
 		
-		if (robot.rc.isActive()) {
+		if (robot.rc.isActive() && robot.hqUtils.powerTotalFromLastRound > 25) {
 			if (Clock.getRoundNum() > GameStrategy.WAVE_FUSION_TURN && !robot.rc.hasUpgrade(Upgrade.FUSION)){
 				robot.rc.researchUpgrade(Upgrade.FUSION);
 			}
 			
 			
-			else if (supplier < 1 && robot.spawnSupplier()) {
-				supplier++;
+			else if (Clock.getRoundNum() - supplier > 100 && robot.spawnEconBuilding()) {
+				supplier = Clock.getRoundNum();
 			} else if (mining < 1) {
 				robot.spawnMiner();
 				mining++;
@@ -74,7 +82,14 @@ public class HQSpawnWave extends Behavior {
 			}
 			
 			
-		} // end is active
+		} else if (robot.rc.isActive()){
+			for (int i = 0; i < research.length; i++){
+				if (!robot.rc.hasUpgrade(research[i])) {
+					robot.rc.researchUpgrade(research[i]);
+					break;
+				}
+			}
+		}
 	}
 
 	@Override
