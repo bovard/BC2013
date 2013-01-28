@@ -57,8 +57,14 @@ public class HQSpawnWave extends Behavior {
 		}
 		
 		
+		
 		if (robot.rc.isActive()) {
-			if (supplier < 1 && robot.spawnSupplier()) {
+			if (Clock.getRoundNum() > GameStrategy.WAVE_FUSION_TURN && !robot.rc.hasUpgrade(Upgrade.FUSION)){
+				robot.rc.researchUpgrade(Upgrade.FUSION);
+			}
+			
+			
+			else if (supplier < 1 && robot.spawnSupplier()) {
 				supplier++;
 			} else if (mining < 1) {
 				robot.spawnMiner();
