@@ -231,7 +231,6 @@ public class HQ extends TeamRobot {
 				return true;
 			}
 		} else {
-			System.out.println("Greedy");
 			
 			//Only Works once, the next one will be the same spot.
 			//TODO: Create an offset?

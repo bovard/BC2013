@@ -25,6 +25,10 @@ public class HQSpawnNukeIsArmed extends Behavior {
 		} else {
 			
 			robot.spawnScout();
+			
+			if (Clock.getRoundNum() % 75 == 0) {
+				robot.attack();
+			}
 		}
 		
 		

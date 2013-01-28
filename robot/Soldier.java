@@ -86,7 +86,9 @@ public class Soldier extends TeamRobot {
 		} else if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0) {
 			
 			//Check for nuke
-			isNukeArmed = com.isNukeArmed();
+			if (!isNukeArmed) {
+				isNukeArmed = com.isNukeArmed();
+			}
 		}
 		
 		

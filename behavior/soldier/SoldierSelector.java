@@ -44,19 +44,22 @@ public class SoldierSelector extends Decision {
 			robot.dec = robot.com.receiveNewSoldier();
 			robot.isNew = false;
 		}
-		
+
 		
 		if (robot.enemyInMelee) {
-			
+
 			return children.get(SOLDIER_COMBAT);
 		} else if (robot.isNukeArmed) {
 			
 			return children.get(SOLDIER_NUKE_IS_ARMED);
-		} else if (robot.enemyAtTheGates) {
 			
+		} else if (robot.enemyAtTheGates) {
+
+			System.out.println("Defender: ");
 			return children.get(SOLDIER_HQ_DEFENDER);
 		}
 
+		System.out.println("Original Type: " + robot.dec.soldierType);
 		return children.get(robot.dec.soldierType);
 	}
 	
@@ -71,7 +74,6 @@ public class SoldierSelector extends Decision {
 	 */
 	public static MapLocation GetInitialRallyPoint(RobotInformation info) {
 		int distanceOut = (int)Math.ceil(Math.sqrt(info.enemyHqDistance) / 4);
-		System.out.println(distanceOut);
 		MapLocation loc = info.hq;
 		
 		if (info.enemyDir.isDiagonal()) {

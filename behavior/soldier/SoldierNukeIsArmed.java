@@ -34,7 +34,7 @@ public class SoldierNukeIsArmed
 	
 	@Override
 	public boolean pre() {
-		return !robot.enemyInMelee && robot.isNukeArmed;
+		return !robot.enemyInMelee;
 	}
 
 }

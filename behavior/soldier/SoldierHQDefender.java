@@ -30,7 +30,6 @@ public class SoldierHQDefender
 	public void run() throws GameActionException {
 		
 		//TODO: We need to turn this into an actual smart soldier.
-		System.out.println("HQ Defender: " + robot.move);
 		move.move();
 	}
 	
