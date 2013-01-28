@@ -11,6 +11,7 @@ import battlecode.common.Upgrade;
 public class HQSpawnWave extends Behavior {
 	
 	protected HQ robot;
+	protected HQUtils utils;
 	protected HQSelector parent;
 	protected boolean init;
 	protected boolean attackReady = true;
@@ -19,6 +20,7 @@ public class HQSpawnWave extends Behavior {
 
 	public HQSpawnWave(HQ robot) {
 		super();
+		this.utils = robot.hqUtils;
 		this.robot = robot;
 		init = false;
 		research = new Upgrade[5];
@@ -51,16 +53,15 @@ public class HQSpawnWave extends Behavior {
 		robot.rc.setIndicatorString(0, "WAVE");
 
 		if (!attackReady) {
-			if (robot.hqUtils.powerTotalFromLastRound > GameStrategy.WAVE_POWER_THRESHHOLD + 5) {
+			if (robot.hqUtils.powerTotalFromLastRound > GameStrategy.WAVE_POWER_THRESHHOLD + 5 + utils.totalRobotCount) {
 				attackReady = true;
 			}
 		}
 
 		// TODO: Michael Add attack based on number of soldiers
-		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD) {
-			robot.attack();
-			attackReady = false;
-		}
+		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 
+				&& (utils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD + utils.totalRobotCount
+					|| utils.soldierCount > GameStrategy.WAVE_ATTACK_SIZE_MAX)) {
 		
 		
 		if (robot.rc.isActive() && robot.hqUtils.powerTotalFromLastRound > 25) {

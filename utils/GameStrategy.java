@@ -20,6 +20,7 @@ public class GameStrategy {
 	public static final int WAVE_MINER_COOLDOWN = 300;
 	public static final int WAVE_ARTILLERY_COOLDOWN = 400;
 	public static final int WAVE_ECON_BUILD_COOLDOWN = 100;
+	public static final int WAVE_ATTACK_SIZE_MAX = 50;
 	
 	
 	public static final int SWITCH_TO_ECON = 300;
