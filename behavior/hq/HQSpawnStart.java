@@ -33,6 +33,7 @@ public class HQSpawnStart extends Behavior {
 	
 	int supplier = 0;
 	int artillery = 0;
+	int mining = 0;
 	public boolean done = false;
 	
 	@Override
@@ -49,7 +50,7 @@ public class HQSpawnStart extends Behavior {
 				} else {
 	
 					//We spawn swarmers until calculated or round 100
-					robot.spawnSwarmer();
+					robot.spawnScout();
 				}
 			} else {
 					
@@ -64,8 +65,11 @@ public class HQSpawnStart extends Behavior {
 					}
 				} else {
 
-					//We always spawn a supplier first.
-					if (artillery == 0 && robot.spawnArtillery()) {
+					if (mining == 0 && GameStrategy.START_STRATEGY_MINER) {
+						robot.spawnMiner();
+						mining++;
+						
+					} else if (artillery == 0 && robot.spawnArtillery()) {
 						artillery++;
 					
 					//Now we spawn soldiers to a certain point.
