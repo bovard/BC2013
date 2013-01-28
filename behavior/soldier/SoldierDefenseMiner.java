@@ -77,7 +77,12 @@ public class SoldierDefenseMiner
 						// if there is any ally there skip it
 						else if (robot.rc.senseNearbyGameObjects(Robot.class, robot.move.destination, 1, robot.info.myTeam).length > 0) {
 							robot.rc.setIndicatorString(0, "ally there " + robot.move.destination);
-							MinePlacement.mineSpots.add(2, robot.currentLoc);
+							if (MinePlacement.mineSpots.size() >= 2) {
+								MinePlacement.mineSpots.add(2, robot.currentLoc);
+								
+							} else {
+								MinePlacement.mineSpots.add(0, robot.currentLoc);
+							}
 							_setDestination();
 						} 
 						else {
