@@ -1,5 +1,6 @@
 package team122.behavior.soldier;
 
+import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
@@ -8,6 +9,7 @@ import battlecode.common.Team;
 import battlecode.common.Upgrade;
 import team122.behavior.Behavior;
 import team122.communication.Communicator;
+import team122.robot.HQ;
 import team122.robot.Soldier;
 import team122.utils.MinePlacement;
 
@@ -44,7 +46,24 @@ public class TheJackal extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
+		if (attack) {
+			robot.move.destination = robot.info.enemyHq;
+			robot.move.move();
+		}
+		
 		// if we receive the attack order, attack!
+		if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.com.shouldAttack()) {
+			robot.move.destination = robot.info.enemyHq;
+			attack = true;
+		}
+		
+		
+		// if we see an enemy go to them!
+		Robot [] enemies = robot.rc.senseNearbyGameObjects(Robot.class, robot.currentLoc, 200, robot.info.enemyTeam);
+		if (enemies.length > 0) {
+			robot.move.destination = robot.rc.senseRobotInfo(enemies[0]).location;
+			robot.move.move();
+		}
 		
 		
 		// as long as we don't see an enemy/mine and de-mine
@@ -104,7 +123,7 @@ public class TheJackal extends Behavior {
 			robot.move.move();
 		}
 		
-		// if we see an enemy go to them!
+
 		
 		
 

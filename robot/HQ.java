@@ -154,6 +154,14 @@ public class HQ extends TeamRobot {
 	}
 	
 	/**
+	 * Spawns the jackal.
+	 * @return
+	 */
+	public void spawnTheJackal() throws GameActionException {
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_THE_JACKAL, 0));
+	}
+	
+	/**
 	 * Spawns a econ building if possible (generator or supplier)
 	 * Will spawn a generator if the number of generators + 3 is less than the supplier count
 	 * @return

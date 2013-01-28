@@ -8,7 +8,7 @@ import battlecode.common.Clock;
 import battlecode.common.GameActionException;
 import battlecode.common.Upgrade;
 
-public class HQSpawnWave extends Behavior {
+public class HQSpawnEcon extends Behavior {
 	
 	protected HQ robot;
 	protected HQSelector parent;
@@ -17,7 +17,7 @@ public class HQSpawnWave extends Behavior {
 	protected int startRound;
 	protected Upgrade[] research;
 
-	public HQSpawnWave(HQ robot) {
+	public HQSpawnEcon(HQ robot) {
 		super();
 		this.robot = robot;
 		init = false;
@@ -31,13 +31,13 @@ public class HQSpawnWave extends Behavior {
 	
 	
 	/**
-	 * 
+	 * .
 	 */
 	@Override
 	public void start() throws GameActionException { 
 		if (!init) {
 			init = true;
-			if (robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD + robot.hqUtils.soldierCount/2) {
+			if (robot.hqUtils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD + robot.hqUtils.soldierCount/2) {
 				attackReady = false;
 			}
 			startRound = Clock.getRoundNum();
@@ -48,15 +48,15 @@ public class HQSpawnWave extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
-		robot.rc.setIndicatorString(0, "WAVE");
+		robot.rc.setIndicatorString(0, "ECON");
 
 		if (!attackReady) {
-			if (robot.hqUtils.powerTotalFromLastRound > GameStrategy.WAVE_POWER_THRESHHOLD + 5) {
+			if (robot.hqUtils.powerTotalFromLastRound > GameStrategy.ECON_POWER_THRESHHOLD + 5) {
 				attackReady = true;
 			}
 		}
 
-		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD) {
+		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD) {
 			robot.attack();
 			attackReady = false;
 		}
@@ -67,32 +67,32 @@ public class HQSpawnWave extends Behavior {
 				robot.spawnScout();
 			}
 			// research fusion
-			else if (Clock.getRoundNum() > GameStrategy.WAVE_FUSION_TURN && !robot.rc.hasUpgrade(Upgrade.FUSION)){
+			else if (Clock.getRoundNum() > GameStrategy.ECON_FUSION_TURN && !robot.rc.hasUpgrade(Upgrade.FUSION)){
 				robot.rc.researchUpgrade(Upgrade.FUSION);
 			}
 			// research pick axe
-			else if (Clock.getRoundNum() > GameStrategy.WAVE_PICKAXE_TURN && !robot.rc.hasUpgrade(Upgrade.PICKAXE)){
+			else if (Clock.getRoundNum() > GameStrategy.ECON_PICKAXE_TURN && !robot.rc.hasUpgrade(Upgrade.PICKAXE)){
 				robot.rc.researchUpgrade(Upgrade.PICKAXE);
 			}
 			// research vision
-			else if (Clock.getRoundNum() > GameStrategy.WAVE_VISION_TURN && !robot.rc.hasUpgrade(Upgrade.VISION)){
+			else if (Clock.getRoundNum() > GameStrategy.ECON_VISION_TURN && !robot.rc.hasUpgrade(Upgrade.VISION)){
 				robot.rc.researchUpgrade(Upgrade.VISION);
 			}
-			// spawn an econ building every WAVE_ECON_BUILD_COOLDOWN rounds
-			else if (Clock.getRoundNum() - lastEnconBuild > GameStrategy.WAVE_ECON_BUILD_COOLDOWN && robot.spawnEconBuilding()) {
+			// spawn an econ building every ECON_ECON_BUILD_COOLDOWN rounds
+			else if (Clock.getRoundNum() - lastEnconBuild > GameStrategy.ECON_ECON_BUILD_COOLDOWN && robot.spawnEconBuilding()) {
 				lastEnconBuild = Clock.getRoundNum();
 			} 
 			// keep amassing miners
-			else if (robot.hqUtils.minerCount < Clock.getRoundNum()/GameStrategy.WAVE_MINER_COOLDOWN + 1) {
+			else if (robot.hqUtils.minerCount < Clock.getRoundNum()/GameStrategy.ECON_MINER_COOLDOWN + 1) {
 				robot.spawnMiner();
 			} 
 			// keep amassing artillery
-			else if (robot.hqUtils.artilleryCount < Clock.getRoundNum()/GameStrategy.WAVE_ARTILLERY_COOLDOWN + 1) {
+			else if (robot.hqUtils.artilleryCount < Clock.getRoundNum()/GameStrategy.ECON_ARTILLERY_COOLDOWN + 1) {
 				robot.spawnArtillery();
 			}
 			// otherwise get a lot of scouts out there!
 			else {
-				robot.spawnScout();
+				robot.spawnTheJackal();
 			}
 			
 			
@@ -108,6 +108,6 @@ public class HQSpawnWave extends Behavior {
 
 	@Override
 	public boolean pre() {
-		return robot.state.inSpawnWave && !robot.enemyResearchedNuke && (Clock.getRoundNum() - robot.enemyHPChangedRound < GameStrategy.SWITCH_TO_ECON);
+		return robot.state.inSpawnWave && !robot.enemyResearchedNuke && (Clock.getRoundNum() - robot.enemyHPChangedRound >= GameStrategy.SWITCH_TO_ECON);
 	}
 }
