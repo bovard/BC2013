@@ -190,7 +190,8 @@ public class SoldierMove {
 		}
 		
 		// still can't move?  Activate/change bug direction
-		if(robot.rc.senseTerrainTile(robot.currentLoc.add(toMove)) == TerrainTile.OFF_MAP) {
+		if(robot.rc.senseTerrainTile(robot.currentLoc.add(toMove)) == TerrainTile.OFF_MAP ||
+			robot.rc.senseTerrainTile(robot.currentLoc.add(bugGoal)) == TerrainTile.OFF_MAP) {
 			bug = null;
 		} else if (robot.rc.isActive()) {
 			// we aren't in bug and can't move, activate bug
