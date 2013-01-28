@@ -23,7 +23,10 @@ public class MinePlacement {
 	}
 	
 	public static void reset() {
-		startRing = 1;
+		startRing = startRing - 2;
+		if (startRing < 1) {
+			startRing = 1;
+		}
 		mineSpots.clear();
 	}
 	
