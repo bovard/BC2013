@@ -11,6 +11,7 @@ public class SoldierNukeIsArmed
 		extends Behavior {
 	
 	public Soldier robot;
+	private boolean init = false;
 	
 	public SoldierNukeIsArmed(Soldier robot) {
 		this.robot = robot;
@@ -18,8 +19,12 @@ public class SoldierNukeIsArmed
 	
 	@Override
 	public void start() { 
-		robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
-		robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
+		if (!init) {
+			init = true;
+			robot.incChannel = Communicator.CHANNEL_SOLDIER_COUNT;
+			robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
+		}
+		
 	}
 
 	@Override

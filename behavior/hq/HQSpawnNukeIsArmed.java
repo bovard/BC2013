@@ -21,6 +21,9 @@ public class HQSpawnNukeIsArmed extends Behavior {
 	public void run() throws GameActionException {
 		robot.rc.setIndicatorString(0, "NUKE IS ARMED!");
 		
+		
+		//TODO: Michael think about researching VISION here so
+		// we can see artillery that hit's us on the way in.
 		if (!robot.rc.hasUpgrade(Upgrade.DEFUSION)) {
 			robot.rc.researchUpgrade(Upgrade.DEFUSION);
 		} else {
