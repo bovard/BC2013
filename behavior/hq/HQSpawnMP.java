@@ -31,8 +31,15 @@ public class HQSpawnMP extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
-//		robot.spawnSwarmer();
-//		
+		if(!robot.rc.hasUpgrade(Upgrade.PICKAXE)) {
+			robot.rc.researchUpgrade(Upgrade.PICKAXE);
+		}
+		
+		if (spawned < 5) {
+			robot.spawnMiner();
+			spawned++;
+		}
+		
 //		if (robot.info.myTeam == Team.A) {
 //
 //			if (spawned % 10 == 0) {
@@ -48,10 +55,8 @@ public class HQSpawnMP extends Behavior {
 //				robot.spawnGenerator();
 //			}
 //		}
-
-		if (Clock.getRoundNum() % 50 == 0) {
-			System.out.println("I am super cool");
-		}
+//
+//		spawned++;		
 		
 		//Nothign to do.  DO not over commit.
 		return;
