@@ -17,7 +17,7 @@ public class SoldierSelector extends Decision {
 	public SoldierSelector(Soldier soldier) {
 		this.robot = soldier;
 		children.add(new SoldierDefenseMiner(this.robot));
-		children.add(new SoldierSwarm(this.robot));
+		children.add(new SoldierScout(this.robot));
 		children.add(new SoldierEncamper(this.robot));
 		children.add(new SoldierCombat(this.robot));
 		children.add(new SoldierDefender(this.robot));
@@ -27,7 +27,7 @@ public class SoldierSelector extends Decision {
 		children.add(new SoldierNukeIsArmed(this.robot));
 		children.add(new SoldierHQDefender(this.robot));
 		children.get(SOLDIER_MINER).parent = this;
-		children.get(SOLDIER_SWARMER).parent = this;
+		children.get(SOLDIER_SCOUT).parent = this;
 		children.get(SOLDIER_ENCAMPER).parent = this;
 		children.get(SOLDIER_COMBAT).parent = this;
 		children.get(SOLDIER_DEFENDER).parent = this;
@@ -86,7 +86,7 @@ public class SoldierSelector extends Decision {
 	}
 	
 	public static final int SOLDIER_MINER = 0;
-	public static final int SOLDIER_SWARMER = 1;
+	public static final int SOLDIER_SCOUT = 1;
 	public static final int SOLDIER_ENCAMPER = 2;
 	public static final int SOLDIER_COMBAT = 3;
 	public static final int SOLDIER_DEFENDER = 4;

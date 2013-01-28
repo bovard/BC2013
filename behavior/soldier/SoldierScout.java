@@ -11,13 +11,13 @@ import team122.navigation.SoldierMove;
 import team122.robot.HQ;
 import team122.robot.Soldier;
 
-public class SoldierSwarm  
+public class SoldierScout  
 		extends Behavior {
 	
 	public Soldier robot;
 	public boolean init = false;
 	
-	public SoldierSwarm(Soldier robot) {
+	public SoldierScout(Soldier robot) {
 		this.robot = robot;
 	}
 	

@@ -39,7 +39,7 @@ public class HQSpawnStart extends Behavior {
 	public void run() throws GameActionException {
 		
 		if (robot.rc.isActive()) {
-			if (Clock.getRoundNum() < 141) {
+			if (Clock.getRoundNum() < GameStrategy.START_STRATEGY_ATTACK_ROUND) {
 				
 				//We always spawn a supplier first.
 				if (supplier == 0 && (robot.greedySupplier() || robot.spawnSupplier())) {
@@ -54,7 +54,7 @@ public class HQSpawnStart extends Behavior {
 			} else {
 					
 				//The alternative option.
-				if (GameStrategy.DEFUSION_START_STRATEGY) {
+				if (GameStrategy.START_STRATEGY_DEFUSION) {
 					
 					if (robot.rc.hasUpgrade(Upgrade.DEFUSION)) {
 						
@@ -79,7 +79,7 @@ public class HQSpawnStart extends Behavior {
 			} // end else above round 140
 		} // end is active
 
-		if (Clock.getRoundNum() == 141 || Clock.getRoundNum() == 144) {
+		if (Clock.getRoundNum() == GameStrategy.START_STRATEGY_ATTACK_ROUND || Clock.getRoundNum() == GameStrategy.START_STRATEGY_ATTACK_ROUND + 3) {
 			
 			robot.attack();
 		}

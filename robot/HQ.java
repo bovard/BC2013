@@ -113,8 +113,8 @@ public class HQ extends TeamRobot {
 	 * Spawns a swarmer.
 	 * @return
 	 */
-	public void spawnSwarmer() throws GameActionException {
-		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_SWARMER, 0));
+	public void spawnScout() throws GameActionException {
+		_spawn(new SoldierDecoder(SoldierSelector.SOLDIER_SCOUT, 0));
 	}
 
 	/**
