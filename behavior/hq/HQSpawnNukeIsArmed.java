@@ -19,6 +19,7 @@ public class HQSpawnNukeIsArmed extends Behavior {
 	
 	@Override
 	public void run() throws GameActionException {
+		robot.rc.setIndicatorString(0, "NUKE IS ARMED!");
 		
 		if (!robot.rc.hasUpgrade(Upgrade.DEFUSION)) {
 			robot.rc.researchUpgrade(Upgrade.DEFUSION);

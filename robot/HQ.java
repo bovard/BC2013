@@ -9,6 +9,7 @@ import battlecode.common.MapLocation;
 import battlecode.common.Robot;
 import battlecode.common.RobotController;
 import battlecode.common.RobotInfo;
+import battlecode.common.Upgrade;
 import team122.RobotInformation;
 import team122.behavior.hq.HQState;
 import team122.behavior.hq.HQUtils;
@@ -311,6 +312,12 @@ public class HQ extends TeamRobot {
 				com.communicate(dec, Communicator.CHANNEL_NEW_SOLDIER_MODE, Clock.getRoundNum());
 				break;
 			}
+		}
+		
+		// if we tried to spawn but can't, research nuke and increment nuke count
+		if (rc.isActive()) {
+			rc.researchUpgrade(Upgrade.NUKE);
+			nukeCount++;
 		}
 	}
 
