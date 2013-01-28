@@ -5,6 +5,7 @@ import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 import battlecode.common.Robot;
+import battlecode.common.RobotType;
 import battlecode.common.Team;
 import battlecode.common.Upgrade;
 import team122.behavior.Behavior;
@@ -72,14 +73,13 @@ public class TheJackal extends Behavior {
 		}
 		
 		
-		// if we see an enemy go to them!
+		// if we see an enemy become a scout!
 		Robot [] enemies = robot.rc.senseNearbyGameObjects(Robot.class, robot.currentLoc, 200, robot.info.enemyTeam);
 		if (enemies.length > 0) {
-			robot.move.destination = robot.rc.senseRobotInfo(enemies[0]).location;
-			
-			if (robot.rc.isActive()) {
-				robot.move.move();
-			}
+			robot.move.destination = SoldierSelector.GetInitialRallyPoint(robot.info);
+			robot.dec.soldierType = SoldierSelector.SOLDIER_SCOUT;
+			robot.move.move();
+			return;
 		}
 		
 		

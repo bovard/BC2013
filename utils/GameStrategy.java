@@ -37,6 +37,8 @@ public class GameStrategy {
 	public static final int ECON_ECON_BUILD_COOLDOWN = 30;
 	public static final int ECON_CORNER_MINER_COOLDOWN = 500;
 	public static final int ECON_ENCAMP_HUNTER_COOLDOWN = 500;
+	public static final int ECON_MIN_SOLDIERS = 20;
+	public static final int ECON_ATTACK_SIZE_MAX = 50;
 	
 	
 

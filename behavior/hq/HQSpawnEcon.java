@@ -61,7 +61,9 @@ public class HQSpawnEcon extends Behavior {
 		}
 		
 		// TODO: Michael Add attack based on number of soldiers
-		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 && utils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD + utils.totalRobotCount) {
+		if (attackReady && Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0 
+				&& (utils.powerTotalFromLastRound < GameStrategy.ECON_POWER_THRESHHOLD + utils.totalRobotCount
+					|| utils.soldierCount > GameStrategy.ECON_ATTACK_SIZE_MAX)) {
 			robot.attack();
 			attackReady = false;
 		}
@@ -69,6 +71,10 @@ public class HQSpawnEcon extends Behavior {
 		if (robot.rc.isActive() && robot.hqUtils.powerTotalFromLastRound > 25) {
 			// if the enemy is with 400 units squared, just make guys
 			if (robot.enemyAtBase) {
+				robot.spawnTheJackal();
+			}
+			// if we have too few soliders, spawn them!
+			else if (utils.soldierCount < GameStrategy.ECON_MIN_SOLDIERS) {
 				robot.spawnTheJackal();
 			}
 			// research fusion
