@@ -82,7 +82,7 @@ public class Soldier extends TeamRobot {
 		//Continue 
 		if ((Clock.getRoundNum() + 1) % HQ.HQ_COMMUNICATION_ROUND == 0 && incChannel > -1) {
 			com.increment(incChannel, Clock.getRoundNum() + 1);
-			com.setTotalPower((int)rc.getTeamPower());
+			
 		} else if (Clock.getRoundNum() % HQ.HQ_COMMUNICATION_ROUND == 0) {
 			
 			//Check for nuke

@@ -27,7 +27,7 @@ public abstract class Behavior extends Node {
 	 * when exiting. Default to empty
 	 */
 	public void stop() throws GameActionException {
-		
+
 	}
 
 	/**

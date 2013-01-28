@@ -4,9 +4,13 @@ package team122.robot;
 import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
+import battlecode.common.GameConstants;
 import battlecode.common.MapLocation;
+import battlecode.common.Robot;
 import battlecode.common.RobotController;
+import battlecode.common.RobotInfo;
 import team122.RobotInformation;
+import team122.behavior.hq.HQState;
 import team122.behavior.hq.HQUtils;
 import team122.behavior.soldier.SoldierEncamper;
 import team122.behavior.soldier.SoldierSelector;
@@ -19,19 +23,16 @@ import team122.utils.GreedyEncampment;
 
 public class HQ extends TeamRobot {
 	public HQUtils hqUtils;
+	public HQState state;
 	public boolean rush;
 	public boolean forceNukeRush;
 	public EncampmentSorter encampmentSorter;
 	public DoNotCapture doNotCapture;
 	public boolean enemyResearchedNuke;
 	public int nukeCount;
-	private boolean threeTurnsAgoPositive = true;
-	private boolean twoTurnsAgoPositive = true;
-	private boolean oneTurnAgoPositive = true;
-	private double powerLastRound = 0;
-	public double powerThisRound = 0;
-	public boolean powerPositive = true;
 	public boolean retaliate;
+	public boolean winning;
+	public int enemyHPChangedRound;
 	
 	
 	public HQ(RobotController rc, RobotInformation info) {
@@ -45,6 +46,7 @@ public class HQ extends TeamRobot {
 		forceNukeRush = false;
 		encampmentSorter = new EncampmentSorter(rc);
 		doNotCapture = new DoNotCapture(rc, info);
+		state = new HQState();
 	}
 	
 	@Override
@@ -52,15 +54,20 @@ public class HQ extends TeamRobot {
 		//TODO: What's the environment check here?
 		_checkForNuke();
 		
-		// check to see if we have positive energy growth
-		powerThisRound = rc.getTeamPower();
-		threeTurnsAgoPositive = twoTurnsAgoPositive;
-		twoTurnsAgoPositive = oneTurnAgoPositive;
-		oneTurnAgoPositive = powerThisRound > powerLastRound;
-		powerPositive =  (threeTurnsAgoPositive && twoTurnsAgoPositive) || 
-						 (twoTurnsAgoPositive && oneTurnAgoPositive) || 
-						 (threeTurnsAgoPositive && oneTurnAgoPositive);
-		
+		if (rc.canSenseSquare(info.enemyHq)) {
+			Robot[] r = rc.senseNearbyGameObjects(Robot.class, info.enemyHq, 1, info.enemyTeam);
+			
+			if (r.length == 1) {
+				RobotInfo rInfo = rc.senseRobotInfo(r[0]);
+				double energon = rc.getEnergon();
+				
+				if (rInfo.energon < energon) {
+					winning = true;
+					enemyHPChangedRound = Clock.getRoundNum();
+				}
+			}
+		}
+
 		//is the next round an inc round.
 		if ((Clock.getRoundNum() + 1) % HQ_COMMUNICATION_ROUND == 0) {
 

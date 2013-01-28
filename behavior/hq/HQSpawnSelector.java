@@ -13,11 +13,11 @@ public class HQSpawnSelector extends Decision {
 		super();
 		this.robot = robot;
 
-		this.children.add(new HQSpawnRush(robot));
+		this.children.add(new HQSpawnWave(robot));
 		this.children.add(new HQSpawnForceResearchNuke(robot));
 		this.children.add(new HQSpawnNukeIsArmed(robot));
 		this.children.add(new HQSpawnMP(robot));
-		this.children.get(HQ_SPAWN_RUSH).parent = this;
+		this.children.get(HQ_SPAWN_WAVE).parent = this;
 		this.children.get(HQ_SPAWN_FORCE_RESEARCH_NUKE).parent = this;
 		this.children.get(HQ_SPAWN_NUKE_IS_ARMED).parent = this;
 		this.children.get(HQ_SPAWN_MP_RUSH).parent = this;
@@ -40,8 +40,8 @@ public class HQSpawnSelector extends Decision {
 		//------------------------------------------------------------------------
 		// 		GENERAL STRATEGIES
 		//------------------------------------------------------------------------
-		} else if (robot.rush) {
-			return this.children.get(HQ_SPAWN_RUSH);
+		} else if (robot.state.inSpawnWave) {
+			return this.children.get(HQ_SPAWN_WAVE);
 
 
 		//------------------------------------------------------------------------
@@ -57,10 +57,10 @@ public class HQSpawnSelector extends Decision {
 	
 	@Override
 	public boolean pre() {
-		return robot.rc.isActive();
+		return true;
 	}
 
-	public static final int HQ_SPAWN_RUSH = 0;
+	public static final int HQ_SPAWN_WAVE = 0;
 	public static final int HQ_SPAWN_FORCE_RESEARCH_NUKE = 1;
 	public static final int HQ_SPAWN_NUKE_IS_ARMED = 2;
 	public static final int HQ_SPAWN_MP_RUSH = 3;

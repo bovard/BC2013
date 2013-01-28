@@ -7,18 +7,16 @@ import team122.robot.HQ;
 public class HQSelector extends Decision {
 
 	protected HQ robot;
-	protected HQSpawnStart start;
 	
 	public HQSelector(HQ robot) {
 		super();
 		this.robot = robot;
 		
-		start = new HQSpawnStart(robot);
 		this.children.add(new HQSpawnSelector(robot));
-		this.children.add(start);
+		this.children.add(new HQSpawnStart(robot));
 		
 		this.children.get(SPAWNING_SELECTOR_HQ).parent = this;
-		this.children.get(OPENING_STRATEGY_HQ).parent = this;
+		this.children.get(SPAWN_START_HQ).parent = this;
 	}
 	
 	@Override
@@ -26,11 +24,13 @@ public class HQSelector extends Decision {
 		
 		//Initializes the basic data (strategy and such).
 		
-		if (!start.done) {
-			return children.get(OPENING_STRATEGY_HQ);
+		if (robot.state.inStart) {
+			return children.get(SPAWN_START_HQ);
 		} else {
+			
+			System.out.println("Are we here!!!!");
 			return children.get(SPAWNING_SELECTOR_HQ);
-		}	
+		}
 	}
 
 	@Override
@@ -39,5 +39,5 @@ public class HQSelector extends Decision {
 	}
 
 	public static final int SPAWNING_SELECTOR_HQ = 0;
-	public static final int OPENING_STRATEGY_HQ = 1;
+	public static final int SPAWN_START_HQ = 1;
 }

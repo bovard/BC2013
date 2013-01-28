@@ -68,7 +68,6 @@ public class HQUtils {
 		nukeDefenderCount = com.receive(Communicator.CHANNEL_NUKE_COUNT,  Clock.getRoundNum(), 0);
 		backdoorCount = com.receive(Communicator.CHANNEL_BACKDOOR_COUNT,  Clock.getRoundNum(), 0);
 		encampmentHunterCount = com.receive(Communicator.CHANNEL_ENCAMPER_HUNTER_COUNT,  Clock.getRoundNum(), 0);
-		powerTotalFromLastRound = com.receive(Communicator.CHANNEL_TOTAL_POWER,  Clock.getRoundNum(), 0);
 		
 		// Basic calculations that are needed by the HQ.
 		totalSoldierCount = soldierCount + minerCount + defenderCount + nukeDefenderCount + backdoorCount + encampmentHunterCount;
@@ -78,6 +77,7 @@ public class HQUtils {
 		powerProduction = generatorCount * GameConstants.GENERATOR_POWER_PRODUCTION + GameConstants.HQ_POWER_PRODUCTION;
 		powerToCaptureEncampment = GameConstants.CAPTURE_POWER_COST * (1 + totalEncampmentCount);
 		powerConsumptionFromSoldiers = GameConstants.UNIT_POWER_UPKEEP * (totalSoldierCount + totalEncampmentCount);
+		powerTotalFromLastRound = (rc.getTeamPower() - powerProduction) * (rc.hasUpgrade(Upgrade.FUSION) ? 1 : 1.25);
 	}
 
 	public static final void calculate(HQ robot) throws GameActionException {

@@ -34,8 +34,8 @@ public class HQSpawnStart extends Behavior {
 	int supplier = 0;
 	int artillery = 0;
 	int mining = 0;
-	public boolean done = false;
 	
+	@SuppressWarnings("unused")
 	@Override
 	public void run() throws GameActionException {
 		
@@ -59,7 +59,8 @@ public class HQSpawnStart extends Behavior {
 					
 					if (robot.rc.hasUpgrade(Upgrade.DEFUSION)) {
 						
-						done = true;
+						robot.state.inStart = false;
+						robot.state.inSpawnWave = true;
 					} else {
 						robot.rc.researchUpgrade(Upgrade.DEFUSION);
 					}
@@ -74,10 +75,12 @@ public class HQSpawnStart extends Behavior {
 					
 					//Now we spawn soldiers to a certain point.
 					} else {
-		
+						
 						//We spawn swarmers until calculated or round 100
 						robot.spawnBackdoor();
-						done = true;
+						
+						robot.state.inStart = false;
+						robot.state.inSpawnWave = true;
 					}
 				}
 			} // end else above round 140
@@ -91,8 +94,6 @@ public class HQSpawnStart extends Behavior {
 
 	@Override
 	public boolean pre() {
-		return !done;
+		return robot.state.inStart;
 	}
-
-	private boolean defusion = false;
 }
