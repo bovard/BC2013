@@ -11,6 +11,7 @@ public class GameStrategy {
 	
 
 	//-------------------------------------------------------
-	// Spawn Strategy Constants.
+	// Spawn Wave Strategy Constants.
 	//-------------------------------------------------------
+	public static final int WAVE_POWER_THRESHHOLD = 50;
 }

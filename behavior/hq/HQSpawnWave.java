@@ -13,12 +13,15 @@ public class HQSpawnWave extends Behavior {
 	protected HQ robot;
 	protected HQSelector parent;
 	protected boolean init;
+	protected boolean attackReady = true;
+	protected int startRound;
 
 	public HQSpawnWave(HQ robot) {
 		super();
 		this.robot = robot;
 		init = false;
 	}
+	
 	
 	/**
 	 * When we first start we need to calculate the encamper spots.
@@ -28,6 +31,10 @@ public class HQSpawnWave extends Behavior {
 		if (!init) {
 			init = true;
 			robot.calculateEncamperSpots();
+			if (robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD) {
+				attackReady = false;
+			}
+			startRound = Clock.getRoundNum();
 		}
 	}
 	
@@ -38,8 +45,28 @@ public class HQSpawnWave extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
+		if (!attackReady) {
+			if (robot.hqUtils.powerTotalFromLastRound > GameStrategy.WAVE_POWER_THRESHHOLD + 5) {
+				attackReady = true;
+			}
+		}
+		
+		if (attackReady && Clock.getRoundNum() % 3 == 0 && robot.hqUtils.powerTotalFromLastRound < GameStrategy.WAVE_POWER_THRESHHOLD) {
+			robot.attack();
+		}
+		
+		
 		if (robot.rc.isActive()) {
-			robot.spawnScout();
+			if (supplier < 1 && robot.spawnSupplier()) {
+				supplier++;
+			} else if (mining < 1) {
+				robot.spawnMiner();
+				mining++;
+			} else {
+				robot.spawnScout();
+			}
+			
+			
 		} // end is active
 	}
 
