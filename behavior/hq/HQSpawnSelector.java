@@ -40,16 +40,16 @@ public class HQSpawnSelector extends Decision {
 		//------------------------------------------------------------------------
 		// 		GENERAL STRATEGIES
 		//------------------------------------------------------------------------
-//		} else if (robot.rush) {
-//			return this.children.get(HQ_SPAWN_RUSH);
+		} else if (robot.rush) {
+			return this.children.get(HQ_SPAWN_RUSH);
 
 
 		//------------------------------------------------------------------------
 		// 		DEFAULT STRATEGIES
 		//------------------------------------------------------------------------
 		} else {
+			
 			//defaults to rush.
-			robot.rush = true;
 			return this.children.get(HQ_SPAWN_MP_RUSH);
 		}
 

@@ -70,8 +70,6 @@ public class HQUtils {
 		encampmentHunterCount = com.receive(Communicator.CHANNEL_ENCAMPER_HUNTER_COUNT,  Clock.getRoundNum(), 0);
 		powerTotalFromLastRound = com.receive(Communicator.CHANNEL_TOTAL_POWER,  Clock.getRoundNum(), 0);
 		
-		System.out.println("Total Power: " + powerTotalFromLastRound);
-		
 		// Basic calculations that are needed by the HQ.
 		totalSoldierCount = soldierCount + minerCount + defenderCount + nukeDefenderCount + backdoorCount + encampmentHunterCount;
 		totalEncampmentCount = generatorCount + supplierCount + artilleryCount;

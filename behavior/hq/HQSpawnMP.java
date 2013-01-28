@@ -31,25 +31,27 @@ public class HQSpawnMP extends Behavior {
 	@Override
 	public void run() throws GameActionException {
 		
-		robot.spawnSwarmer();
-		
-		if (robot.info.myTeam == Team.A) {
+//		robot.spawnSwarmer();
+//		
+//		if (robot.info.myTeam == Team.A) {
+//
+//			if (spawned % 10 == 0) {
+//				robot.spawnGenerator();
+//			}
+//		} else {
+//			
+//			if (spawned % 500 == 0) {
+//				robot.spawnBackdoor();
+//			} else if (spawned % 100 == 0) {
+//				robot.spawnEncampmentHunter(0);
+//			} else if (spawned % 25 == 0) {
+//				robot.spawnGenerator();
+//			}
+//		}
 
-			if (spawned % 10 == 0) {
-				robot.spawnGenerator();
-			}
-		} else {
-			
-			if (spawned % 500 == 0) {
-				robot.spawnBackdoor();
-			} else if (spawned % 100 == 0) {
-				robot.spawnEncampmentHunter(0);
-			} else if (spawned % 25 == 0) {
-				robot.spawnGenerator();
-			}
+		if (Clock.getRoundNum() % 50 == 0) {
+			System.out.println("I am super cool");
 		}
-
-		spawned++;		
 		
 		//Nothign to do.  DO not over commit.
 		return;

@@ -73,14 +73,16 @@ public class HQ extends TeamRobot {
 			if (enemyResearchedNuke) {
 				com.nukeIsArmed();
 			}
-
-			//TODO: Get retaliation detection.
-			//TODO: Determine when to attack?
-			if (Clock.getRoundNum() % 201 == 0) {
-				com.attack();
-			}
 		}
 
+	}
+	
+	/**
+	 * sends the com attack signal.
+	 * @throws GameActionException 
+	 */
+	public void attack() throws GameActionException {
+		com.attack();
 	}
 	
 	/**
