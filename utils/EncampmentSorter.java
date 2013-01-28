@@ -37,7 +37,7 @@ public class EncampmentSorter {
 	 * State information about generators and artilleries being searched.
 	 */
 	private int _currentRound;
-	public MapLocation[] generatorEncampments;
+	private MapLocation[] generatorEncampments;
 	private MapLocation[] artilleryEncampments;
 	private MapLocation[] doNotCapture = new MapLocation[0];
 	private int[] generatorScores;

@@ -41,7 +41,6 @@ public class HQSpawnSelector extends Decision {
 		// 		GENERAL STRATEGIES
 		//------------------------------------------------------------------------
 		} else if (robot.state.inSpawnWave) {
-			System.out.println("Going to spawn wave: " + robot.encampmentSorter.generatorEncampments[0]);
 			return this.children.get(HQ_SPAWN_WAVE);
 
 
