@@ -24,8 +24,10 @@ public class HQSpawnNukeIsArmed extends Behavior {
 		if (!robot.rc.hasUpgrade(Upgrade.DEFUSION)) {
 			robot.rc.researchUpgrade(Upgrade.DEFUSION);
 		} else {
+			if (robot.rc.isActive()) {
+				robot.spawnScout();
+			}
 			
-			robot.spawnScout();
 			
 			if (Clock.getRoundNum() % 75 == 0) {
 				robot.attack();
@@ -39,7 +41,7 @@ public class HQSpawnNukeIsArmed extends Behavior {
 
 	@Override
 	public boolean pre() {
-		return robot.rc.isActive() && robot.enemyResearchedNuke;
+		return robot.enemyResearchedNuke;
 	}
 	
 	public static final int MINER_COUNT = 1;
